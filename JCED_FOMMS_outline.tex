@@ -1,0 +1,159 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{graphicx}
+% uncomment according to your operating system:
+% ------------------------------------------------
+\usepackage[latin1]{inputenc}    %% european characters can be used (Windows, old Linux)
+%\usepackage[utf8]{inputenc}     %% european characters can be used (Linux)
+%\usepackage[applemac]{inputenc} %% european characters can be used (Mac OS)
+% ------------------------------------------------
+\usepackage{authblk}
+\usepackage[superscript]{cite}
+\usepackage[document]{ragged2e}
+\usepackage[T1]{fontenc}   %% get hyphenation and accented letters right
+\usepackage{mathptmx}      %% use fitting times fonts also in formulas
+% do not change these lines:
+\pagestyle{empty}                %% no page numbers!
+\usepackage[left=35mm, right=35mm, top=15mm, bottom=20mm, noheadfoot]{geometry}
+%% please don't change geometry settings!
+
+\usepackage{fullpage}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{chemfig}
+\usepackage{indentfirst}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{cellspace}
+\usepackage{palatino}
+%\usepackage{breqn}
+\usepackage{amssymb}
+\usepackage{verbatim}
+\usepackage[colorlinks=true,citecolor=blue,linkcolor=blue]{hyperref}
+\usepackage{siunitx}
+\usepackage{xr}
+
+% italicized boldface for math (e.g. vectors)
+\newcommand{\bfv}[1]{{\mbox{\boldmath{$#1$}}}}
+% non-italicized boldface for math (e.g. matrices)
+\newcommand{\bfm}[1]{{\bf #1}}          
+
+%\newcommand{\bfm}[1]{{\mbox{\boldmath{$#1$}}}}
+%\newcommand{\bfm}[1]{{\bf #1}}
+\newcommand{\expect}[1]{\left \langle #1 \right \rangle} % <.> for denoting expectations over realizations of an experiment or thermal averages
+
+\newcommand{\var}[1]{{\mathrm var}{(#1)}}
+\newcommand{\x}{\bfv{x}}
+\newcommand{\y}{\bfv{y}}
+\newcommand{\f}{\bfv{f}}
+
+\newcommand{\hatf}{\hat{f}}
+
+\newcommand{\bTheta}{\bfm{\Theta}}
+\newcommand{\btheta}{\bfm{\theta}}
+\newcommand{\bhatf}{\bfm{\hat{f}}}
+\newcommand{\Cov}[1] {\mathrm{cov}\left( #1 \right)}
+\newcommand{\T}{\mathrm{T}}                                % T used in matrix transpose
+
+\newcommand\blfootnote[1]{%
+	\begingroup
+	\renewcommand\thefootnote{}\footnote{#1}%
+	\addtocounter{footnote}{-1}%
+	\endgroup
+}
+
+
+% begin the document
+\begin{document}
+	\thispagestyle{empty}
+	%make title bold and 14 pt font (Latex default is non-bold, 16 pt)
+	\title{\Large \textbf{Configurational reweighting...}}
+	\author[1]{\large {\underline{Richard Messerly}}}%%[12 pt regular, presenting speaker underlined]
+	
+	\affil[1]{\textit{Thermodynamics Research Center (TRC), National Institute of Standards and Technology (NIST),
+			Boulder, Colorado, 80305, USA}}
+	
+	\date{} % <--- leave date empty
+	\maketitle\thispagestyle{empty} %% <-- you need this for the first page
+	\begin{center}
+		\title{\textbf{ABSTRACT}}\centering{}
+	\end{center}
+	\justify
+	
+\section*{Key points}
+
+MBAR is equivalent to standard histogram reweighting approaches in the limit of zero bin width
+MBAR allows for estimating VLE properties of any force field
+Scaling epsilon values post-simulation is straightforward
+Basis functions are an efficient means for re-computing energy
+
+
+\section*{Outline}
+
+\section{Introduction}
+
+\begin{enumerate}
+	\item History of reweighting methods in simulation
+	\item Importance of phase coexistence in force field parameterization
+	\item Gross demonstrated that for non-transferable parameter sets it is usually sufficient to just scale epsilon
+\end{enumerate}
+
+\section{Methods}
+
+\subsection{Simulation set-up}
+
+\begin{enumerate}
+	\item GCMC simulations in GOMC
+	\item Simulation specifications, i.e., box size, number of steps, type of moves, etc.
+\end{enumerate}
+
+\subsection{Multistate Bennett Acceptance Ratio}
+
+\begin{enumerate}
+	\item MBAR equations
+	\item MBAR is equivalent to histogram reweighting in the limit of zero bin width
+\end{enumerate}
+
+\subsection{Basis functions}
+
+\begin{enumerate}
+	\item When applying MBAR to different parameter sets, it is necessary to recompute U
+	\item Basis functions accelerate the recompute energy step
+\end{enumerate}
+
+\section{Results}
+
+\begin{enumerate}
+	\item Validation that MBAR and HR are indistinguishable
+	\begin{enumerate}
+		\item Evaluate all of the compounds that Mohammad has U and N values for
+		\item Compare MBAR results with either Potoff's or my own HR results (might be better to use my own for self consistency)
+	\end{enumerate}
+    \item Validation of the basis function approach
+    \item Epsilon scaling for all the compounds that Mohammad has U and N values for
+    \item Report basis functions for several molecules with TraPPE and Potoff force fields
+\end{enumerate}
+
+Figures:
+
+\begin{enumerate}
+	\item Percent deviation between MBAR and HR results for rholiq, rhovap, and Psat
+	\item Validation that basis functions give accurate energies
+	\item Scaling of epsilon post-simulation for several molecules (would probably want to use same scoring function)
+	\item 
+\end{enumerate}
+
+\section{Discussion/Limitations}
+
+\begin{enumerate}
+
+\end{enumerate}
+
+\section{Conclusions}
+
+\section{Acknowledgments}
+
+\section{Supporting Information}
+
+\end{document}
