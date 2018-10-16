@@ -88,15 +88,21 @@ MBAR allows for estimating VLE properties of any force field
 Scaling epsilon values post-simulation is straightforward
 Basis functions are an efficient means for re-computing energy
 
-
 \section*{Outline}
 
 \section{Introduction}
 
 \begin{enumerate}
 	\item History of reweighting methods in simulation
-	\item Importance of phase coexistence in force field parameterization
+	\item Importance and challenges of using phase coexistence in force field parameterization
+	\item Messerly et al. demonstrated how MBAR can be combined with ITIC to predict VLE properties
 	\item Gross demonstrated that for non-transferable parameter sets it is usually sufficient to just scale epsilon
+	\item In this study, we demonstrate that:
+	\begin{enumerate}
+		\item MBAR yields indistinguishable results from histogram reweighting (HR)
+		\item Scaling epsilon is straightforward by scaling U with MBAR
+		\item Basis functions allow for rapid computation of VLE for non-simulated parameter sets
+	\end{enumerate}
 \end{enumerate}
 
 \section{Methods}
@@ -112,7 +118,7 @@ Basis functions are an efficient means for re-computing energy
 
 \begin{enumerate}
 	\item MBAR equations
-	\item MBAR is equivalent to histogram reweighting in the limit of zero bin width
+	\item MBAR for $\theta = \theat_{\rm ref}$ is mathematically equivalent to histogram reweighting in the limit of zero bin width
 \end{enumerate}
 
 \subsection{Basis functions}
@@ -127,11 +133,11 @@ Basis functions are an efficient means for re-computing energy
 \begin{enumerate}
 	\item Validation that MBAR and HR are indistinguishable
 	\begin{enumerate}
-		\item Evaluate all of the compounds that Mohammad has U and N values for
+		\item Evaluate all of the compounds that Mohammad has U and N values for (branched alkanes and alkynes) and which have good experimental data
 		\item Compare MBAR results with either Potoff's or my own HR results (might be better to use my own for self consistency)
 	\end{enumerate}
     \item Validation of the basis function approach
-    \item Epsilon scaling for all the compounds that Mohammad has U and N values for
+    \item Epsilon scaling for all the compounds that Mohammad has U and N values for (branched alkanes and alkynes) and which have good experimental data
     \item Report basis functions for several molecules with TraPPE and Potoff force fields
 \end{enumerate}
 
@@ -147,7 +153,7 @@ Figures:
 \section{Discussion/Limitations}
 
 \begin{enumerate}
-
+	\item 
 \end{enumerate}
 
 \section{Conclusions}
@@ -155,5 +161,7 @@ Figures:
 \section{Acknowledgments}
 
 \section{Supporting Information}
+
+\subsection{Basis functions}
 
 \end{document}
