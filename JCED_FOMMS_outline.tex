@@ -93,7 +93,7 @@ Basis functions are an efficient means for re-computing energy
 \section{Introduction}
 
 \begin{enumerate}
-	\item History of reweighting methods in simulation
+	\item History and summary of reweighting methods in simulation (free energy calculations)
 	\item Importance and challenges of using phase coexistence in force field parameterization
 	\item Messerly et al. demonstrated how MBAR can be combined with ITIC to predict VLE properties
 	\item Gross demonstrated that for non-transferable parameter sets it is usually sufficient to just scale epsilon
@@ -117,6 +117,7 @@ Basis functions are an efficient means for re-computing energy
 \subsection{Multistate Bennett Acceptance Ratio}
 
 \begin{enumerate}
+	\item MBAR is equivalent to WHAM in the limit of zero bin width, HR in the limit of zero bin width, Zwanzig for a single state, BAR for two states
 	\item MBAR equations
 	\item MBAR for $\theta = \theat_{\rm ref}$ is mathematically equivalent to histogram reweighting in the limit of zero bin width
 \end{enumerate}
@@ -147,13 +148,14 @@ Figures:
 	\item Percent deviation between MBAR and HR results for rholiq, rhovap, and Psat
 	\item Validation that basis functions give accurate energies
 	\item Scaling of epsilon post-simulation for several molecules (would probably want to use same scoring function)
-	\item 
+	\item Two-D scans of scoring functions for eps-sigma of CH3 and CH2. Multiple sigma references
+	\item Two-D scan for different lambda?
 \end{enumerate}
 
 \section{Discussion/Limitations}
 
 \begin{enumerate}
-	\item 
+	\item We recommend that future GCMC-VLE studies report the snapshots of $N$ and $U$ and/or basis functions to recompute $U$ as this allows for future post-processing
 \end{enumerate}
 
 \section{Conclusions}
