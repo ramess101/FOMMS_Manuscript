@@ -1,0 +1,242 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{graphicx}
+% uncomment according to your operating system:
+% ------------------------------------------------
+\usepackage[latin1]{inputenc}    %% european characters can be used (Windows, old Linux)
+%\usepackage[utf8]{inputenc}     %% european characters can be used (Linux)
+%\usepackage[applemac]{inputenc} %% european characters can be used (Mac OS)
+% ------------------------------------------------
+\usepackage{authblk}
+\usepackage[superscript]{cite}
+\usepackage[document]{ragged2e}
+\usepackage[T1]{fontenc}   %% get hyphenation and accented letters right
+\usepackage{mathptmx}      %% use fitting times fonts also in formulas
+% do not change these lines:
+\pagestyle{empty}                %% no page numbers!
+\usepackage[left=35mm, right=35mm, top=15mm, bottom=20mm, noheadfoot]{geometry}
+%% please don't change geometry settings!
+
+\usepackage{fullpage}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{chemfig}
+\usepackage{indentfirst}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{cellspace}
+\usepackage{palatino}
+%\usepackage{breqn}
+\usepackage{amssymb}
+\usepackage{verbatim}
+\usepackage[colorlinks=true,citecolor=blue,linkcolor=blue]{hyperref}
+\usepackage{siunitx}
+\usepackage{xr}
+
+% italicized boldface for math (e.g. vectors)
+\newcommand{\bfv}[1]{{\mbox{\boldmath{$#1$}}}}
+% non-italicized boldface for math (e.g. matrices)
+\newcommand{\bfm}[1]{{\bf #1}}          
+
+%\newcommand{\bfm}[1]{{\mbox{\boldmath{$#1$}}}}
+%\newcommand{\bfm}[1]{{\bf #1}}
+\newcommand{\expect}[1]{\left \langle #1 \right \rangle} % <.> for denoting expectations over realizations of an experiment or thermal averages
+
+\newcommand{\var}[1]{{\mathrm var}{(#1)}}
+\newcommand{\x}{\bfv{x}}
+\newcommand{\y}{\bfv{y}}
+\newcommand{\f}{\bfv{f}}
+
+\newcommand{\hatf}{\hat{f}}
+
+\newcommand{\bTheta}{\bfm{\Theta}}
+\newcommand{\btheta}{\bfm{\theta}}
+\newcommand{\bhatf}{\bfm{\hat{f}}}
+\newcommand{\Cov}[1] {\mathrm{cov}\left( #1 \right)}
+\newcommand{\T}{\mathrm{T}}                                % T used in matrix transpose
+
+\newcommand\blfootnote[1]{%
+	\begingroup
+	\renewcommand\thefootnote{}\footnote{#1}%
+	\addtocounter{footnote}{-1}%
+	\endgroup
+}
+
+
+% begin the document
+\begin{document}
+	\thispagestyle{empty}
+	%make title bold and 14 pt font (Latex default is non-bold, 16 pt)
+	\title{\Large \textbf{Multistate Bennett Acceptance Ratio as a substitute for histogram reweighting}}
+	\author[1]{\large {\underline{Richard Messerly}}}%%[12 pt regular, presenting speaker underlined]
+	
+	\affil[1]{\textit{Thermodynamics Research Center (TRC), National Institute of Standards and Technology (NIST),
+			Boulder, Colorado, 80305, USA}}
+	
+	\date{} % <--- leave date empty
+	\maketitle\thispagestyle{empty} %% <-- you need this for the first page
+	\begin{center}
+		\title{\textbf{ABSTRACT}}\centering{}
+	\end{center}
+	\justify
+	
+\section*{Key points}
+
+MBAR is equivalent to standard histogram reweighting approaches in the limit of zero bin width
+MBAR allows for estimating VLE properties of any force field
+Scaling epsilon values post-simulation is straightforward
+Basis functions are an efficient means for re-computing energy
+
+\section*{Outline}
+
+\section{Introduction}
+
+
+
+A key role of molecular simulation is the ability to accurately and efficiently estimate vapor-liquid coexistence properties, i.e., saturated liquid density, saturated vapor density, saturated vapor pressures, and enthalpy of vaporization. Several methods exist for computing vapor-liquid coexistence properties, e.g., Gibbs Ensemble Monte Carlo (GEMC), two phase molecular dynamics (MD), isothermal-isochoric integration (ITIC), and Grand Canonical Monte Carlo with Histogram Reweighting (GCMC-HR).  
+
+Vapor-liquid coexistence calculations 
+
+There are two potential reasons why GEMC has grown in popularity relative to GCMC-HR. First, GEMC is more straightforward in that, if the saturation properties are desired at a given temperature $(T)$, direct simulations are performed at that temperature. By contrast, GCMC-HR requires performing a series of GCMC simulations, with a near-critical simulation that ``bridges'' the vapor and liquid phases. Obtaining an initial guess for the chemical potential is a cumbersome and, typically, iterative process. Hemmen et al. proposed an approach to obtain good initial estimates for $\mu$, although in this study no attempt was made to optimize this step. A likely second reason is that GCMC-HR requires a great deal of post-processing. Although histogram reweighting approaches are common in some fields of molecular simulation, e.g., WHAM is commonly used for computing free energies, most open-source Monte Carlo codes do not include a HR tool and, thus, in-house post-processing codes abound. In this study, we introduce an alternative to histogram reweighting, namely, the Multistate Bennett Acceptance Ratio (MBAR). 
+
+Although histogram reweighting has been widely used with GCMC simulations, Boulougouris et al. demonstrated how histogram reweighting can also be combined with Gibbs Ensemble Monte Carlo. 
+
+Histogram reweighting is an important tool in many fields of molecular simulation. For example, umbrella sampling simulations are often processed using the weighted histogram analysis method (WHAM) to compute free energy differences between states. 
+
+It has long since been known that it is possible to estimate properties for state ``j'' by reweighting configurations that were sampled with state ``i.'' 
+
+ are g  it is straightforward to perform GEMC simulations at a desired temperature
+
+One reason why GEMC is more popular than GCMC is tha
+Perhaps one of the reasons GEMC has grown in popularity relative to the GCMC-HR approach, is that HR requires a great deal of post-processing. 
+
+One of the computational benefits of GCMC-HR is that the vapor-liquid coexistence curve (VLCC) is obtained over the entire temperature range, while GEMC (without HR) requires a simulation be performed at every temperature. Therefore, the added complexity of GCMC-HR is compensated by providing the entire VLCC.
+
+Another advantage of GCMC-HR is the improved precision compared to GEMC.
+
+Another advantage of GCMC-HR is the ability to approach the critical region.
+
+Several force fields have been parameterized utilizing vapor-liquid coexistence data, i.e., saturation liquid densities $(\rho_{\rm liq}^{\rm sat})$ and saturation vapor pressures $(P_{\rm vap}^{\rm sat})$. This is due, in part, to the abundance and quality of experimental $\rho_{\rm liq}^{\rm sat}$ and $P_{\rm vap}^{\rm sat}$ as well as the sensitivity to both short and long range non-bonded interactions.
+
+Unfortunately, optimizing force field parameters with vapor-liquid coexistence data traditionally requires an iterative approach where large amounts of simulations are required for each parameter set. For example, the popular TraPPE force field . Specifically, a 
+
+Recently, Messerly et al. demonstrated how configurational reweighting can be applied to predict VLE properties for non-simulated parameter sets. In Messerly et al., MBAR is utilized to estimate the internal energy $(U)$ and pressure $(P)$ from $NVT$ simulations, which are converted to vapor-liquid properties with isothermal-isochoric integration. The results from Messerly et al. demonstrated that MBAR is accurate over a wide range of $\epsilon$ values but less reliable for large changes in $\sigma$ and $\lambda$. MBAR is most reliable in the local parameter space relative to the reference parameter set from which configurations are sampled.
+
+Recently, Gross et al. proposed individualized parameter sets for compounds which contain large amounts of experimental data. To avoid overfitting, Gross et al. performed a one-dimensional optimization to scale $\epsilon$ while not adjusting $\sigma$. 
+
+MBAR is ideally suited for the $\epsilon$-scaling parameterization for three reasons. First, MBAR has been shown to be quite accurate for changes in $\epsilon$, while the accuracy diminishes for changes in $\sigma$. Second, because the reference force field is already highly optimized the optimal value is typically around unity. Third, recomputing the energies does not require storing the configurations.
+
+Our hypothesis is that GCMC has better overlap between model spaces than what was observed for ITIC (NVT). There are two main reasons for this aspiration. First, a fixed density results in large energy differences for small changes in $\sigma$. Second, GCMC utilizes smaller box sizes than those required for ITIC. Fewer molecules results in larger fluctuations which improves overlap between states.
+
+% optimized a single $\epsilon$-scaling parameter such that all
+
+The method outlined in this study is similar in spirit to the ``Hamiltonian scaling'' (HS) approach utilized with GEMC (BLANK) and GCMC-HR (BLANK). Although Hamiltonian scaling proved to be a powerful tool to obtain coexistence curves for multiple force fields from a single set of simulations, it never gained widespread popularity. This is likely due to the added complexity of the algorithm, where the prescribed chemical potential and temperature changes during the coarse of the GCMC simulation, depending on which Hamiltonian is being sampled. Furthermore, the post-processing requires a slightly more complicated form of histogram reweighting. Also, HS requires a decision be made \textit{a priori} regarding which Hamiltonians are to be tested. By contrast, MBAR does not require any modification of the simulation procedure, the post-processing is essentially unchanged, and the Hamiltonians need not be selected prior to the simulations.
+
+The terms ``force field,'' ``Hamiltonian,'' ``potential,'' and ``model'' are all common in the literature and are used interchangeably throughout this manuscript.
+
+% for the GCMC simulation changes  from one Hamiltonian to the next.
+
+In this study, we demonstrate that MBAR yields indistinguishable results from histogram reweighting (HR). We demonstrate how 
+
+\begin{enumerate}
+	\item History of reweighting methods in simulation
+	\item GEMC reweighting 
+	\item Importance and challenges of using phase coexistence in force field parameterization
+	\item Hamiltonian scaling by Errington
+	\item Messerly et al. demonstrated how MBAR can be combined with ITIC to predict VLE properties. Weakness of ITIC is need large systems, which is not ideal for MBAR
+	\item Gross demonstrated that for non-transferable parameter sets it is usually sufficient to just scale epsilon
+	\item In this study, we demonstrate that:
+	\begin{enumerate}
+		\item MBAR yields indistinguishable results from histogram reweighting (HR)
+		\item Scaling epsilon is straightforward by scaling U with MBAR
+		\item Basis functions allow for rapid computation of VLE for non-simulated parameter sets
+	\end{enumerate}
+\end{enumerate}
+
+\section{Methods}
+
+\subsection{Simulation set-up}
+
+The majority of results presented in Section BLANK are obtained by reprocessing simulation output that were analyzed in previous studies utilizing histogram reweighting. New simulation results are provided for \textit{n}-hexane, isobutane, neopentane, 2,2,4-trimethylhexane, and ethylyne. All simulations are performed using GPU optimized Monte Carlo (GOMC) with Grand Canonical Monte Carlo (GCMC), where the chemical potential ($\mu$), volume $(V)$, and temperature $(T)$ are constant. A series of nine simulations are performed, two in the vapor phase, six in the liquid phase, and one near critical which acts as the ``bridge'' between the vapor and liquid phases. The system volume is the same for each simulation, but varies somewhat between compounds. The chemical potentials and temperatures are the same as those utilized in Mick et al. and BLANK.
+
+Simulations are performed with the TraPPE and Potoff force fields.
+
+Table of simulation specifications 
+
+A low-density (less than twenty molecules) initial configuration is utilized for the vapor phase simulations, while the bridge and liquid phase simulations are initialized with a high-density (around 200 molecules) configuration.
+
+Each GCMC simulation consists of BLANK Monte Carlo moves to equilibrate the system, where a Monte Carlo move is defined as BLANK. 
+
+Configurations are stored every 200 MC moves to reduce the correlation between subsequent snapshots.
+
+Four different applications for MBAR are demonstrated in this study, where slightly different types of simulation output are required. First, we demonstrate how MBAR yields consistent results to those previously reported using histogram reweighting. The standard simulation output is used in this application, namely, a 2x$N_{\rm snapshots}$ array containing the number of molecules and the internal energy for all $N_{\rm snapshots}$ snapshots. Second, we demonstrate how these same data can be used with MBAR to predict VLE properties when performing $\epsilon$-scaling. Third, we investigate whether MBAR can predict VLE for model ``j'' from sampled states for model ``i.'' In this case, a 3x$N_{\rm snapshots}$ array is required, where the additional column is the internal energy computed for model ``j'' for the configurations sampled with model ``i.'' Fourth, we demonstrate how storing basis functions is a computationally efficient method for predicting VLE for multiple models ``j'' that are unknown at runtime.   
+
+Test TraPPE to NERD and Potoff generalized to Potoff short/long.
+
+\begin{enumerate}
+	\item GCMC simulations in GOMC
+	\item Simulation specifications, i.e., box size, number of steps, type of moves, etc.
+\end{enumerate}
+
+\subsection{Multistate Bennett Acceptance Ratio}
+
+\begin{enumerate}
+	\item MBAR equations
+	\item MBAR for $\theta = \theta_{\rm ref}$ is mathematically equivalent to histogram reweighting in the limit of zero bin width
+\end{enumerate}
+
+\subsection{Basis functions}
+
+While it is possible to perform standard histogram reweighting 
+
+The computational bottleneck of the MBAR approach is recomputing the energies for millions of configurations. 
+
+\begin{enumerate}
+	\item When applying MBAR to different parameter sets, it is necessary to recompute U
+	\item Basis functions accelerate the recompute energy step
+\end{enumerate}
+
+\section{Results}
+
+As a proof of concept, we first validate that MBAR and HR yield indistinguishable values. This is done by re-analyzing the simulation output that was generated by Mick et al. and BLANK using MBAR instead of HR. Specifically, we analyze data for each branched alkane and alkyne that was simulated in Mick et al. and BLANK.  
+
+\begin{enumerate}
+	\item Validation that MBAR and HR are indistinguishable
+	\begin{enumerate}
+		\item Evaluate all of the compounds that Mohammad has U and N values for (branched alkanes and alkynes) and which have good experimental data
+		\item Compare MBAR results with either Potoff's or my own HR results (might be better to use my own for self consistency)
+	\end{enumerate}
+    \item Validation of the basis function approach
+    \item Epsilon scaling for all the compounds that Mohammad has U and N values for (branched alkanes and alkynes) and which have good experimental data
+    \item Report basis functions for several molecules with TraPPE and Potoff force fields
+    \item Overlap is better for GCMC going from lambda = 12 to lambda = 16 compared to ITIC
+    \item Overlap between TraPPE and Potoff, we can compute the weights of the Potoff samples and see how much they contribute to the TraPPE estimates. We would need to compute the Potoff energy with TraPPE potential and vice versa. This would require new simulations
+\end{enumerate}
+
+Figures:
+
+\begin{enumerate}
+	\item Percent deviation between MBAR and HR results for rholiq, rhovap, and Psat
+	\item Bootstrap uncertainty in MBAR results (or just include these in the percent deviation plot)
+	\item Validation that basis functions give accurate energies
+	\item Scaling of epsilon post-simulation for several molecules (would probably want to use same scoring function)
+	\item Comparison of 2-D histograms for TraPPE and Potoff. MBAR overlap, possible? Probably not without rerunning the simulations.
+	\item Comparison between MBAR bootstrapping and analytical uncertainties and HR uncertainties
+\end{enumerate}
+
+\section{Discussion/Limitations}
+
+\begin{enumerate}
+	\item 
+\end{enumerate}
+
+\section{Conclusions}
+
+\section{Acknowledgments}
+
+\section{Supporting Information}
+
+\subsection{Basis functions}
+
+\end{document}

@@ -95,7 +95,7 @@ Basis functions are an efficient means for re-computing energy
 \begin{enumerate}
 	\item History of reweighting methods in simulation
 	\item Importance and challenges of using phase coexistence in force field parameterization
-	\item Messerly et al. demonstrated how MBAR can be combined with ITIC to predict VLE properties
+	\item Messerly et al. demonstrated how MBAR can be combined with ITIC to predict VLE properties. Weakness of ITIC is need large systems, which is not ideal for MBAR
 	\item Gross demonstrated that for non-transferable parameter sets it is usually sufficient to just scale epsilon
 	\item In this study, we demonstrate that:
 	\begin{enumerate}
@@ -139,6 +139,8 @@ Basis functions are an efficient means for re-computing energy
     \item Validation of the basis function approach
     \item Epsilon scaling for all the compounds that Mohammad has U and N values for (branched alkanes and alkynes) and which have good experimental data
     \item Report basis functions for several molecules with TraPPE and Potoff force fields
+    \item Overlap is better for GCMC going from lambda = 12 to lambda = 16 compared to ITIC
+    \item Overlap between TraPPE and Potoff, we can compute the weights of the Potoff samples and see how much they contribute to the TraPPE estimates. We would need to compute the Potoff energy with TraPPE potential and vice versa. This would require new simulations
 \end{enumerate}
 
 Figures:
@@ -147,7 +149,8 @@ Figures:
 	\item Percent deviation between MBAR and HR results for rholiq, rhovap, and Psat
 	\item Validation that basis functions give accurate energies
 	\item Scaling of epsilon post-simulation for several molecules (would probably want to use same scoring function)
-	\item 
+	\item Comparison of 2-D histograms for TraPPE and Potoff. MBAR overlap, possible? Probably not without rerunning the simulations.
+	\item Comparison between MBAR bootstrapping and analytical uncertainties and HR uncertainties
 \end{enumerate}
 
 \section{Discussion/Limitations}
