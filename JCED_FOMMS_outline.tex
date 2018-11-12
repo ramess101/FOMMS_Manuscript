@@ -68,11 +68,19 @@
 \begin{document}
 	\thispagestyle{empty}
 	%make title bold and 14 pt font (Latex default is non-bold, 16 pt)
-	\title{\Large \textbf{Configurational reweighting...}}
+	\title{\Large \textbf{Multistate Bennett Acceptance Ratio replaces histogram reweighting for vapor-liquid coexistence calculations; Multistate Bennett Acceptance Ratio to enable rapid force field parameterization; Multistate Bennett Acceptance Ratio as a substitute for histogram reweighting when optimizing non-bonded parameters}}
 	\author[1]{\large {\underline{Richard Messerly}}}%%[12 pt regular, presenting speaker underlined]
 	
 	\affil[1]{\textit{Thermodynamics Research Center (TRC), National Institute of Standards and Technology (NIST),
-			Boulder, Colorado, 80305, USA}}
+			Boulder, Colorado, 80305, United States}}
+		
+	\author[2]{Mohammad S. Barhaghi}
+	
+	\author[2]{Jeffrey J. Potoff}
+	\affil[2]{\textit{Department of Chemical Engineering and Materials Science, Wayne State University, Detroit, Michigan 48202, United States}}
+	
+	\author[3]{Michael R. Shirts}
+    \affil[3]{\textit{Department of Chemical and Biological Engineering, University of Colorado, Boulder, Colorado, 80309, United States}}	
 	
 	\date{} % <--- leave date empty
 	\maketitle\thispagestyle{empty} %% <-- you need this for the first page
@@ -83,91 +91,142 @@
 	
 \section*{Key points}
 
-MBAR is equivalent to standard histogram reweighting approaches in the limit of zero bin width
-MBAR allows for estimating VLE properties of any force field
-Scaling epsilon values post-simulation is straightforward
-Basis functions are an efficient means for re-computing energy
+\begin{enumerate}
+	\item MBAR is equivalent to standard histogram reweighting approaches in the limit of zero bin width
+	\item MBAR allows for estimating VLE properties of any force field
+	\item Scaling epsilon values post-simulation is straightforward with MBAR
+	\item Basis functions are an efficient means for re-computing energy of Mie potentials
+\end{enumerate}
 
 \section*{Outline}
 
 \section{Introduction}
 
 \begin{enumerate}
-	\item History and summary of reweighting methods in simulation (free energy calculations)
-	\item Importance and challenges of using phase coexistence in force field parameterization
-	\item Messerly et al. demonstrated how MBAR can be combined with ITIC to predict VLE properties. Weakness of ITIC is need large systems, which is not ideal for MBAR
-	\item Gross demonstrated that for non-transferable parameter sets it is usually sufficient to just scale epsilon
+	\item Accurate and efficient computation of vapor-liquid coexistence is an important but challenging task for molecular simulation
+	\item Reweighting simulation outputs between different states is a well-known and powerful tool, e.g., histogram reweighting of GCMC results
+	\item Force field parameterization with VLE data is an arduous and time-consuming task
+	\item Hamiltonian scaling (histogram reweighting for multiple force fields) allows for estimating VLE properties of multiple force fields from single set of simulations
+	\item Messerly et al. demonstrated how MBAR can be combined with ITIC to predict VLE properties. Several  Weakness of ITIC is need large systems, which is not ideal for MBAR
+	\item Gross demonstrated benefits of $\epsilon$-scaling for ``individualized'', i.e., compound-specific parameter sets
 	\item In this study, we demonstrate that:
 	\begin{enumerate}
 		\item MBAR yields indistinguishable results from histogram reweighting (HR)
 		\item Scaling epsilon is straightforward by scaling U with MBAR
-		\item Basis functions allow for rapid computation of VLE for non-simulated parameter sets
+		\item MBAR can estimate VLE properties for multiple force fields simultaneously
+		\item Basis functions allow for rapid computation of VLE for non-simulated Mie parameter sets
 	\end{enumerate}
 \end{enumerate}
 
 \section{Methods}
 
+\subsection{Force fields}
+
+\begin{enumerate}
+	\item Simulations are performed for united-atom generalized Lennard-Jones (a.k.a., Mie $\lambda$-6) force fields
+	\item We investigate the TraPPE, Potoff-generalized, Potoff (S/L), and NERD force fields 
+	\item Details of force fields
+\end{enumerate}
+
 \subsection{Simulation set-up}
 
 \begin{enumerate}
-	\item GCMC simulations in GOMC
+	\item Simulations performed by Mick et al. are reanalyzed using MBAR
+	\item Additional simulations are performed in GCMC ensemble using GPU optimized Monte Carlo (GOMC)
 	\item Simulation specifications, i.e., box size, number of steps, type of moves, etc.
+	\item State points (chemical potentials and temperatures) simulated are same as those utilized in Mick et al.
 \end{enumerate}
 
 \subsection{Multistate Bennett Acceptance Ratio}
 
 \begin{enumerate}
-	\item MBAR is equivalent to WHAM in the limit of zero bin width, HR in the limit of zero bin width, Zwanzig for a single state, BAR for two states
-	\item MBAR equations
-	\item MBAR for $\theta = \theat_{\rm ref}$ is mathematically equivalent to histogram reweighting in the limit of zero bin width
+	\item Traditionally, histogram reweighting (HR) has been applied with GCMC to calculate vapor-liquid coexistence properties
+	\item Present histogram reweighting equations
+	\item Discuss how to compute phase equilibria by equating pressures
+	\item Discuss how to compute heat of vaporization
+	\item In this study, we demonstrate how to compute VLE using MBAR-GCMC
+	\item Procedure is identical to that utilized for HR but using the MBAR equations
+	\item Present MBAR equations
+	\item MBAR for $\theta = \theta_{\rm ref}$ is mathematically equivalent to histogram reweighting in the limit of zero bin width
+	\item MBAR-GCMC allows for prediction of multiple force fields from single simulation without modifying force fields mid-simulation (i.e., Hamiltonian scaling approach)
+	\item MBAR uncertainties are computed using bootstrap resampling
 \end{enumerate}
 
 \subsection{Basis functions}
 
 \begin{enumerate}
-	\item When applying MBAR to different parameter sets, it is necessary to recompute U
-	\item Basis functions accelerate the recompute energy step
+	\item When applying MBAR to different parameter sets, $\theta \neq \theta_{\rm ref}$, it is necessary to recompute energies
+	\item Basis functions accelerate the recompute energy step by storing the repulsive and attractive contributions that can be scaled by $\epsilon$ and $\sigma$
+	\item Basis functions are computed from GOMC using the recompute feature for different $\epsilon$ and $\sigma$ and solving system of equations
 \end{enumerate}
 
 \section{Results}
 
 \begin{enumerate}
-	\item Validation that MBAR and HR are indistinguishable
-	\begin{enumerate}
-		\item Evaluate all of the compounds that Mohammad has U and N values for (branched alkanes and alkynes) and which have good experimental data
-		\item Compare MBAR results with either Potoff's or my own HR results (might be better to use my own for self consistency)
-	\end{enumerate}
-    \item Validation of the basis function approach
+	\item We validate that MBAR and HR are indistinguishable by re-analyzing the simulation results of Mick et al. and Barhaghi et al. utilizing MBAR
+%	\begin{enumerate}
+%		\item Evaluate all of the compounds that Mohammad has U and N values for (branched alkanes and alkynes) and which have good experimental data
+%		\item Compare MBAR results with either Potoff's or my own HR results (might be better to use my own for self consistency)
+%	\end{enumerate}
+%    \item Validation of the basis function approach
     \item Epsilon scaling for all the compounds that Mohammad has U and N values for (branched alkanes and alkynes) and which have good experimental data
-    \item Report basis functions for several molecules with TraPPE and Potoff force fields
-    \item Overlap is better for GCMC going from lambda = 12 to lambda = 16 compared to ITIC
-    \item Overlap between TraPPE and Potoff, we can compute the weights of the Potoff samples and see how much they contribute to the TraPPE estimates. We would need to compute the Potoff energy with TraPPE potential and vice versa. This would require new simulations
+    \item We estimate Potoff generalized and NERD VLE from TraPPE simulations, Potoff S/L from Potoff generalized, and TraPPE from Potoff generalized
+    \item For $\lambda_{\rm ref} = 12$ and $\lambda_{\rm rr} = 16$, MBAR-GCMC predicts vapor density, vapor pressure, and heat of vaporization more accurately than liquid density
+    \item For $\lambda_{\rm ref} = 12$ and $\lambda_{\rm rr} = 12$, i.e., computing NERD from TraPPE simulations, MBAR-GCMC predicts all four properties accurately    
+    \item We present how basis functions allow for rapid computation of wide range of parameter sets:
+    \begin{enumerate}
+    	\item \textit{n}-hexane
+    	\item 2-methylpropane
+    	\item 2,2-dimethylpropane
+    	\item cyclopentane or cyclohexane
+    \end{enumerate}
+    \item We provide supporting information with basis functions for several branched alkanes with TraPPE and Potoff force fields
 \end{enumerate}
 
-Figures:
+\subsection{Figures}
 
 \begin{enumerate}
-	\item Percent deviation between MBAR and HR results for rholiq, rhovap, and Psat
-	\item Validation that basis functions give accurate energies
-	\item Scaling of epsilon post-simulation for several molecules (would probably want to use same scoring function)
-	\item Two-D scans of scoring functions for eps-sigma of CH3 and CH2. Multiple sigma references
-	\item Two-D scan for different lambda?
-	\item Comparison of 2-D histograms for TraPPE and Potoff. MBAR overlap, possible? Probably not without rerunning the simulations.
+	\item Percent deviation between MBAR and HR results for rholiq, rhovap, Psat, and DeltaHv
 	\item Comparison between MBAR bootstrapping and analytical uncertainties and HR uncertainties
+	\item Scaling of epsilon post-simulation for branched alkanes and alkynes
+	\item Prediction of VLE for $\lambda_{\rm ref} \neq \lambda_{\rm rr}$
+	\item Prediction of VLE for $\lambda_{\rm ref} = \lambda_{\rm rr} = 12$
+    \item Prediction of VLE for $\lambda_{\rm ref} = \lambda_{\rm rr} = 16$
+	\item Two-D scans of scoring functions for $\epsilon-\sigma$ of CH3 (a) and CH2 (b) for \textit{n}-hexane
+	\item Two-D scans of scoring functions for $\epsilon-\sigma$ of CH3 (a) and CH (b) for 2-methylpropane
+	\item Two-D scans of scoring functions for $\epsilon-\sigma$ of CH3 (a) and C (b) for 2,2-dimethylpropane
+	\item Two-D scans of scoring functions for $\epsilon-\sigma$ of CH2 for cyclopentane or cyclohexane (reference is TraPPE)
 \end{enumerate}
 
-\section{Discussion/Limitations}
+\section{Discussion/Limitations/Future work}
 
 \begin{enumerate}
-	\item We recommend that future GCMC-VLE studies report the snapshots of $N$ and $U$ and/or basis functions to recompute $U$ as this allows for future post-processing
+	\item We recommend that future GCMC-VLE studies report the snapshots of $N$ and $U$ and/or basis functions to recompute $U$ as this allows for future force field optimization
+	\item Improvements are possible with multiple $\theta$ or simulating a range of $\mu$ values
 \end{enumerate}
 
 \section{Conclusions}
 
 \section{Acknowledgments}
 
+Mostafa and J. Richard Elliott provided valuable insights.
+
 \section{Supporting Information}
 
+\subsection{MBAR VLE estimates}
+
+Provide tables of MBAR estimates
+
 \subsection{Basis functions}
+
+\begin{enumerate}
+    \item Validation that basis functions give accurate energies
+\end{enumerate}
+
+\subsection{Raw data}
+
+\begin{enumerate}
+	\item Comparison of 2-D histograms for TraPPE and Potoff. MBAR overlap, possible? Probably not without rerunning the simulations.
+\end{enumerate}
 
 \end{document}

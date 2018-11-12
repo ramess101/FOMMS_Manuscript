@@ -1,0 +1,152 @@
+%\documentclass[12pt]{article}
+ %\documentclass[letterpaper,floatfix,citeautoscript,aip,jcp]{revtex4-1}
+ %\documentclass[letterpaper,floatfix,citeautoscript,showkeys]{revtex4-1}
+ %\documentclass[twocolumn,letterpaper,floatfix,citeautoscript,jcp]{revtex4-1}
+ %\documentclass[twocolumn,letterpaper,floatfix,citeautoscript,aip,jcp]{revtex4-1}
+ \documentclass[journal=jced,manuscript=article]{achemso}
+ \setkeys{acs}{maxauthors=30,etalmode=truncate,articletitle=true}
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ %% Place any additional packages needed here.  Only include packages
+ %% which are essential, to avoid problems later.
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \usepackage{chemformula} % Formula subscripts using \ch{}
+ \usepackage[T1]{fontenc} % Use modern font encodings
+ 
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ %% If issues arise when submitting your manuscript, you may want to
+ %% un-comment the next line.  This provides information on the
+ %% version of every file you have used.
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ %%\listfiles
+ 
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ %% Place any additional macros here.  Please use \newcommand* where
+ %% possible, and avoid layout-changing macros (which are not used
+ %% when typesetting).
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \newcommand*\mycommand[1]{\texttt{\emph{#1}}}
+
+\usepackage{fullpage}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{chemfig}
+\usepackage{indentfirst}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{cellspace}
+\usepackage{palatino}
+%\usepackage{breqn}
+\usepackage{amssymb}
+\usepackage{verbatim}
+\usepackage[hidelinks,colorlinks=false,citecolor=black,linkcolor=black]{hyperref}
+\usepackage{siunitx}
+\usepackage{xr}
+
+\makeatletter
+\newcommand*{\addFileDependency}[1]{% argument=file name and extension
+	\typeout{(#1)}
+	\@addtofilelist{#1}
+	\IfFileExists{#1}{}{\typeout{No file #1.}}
+}
+\makeatother
+
+\newcommand*{\myexternaldocument}[1]{%
+	\externaldocument{#1}%
+	\addFileDependency{#1.tex}%
+	\addFileDependency{#1.aux}%
+}
+
+\myexternaldocument{Supporting_Information_JCED_FOMMS}
+
+\SectionNumbersOn
+
+% The figures are in a figures/ subdirectory.
+\graphicspath{{figures/}}
+
+%\bibliographystyle{apsrevlong}
+%\bibliographystyle{apsrev}
+\bibliographystyle{unsrt}
+
+% italicized boldface for math (e.g. vectors)
+\newcommand{\bfv}[1]{{\mbox{\boldmath{$#1$}}}}
+% non-italicized boldface for math (e.g. matrices)
+\newcommand{\bfm}[1]{{\bf #1}}          
+
+%\newcommand{\bfm}[1]{{\mbox{\boldmath{$#1$}}}}
+%\newcommand{\bfm}[1]{{\bf #1}}
+\newcommand{\expect}[1]{\left \langle #1 \right \rangle} % <.> for denoting expectations over realizations of an experiment or thermal averages
+
+\newcommand{\var}[1]{{\mathrm var}{(#1)}}
+\newcommand{\x}{\bfv{x}}
+\newcommand{\y}{\bfv{y}}
+\newcommand{\f}{\bfv{f}}
+
+\newcommand{\hatf}{\hat{f}}
+
+\newcommand{\bTheta}{\bfm{\Theta}}
+\newcommand{\btheta}{\bfm{\theta}}
+\newcommand{\bhatf}{\bfm{\hat{f}}}
+\newcommand{\Cov}[1] {\mathrm{cov}\left( #1 \right)}
+\newcommand{\T}{\mathrm{T}}                                % T used in matrix transpose
+
+\newcommand\blfootnote[1]{%
+	\begingroup
+	\renewcommand\thefootnote{}\footnote{#1}%
+	\addtocounter{footnote}{-1}%
+	\endgroup
+}
+
+\author{Richard A. Messerly}
+\email{richard.messerly@nist.gov}
+\affiliation{Thermodynamics Research Center, National Institute of Standards and Technology, Boulder, Colorado, 80305, United States}
+
+\author{Mohammad S. Barhaghi}
+\affiliation{Department of Chemical Engineering and Materials Science, Wayne State University, Detroit, Michigan 48202, United States}
+
+\author{Jeffrey J. Potoff}
+\affiliation{Department of Chemical Engineering and Materials Science, Wayne State University, Detroit, Michigan 48202, United States}
+
+\author{Michael R. Shirts}
+\affiliation{Department of Chemical and Biological Engineering, University of Colorado, Boulder, Colorado, 80309, United States}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% The document title should be given as usual. Some journals require
+%% a running title from the author: this should be supplied as an
+%% optional argument to \title.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{Multistate Bennett Acceptance Ratio replaces histogram reweighting for vapor-liquid coexistence calculations}
+%\title{Multistate Bennett Acceptance Ratio to enable rapid force field parameterization}
+%\title{Multistate Bennett Acceptance Ratio as a substitute for histogram reweighting when optimizing non-bonded parameters}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Some journals require a list of abbreviations or keywords to be
+%% supplied. These should be set up here, and will be printed after
+%% the title and author information, if needed.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\abbreviations{IR,NMR,UV}
+\keywords{MBAR}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% The manuscript does not need to include \maketitle, which is
+%% executed automatically.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%% The "tocentry" environment can be used to create an entry for the
+	%% graphical table of contents. It is given here as some journals
+	%% require that it is printed as part of the abstract page. It will
+	%% be automatically moved as appropriate.
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%	\begin{tocentry}
+%	\end{tocentry}
+
+\blfootnote{Contribution of NIST, an agency of the United States government; not subject to copyright in the United States.}
+
+\section*{Abstract}
+
+
+
+\end{document}
