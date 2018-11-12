@@ -123,6 +123,8 @@ Unfortunately, optimizing force field parameters with vapor-liquid coexistence d
 
 Recently, Messerly et al. demonstrated how configurational reweighting can be applied to predict VLE properties for non-simulated parameter sets. In Messerly et al., MBAR is utilized to estimate the internal energy $(U)$ and pressure $(P)$ from $NVT$ simulations, which are converted to vapor-liquid properties with isothermal-isochoric integration. The results from Messerly et al. demonstrated that MBAR is accurate over a wide range of $\epsilon$ values but less reliable for large changes in $\sigma$ and $\lambda$. MBAR is most reliable in the local parameter space relative to the reference parameter set from which configurations are sampled.
 
+Some of the shortcomings for ITIC are: inability to predict near-critical saturation properties, requires estimate of virial coefficients, poor extrapolation with MBAR.
+
 Recently, Gross et al. proposed individualized parameter sets for compounds which contain large amounts of experimental data. To avoid overfitting, Gross et al. performed a one-dimensional optimization to scale $\epsilon$ while not adjusting $\sigma$. 
 
 MBAR is ideally suited for the $\epsilon$-scaling parameterization for three reasons. First, MBAR has been shown to be quite accurate for changes in $\epsilon$, while the accuracy diminishes for changes in $\sigma$. Second, because the reference force field is already highly optimized the optimal value is typically around unity. Third, recomputing the energies does not require storing the configurations.
@@ -131,9 +133,9 @@ Our hypothesis is that GCMC has better overlap between model spaces than what wa
 
 % optimized a single $\epsilon$-scaling parameter such that all
 
-The method outlined in this study is similar in spirit to the ``Hamiltonian scaling'' (HS) approach utilized with GEMC (BLANK) and GCMC-HR (BLANK). Although Hamiltonian scaling proved to be a powerful tool to obtain coexistence curves for multiple force fields from a single set of simulations, it never gained widespread popularity. This is likely due to the added complexity of the algorithm, where the prescribed chemical potential and temperature changes during the coarse of the GCMC simulation, depending on which Hamiltonian is being sampled. Furthermore, the post-processing requires a slightly more complicated form of histogram reweighting. Also, HS requires a decision be made \textit{a priori} regarding which Hamiltonians are to be tested. By contrast, MBAR does not require any modification of the simulation procedure, the post-processing is essentially unchanged, and the Hamiltonians need not be selected prior to the simulations.
+The method outlined in this study is similar in spirit to the ``Hamiltonian scaling'' (HS) approach utilized with GEMC (BLANK) and GCMC-HR (BLANK). Although Hamiltonian scaling proved to be a powerful tool to obtain coexistence curves for multiple force fields from a single set of simulations, it has yet to gain widespread popularity. This is likely due to the added complexity of the algorithm, where the prescribed chemical potential and temperature changes during the coarse of the GCMC simulation, depending on which Hamiltonian is being sampled. Furthermore, the post-processing requires a slightly more complicated form of histogram reweighting. Also, HS requires a decision be made \textit{a priori} regarding which Hamiltonians are to be tested. By contrast, MBAR does not require any modification of the simulation procedure, the post-processing is essentially unchanged, and the Hamiltonians need not be selected prior to the simulations.
 
-The terms ``force field,'' ``Hamiltonian,'' ``potential,'' and ``model'' are all common in the literature and are used interchangeably throughout this manuscript.
+The terms ``force field,'' ``Hamiltonian,'' ``potential,'' and ``model'' are all common in the literature. This study adopts the term ``force field'' as it is slightly less ambiguous.
 
 % for the GCMC simulation changes  from one Hamiltonian to the next.
 

@@ -58,7 +58,7 @@
 	\addFileDependency{#1.aux}%
 }
 
-\myexternaldocument{Supporting_Information_JCED_FOMMS}
+\myexternaldocument{JCED_FOMMS_supporting_information}
 
 \SectionNumbersOn
 
@@ -147,6 +147,179 @@
 
 \section*{Abstract}
 
+\section{Introduction}
+
+A key advancement in molecular simulation is the ability to accurately and efficiently estimate vapor-liquid coexistence properties, i.e., saturated liquid density $(\rho_{rm liq}^{\rm sat})$, saturated vapor density $(\rho_{rm vap}^{\rm sat})$, saturated vapor pressures $(P_{rm vap}^{\rm sat})$, and enthalpy of vaporization $(\Delta H_{rm v})$. The accuracy of coexistence estimates depends on the underlying molecular model (a.k.a., force field, potential model, or Hamiltonian) while the computational efficiency depends primarily on simulation methods. Due to the abundance of experimental $\rho_{\rm liq}^{\rm sat}$ and $P_{\rm vap}^{\rm sat}$ data and the sensitivity of such properties to both short- and long-range non-bonded interactions, numerous force fields have been parameterized using vapor-liquid coexistence data. 
+
+Several methods exist for computing vapor-liquid coexistence properties, e.g., Gibbs Ensemble Monte Carlo (GEMC), two phase molecular dynamics (2$\phi$MD), isothermal-isochoric integration (ITIC), and Grand Canonical Monte Carlo coupled with histogram reweighting (GCMC-HR). Advantages and disadvantages exist for each method. For example, GEMC and GCMC require insertion moves that are computationally inefficient for complex molecular structures with high density liquid phases. Several advanced simulation techniques are available to overcome this challenge, which has enabled GEMC and GCMC to be the primary methods of choice for vapor-liquid coexistence calculations.
+
+%Some clear advantages exist for GCMC-HR compared with GEMC. For example, GCMC-HR has higher precision than GEMC. Se
+
+Although GCMC-HR has a higher precision than GEMC, GEMC remains a more popular method amongst simulation practicioners. There are at least two potential reasons why GEMC has grown in popularity relative to GCMC-HR. First, GEMC is more straightforward in that, GEMC simulations are performed directly at the desired saturation temperature $(T^{\rm sat})$. By contrast, GCMC-HR requires a series of GCMC simulations for a single $T^{\rm sat}$ (although this is also an advantage of GCMC-HR as estimates can be obtained at any $T^{\rm sat}$ value without additional simulations). This set includes a near-critical simulation that ``bridges'' the vapor and liquid phases. Obtaining an initial guess for the chemical potential $(\mu)$ of this bridge simulation is a cumbersome and, typically, iterative process, although more advanced methods do exist to obtain a good initial estimate for $\mu$ (e.g., Hemmen et al.). A likely second reason is that GCMC-HR requires a great deal of post-processing (i.e., histogram reweighting), while simple block averaging is typically sufficient for GEMC. 
+
+Histogram reweighting (and more generally, configuration reweighting) is an important tool in many fields of molecular simulation. In fact, it has long since been known that it is possible to estimate properties for state ``j'' by reweighting configurations that were sampled with state ``i.'' For example, umbrella sampling simulations are often processed using the weighted histogram analysis method (WHAM) to compute free energy differences between states. In addition, Boulougouris et al. demonstrated how histogram reweighting can be applied to GEMC output to estimate saturation properties at non-simulated temperatures (analogous to GCMC-HR).
+
+%Although histogram reweighting requires additional analysis steps, the benefits of histogram reweighting are clear. For example
+
+%Although histogram reweighting approaches are common in some fields of molecular simulation, e.g., WHAM is commonly used for computing free energies, most open-source Monte Carlo codes do not include a HR tool and, thus, in-house post-processing codes abound. In this study, we introduce an alternative to histogram reweighting, namely, the Multistate Bennett Acceptance Ratio (MBAR). MBAR is readily available in the \textit{pymbar} package and example scripts are included as Supporting Information to promote future implementation.
+
+%, with a near-critical simulation that ``bridges'' the vapor and liquid phases.
+
+%For example, the exponential-6 model of Errington and Panagiotoupoulos
+%The method outlined in this study is similar in spirit to the ``Hamiltonian scaling'' (HS) approach utilized with GEMC (BLANK) and GCMC-HR (BLANK).
+
+%A closely related method to histogram reweighting, and one that is similar in spirit to the method outlined in the present study, is ``Hamiltonian scaling'' (HS). Despite Hamiltonian scaling Grand Canonical Monte Carlo (HS-GCMC) proving to be a powerful tool to obtain coexistence curves for multiple force fields from a single set of simulations, it has yet to gain widespread popularity. This is likely due to the added complexity of the algorithm, where the prescribed $\mu$ and $T$ change during the coarse of the GCMC simulation, depending on which Hamiltonian (force field) is being sampled. Furthermore, the post-processing requires a slightly more complicated form of histogram reweighting. Also, HS requires a decision be made \textit{a priori} regarding which Hamiltonians are to be tested. By contrast, MBAR does not require any modification of the simulation procedure, the post-processing is essentially unchanged, and the Hamiltonians need not be selected prior to the simulations.
+ 
+Although the development of accurate force fields has been greatly enabled by the efficiency of the aforementioned simulation methods (e.g., GEMC, GCMC-HR), parameterization of non-bonded interactions with vapor-liquid coexistence calculations remains an arduous and time-consuming task. Recently, Messerly et al. demonstrated how MBAR coupled with ITIC (MBAR-ITIC) enables rapid force field parameterization by estimating coexistence properties for non-simulated parameter sets. 
+
+ITIC requires the internal energy $(U)$ and pressure $(P)$ (or compressibility factor, $Z$) at numerous temperatures and densities. For MBAR-ITIC, these values are estimated by performing $NVT$ simulations and reweighting the configurations with MBAR. The results from Messerly et al. demonstrate that MBAR is most reliable in the local domain, i.e., for parameter sets near the ``reference'' parameter set from which configurations are sampled. Furthermore, MBAR performs best for changes in the non-bonded well-depth parameter $(\epsilon)$ while it performs significantly worse for large changes in the non-bonded size and repulsive parameters $(\sigma$ and $\lambda$, respectively$)$. This is typically referred to as poor ``overlap.''
+
+Our hypothesis is that GCMC simulation have better overlap between force field parameter spaces than what was observed for the $NVT$ simulations utilized with MBAR-ITIC. There are two main reasons for this hypothesis/aspiration. First, a fixed density $(NVT)$ leads to large energy differences for small changes in $\sigma$ and $\lambda$. The fluctuating densities of GCMC simulations should accommodate greater changes in short-range interactions. Second, ITIC requires larger box sizes (and, thereby, more molecules) than those typically utilized with GCMC. By utilizing fewer molecules, GCMC simulations experience larger fluctuations which improves the overlap between states.
+
+Note that the method outlined in this study is similar in spirit to ``Hamiltonian scaling'' (HS), which has been applied to both GEMC and GCMC simulations. The HS approach samples from multiple force fields (Hamiltonians) in a single simulation according to a sampling probability. Vapor-liquid coexistence curves for each force field are estimated post-simulation by reweighting the configurations accordingly. For the Grand Canonical Monte Carlo implementation of Hamiltonian scaling (HS-GCMC), $\mu$ and $T$ are not stationary during the simulation, rather the current value of $\mu$ and $T$ depends on which force field is being sampled. Despite HS-GCMC proving to be a powerful tool to optimize force field parameters, it has yet to gain widespread popularity. This is likely due to the added complexity of both the simulation protocol and the histogram post-processing. Also, HS requires that a decision be made \textit{a priori} regarding which force fields are to be tested. By contrast, MBAR does not require any modification of the simulation procedure, the post-processing is essentially unchanged, and the Hamiltonians need not be selected prior to the simulations.
+
+Recently, Gross et al. proposed individualized parameter sets for compounds which contain large amounts of experimental data. To avoid overfitting, Gross et al. performed a one-dimensional optimization to scale $\epsilon$ while not adjusting $\sigma$ or $\lambda$. MBAR is ideally suited for this ``$\epsilon$-scaling'' approach for at least two reasons. First, as mentioned previously, MBAR is most reliable when extrapolating in $\epsilon$ rather than $\sigma$ and/or $\lambda$. Second, the rate-limiting step for MBAR is recomputing the configurational energies for a different force field. Furthermore, storing millions of configuration ``snapshots'' is highly memory intensive. While basis functions (see Section \ref{sec: Basis functions}) alleviate the additional computational cost and reduce the memory load, $\epsilon$-scaling does not require storing/recomputing configurations or basis functions. Instead, the energies for each snapshot are simply multiplied by the $\epsilon$-scaling parameter.  
+
+%   Despite HS-GCMC proving to be a powerful tool to obtain coexistence curves for multiple force fields from a single set of simulations, it has yet to gain widespread popularity. This is likely due to the added complexity of the algorithm, where the prescribed $\mu$ and $T$ change during the coarse of the GCMC simulation, depending on which Hamiltonian (force field) is being sampled. Furthermore, the post-processing requires a slightly more complicated form of histogram reweighting. Also, HS requires a decision be made \textit{a priori} regarding which Hamiltonians are to be tested. By contrast, MBAR does not require any modification of the simulation procedure, the post-processing is essentially unchanged, and the Hamiltonians need not be selected prior to the simulations.
+
+%The results from Messerly et al. demonstrated that MBAR is accurate over a wide range of $\epsilon$ (the Lennard-Jones well-depth parameter) values but less reliable for large changes in $\sigma$ (the Lennard-Jones size parameter) and $\lambda$ (the Mie $\lambda$-6 repulsive parameter, i.e., for Lennard-Jones 12-6 $\lambda = 12$). MBAR is most reliable in the local parameter space relative to the reference parameter set from which configurations are sampled.
+
+%Some fundamental limitations exist for the MBAR-ITIC approach. First, ITIC is ill-suited for near-critical saturation properties, i.e., ITIC is not recommended for $T^{\rm sat} > 0.85 T_{\rm c}$ ($T_{\rm c}$ is the critical temperature). Second, ITIC requires a temperature correlation for the virial coefficients of the force field. Third, the poor extrapolation of MBAR with changes in $\sigma$ and $\lambda$.
+
+The outline for this study is the following. Section \ref{sec: Methods} provides details regarding the force fields, simulation set-up, and post-simulation analysis with MBAR. Section \ref{sec: Results} provides a comparison of GCMC-MBAR and GCMC-HR as well as various applications of GCMC-MBAR for force field parameterization.
+
+% for of GCMC-MBAR  validates that GCMC-MBAR yields indistinguishable results from GCMC-HR, applies GCMC-MBAR to $\epsilon$-scaling, and . We demonstrate how
+%
+%\begin{enumerate}
+%	\item Accurate and efficient computation of vapor-liquid coexistence is an important but challenging task for molecular simulation
+%	\item Reweighting simulation outputs between different states is a well-known and powerful tool, e.g., histogram reweighting of GCMC results
+%	\item Force field parameterization with VLE data is an arduous and time-consuming task
+%	\item Hamiltonian scaling (histogram reweighting for multiple force fields) allows for estimating VLE properties of multiple force fields from single set of simulations
+%	\item Messerly et al. demonstrated how MBAR can be combined with ITIC to predict VLE properties. Several  Weakness of ITIC is need large systems, which is not ideal for MBAR
+%	\item Gross demonstrated benefits of $\epsilon$-scaling for ``individualized'', i.e., compound-specific parameter sets
+%	\item In this study, we demonstrate that:
+%	\begin{enumerate}
+%		\item MBAR yields indistinguishable results from histogram reweighting (HR)
+%		\item Scaling epsilon is straightforward by scaling U with MBAR
+%		\item MBAR can estimate VLE properties for multiple force fields simultaneously
+%		\item Basis functions allow for rapid computation of VLE for non-simulated Mie parameter sets
+%	\end{enumerate}
+%\end{enumerate}
+
+\section{Methods} \label{sec: Methods}
+
+\subsection{Force fields} \label{sec: Force fields}
+
+\begin{enumerate}
+	\item Simulations are performed for united-atom generalized Lennard-Jones (a.k.a., Mie $\lambda$-6) force fields
+	\item We investigate the TraPPE, Potoff-generalized, Potoff (S/L), and NERD force fields 
+	\item Details of force fields
+\end{enumerate}
+
+\subsection{Simulation set-up} \label{sec: Simulation set-up}
+
+\begin{enumerate}
+	\item Simulations performed by Mick et al. are reanalyzed using MBAR
+	\item Additional simulations are performed in GCMC ensemble using GPU optimized Monte Carlo (GOMC)
+	\item Simulation specifications, i.e., box size, number of steps, type of moves, etc.
+	\item State points (chemical potentials and temperatures) simulated are same as those utilized in Mick et al.
+\end{enumerate}
+
+\subsection{Multistate Bennett Acceptance Ratio} \label{sec: MBAR}
+
+\begin{enumerate}
+	\item Traditionally, histogram reweighting (HR) has been applied with GCMC to calculate vapor-liquid coexistence properties
+	\item Present histogram reweighting equations
+	\item Discuss how to compute phase equilibria by equating pressures
+	\item Discuss how to compute heat of vaporization
+	\item In this study, we demonstrate how to compute VLE using MBAR-GCMC
+	\item Procedure is identical to that utilized for HR but using the MBAR equations
+	\item Present MBAR equations
+	\item MBAR for $\theta = \theta_{\rm ref}$ is mathematically equivalent to histogram reweighting in the limit of zero bin width
+	\item MBAR-GCMC allows for prediction of multiple force fields from single simulation without modifying force fields mid-simulation (i.e., Hamiltonian scaling approach)
+	\item MBAR uncertainties are computed using bootstrap resampling
+\end{enumerate}
+
+\subsection{Basis functions} \label{sec: Basis functions}
+
+\begin{enumerate}
+	\item When applying MBAR to different parameter sets, $\theta \neq \theta_{\rm ref}$, it is necessary to recompute energies
+	\item Basis functions accelerate the recompute energy step by storing the repulsive and attractive contributions that can be scaled by $\epsilon$ and $\sigma$
+	\item Basis functions are computed from GOMC using the recompute feature for different $\epsilon$ and $\sigma$ and solving system of equations
+\end{enumerate}
+
+\section{Results} \label{sec: Results}
+
+\begin{enumerate}
+	\item We validate that MBAR and HR are indistinguishable by re-analyzing the simulation results of Mick et al. and Barhaghi et al. utilizing MBAR
+	%	\begin{enumerate}
+	%		\item Evaluate all of the compounds that Mohammad has U and N values for (branched alkanes and alkynes) and which have good experimental data
+	%		\item Compare MBAR results with either Potoff's or my own HR results (might be better to use my own for self consistency)
+	%	\end{enumerate}
+	%    \item Validation of the basis function approach
+	\item Epsilon scaling for all the compounds that Mohammad has U and N values for (branched alkanes and alkynes) and which have good experimental data
+	\item We estimate Potoff generalized and NERD VLE from TraPPE simulations, Potoff S/L from Potoff generalized, and TraPPE from Potoff generalized
+	\item For $\lambda_{\rm ref} = 12$ and $\lambda_{\rm rr} = 16$, MBAR-GCMC predicts vapor density, vapor pressure, and heat of vaporization more accurately than liquid density
+	\item For $\lambda_{\rm ref} = 12$ and $\lambda_{\rm rr} = 12$, i.e., computing NERD from TraPPE simulations, MBAR-GCMC predicts all four properties accurately    
+	\item We present how basis functions allow for rapid computation of wide range of parameter sets:
+	\begin{enumerate}
+		\item \textit{n}-hexane
+		\item 2-methylpropane
+		\item 2,2-dimethylpropane
+		\item cyclopentane or cyclohexane
+	\end{enumerate}
+	\item We provide supporting information with basis functions for several branched alkanes with TraPPE and Potoff force fields
+\end{enumerate}
+
+\subsection{Figures}
+
+\begin{enumerate}
+	\item Percent deviation between MBAR and HR results for rholiq, rhovap, Psat, and DeltaHv
+	\item Comparison between MBAR bootstrapping and analytical uncertainties and HR uncertainties
+	\item Scaling of epsilon post-simulation for branched alkanes and alkynes
+	\item Prediction of VLE for $\lambda_{\rm ref} \neq \lambda_{\rm rr}$
+	\item Prediction of VLE for $\lambda_{\rm ref} = \lambda_{\rm rr} = 12$
+	\item Prediction of VLE for $\lambda_{\rm ref} = \lambda_{\rm rr} = 16$
+	\item Two-D scans of scoring functions for $\epsilon-\sigma$ of CH3 (a) and CH2 (b) for \textit{n}-hexane
+	\item Two-D scans of scoring functions for $\epsilon-\sigma$ of CH3 (a) and CH (b) for 2-methylpropane
+	\item Two-D scans of scoring functions for $\epsilon-\sigma$ of CH3 (a) and C (b) for 2,2-dimethylpropane
+	\item Two-D scans of scoring functions for $\epsilon-\sigma$ of CH2 for cyclopentane or cyclohexane (reference is TraPPE)
+\end{enumerate}
+
+\section{Discussion/Limitations/Future work} \label{sec: Discussion}
+
+As ITIC is more reliable at near-triple-point conditions, MBAR-ITIC and MBAR-GCMC can be combined to cover most temperatures that span the vapor-liquid coexistence curve.
+
+\begin{enumerate}
+	\item We recommend that future GCMC-VLE studies report the snapshots of $N$ and $U$ and/or basis functions to recompute $U$ as this allows for future force field optimization
+	\item Improvements are possible with multiple $\theta$ or simulating a range of $\mu$ values
+\end{enumerate}
+
+\section{Conclusions} \label{sec: Conclusions}
+
+\section{Acknowledgments}
+
+Mostafa and J. Richard Elliott provided valuable insights.
+
+\bibliography{JCED_FOMMS_references}
+
+\section{Supporting Information}
+
+\subsection{MBAR VLE estimates}
+
+Provide tables of MBAR estimates
+
+\subsection{Basis functions}
+
+\begin{enumerate}
+	\item Validation that basis functions give accurate energies
+\end{enumerate}
+
+\subsection{Raw data}
+
+\begin{enumerate}
+	\item Comparison of 2-D histograms for TraPPE and Potoff. MBAR overlap, possible? Probably not without rerunning the simulations.
+\end{enumerate}
 
 
 \end{document}
