@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.8.11)  12 NOV 2018 12:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.8.11)  12 NOV 2018 16:10
 entering extended mode
 **./JCED_FOMMS_manuscript.tex
 (JCED_FOMMS_manuscript.tex
@@ -1480,14 +1480,14 @@ Package: xr 1994/05/28 v5.02 eXternal References (DPC)
 )
 
 Package xr Warning: 
-No file Supporting_Information_JCED_FOMMS.aux
+No file JCED_FOMMS_supporting_information.aux
 LABELS NOT IMPORTED.
  on input line 61.
 
-(Supporting_Information_JCED_FOMMS.tex)
-No file Supporting_Information_JCED_FOMMS.tex.
-(Supporting_Information_JCED_FOMMS.aux)
-No file Supporting_Information_JCED_FOMMS.aux.
+(JCED_FOMMS_supporting_information.tex)
+No file JCED_FOMMS_supporting_information.tex.
+(JCED_FOMMS_supporting_information.aux)
+No file JCED_FOMMS_supporting_information.aux.
 
 Class achemso Warning: \bibliographystyle ignored on input line 70.
 
@@ -1664,68 +1664,72 @@ LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <17.28> not available
 
 {C:/Users/ram9/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2]
 [3] [4]
+Overfull \hbox (7.37599pt too wide) in paragraph at lines 214--215
+\T1/ppl/m/n/12 avoid over-fit-ting, a one-dimensional op-ti-miza-tion is em-plo
+yed which scales $\OML/cmm/m/it/12 $ \T1/ppl/m/n/12 for all united-
+ []
+
+[5]
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 211.
- [5] [6] [7]
-Overfull \hbox (13.2858pt too wide) in paragraph at lines 277--278
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 244.
+ [6] [7]
+Overfull \hbox (13.2858pt too wide) in paragraph at lines 310--311
 []\T1/ppl/m/n/12 Percent de-vi-a-tion be-tween MBAR and HR re-sults for rholiq,
  rho-vap, Psat, and DeltaHv 
  []
 
-
-Overfull \hbox (0.98157pt too wide) in paragraph at lines 284--285
+[8]
+Overfull \hbox (0.98157pt too wide) in paragraph at lines 317--318
 []\T1/ppl/m/n/12 Two-D scans of scor-ing func-tions for $\OML/cmm/m/it/12  \OM
 S/cmsy/m/n/12   \OML/cmm/m/it/12 $ \T1/ppl/m/n/12 of CH3 (a) and CH (b) for 2-
 methylpropane 
  []
 
 
-Overfull \hbox (10.8215pt too wide) in paragraph at lines 285--286
+Overfull \hbox (10.8215pt too wide) in paragraph at lines 318--319
 []\T1/ppl/m/n/12 Two-D scans of scor-ing func-tions for $\OML/cmm/m/it/12  \OM
 S/cmsy/m/n/12   \OML/cmm/m/it/12 $ \T1/ppl/m/n/12 of CH3 (a) and C (b) for 2,2
 -dimethylpropane 
  []
 
 
-Overfull \hbox (2.79575pt too wide) in paragraph at lines 291--292
+Overfull \hbox (2.79575pt too wide) in paragraph at lines 324--325
 []\T1/ppl/m/n/12 As ITIC is more re-li-able at near-triple-point con-di-tions, 
 MBAR-ITIC and MBAR-GCMC
  []
 
-[8] [9] [10]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 323.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 323.
+(JCED_FOMMS_manuscript.bbl [9] [10] [11]) [12] [13]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 358.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 358.
  (JCED_FOMMS_manuscript.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 323.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 323.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 358.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 358.
 Package rerunfilecheck Info: File `JCED_FOMMS_manuscript.out' has not changed.
-(rerunfilecheck)             Checksum: CF30586E284C709512E5165280B25A01;939.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 323.
+(rerunfilecheck)             Checksum: 043A71FF8537F0F7A437678B17373D4E;987.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 358.
  ) 
 Here is how much of TeX's memory you used:
- 32266 strings out of 493323
- 651264 string characters out of 3130449
- 682719 words of memory out of 3000000
- 35275 multiletter control sequences out of 15000+200000
- 567006 words of font info for 91 fonts, out of 3000000 for 9000
+ 32390 strings out of 493323
+ 653795 string characters out of 3130449
+ 682989 words of memory out of 3000000
+ 35369 multiletter control sequences out of 15000+200000
+ 568290 words of font info for 93 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 62i,8n,94p,10421b,865s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 62i,8n,94p,10421b,948s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/ram9/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}
 <C:/Users/ram9/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
 /cmmi12.pfb><C:/Users/ram9/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public
-/amsfonts/cm/cmmi8.pfb><C:/Users/ram9/AppData/Local/Programs/MiKTeX 2.9/fonts/t
-ype1/public/amsfonts/cm/cmr12.pfb><C:/Users/ram9/AppData/Local/Programs/MiKTeX 
-2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/ram9/AppData/Local/Progra
-ms/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/ram9/AppData/
-Local/Programs/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Users/ram9/Ap
-pData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/r
-am9/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/palatino/uplb8a.pfb><C:/U
-sers/ram9/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/palatino/uplr8a.pfb
-><C:/Users/ram9/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/palatino/uplr
-i8a.pfb>
-Output written on JCED_FOMMS_manuscript.pdf (10 pages, 154735 bytes).
+/amsfonts/cm/cmr12.pfb><C:/Users/ram9/AppData/Local/Programs/MiKTeX 2.9/fonts/t
+ype1/public/amsfonts/cm/cmr8.pfb><C:/Users/ram9/AppData/Local/Programs/MiKTeX 2
+.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/ram9/AppData/Local/Progr
+ams/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Users/ram9/AppData/Local
+/Programs/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/ram9/AppData
+/Local/Programs/MiKTeX 2.9/fonts/type1/urw/palatino/uplb8a.pfb><C:/Users/ram9/A
+ppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/palatino/uplr8a.pfb><C:/Users/
+ram9/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/palatino/uplri8a.pfb>
+Output written on JCED_FOMMS_manuscript.pdf (13 pages, 164135 bytes).
 PDF statistics:
- 225 PDF objects out of 1000 (max. 8388607)
- 73 named destinations out of 1000 (max. 500000)
- 141 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 286 PDF objects out of 1000 (max. 8388607)
+ 98 named destinations out of 1000 (max. 500000)
+ 149 words of extra memory for PDF output out of 10000 (max. 10000000)
 

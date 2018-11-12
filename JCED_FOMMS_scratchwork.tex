@@ -121,6 +121,8 @@ Several force fields have been parameterized utilizing vapor-liquid coexistence 
 
 Unfortunately, optimizing force field parameters with vapor-liquid coexistence data traditionally requires an iterative approach where large amounts of simulations are required for each parameter set. For example, the popular TraPPE force field . Specifically, a 
 
+Although advances in computer speed allow for systematic scans of parameter space, this approach is typically only tractable in two-dimensions. Therefore, the assumption of transferability is essential and somewhat limits the accuracy attainable. Ideally, it would be possible to optimize multiple parameter sets simultaneously.
+
 Recently, Messerly et al. demonstrated how configurational reweighting can be applied to predict VLE properties for non-simulated parameter sets. In Messerly et al., MBAR is utilized to estimate the internal energy $(U)$ and pressure $(P)$ from $NVT$ simulations, which are converted to vapor-liquid properties with isothermal-isochoric integration. The results from Messerly et al. demonstrated that MBAR is accurate over a wide range of $\epsilon$ values but less reliable for large changes in $\sigma$ and $\lambda$. MBAR is most reliable in the local parameter space relative to the reference parameter set from which configurations are sampled.
 
 Some of the shortcomings for ITIC are: inability to predict near-critical saturation properties, requires estimate of virial coefficients, poor extrapolation with MBAR.
