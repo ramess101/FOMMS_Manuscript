@@ -243,20 +243,118 @@ The outline for this study is the following. Section \ref{sec: Methods} provides
 
 \subsection{Force fields} \label{sec: Force fields}
 
-\begin{enumerate}
-	\item Simulations are performed for united-atom generalized Lennard-Jones (a.k.a., Mie $\lambda$-6) force fields
-	\item We investigate the TraPPE, Potoff-generalized, Potoff (S/L), and NERD force fields 
-	\item Details of force fields
-\end{enumerate}
+    The force fields utilized in this study are Transferable Potentials for Phase Equilibria (TraPPE-UA, also referred to simply as TraPPE \cite{TraPPE,Martin1999,TraPPEUA2}), Potoff \cite{Mie,Potoff_branched}, and Nath, Escobedo, and de Pablo revised (NERD). Each force field adopts a united-atom (UA) representation, where non-polar hydrogens are not modeled explicitly. The non-bonded potential is of the generalized Lennard-Jones (Mie $\lambda$-6) form. 
+    
+    The bond lengths for the TraPPE, Potoff, and NERD force fields are 0.154 nm for all compounds studied. The same angle and dihedral potentials are used for each force field. Angular bending interactions are evaluated using a harmonic potential:
+    \begin{equation}
+    u^{\rm bend} = \frac{k_\theta}{2} \left(\theta-\theta_0\right)^2
+    \end{equation}
+    where $u^{\rm bend}$ is the bending energy, $\theta$ is the instantaneous bond angle, $\theta_0$ is the equilibrium bond angle (see Table \ref{tab:angles}), and $k_\theta$ is the harmonic force constant with $k_\theta/k_{\rm B} = 62500$ K/rad$^2$ for all bonding angles, where $k_{\rm B}$ is the Boltzmann constant. 
+    
+    \begin{table}[h!]
+    	\caption{Equilibrium bond angles $(\theta_0)$ \cite{Martin1999}. CH$_i$ and CH$_j$ represent CH$_3$, CH$_2$, CH, or C sites.} \label{tab:angles}
+    	\begin{center}
+    		\begin{tabular}{|c|c|}
+    			\hline
+    			Bending sites & $\theta_0$ (degrees) \\ \hline
+    			CH$_i$-CH$_2$-CH$_j$ & 114.0 \\ 
+    			CH$_i$-CH-CH$_j$ & 112.0 \\ 
+    			CH$_i$-C-CH$_j$ & 109.5 \\  
+    			\hline
+    		\end{tabular}
+    	\end{center} 
+    \end{table}
+    
+    Dihedral torsional interactions are determined using a cosine series:
+    \begin{equation}
+    u^{\rm tors} = c_0 + c_1 [1+\cos{\phi}] + c_2 [1-\cos{2\phi}] + c_3 [1+\cos{3\phi}]
+    \end{equation}
+    where $u^{\rm tors}$ is the torsional energy, $\phi$ is the dihedral angle and $c_n$ are the Fourier constants listed in Table \ref{tab:torsions}.
+    
+    \begin{table}[h!]
+    	\caption{Fourier constants $(c_n/k_{\rm B})$ in units of K \cite{Martin1999}. CH$_i$ and CH$_j$ represent CH$_3$, CH$_2$, CH, or C sites.} \label{tab:torsions}
+    	\begin{center}
+    		\begin{tabular}{|c|c|c|c|c|}
+    			\hline
+    			Torsion sites & $c_0/k_{\rm B}$ & $c_1/k_{\rm B}$ & $c_2/k_{\rm B}$ & $c_3/k_{\rm B}$ \\ \hline
+    			CH$_i$-CH$_2$-CH$_2$-CH$_j$ & 0.0 & 355.03 & -68.19 & 791.32 \\ 
+    			CH$_i$-CH$_2$-CH-CH$_j$ & -251.06 & 428.73 & -111.85 & 441.27 \\
+    			CH$_i$-CH$_2$-C-CH$_j$ & 0.0 & 0.0 & 0.0 & 461.29 \\
+    			CH$_i$-CH-CH-CH$_j$ & -251.06 & 428.73 & -111.85 & 441.27 \\
+    			\hline
+    		\end{tabular}
+    	\end{center} 
+    \end{table}
+    
+    Non-bonded interactions between sites located in two different molecules or separated by more than three bonds within the same molecule are calculated using a Mie $\lambda$-6 potential (of which the Lennard-Jones, LJ, 12-6 is a subclass):
+    \begin{equation} \label{eq:Mie}
+    u^{\rm nb}(\epsilon,\sigma,\lambda;r) = \left(\frac{\lambda}{\lambda - 6}\right)\left(\frac{\lambda}{6}\right)^{\frac{6}{\lambda - 6}} \epsilon \left[\left(\frac{\sigma}{r}\right)^{\lambda} - \left(\frac{\sigma}{r}\right)^6\right]
+    \end{equation} 
+    where $u^{\rm nb}$ is the van der Waals interaction, $\sigma$ is the distance $(r)$ where $u^{\rm nb} = 0$, $-\epsilon$ is the energy of the potential at the minimum $\left(\text{i.e., }u^{\rm nb} = -\epsilon \text{ and } \frac{\partial u^{\rm nb}}{\partial r} = 0 \text{ for } r=r_{\rm min} \right)$, and $\lambda$ is the repulsive exponent. 
+    
+    The non-bonded Mie $\lambda$-6 force field parameters for TraPPE, Potoff, and NERD are provided in Table \ref{tab:nonbonded params}. Potoff reports a ``generalized'' and ``short/long'' (S/L) CH and C parameter set. The ``short'' and ``long'' parameters are implemented when the number of carbons in the backbone is $\le 4$ and $> 4$, respectively. Also note that the NERD force field has several different parameter sets for CH$_3$ sites.
+    
+    \begin{table}[h!]
+    	\caption{Non-bonded (intermolecular) parameters for TraPPE \cite{TraPPE,Martin1999}, Potoff \cite{Mie,Potoff_branched}, and NERD \cite{NERD}. The ``short/long'' Potoff CH and C parameters are included in parentheses.} \label{tab:nonbonded params}
+    	\begin{center}
+    		\begin{tabular}{|c|c|c|c|c|c|c|}
+    			\hline
+    			United-atom & $\epsilon/k_{\rm B}$ (K) & $\sigma$ (nm) & $\lambda$ & $\epsilon/k_{\rm B}$ (K) & $\sigma$ (nm) & $\lambda$ \\ \hline
+    			\multicolumn{1}{|c}{} & \multicolumn{3}{|c}{TraPPE} & \multicolumn{3}{|c|}{Potoff (S/L)}  \\ \hline
+    			CH$_3$ & 98 (134.5)  & 0.375 (0.352) & 12 & 121.25 & 0.3783 & 16  \\ 
+    			CH$_2$ & 46 & 0.395 & 12 & 61 & 0.399 & 16 \\ 
+    			CH & 10 & 0.468 & 12 & 15 (15/14) & 0.46 (0.47/0.47) & 16\\
+    			C & 0.5 & 0.640 & 12 & 1.2 (1.45/1.2) & 0.61 (0.61/0.62) & 16\\
+    			\hline
+    			\multicolumn{1}{|c}{} & \multicolumn{3}{|c}{NERD} & \multicolumn{3}{|c|}{} \\ \hline
+    			CH$_3$ & 104.00  & 0.3910 & 12 & -- & -- & --\\ 
+                CH$_3$ (2-methylpropane) & 78.23  & 0.3880 & 12 & -- & -- & --\\ 
+                CH$_3$ (2,2-dimethylpropane) & 74.50  & 0.3910 & 12 & -- & -- & --\\ 
+                CH$_3$ & 104.00  & 0.3910 & 12 & -- & -- & --\\ 
+    			CH$_2$ & 45.80 & 0.3930 & 12 & -- & -- & -- \\ 
+    			CH & 39.70 & 0.3850 & 12 &  -- & -- & --\\
+    			C & 17.00 & 0.3910 & 12 & -- & -- & --\\
+    			\hline
+    		\end{tabular}
+    	\end{center} 
+    \end{table}
+    
+    Non-bonded parameters between two different site types (i.e., cross-interactions) are determined using Lorentz-Berthelot combining rules \cite{Allen1987} for $\epsilon$ and $\sigma$ and an arithmetic mean for the repulsive exponent $\lambda$ (as recommended in Reference \citenum{Mie}):
+    \begin{equation} \label{eq:Lorentz-Berthelot_eps}
+    \epsilon_{ij} = \sqrt{\epsilon_{ii} \epsilon_{jj}}
+    \end{equation}
+    \begin{equation} \label{eq:Lorentz-Berthelot_sig}
+    \sigma_{ij} = \frac{\sigma_{ii} + \sigma_{jj}}{2}
+    \end{equation}
+    \begin{equation} \label{eq:Lorentz-Berthelot_lam}
+    \lambda_{ij} = \frac{\lambda_{ii} + \lambda_{jj}}{2}
+    \end{equation}
+    where the $ij$ subscript refers to cross-interactions and the subscripts $ii$ and $jj$ refer to same-site interactions. 
+    
+%\begin{enumerate}
+%	\item Simulations are performed for united-atom generalized Lennard-Jones (a.k.a., Mie $\lambda$-6) force fields
+%	\item We investigate the TraPPE, Potoff-generalized, Potoff (S/L), and NERD force fields 
+%	\item Details of force fields
+%\end{enumerate}
 
 \subsection{Simulation set-up} \label{sec: Simulation set-up}
 
-\begin{enumerate}
-	\item Simulations performed by Mick et al. are reanalyzed using MBAR
-	\item Additional simulations are performed in GCMC ensemble using GPU optimized Monte Carlo (GOMC)
-	\item Simulation specifications, i.e., box size, number of steps, type of moves, etc.
-	\item State points (chemical potentials and temperatures) simulated are same as those utilized in Mick et al.
-\end{enumerate}
+The majority of results presented in Section \ref{sec: Results} are obtained by reprocessing simulation output that were analyzed in previous studies utilizing histogram reweighting \cite{Potoff_branched,Barhaghi2017}. New simulation results are provided for \textit{n}-hexane, 2-methylpropane, 2,2-dimethylpropane, 2,2,4-trimethylhexane, 2,3-dimethylbutane, 2,3,4-trimethylpentane, 2,2,3,3-tetramethylbutane, and cyclohexane. All simulations are performed using GPU optimized Monte Carlo (GOMC) with Grand Canonical Monte Carlo (GCMC), where the chemical potential ($\mu$), volume $(V)$, and temperature $(T)$ are constant. 
+
+A series of nine simulations are performed, two in the vapor phase, six in the liquid phase, and one near critical which acts as the ``bridge'' between the vapor and liquid phases. A low-density (less than twenty molecules) initial configuration is utilized for the vapor phase simulations, while the bridge and liquid phase simulations are initialized with a high-density (around 200 molecules) configuration. The system volume is the same for each simulation, but varies somewhat between compounds. The prescribed chemical potentials and temperatures for the branched alkanes are the same as those utilized in Mick et al. \cite{Potoff_branched}. The $\mu-T$ values for \textit{n}-hexane and cyclohexane are determined in this study. All state points are reported in Supporting Information. 
+
+The equilibration stage for each GCMC simulation consists of $2 \times 10^7$ Monte Carlo steps (MCS). The production stage is $4 \times 10^7$ MCS for vapor simulations and $2.5 \times 10^7$ MCS for the liquid and ``bridge'' simulations. Snapshots (i.e., number of molecules, internal energy, and optionally the xyz coordinates) are stored every 200 MCS to reduce the correlation between sequential configurations. Thus, the total number of snapshots $(N_{\rm snaps})$ is $2 \times 10^5$ for vapor simulations and $1.25 \times 10^5$ for liquid and ``bridge'' simulations. The type of Monte Carlo move implemented for each step is selected randomly with a 20\%, 10\%, and 70\% probability of performing a displacement, rotation, and particle swap move, respectively. The move probabilities are slightly different for cyclohexane, namely, 30\%, 10\%, 40\%, and 20\% for displacement, rotation, particle swap, and crank-shaft moves, respectively.  
+
+%, where a Monte Carlo cycle is defined as $N$ individual Monte Carlo steps
+
+Four different applications for MBAR are demonstrated in this study, where slightly different types of simulation output are required. First, we demonstrate how MBAR yields consistent results to those previously reported using histogram reweighting. The standard simulation output is used in this application, namely, a 2x$N_{\rm snaps}$ array containing the number of molecules and the internal energy for all $N_{\rm snaps}$ snapshots. Second, we demonstrate how these same data can be used with MBAR to predict VLE properties when performing $\epsilon$-scaling. Third, we investigate how well MBAR can predict VLE for force field ``j'' from sampled states of force field ``i.'' In this case, a 3x$N_{\rm snaps}$ array is required, where the additional column is the internal energy computed with force field ``j'' for the configurations sampled with force field ``i.'' Fourth, we demonstrate how storing basis functions is a computationally efficient method for predicting VLE for multiple force fields that are unknown at runtime.   
+
+%\begin{enumerate}
+%	\item Simulations performed by Mick et al. are reanalyzed using MBAR
+%	\item Additional simulations are performed in GCMC ensemble using GPU optimized Monte Carlo (GOMC)
+%	\item Simulation specifications, i.e., box size, number of steps, type of moves, etc.
+%	\item State points (chemical potentials and temperatures) simulated are same as those utilized in Mick et al.
+%\end{enumerate}
 
 \subsection{Multistate Bennett Acceptance Ratio} \label{sec: MBAR}
 

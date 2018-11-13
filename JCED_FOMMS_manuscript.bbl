@@ -8,7 +8,7 @@
 \providecommand*\mcitethebibliography{\thebibliography}
 \csname @ifundefined\endcsname{endmcitethebibliography}
   {\let\endmcitethebibliography\endthebibliography}{}
-\begin{mcitethebibliography}{22}
+\begin{mcitethebibliography}{28}
 \providecommand*\natexlab[1]{#1}
 \providecommand*\mciteSetBstSublistMode[1]{}
 \providecommand*\mciteSetBstMaxWidthForm[2]{}
@@ -210,5 +210,55 @@ Weidler,~D.; Gross,~J. Individualized force fields for alkanes, olefins, ethers
 \mciteBstWouldAddEndPunctfalse
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Martin and Siepmann(1999)Martin, and Siepmann]{Martin1999}
+Martin,~M.~G.; Siepmann,~J.~I. Novel Configurational-Bias Monte Carlo Method
+  for Branched Molecules. {Transferable Potentials for Phase Equilibria. 2.
+  United-Atom Description of Branched Alkanes}. \emph{The Journal of Physical
+  Chemistry B} \textbf{1999}, \emph{103}, 4508--4517\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Shah \latin{et~al.}(2017)Shah, Siepmann, and Tsapatsis]{TraPPEUA2}
+Shah,~M.~S.; Siepmann,~J.~I.; Tsapatsis,~M. Transferable potentials for phase
+  equilibria. Improved united-atom description of ethane and ethylene.
+  \emph{AIChE J.} \textbf{2017}, \emph{63}, 5098--5110\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Mick \latin{et~al.}(2017)Mick, Soroush~Barhaghi, Jackman, Schwiebert,
+  and Potoff]{Potoff_branched}
+Mick,~J.~R.; Soroush~Barhaghi,~M.; Jackman,~B.; Schwiebert,~L.; Potoff,~J.~J.
+  Optimized Mie Potentials for Phase Equilibria: Application to Branched
+  Alkanes. \emph{J. Chem. Eng. Data} \textbf{2017}, \emph{62}, 1806--1818\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Nath \latin{et~al.}(1998)Nath, Escobedo, and de~Pablo]{NERD}
+Nath,~S.~K.; Escobedo,~F.~A.; de~Pablo,~J.~J. On the simulation of vapor-liquid
+  equilibria for alkanes. \emph{J. Chem. Phys.} \textbf{1998}, \emph{108},
+  9905--9911\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Allen and Tildesley(1987)Allen, and Tildesley]{Allen1987}
+Allen,~M.~P.; Tildesley,~D.~J. \emph{Computer simulation of liquids}; Clarendon
+  Press ; Oxford University Press: Oxford England New York, 1987; pp xix, 385
+  p.\relax
+\mciteBstWouldAddEndPunctfalse
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Barhaghi \latin{et~al.}(2017)Barhaghi, Mick, and Potoff]{Barhaghi2017}
+Barhaghi,~M.~S.; Mick,~J.~R.; Potoff,~J.~J. Optimised Mie potentials for phase
+  equilibria: application to alkynes. \emph{Molecular Physics} \textbf{2017},
+  \emph{115}, 1378--1388\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
 \EndOfBibitem
 \end{mcitethebibliography}
