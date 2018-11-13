@@ -203,7 +203,7 @@ The results from Messerly et al. demonstrate that MBAR-ITIC is most reliable in 
 
 %The results from Messerly et al. demonstrate that MBAR-ITIC is most reliable in the local domain, i.e., for parameter sets near the ``reference'' parameter set from which configurations are sampled \cite{Postdoc_1}. Furthermore, MBAR-ITIC performs best for changes in the non-bonded well-depth parameter $(\epsilon)$ while it performs significantly worse for large changes in the non-bonded size and repulsive parameters $(\sigma$ and $\lambda$, respectively$)$. This is typically referred to as poor ``overlap.''
 
-Our hypothesis is that GCMC-MBAR should have better overlap over the non-bonded parameter space than what was observed for GCMC-ITIC. There are two main reasons for this hypothesis/aspiration. First, the fluctuating densities of GCMC simulations, as opposed to the fixed density $NVT$ simulations, accommodate a wider range of configurations and energies. Second, ITIC requires accurate calculations of $U$ and $P$ in the vapor phase, which necessitate larger box sizes (and, thereby, more molecules) than those typically utilized with GCMC. By utilizing fewer molecules, GCMC simulations experience larger energy fluctuations (on a percent basis) which improves the overlap between states. We also hypothesize that the impact of poor overlap is less severe compared to ITIC, where poor overlap leads to sporadic coexistence estimates.  
+Our hypothesis is that GCMC-MBAR should have better overlap over the non-bonded parameter space than what was observed for MBAR-ITIC. There are two main reasons for this hypothesis/aspiration. First, the fluctuating densities of GCMC simulations, as opposed to the fixed density $NVT$ simulations, accommodate a wider range of configurations and energies. Second, ITIC requires accurate calculations of $U$ and $P$ in the vapor phase, which necessitate larger box sizes (and, thereby, more molecules) than those typically utilized with GCMC. By utilizing fewer molecules, GCMC simulations experience larger energy fluctuations (on a percent basis) which improves the overlap between states. We also hypothesize that the impact of poor overlap is less severe compared to ITIC, where poor overlap leads to sporadic coexistence estimates.  
 
 %  require a large number of snapshots ITIC requires precise estimates of $P$ in the liquid phase, which necessitates a large number of of snapshots for
 
@@ -294,30 +294,66 @@ The outline for this study is the following. Section \ref{sec: Methods} provides
     
     The non-bonded Mie $\lambda$-6 force field parameters for TraPPE, Potoff, and NERD are provided in Table \ref{tab:nonbonded params}. Potoff reports a ``generalized'' and ``short/long'' (S/L) CH and C parameter set. The ``short'' and ``long'' parameters are implemented when the number of carbons in the backbone is $\le 4$ and $> 4$, respectively. Also note that the NERD force field has several different parameter sets for CH$_3$ sites.
     
+%%% Old format
+%    \begin{table}[h!]
+%    	\caption{Non-bonded (intermolecular) parameters for TraPPE \cite{TraPPE,Martin1999}, Potoff \cite{Mie,Potoff_branched}, and NERD \cite{NERD}. The ``short/long'' Potoff CH and C parameters are included in parentheses.} \label{tab:nonbonded params}
+%    	\begin{center}
+%    		\begin{tabular}{|c|c|c|c|c|c|c|}
+%    			\hline
+%    			United-atom & $\epsilon/k_{\rm B}$ (K) & $\sigma$ (nm) & $\lambda$ & $\epsilon/k_{\rm B}$ (K) & $\sigma$ (nm) & $\lambda$ \\ \hline
+%    			\multicolumn{1}{|c}{} & \multicolumn{3}{|c}{TraPPE} & \multicolumn{3}{|c|}{Potoff (S/L)}  \\ \hline
+%    			CH$_3$ & 98 (134.5)  & 0.375 (0.352) & 12 & 121.25 & 0.3783 & 16  \\ 
+%    			CH$_2$ & 46 & 0.395 & 12 & 61 & 0.399 & 16 \\ 
+%    			CH & 10 & 0.468 & 12 & 15 (15/14) & 0.46 (0.47/0.47) & 16\\
+%    			C & 0.5 & 0.640 & 12 & 1.2 (1.45/1.2) & 0.61 (0.61/0.62) & 16\\
+%    			\hline
+%    			\multicolumn{1}{|c}{} & \multicolumn{3}{|c}{NERD} & \multicolumn{3}{|c|}{} \\ \hline
+%    			CH$_3$ & 104.00  & 0.3910 & 12 & -- & -- & --\\ 
+%                CH$_3$ (2-methylpropane) & 78.23  & 0.3880 & 12 & -- & -- & --\\ 
+%                CH$_3$ (2,2-dimethylpropane) & 74.50  & 0.3910 & 12 & -- & -- & --\\ 
+%                CH$_3$ & 104.00  & 0.3910 & 12 & -- & -- & --\\ 
+%    			CH$_2$ & 45.80 & 0.3930 & 12 & -- & -- & -- \\ 
+%    			CH & 39.70 & 0.3850 & 12 &  -- & -- & --\\
+%    			C & 17.00 & 0.3910 & 12 & -- & -- & --\\
+%    			\hline
+%    		\end{tabular}
+%    	\end{center} 
+%    \end{table}
+
     \begin{table}[h!]
-    	\caption{Non-bonded (intermolecular) parameters for TraPPE \cite{TraPPE,Martin1999}, Potoff \cite{Mie,Potoff_branched}, and NERD \cite{NERD}. The ``short/long'' Potoff CH and C parameters are included in parentheses.} \label{tab:nonbonded params}
-    	\begin{center}
-    		\begin{tabular}{|c|c|c|c|c|c|c|}
-    			\hline
-    			United-atom & $\epsilon/k_{\rm B}$ (K) & $\sigma$ (nm) & $\lambda$ & $\epsilon/k_{\rm B}$ (K) & $\sigma$ (nm) & $\lambda$ \\ \hline
-    			\multicolumn{1}{|c}{} & \multicolumn{3}{|c}{TraPPE} & \multicolumn{3}{|c|}{Potoff (S/L)}  \\ \hline
-    			CH$_3$ & 98 (134.5)  & 0.375 (0.352) & 12 & 121.25 & 0.3783 & 16  \\ 
-    			CH$_2$ & 46 & 0.395 & 12 & 61 & 0.399 & 16 \\ 
-    			CH & 10 & 0.468 & 12 & 15 (15/14) & 0.46 (0.47/0.47) & 16\\
-    			C & 0.5 & 0.640 & 12 & 1.2 (1.45/1.2) & 0.61 (0.61/0.62) & 16\\
-    			\hline
-    			\multicolumn{1}{|c}{} & \multicolumn{3}{|c}{NERD} & \multicolumn{3}{|c|}{} \\ \hline
-    			CH$_3$ & 104.00  & 0.3910 & 12 & -- & -- & --\\ 
-                CH$_3$ (2-methylpropane) & 78.23  & 0.3880 & 12 & -- & -- & --\\ 
-                CH$_3$ (2,2-dimethylpropane) & 74.50  & 0.3910 & 12 & -- & -- & --\\ 
-                CH$_3$ & 104.00  & 0.3910 & 12 & -- & -- & --\\ 
-    			CH$_2$ & 45.80 & 0.3930 & 12 & -- & -- & -- \\ 
-    			CH & 39.70 & 0.3850 & 12 &  -- & -- & --\\
-    			C & 17.00 & 0.3910 & 12 & -- & -- & --\\
-    			\hline
-    		\end{tabular}
-    	\end{center} 
-    \end{table}
+		\caption{Non-bonded (intermolecular) parameters for TraPPE \cite{TraPPE,Martin1999}, Potoff \cite{Mie,Potoff_branched}, and NERD \cite{NERD}.} \label{tab:nonbonded params}
+		\begin{center}
+			\begin{tabular}{|c|c|c|c|}
+				\hline
+				United-atom & $\epsilon/k_{\rm B}$ (K) & $\sigma$ (nm) & $\lambda$ \\ \hline
+				\multicolumn{1}{|c}{} & \multicolumn{3}{|c|}{TraPPE} \\ \hline
+				CH$_3$ & 98 (134.5)  & 0.375 (0.352) & 12 \\ 
+				CH$_2$ & 46 & 0.395 & 12\\ 
+				CH & 10 & 0.468 & 12 \\
+				C & 0.5 & 0.640 & 12 \\
+				\hline
+				\multicolumn{1}{|c}{} & \multicolumn{3}{|c|}{Potoff} \\ \hline
+				CH$_3$ & 121.25 & 0.3783 & 16  \\ 
+				CH$_2$ & 61 & 0.399 & 16 \\ 
+				CH, gen. & 15 & 0.46 & 16\\
+				C, gen. & 1.2 & 0.61 & 16\\
+				CH, short & 15 & 0.47 & 16\\
+				C, short & 1.45 & 0.61 & 16\\
+				CH, long & 14 & 0.47 & 16\\
+				C, long & 1.2 & 0.62 & 16\\
+				\hline
+				\multicolumn{1}{|c}{} & \multicolumn{3}{|c|}{NERD} \\ \hline
+				CH$_3$ & 104.00  & 0.3910 & 12\\ 
+				CH$_3$ (2-methylpropane) & 78.23  & 0.3880 & 12\\ 
+				CH$_3$ (2,2-dimethylpropane) & 74.50  & 0.3910 & 12 \\ 
+%				CH$_3$ & 104.00  & 0.3910 & 12\\ 
+				CH$_2$ & 45.80 & 0.3930 & 12 \\ 
+				CH & 39.70 & 0.3850 & 12\\
+				C & 17.00 & 0.3910 & 12 \\
+				\hline
+			\end{tabular}
+		\end{center} 
+	\end{table}
     
     Non-bonded parameters between two different site types (i.e., cross-interactions) are determined using Lorentz-Berthelot combining rules \cite{Allen1987} for $\epsilon$ and $\sigma$ and an arithmetic mean for the repulsive exponent $\lambda$ (as recommended in Reference \citenum{Mie}):
     \begin{equation} \label{eq:Lorentz-Berthelot_eps}
@@ -357,6 +393,70 @@ Four different applications for MBAR are demonstrated in this study, where sligh
 %\end{enumerate}
 
 \subsection{Multistate Bennett Acceptance Ratio} \label{sec: MBAR}
+
+The GCMC approach for estimating phase coexistence requires significant post-processing. Before demonstrating how we implement MBAR for this purpose, we review the traditional histogram reweighting approach. We also discuss the steps of this procedure that are the same for both HR and MBAR. We refer the interested reader to the literature for derivations and more detailed discussion of the GCMC-HR equations (cf. \citenum{Pana2000}).
+
+
+%\begin{eqnarray} \label{HR prob}
+%Pr(N,U) = \frac{\Omega (N,V,U) \exp (-\beta U + \beta \mu N)}{\Xi (\mu, V, \beta)}
+%\end{eqnarray}
+
+MRSHIRTS: I would like the MBAR and histogram reweighting equations to be consistent with each other in the limit of zero bin-width and a single reference force field. Here is how HR is presented in the literature, verbatim:
+
+The probability of observing $N$ particles with internal energy $U$ for a given chemical potential $(\mu)$ and inverse temperature $(\beta \equiv \frac{1}{k_{\rm B}T}$ where $k_{\rm B}$ is the Boltzmann constant) is
+%%% This is how the equation is presented in Pana2000, but I want to have similar terms between MBAR and HR
+\begin{eqnarray} \label{eq: HR prob lit}
+p(N,E;\mu,\beta) = \frac{\sum_{i=1}^{R} f_i(N,E)  \exp(-\beta E + \beta \mu N)}{\sum_{i=1}^{R} K_i \exp(-\beta_i U + \beta_i \mu_i N - C_i)}
+\end{eqnarray}
+where $f_i(N,E)$ is the probability of occurrence $N$ particles in the simulation cell with total configurational energy in the vicinity of $E$, $K_i$ is the total number of observations $(K_i = \sum_{N,E} f_i(N,E))$ for run $i$. The constants $C_i$ (also known as ``weights'') are obtained by iteration from the relationship
+\begin{eqnarray} \label{eq: Weights lit}
+\exp (C_i) = \sum_{E} \sum_{N} p(N,E;\mu_i,\beta_i)
+\end{eqnarray}
+Given an initial guess for the set of weights $C_i$, Equations \ref{eq: HR prob lit} and \ref{eq: Weights lit} can be iterated until convergence. The ensemble average for a given observable is
+\begin{eqnarray}
+\langle O \rangle_{\mu,\beta} = \sum_{E} \sum_{N} p(N,E;\mu,\beta) \times O
+\end{eqnarray}
+The pressure of a system can be obtained from the following expression. If the conditions for run 1 are $(\mu_1, V, \beta_1) and for run 2 (\mu_2, V, \beta_2)$, then
+\begin{eqnarray} \label{eq: press lit}
+C_2 - C_1 = \ln \frac{\Xi (\mu_2,V,\beta_2)}{\Xi (\mu_1,V,\beta_1)} = \beta_2 P_2 V - \beta_1 P_1 V
+\end{eqnarray}
+where $P$ is the pressure, since $\ln \Xi = \beta P V$. Equation \ref{eq: press lit} can be used to obtain the absolute value of the pressure for one of the two runs, provided that the absolute pressure can be estimated for the other run. Typically, this is done by performing simulations for low-density states for which the system follows the ideal gas equation of state, $P V = N k_{\rm B} T$.
+ 
+%\begin{eqnarray} \label{HR prob}
+%Pr(N,U|\mu,\beta) = \frac{\sum_{i=1}^{R} Pr_i(N,U)  \exp(-\beta U + \beta \mu N)}{\sum_{i=1}^{R} K_i \exp(-\beta_i U + \beta_i \mu_i N - C_i)}
+%\end{eqnarray}
+
+MRSHIRTS: Here is how I reported the MBAR equations in our first publication:
+
+With MBAR the expectation $\langle O(\theta) \rangle$ for force field $(\theta)$ of any given observable $(O)$ can be expressed as:
+\begin{eqnarray} \label{MBAR O theta}
+\langle O(\theta)\rangle = \sum_{n=1}^{N} O(\x_{n};\theta) W_{n}(\theta)
+\end{eqnarray}
+where $\x_n$ are configurations sampled from one or more reference force fields $(\theta_{\rm ref})$, % is a set of samples collected from one or more previous simulations,
+$O(\x_{n};\theta)$ is the observable value using force field 
+$\theta$ with configurations $\x_n$, and $W_{n}(\theta)$ is the weight of the $n^{th}$
+configuration using force field $\theta$, calculated by using:
+\begin{eqnarray} \label{MBAR weights theta}
+W_{n}(\theta) = \frac{\exp[\hat{f}(\theta)-u(\x_{n};\theta)]}{\sum\limits_{k=1}^K N_k \, \exp[\hat{f}(\theta_{\rm ref,k}) - u(\x_{n};\theta_{\rm ref,k})]}
+\end{eqnarray}
+where the reduced free energies $(\hat f(\theta))$ are calculated with:
+\begin{eqnarray} \label{MBAR free energy theta}
+\hat f(\theta) &=& - \ln \sum_{n=1}^{N^{\rm tot}_{\rm snaps}}
+\frac{\exp[-u(\x_{n};\theta)]}{\sum\limits_{k=1}^K N_k \, \exp[\hat{f}(\theta_{\rm ref,k}) - u(\x_{n};\theta_{\rm ref,k})]} \label{equation:estimator-of-free-energies}
+\end{eqnarray}
+where $K$ is the number of reference force fields, $N^{\rm tot}_{\rm snaps} = \sum_k N_k$ is the total number of snapshots for all $K$ reference force fields, $N_k$ are the total number of snapshots from the $k^{th}$ reference force field, $\theta_{\rm ref,k}$ is the $k^{th}$ reference (i.e. simulated) force field, and $u(\x_{n};\theta)$ is the reduced potential energy evaluated with $\theta$ for configuration $\x_n$. For the grand canonical ensemble, $u(\x_{n};\theta) = \beta U(\x_n;\theta) - \beta \mu N$, where $\beta = \frac{1}{k_{\rm B}T}$ and $k_{\rm B}$ is the Boltzmann constant. 
+
+Note that $\hat f(\theta_{\rm ref,k})$ is required to evaluate the denominator of Equations \ref{MBAR weights theta}-\ref{MBAR free energy theta}. The values for $\hat f(\theta_{\rm ref,k})$ are obtained by solving a system of $K$ equations for self-consistency. Specifically, an initial guess for $\hat f(\theta_{\rm ref,k})$ is used to evaluate Equation \ref{MBAR free energy theta} with $\theta=\theta_{\rm ref,k}$ to obtain updated values of $\hat f(\theta_{\rm ref,k})$. This process is repeated until the values for $\hat f(\theta_{\rm ref,k})$ converge to within a desired tolerance. Although solving the MBAR system of equations for self-consistency may require several iterations, fortunately, once this process has been performed $\hat f(\theta)$ (for an arbitrary $\theta$) is evaluated without further iteration.
+
+The performance of MBAR depends strongly on good phase space overlap, meaning that the configurations sampled by the reference force field(s) must represent a significant portion of the ``true'' configurations that the non-simulated force field would sample \cite{naden:jctc:2016}. If the configurational overlap is small the MBAR estimates are likely dominated by a few configurations, which are likely not representative of the ensemble that would be generated by direct simulation of force field $\theta$. The amount of overlap can be quantified by the number of effective samples $(N_{\rm eff})$ \cite{Dybeck2016}, using Kish's formula:
+\begin{eqnarray} \label{Neff}
+N_{\rm eff} = \frac{\left(\sum_n W_n\right)^2}{\sum_n W_n^2}
+\end{eqnarray}
+which reduces to $N_{\rm eff} = (\sum_n W_n^2)^{-1}$ when the weights are
+normalized. This has the property that when the weights are equal,
+$N_{\rm eff} = N$, when all but one weight is negligible, $N_{\rm eff} \approx
+1$, and behaves appropriately for intermediate cases. 
+In the case of poor overlap $(N_{\rm eff} \approx 1)$, the predicted values of MBAR will demonstrate a strong bias and the uncertainties will likely be underestimated by the MBAR covariance matrix. 
 
 \begin{enumerate}
 	\item Traditionally, histogram reweighting (HR) has been applied with GCMC to calculate vapor-liquid coexistence properties
@@ -403,6 +503,15 @@ Four different applications for MBAR are demonstrated in this study, where sligh
 \end{enumerate}
 
 \subsection{Figures}
+
+	\begin{figure}[htb!]
+		\centering
+		\includegraphics[width=6.4in]{Comparison_MBAR_HR_boxplot_CI.png}
+		\caption{Percent deviations between coexistence properties computed using histogram reweighting (HR) and Multistate Bennett Acceptance Ratio (MBAR). Top-left, top-right, bottom-left, and bottom-right panels correspond to saturated liquid density, saturated vapor density, saturated vapor pressure, and enthalpy of vaporization, respectively. Boxes depict the first and third quartiles while whiskers represent the range that contains 95\% of the data.}
+		\label{fig:comparison MBAR HR}
+	\end{figure}
+
+%(a), (b), (c), and (d)
 
 \begin{enumerate}
 	\item Percent deviation between MBAR and HR results for rholiq, rhovap, Psat, and DeltaHv
