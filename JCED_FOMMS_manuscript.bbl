@@ -8,7 +8,7 @@
 \providecommand*\mcitethebibliography{\thebibliography}
 \csname @ifundefined\endcsname{endmcitethebibliography}
   {\let\endmcitethebibliography\endthebibliography}{}
-\begin{mcitethebibliography}{30}
+\begin{mcitethebibliography}{31}
 \providecommand*\natexlab[1]{#1}
 \providecommand*\mciteSetBstSublistMode[1]{}
 \providecommand*\mciteSetBstMaxWidthForm[2]{}
@@ -174,6 +174,16 @@ Razavi,~S.~M.; Messerly,~R.~A.; Elliott,~J.~R. Coexistence Calculation Using
 \mciteBstWouldAddEndPunctfalse
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Kiyohara \latin{et~al.}(1996)Kiyohara, Spyriouni, Gubbins, and
+  Panagiotopoulos]{Kiyohara1996}
+Kiyohara,~K.; Spyriouni,~T.; Gubbins,~K.~E.; Panagiotopoulos,~A.~Z.
+  Thermodynamic scaling Gibbs ensemble Monte Carlo: a new method for
+  determination of phase coexistence properties of fluids. \emph{Molecular
+  Physics} \textbf{1996}, \emph{89}, 965--974\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
 \EndOfBibitem
 \bibitem[Errington and Panagiotopoulos(1998)Errington, and
   Panagiotopoulos]{Errington1998}
