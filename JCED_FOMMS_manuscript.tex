@@ -212,7 +212,7 @@ Our initial hypothesis was that GCMC-MBAR should have better overlap over the no
 
 %configurations. $(NVT)$ does not sample from a wide range of energies  leads to large energy differences for small changes in $\sigma$ and $\lambda$. The fluctuating densities of GCMC simulations should accommodate greater changes in short-range interactions. 
 
-The method outlined in this study is similar in spirit to ``Hamiltonian scaling'' (HS), which has been applied to both GEMC and GCMC simulations \cite{Errington1998,Exp6,Errington1999,Pana2000}. The HS approach samples from multiple force fields (Hamiltonians) in a single simulation according to a weighted sampling probability. Vapor-liquid coexistence curves for each force field are estimated post-simulation by reweighting the configurations accordingly. For the Grand Canonical Monte Carlo implementation of Hamiltonian scaling (HS-GCMC), $\mu$ and $T$ are not stationary during the simulation, rather the current value of $\mu$ and $T$ depends on which force field is being sampled. Despite HS-GCMC proving to be a powerful tool to optimize force field parameters \cite{Errington1998,Exp6,Errington1999,Pana2000}, it has yet to gain widespread popularity. This is likely due to the added complexity of both the simulation protocol and the histogram post-processing. Also, HS requires that a decision be made \textit{a priori} regarding which force fields are to be tested. By contrast, MBAR does not require any modification of the simulation procedure, the post-processing is essentially unchanged, and the non-bonded parameter sets need not be selected prior to the simulations.
+The method outlined in this study is similar in spirit to ``Hamiltonian scaling'' (HS), which has been applied to both GEMC \cite{Kiyohara1996} and GCMC simulations \cite{Errington1998,Exp6,Errington1999,Pana2000}. The HS approach samples from multiple force fields (Hamiltonians) in a single simulation according to a weighted sampling probability. Vapor-liquid coexistence curves for each force field are estimated post-simulation by reweighting the configurations accordingly. For the Grand Canonical Monte Carlo implementation of Hamiltonian scaling (HS-GCMC), $\mu$ and $T$ are not stationary during the simulation, rather the current value of $\mu$ and $T$ depends on which force field is being sampled. Despite HS-GCMC proving to be a powerful tool to optimize force field parameters \cite{Errington1998,Exp6,Errington1999,Pana2000}, it has yet to gain widespread popularity. This is likely due to the added complexity of both the simulation protocol and the histogram post-processing. Also, HS requires that a decision be made \textit{a priori} regarding which force fields are to be tested. By contrast, MBAR does not require any modification of the simulation procedure, the post-processing is essentially unchanged, and the non-bonded parameter sets need not be selected prior to the simulations.
 
 Recently, Weidler and Gross proposed ``individualized,'' i.e., compound-specific, parameter sets for compounds which contain large amounts of experimental data \cite{Weidler2018}. To avoid overfitting, a one-dimensional optimization is employed which scales $\epsilon$ for all united-atom sites while not adjusting $\sigma$ or $\lambda$. MBAR is ideally suited for this ``$\epsilon$-scaling'' approach for at least two reasons. First, as mentioned previously, MBAR is most reliable when extrapolating in $\epsilon$ rather than $\sigma$ and/or $\lambda$. Second, the rate-limiting step for MBAR is recomputing the configurational energies for a different force field. Furthermore, storing millions of configuration ``snapshots'' is highly memory intensive. While basis functions (see Section \ref{sec: Basis functions}) alleviate the additional computational cost and reduce the memory load, $\epsilon$-scaling does not require storing/recomputing configurations or basis functions. Instead, the energies for each snapshot are simply multiplied by the $\epsilon$-scaling parameter.  
 
@@ -246,9 +246,9 @@ The outline for this study is the following. Section \ref{sec: Methods} provides
 
 \subsection{Force fields} \label{sec: Force fields}
 
-    The force fields utilized in this study are Transferable Potentials for Phase Equilibria (TraPPE-UA, also referred to simply as TraPPE \cite{TraPPE,Martin1999,TraPPEUA2}), Potoff \cite{Mie,Potoff_branched}, and Nath, Escobedo, and de Pablo revised (NERD). Each force field adopts a united-atom (UA) representation, where non-polar hydrogens are not modeled explicitly. The non-bonded potential is of the generalized Lennard-Jones (Mie $\lambda$-6) form. 
+    The force fields utilized in this study are Transferable Potentials for Phase Equilibria (TraPPE-UA, also referred to simply as TraPPE \cite{TraPPE,Martin1999,TraPPEUA2}), Mie Potentials for Phase Equilibria (MiPPE) \cite{Mie,Potoff_branched}, and Nath, Escobedo, and de Pablo revised (NERD). Each force field adopts a united-atom (UA) representation, where non-polar hydrogens are not modeled explicitly. The non-bonded potential is of the generalized Lennard-Jones (Mie $\lambda$-6) form. 
     
-    The bond lengths for the TraPPE, Potoff, and NERD force fields are 0.154 nm for all compounds studied. The same angle and dihedral potentials are used for each force field. Angular bending interactions are evaluated using a harmonic potential:
+    The bond lengths for the TraPPE, MiPPE, and NERD force fields are 0.154 nm for all compounds studied. The same angle and dihedral potentials are used for each force field. Angular bending interactions are evaluated using a harmonic potential:
     \begin{equation}
     u^{\rm bend} = \frac{k_\theta}{2} \left(\theta-\theta_0\right)^2
     \end{equation}
@@ -295,7 +295,7 @@ The outline for this study is the following. Section \ref{sec: Methods} provides
     \end{equation} 
     where $u^{\rm nb}$ is the van der Waals interaction, $\sigma$ is the distance $(r)$ where $u^{\rm nb} = 0$, $-\epsilon$ is the energy of the potential at the minimum $\left(\text{i.e., }u^{\rm nb} = -\epsilon \text{ and } \frac{\partial u^{\rm nb}}{\partial r} = 0 \text{ for } r=r_{\rm min} \right)$, and $\lambda$ is the repulsive exponent. 
     
-    The non-bonded Mie $\lambda$-6 force field parameters for TraPPE, Potoff, and NERD are provided in Table \ref{tab:nonbonded params}. Potoff reports a ``generalized'' and ``short/long'' (S/L) CH and C parameter set. The ``short'' and ``long'' parameters are implemented when the number of carbons in the backbone is $\le 4$ and $> 4$, respectively. Also note that the NERD force field has several different parameter sets for CH$_3$ sites.
+    The non-bonded Mie $\lambda$-6 force field parameters for TraPPE, MiPPE, and NERD are provided in Table \ref{tab:nonbonded params}. MiPPE reports a ``generalized'' (MiPPE-gen) and ``short/long'' (MiPPE-SL) CH and C parameter set. The ``short'' and ``long'' parameters are implemented when the number of carbons in the backbone is $\le 4$ and $> 4$, respectively. Also note that the NERD force field has several different parameter sets for CH$_3$ sites.
     
 %%% Old format
 %    \begin{table}[h!]
@@ -324,7 +324,7 @@ The outline for this study is the following. Section \ref{sec: Methods} provides
 %    \end{table}
 
     \begin{table}[h!]
-		\caption{Non-bonded (intermolecular) parameters for TraPPE \cite{TraPPE,Martin1999}, Potoff \cite{Mie,Potoff_branched}, and NERD \cite{NERD}.} \label{tab:nonbonded params}
+		\caption{Non-bonded (intermolecular) parameters for TraPPE \cite{TraPPE,Martin1999}, MiPPE \cite{Mie,Potoff_branched}, and NERD \cite{NERD}.} \label{tab:nonbonded params}
 		\begin{center}
 			\begin{tabular}{|c|c|c|c|}
 				\hline
@@ -335,7 +335,7 @@ The outline for this study is the following. Section \ref{sec: Methods} provides
 				CH & 10 & 0.468 & 12 \\
 				C & 0.5 & 0.640 & 12 \\
 				\hline
-				\multicolumn{4}{|c|}{Potoff} \\ \hline
+				\multicolumn{4}{|c|}{MiPPE} \\ \hline
 				CH$_3$ & 121.25 & 0.3783 & 16  \\ 
 				CH$_2$ & 61 & 0.399 & 16 \\ 
 				CH, gen. & 15 & 0.46 & 16\\
@@ -591,22 +591,22 @@ Reference \citenum{Weidler2018} proposed an $\epsilon$-scaling approach for conv
 \end{equation}
 where $\epsilon_{ii}^{\rm ind}$ is the individualized $\epsilon$ value for united-atom $ii$ and $\epsilon_{ii}^{\rm tran}$ is the corresponding transferable $\epsilon$ value. A truly transferable force field should have $\psi \approx 1$ for all compounds. Weigler et al. tend to characterize the individualization as being useful when the scaling is greater than 0.4\% (i.e., $|1 - \psi| > 0.004$). 
 
-Figure \ref{fig:epsilon_scaling} shows that the alkynes require a greater degree of scaling than the branched alkanes. The TAMie force field also found $\psi \approx 1$ for branched alkanes. Although $\psi$ values for iTAMie were not reported for alkynes, the largest $\psi$ value for olefins, ethers, and ketones was $\approx 1.01$. Therefore, the transferability of the Potoff force field appears to be slightly poorer for 2-pentyne and 2-hexyne, which have an optimized $\psi > 1.01$. It is also interesting that only 3 out of 19 compounds require $\psi < 1$. By contrast, this trend was not observed in Reference \citenum{Weidler2018}. 
+Figure \ref{fig:epsilon_scaling} shows that the alkynes require a greater degree of scaling than the branched alkanes. The TAMie force field also found $\psi \approx 1$ for branched alkanes. Although $\psi$ values for iTAMie were not reported for alkynes, the largest $\psi$ value for olefins, ethers, and ketones was $\approx 1.01$. Therefore, the transferability of the MiPPE force field appears to be slightly poorer for 2-pentyne and 2-hexyne, which have an optimized $\psi > 1.01$. It is also interesting that only 3 out of 19 compounds require $\psi < 1$. By contrast, this trend was not observed in Reference \citenum{Weidler2018}. 
 
 %.  is introduced should result in low deviations between experiment and simulation, it is likely that such a parameter set would be overfit and, thus, perform poorly some compounds have sufficient experimental 
 
 	\begin{figure}[htb!]
 		\centering
 		\includegraphics[width=6.4in]{Optimal_epsilon_scaling.pdf}
-		\caption{One dimensional optimization with $\epsilon$-scaling $(\phi)$ of Potoff-SL for select branched alkanes (left) and alkynes (right). Open symbols correspond to the original force field, i.e., $\phi = 1$, while the filled stars are the optimal $\phi$ value for a given compound.}
+		\caption{One dimensional optimization with $\epsilon$-scaling $(\phi)$ of MiPPE-SL for select branched alkanes (left) and alkynes (right). Open symbols correspond to the original force field, i.e., $\phi = 1$, while the filled stars are the optimal $\phi$ value for a given compound.}
 		\label{fig:epsilon_scaling}
 	\end{figure}
 
 % MBAR is ideally suited for $\epsilon$-scaling for at least two reasons.
  
-At least two reasons exist for why MBAR is ideally suited for $\epsilon$-scaling. First, the energies in Equation \ref{BLANK} can be scaled by $\phi$ such that the configurations do not need to be stored or recomputed. Second, MBAR is more reliable for changes in $\epsilon$ rather than changes in $\sigma$ and/or $\lambda$ \cite{Postdoc_1}. A more demanding test of GCMC-MBAR is to vary several parameters simultaneously, including $\sigma$ and $\lambda$. Because it is not possible to visualize a parameter space of greater than two dimensions, we perform this analysis of GCMC-MBAR using the TraPPE, NERD, Potoff-gen, and Potoff-SL force fields. Specifically, we use GCMC-MBAR to predict coexistence properties of the TraPPE force field by sampling configurations with Potoff-gen, and vice versa (see Figure \ref{fig:refFF_to_rrFF_lam12to16}). We also predict coexistence properties for the NERD and Potoff-SL force fields using configurations sampled from TraPPE and Potoff-gen, respectively (see Figure \ref{fig:refFF_to_rrFF_lam_constant}).
+At least two reasons exist for why MBAR is ideally suited for $\epsilon$-scaling. First, the energies in Equation \ref{BLANK} can be scaled by $\phi$ such that the configurations do not need to be stored or recomputed. Second, MBAR is more reliable for changes in $\epsilon$ rather than changes in $\sigma$ and/or $\lambda$ \cite{Postdoc_1}. A more demanding test of GCMC-MBAR is to vary several parameters simultaneously, including $\sigma$ and $\lambda$. Because it is not possible to visualize a parameter space of greater than two dimensions, we perform this analysis of GCMC-MBAR using the TraPPE, NERD, MiPPE-gen, and MiPPE-SL force fields. Specifically, we use GCMC-MBAR to predict coexistence properties of the TraPPE force field by sampling configurations with MiPPE-gen, and vice versa (see Figure \ref{fig:refFF_to_rrFF_lam12to16}). We also predict coexistence properties for the NERD and MiPPE-SL force fields using configurations sampled from TraPPE and MiPPE-gen, respectively (see Figure \ref{fig:refFF_to_rrFF_lam_constant}).
 
-Note that all three non-bonded parameters ($\epsilon$, $\sigma$, and $\lambda$) for all four united-atom types (CH$_3$, CH$_2$, CH, and C) are different between the TraPPE and Potoff-gen force fields. The TraPPE and NERD $\epsilon$ and $\sigma$ values are different for all four united-atom types while $\lambda = 12$ for both force fields. The Potoff-gen and Potoff-SL force fields only differ in the $\epsilon$ and/or $\sigma$ values for the CH and C sites . Specifically, the 2-methylpropane parameters are identical except for $\sigma_{\rm CH}$, the 2,2-dimethylpropane parameters are the same except for $\epsilon_{\rm C}$, and three parameters are different for 2,2,4-trimethylpentane ($\epsilon_{\rm CH}$, $\sigma_{\rm CH}$, and $\sigma_{\rm C}$). However, the difference in $\epsilon$ and $\sigma$ values for Potoff-gen and Potoff-SL is significantly smaller than that between TraPPE and NERD.
+Note that all three non-bonded parameters ($\epsilon$, $\sigma$, and $\lambda$) for all four united-atom types (CH$_3$, CH$_2$, CH, and C) are different between the TraPPE and MiPPE-gen force fields. The TraPPE and NERD $\epsilon$ and $\sigma$ values are different for all four united-atom types while $\lambda = 12$ for both force fields. The MiPPE-gen and MiPPE-SL force fields only differ in the $\epsilon$ and/or $\sigma$ values for the CH and C sites . Specifically, the 2-methylpropane parameters are identical except for $\sigma_{\rm CH}$, the 2,2-dimethylpropane parameters are the same except for $\epsilon_{\rm C}$, and three parameters are different for 2,2,4-trimethylpentane ($\epsilon_{\rm CH}$, $\sigma_{\rm CH}$, and $\sigma_{\rm C}$). However, the difference in $\epsilon$ and $\sigma$ values for MiPPE-gen and MiPPE-SL is significantly smaller than that between TraPPE and NERD.
 
 Figures \ref{fig:refFF_to_rrFF_lam_constant} and \ref{fig:refFF_to_rrFF_lam12to16} compare the GCMC-MBAR predicted values for $\theta_{\rm rr} \neq \theta_{\rm ref}$ to those for $\theta_{\rm rr} = \theta_{\rm ref}$. Figure \ref{fig:refFF_to_rrFF_lam_constant} contains $\lambda_{rm rr} = \lambda_{\rm ref}$ while Figure \ref{fig:refFF_to_rrFF_lam12to16} corresponds to $\lambda_{rm rr} \neq \lambda_{\rm ref}$. Overall, MBAR is extremely reliable at predicting vapor phase properties ($\rho_{\rm vap}^{\rm sat}$ and $P_{\rm vap}^{\rm sat}$) while it is less reliable for liquid phase properties ($\rho_{\rm liq}^{\rm sat}$ and $\Delta H_{\rm v}$, which depends on both phases). In particular, note that the $\rho_{\rm liq}^{\rm sat}$ estimates in Figure \ref{fig:refFF_to_rrFF_lam12to16} are sporadic and unreliable. This can be explained by the low number of effective samples in the liquid phase, which demonstrate that the repulsive exponent $(\lambda)$ greatly impacts the configurational overlap in the liquid phase.
 
@@ -617,27 +617,27 @@ Figures \ref{fig:refFF_to_rrFF_lam_constant} and \ref{fig:refFF_to_rrFF_lam12to1
 	\begin{figure}[htb!]
 		\centering
 		\includegraphics[width=6.4in]{refFF_to_rrFF_lam_constant.png}
-		\caption{Comparison between MBAR-GCMC estimates (symbols) for $\theta_{\rm rr} \neq \theta_{\rm ref}$ and literature (MBAR-HR) values (lines) for $\theta_{\rm rr} = \theta_{\rm ref}$ with a constant repulsive exponent, i.e., $\lambda_{\rm rr} = \lambda_{\rm ref}$. MBAR-GCMC estimates for the NERD and Potoff-SL force fields are computed using configurations sampled from TraPPE and Potoff-gen, respectively. Top-left, top-right, bottom-left, and bottom-right panels correspond to saturated liquid density, saturated vapor density, saturated vapor pressure, and enthalpy of vaporization, respectively.}
+		\caption{Comparison between MBAR-GCMC estimates (symbols) for $\theta_{\rm rr} \neq \theta_{\rm ref}$ and literature (MBAR-HR) values (lines) for $\theta_{\rm rr} = \theta_{\rm ref}$ with a constant repulsive exponent, i.e., $\lambda_{\rm rr} = \lambda_{\rm ref}$. MBAR-GCMC estimates for the NERD and MiPPE-SL force fields are computed using configurations sampled from TraPPE and MiPPE-gen, respectively. Top-left, top-right, bottom-left, and bottom-right panels correspond to saturated liquid density, saturated vapor density, saturated vapor pressure, and enthalpy of vaporization, respectively.}
 		\label{fig:refFF_to_rrFF_lam_constant}
 	\end{figure}
 
 	\begin{figure}[htb!]
 		\centering
 		\includegraphics[width=6.4in]{refFF_to_rrFF_lam_12to16.png}
-		\caption{Comparison between MBAR-GCMC estimates (symbols) for $\theta_{\rm rr} \neq \theta_{\rm ref}$ and literature (MBAR-HR) values (lines) for $\theta_{\rm rr} = \theta_{\rm ref}$ with a non-constant repulsive exponent, i.e., $\lambda_{\rm rr} \neq \lambda_{\rm ref}$. MBAR-GCMC estimates for the TraPPE force field are computed using configurations sampled from Potoff-gen, and vice versa. Top-left, top-right, bottom-left, and bottom-right panels correspond to saturated liquid density, saturated vapor density, saturated vapor pressure, and enthalpy of vaporization, respectively.}
+		\caption{Comparison between MBAR-GCMC estimates (symbols) for $\theta_{\rm rr} \neq \theta_{\rm ref}$ and literature (MBAR-HR) values (lines) for $\theta_{\rm rr} = \theta_{\rm ref}$ with a non-constant repulsive exponent, i.e., $\lambda_{\rm rr} \neq \lambda_{\rm ref}$. MBAR-GCMC estimates for the TraPPE force field are computed using configurations sampled from MiPPE-gen, and vice versa. Top-left, top-right, bottom-left, and bottom-right panels correspond to saturated liquid density, saturated vapor density, saturated vapor pressure, and enthalpy of vaporization, respectively.}
 		\label{fig:refFF_to_rrFF_lam12to16}
 	\end{figure}
 
 
 \begin{enumerate}
-	\item We validate that MBAR and HR are indistinguishable by re-analyzing the simulation results of Mick et al. and Barhaghi et al. utilizing MBAR
+	\item We validate that MBAR and HR are statistically indistinguishable with sufficient data by re-analyzing the simulation results of Mick et al. and Barhaghi et al. utilizing MBAR
 	%	\begin{enumerate}
 	%		\item Evaluate all of the compounds that Mohammad has U and N values for (branched alkanes and alkynes) and which have good experimental data
 	%		\item Compare MBAR results with either Potoff's or my own HR results (might be better to use my own for self consistency)
 	%	\end{enumerate}
 	%    \item Validation of the basis function approach
 	\item Epsilon scaling for all the compounds that Mohammad has U and N values for (branched alkanes and alkynes) and which have good experimental data
-	\item We estimate Potoff generalized and NERD VLE from TraPPE simulations, Potoff S/L from Potoff generalized, and TraPPE from Potoff generalized
+	\item We estimate MiPPE generalized and NERD VLE from TraPPE simulations, MiPPE S/L from MiPPE generalized, and TraPPE from MiPPE generalized
 	\item For $\lambda_{\rm ref} = 12$ and $\lambda_{\rm rr} = 16$, MBAR-GCMC predicts vapor density, vapor pressure, and heat of vaporization more accurately than liquid density
 	\item For $\lambda_{\rm ref} = 12$ and $\lambda_{\rm rr} = 12$, i.e., computing NERD from TraPPE simulations, MBAR-GCMC predicts all four properties accurately    
 	\item We present how basis functions allow for rapid computation of wide range of parameter sets:
@@ -647,7 +647,7 @@ Figures \ref{fig:refFF_to_rrFF_lam_constant} and \ref{fig:refFF_to_rrFF_lam12to1
 		\item 2,2-dimethylpropane
 		\item cyclopentane or cyclohexane
 	\end{enumerate}
-	\item We provide supporting information with basis functions for several branched alkanes with TraPPE and Potoff force fields
+	\item We provide supporting information with basis functions for several branched alkanes with TraPPE and MiPPE force fields
 \end{enumerate}
 
 \subsection{Figures}
@@ -655,11 +655,10 @@ Figures \ref{fig:refFF_to_rrFF_lam_constant} and \ref{fig:refFF_to_rrFF_lam12to1
 
 \begin{enumerate}
 	\item Percent deviation between MBAR and HR results for rholiq, rhovap, Psat, and DeltaHv
-	\item Comparison between MBAR bootstrapping and analytical uncertainties and HR uncertainties
+	\item Comparison between MBAR bootstrapping and analytical uncertainties and HR uncertainties (?)
 	\item Scaling of epsilon post-simulation for branched alkanes and alkynes
 	\item Prediction of VLE for $\lambda_{\rm ref} \neq \lambda_{\rm rr}$
-	\item Prediction of VLE for $\lambda_{\rm ref} = \lambda_{\rm rr} = 12$
-	\item Prediction of VLE for $\lambda_{\rm ref} = \lambda_{\rm rr} = 16$
+	\item Prediction of VLE for $\lambda_{\rm ref} = \lambda_{\rm rr}$
 	\item Two-D scans of scoring functions for $\epsilon-\sigma$ of CH3 (a) and CH2 (b) for \textit{n}-hexane
 	\item Two-D scans of scoring functions for $\epsilon-\sigma$ of CH3 (a) and CH (b) for 2-methylpropane
 	\item Two-D scans of scoring functions for $\epsilon-\sigma$ of CH3 (a) and C (b) for 2,2-dimethylpropane
@@ -698,7 +697,7 @@ Provide tables of MBAR estimates
 \subsection{Raw data}
 
 \begin{enumerate}
-	\item Comparison of 2-D histograms for TraPPE and Potoff. MBAR overlap, possible? Probably not without rerunning the simulations.
+	\item Comparison of 2-D histograms for TraPPE and MiPPE. MBAR overlap, possible? Probably not without rerunning the simulations.
 \end{enumerate}
 
 
