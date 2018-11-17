@@ -405,6 +405,7 @@ The GCMC approach for estimating phase coexistence requires significant post-pro
 
 ****\textbf{MRSHIRTS}: I would like the MBAR and histogram reweighting equations to be consistent with each other in the limit of zero bin-width and a single reference force field. Here is how HR is presented in the literature (copied essentially verbatim):
 
+%MRS: note that f_i(N,E) is essentially a descritized density of states.
 The probability of observing $N$ particles with internal energy $U$ for a given chemical potential $(\mu)$ and inverse temperature $(\beta \equiv \frac{1}{k_{\rm B}T}$ where $k_{\rm B}$ is the Boltzmann constant) is
 %%% This is how the equation is presented in Pana2000, but I want to have similar terms between MBAR and HR
 \begin{eqnarray} \label{eq: HR prob lit}
@@ -414,6 +415,8 @@ where $f_i(N,E)$ is the probability of occurrence $N$ particles in the simulatio
 \begin{eqnarray} \label{eq: Weights lit}
 \exp (C_i) = \sum_{E} \sum_{N} p(N,E;\mu_i,\beta_i)
 \end{eqnarray}
+%MRS: the C_i's are( minus) the free energies; the sum above is a descritized version of exp(-\Pi) = \int N \int E \Omega(E,N) exp(-beta E(X) + \beta \mu N) dE dN
+%MRS: I don't think R is defined here.  It's the number of runs, each of which has a different $\mu$ and $\beta$, correct?
 Given an initial guess for the set of weights $C_i$, Equations \ref{eq: HR prob lit} and \ref{eq: Weights lit} can be iterated until convergence. The ensemble average for a given observable is
 \begin{eqnarray}
 \langle O \rangle_{\mu,\beta} = \sum_{E} \sum_{N} p(N,E;\mu,\beta) \times O
@@ -432,27 +435,27 @@ There are two states sampled by the run, one at low and one at high particle num
 
 ****\textbf{MRSHIRTS}: Here is how I reported the MBAR equations in our first publication (again this is copied essentially verbatim). Note that previously we used MBAR in the NVT ensemble and only weighted configurations from the same NVT run. In this paper we need to denote that different temperatures and chemical potentials are being weighted together.:
 
-With MBAR the expectation $\langle O(\theta) \rangle$ for force field $(\theta)$ of any given observable $(O)$ can be expressed as:
+%MRS: I think one thing that this presentation obscures that makes the comparison harder is the fact that for histograms, youtalk about simulations with different \betas or \mus, and in MBAR, you talk about it with different \thetas. 
+%Whereas for MBAR, you can do the analysis with different thetas AND/OR different \betas or \mus.   This is impossible with HR, because beta and mu only change the probability in the boltzman weight, so all data samples in the histogram N, E are reweighted the SAME.  Thus you can histogram them, and reweight them all together. This FAILS for changing theta, because there's essentially no way to histogram things for arbitrary theta (you would have to histogram by pairwise distance, which depends on pairs of particles, so - a mess).  
+%MRS: I am going to rewrite it below; you can adapt as you see fit. I can see a couple of different ways of writing it up. One might be to 1) make MBAR general to begin with (like I do here), with simulations over all mu and beta AND theta, or 2) to just write MBAR in terms of mu and beta, and THEN generalize to theta after proving the equivalence to HR for just beta and mu changes.  
+With MBAR the estimate of expectation $\langle O(\theta) \rangle$ of any given observable $O$ at an arbitrary set of force field parameters, temperatures, and chemical potentials $(\theta)$ of any given observable $(O)$:
 \begin{eqnarray} \label{MBAR O theta_lit}
 \langle O(\theta)\rangle = \sum_{n=1}^{N} O(\x_{n},N_n;\theta) W_{n}(\theta)
 \end{eqnarray}
-where $\x_n,N_n$ are configurations and number of particles sampled from one or more reference force fields $(\theta_{\rm ref})$, % is a set of samples collected from one or more previous simulations,
-$O(\x_{n},N_n;\theta)$ is the observable value using force field 
-$\theta$ with configurations $\x_n$, and $W_{n}(\theta)$ is the weight of the $n^{th}$
-configuration using force field $\theta$, calculated by using:
+where $\x_n,N_n$ are configurations and number of particles sampled at $R$ (which can be one or more) simulation runs with reference conditions (i.e. force fields, temperatures and chemical potentials, designated by vector $\theta$). $O(\x_{n},N_n;\theta)$ is the observable value using force field, temperature, chemical potentials $\theta$ with configurations $\x_n$,$N_n$, and $W_{n}(\theta)$ is the weight of the $n^{th}$
+configuration using the vector $\theta$, calculated by using:
 \begin{eqnarray} \label{MBAR weights theta_lit}
-W_{n}(\theta) = \frac{\exp[\hat{f}(\theta)-u(\x_{n},N_n;\theta)]}{\sum\limits_{k=1}^K N_k \, \exp[\hat{f}(\theta_{\rm ref,k}) - u(\x_{n},N_n;\theta_{\rm ref,k})]}
+W_{n}(\theta) = \frac{\exp[\hat{f}(\theta)-u(\x_{n},N_n;\theta)]}{\sum\limits_{i=1}^R K_i \, \exp[\hat{f}(\theta_{\rm ref,i}) - u(\x_{n},N_n;\theta_{\rm ref,i})]}
 \end{eqnarray}
 where the reduced free energies $(\hat f(\theta))$ are calculated with:
 \begin{eqnarray} \label{MBAR free energy theta_lit}
 \hat f(\theta) &=& - \ln \sum_{n=1}^{N^{\rm tot}_{\rm snaps}}
-\frac{\exp[-u(\x_{n},N_n;\theta)]}{\sum\limits_{k=1}^K N_k \, \exp[\hat{f}(\theta_{\rm ref,k}) - u(\x_{n},N_n;\theta_{\rm ref,k})]} 
+\frac{\exp[-u(\x_{n},N_n;\theta)]}{\sum\limits_{i=1}^R K_i \, \exp[\hat{f}(\theta_{\rm ref,i}) - u(\x_{n},N_n;\theta_{\rm ref,i})]} 
 \end{eqnarray}
-where $K$ is the number of reference force fields, $N^{\rm tot}_{\rm snaps} = \sum_k N_k$ is the total number of snapshots for all $K$ reference force fields, $N_k$ are the total number of snapshots from the $k^{th}$ reference force field, $\theta_{\rm ref,k}$ is the $k^{th}$ reference (i.e. simulated) force field, and $u(\x_{n};\theta) = \beta U(\x_n;\theta)-\beta N_n \mu)$ is the reduced potential energy evaluated with $\theta$ for configuration $\x_n,N_n$. 
-%MRS: note that there is some ambiguity here in the use of N for number of particles and nunber of samples. We could use \mathcal{N} for number of particles? Your thoughts?
-%MRS: not that there is also potentially an issue with factors relating indistinguishability of particles in the probability distribution. I think it ends up cancelling out for this particular problem, but maybe I need to go back and think about that some more. 
-Note that $\hat f(\theta_{\rm ref,k})$ is required to evaluate the denominator of Equations \ref{MBAR weights theta_lit}-\ref{MBAR free energy theta_lit}. The values for $\hat f(\theta_{\rm ref,k})$ are obtained by solving a system of $K$ equations for self-consistency. Specifically, an initial guess for $\hat f(\theta_{\rm ref,k})$ is used to evaluate Equation \ref{MBAR free energy theta_lit} with $\theta=\theta_{\rm ref,k}$ to obtain updated values of $\hat f(\theta_{\rm ref,k})$. This process is repeated until the values for $\hat f(\theta_{\rm ref,k})$ converge to within a desired tolerance. Although solving the MBAR system of equations for self-consistency may require several iterations, fortunately, once this process has been performed $\hat f(\theta)$ (for an arbitrary $\theta$) is evaluated without further iteration.
-%MRS: note that it's technically a system of K-1 equations; one of the K is redundant. 
+where $R$ is the number of runs at reference conditions, $K^{\rm tot}_{\rm snaps} = \sum_i K_i$ is the total number of snapshots for all $R$ reference conditions, $N_k$ are the total number of snapshots from the $i^{th}$ reference force field, $\theta_{\rm ref,i}$ is the $i^{th}$ reference (i.e. simulated) set of conditions, and $u(\x_{n};\theta) = \beta U(\x_n;\theta_\mathrm{parm})-\beta N_n \mu)$ is the reduced potential energy evaluated with $\theta$ for configuration $\x_n,N_n$, where $\theta_{\mathrm{parm}}$ are the components of theta that specifically involved the potential energy. 
+%MRS: not that there is also potentially an issue with factors relating indistinguishability of particles in the probability distribution. I think it ends up cancelling out for this particular problem, but maybe I need to go back and think about that some more. It doesn't appear in the histogram version?  Unless it's implicit?  Since I don't see it in the histogram. I will not include anything for now. 
+Note that $\hat f(\theta_{\rm ref,i})$ is required to evaluate the denominator of Equations \ref{MBAR weights theta_lit}-\ref{MBAR free energy theta_lit}. The values for $\hat f(\theta_{\rm ref,i})$ are obtained by solving a system of $R$ nonlinear equations for self-consistency, using a range of different methods. There is provably only one solution, so as long as certain criteria are met that will be discussed below, the only difference in solvers is efficiency and numerical stability.
+%MRS: note that it's technically a system of R-1 equations; one of the R is redundant. 
 
 The performance of MBAR depends strongly on good phase space overlap, meaning that the configurations sampled by the reference force field(s) must represent a significant portion of the ``true'' configurations that the non-simulated force field would sample \cite{naden:jctc:2016}. If the configurational overlap is small the MBAR estimates are likely dominated by a few configurations, which are likely not representative of the ensemble that would be generated by direct simulation of force field $\theta$. The amount of overlap can be quantified by the number of effective samples $(N_{\rm eff})$ \cite{Dybeck2016}, using Kish's formula:
 \begin{eqnarray} \label{Neff_lit}
@@ -469,8 +472,7 @@ In the case of poor overlap $(N_{\rm eff} \approx 1)$, the predicted values of M
 
 %MRS: some comments that would be great to get your feedback on
 %1) In the equations below, I assume R is the number of histogram bins that have nonzero occupancy?
-%2) What is K in the HR equation?
-%3) I think you should say from the start in this section that you are suppressing the theta dependence; HR has none, so you do't want to include that in the MBAR equations. So the indices i in both MBAR and HR should both be indexed by i (or k). 
+%3) I think you should say from the start in this section that you are suppressing the theta dependence; HR has none, so you do't want to include that in the MBAR equations. So the indices i in both MBAR and HR should both be indexed by i. 
 
 %\begin{eqnarray} \label{HR prob}
 %Pr(N,U|\mu,\beta) = \frac{\sum_{i=1}^{R} Pr_i(N,U)  \exp(-\beta U + \beta \mu N)}{\sum_{i=1}^{R} K_i \exp(-\beta_i U + \beta_i \mu_i N - C_i)}
@@ -485,69 +487,26 @@ where $Pr_i(N,U)$ is the probability of occurrence $N$ particles in the simulati
 \begin{eqnarray} \label{eq: Weights}
 \exp (C_i) = \sum_{U} \sum_{N} p(N,U;\mu_i,\beta_i)
 \end{eqnarray}
-The analogous MBAR equation to Equation \ref{eq: HR prob} is 
-\begin{eqnarray} \label{eq: MBAR weights theta}
-W_{n}(\theta,\beta,\mu) = \frac{\exp[\hat{f}(\theta,\beta,\mu)-u(\x_{n};\theta,\beta,\mu)]}{\sum\limits_{k=1}^K N_k \, \exp[\hat{f}(\theta_{\rm ref,k},\beta_{\rm sim,n},\mu_{\rm sim,n}) - u(\x_{n};\theta_{\rm ref,k},\beta_{\rm sim,n},\mu_{\rm sim,n})]}
+
+We first restrict MBAR to performing simulations only with separate $\mu$ and $\beta$. In that case, the analogous MBAR equation to Equation \ref{eq: HR prob} is 
+\begin{eqnarray} \label{eq: MBAR weights}
+W_{n}(\beta,\mu) = \frac{\exp[\hat{f}(\beta,\mu)-u(\x_{n},N_n;\beta,\mu)]}{\sum\limits_{i=1}^R K_i \, \exp[\hat{f}(\beta_{i},\mu_{i}) - u(\x_{n},N_n;\beta_{i},\mu_{i})]}
 \end{eqnarray}
-where $\x_n$ are configurations sampled from one or more reference force fields $(\theta_{\rm ref})$ at the simulated inverse temperature $(\beta_{\rm sim,n})$ and chemical potential $(\mu_{\rm sim,n})$ and $W_{n}(\theta,\beta,\mu)$ is the weight of the $n^{th}$ configuration using force field $\theta$. The analogous MBAR equation to Equation \ref{eq: Weights} is
-\begin{eqnarray} \label{eq: MBAR free energy theta}
-\hat f(\theta,\beta,\mu) &=& - \ln \sum_{n=1}^{N^{\rm tot}_{\rm snaps}}
-\frac{\exp[-u(\x_{n};\theta,\beta,\mu)]}{\sum\limits_{k=1}^K N_k \, \exp[\hat{f}(\theta_{\rm ref,k},\beta_{\rm sim,n},\mu_{\rm sim,n}) - u(\x_{n};\theta_{\rm ref,k},\beta_{\rm sim,n},\mu_{\rm sim,n})]}
+where $\x_n,N_n$ are configurations sampled from $i=1 \ldots R$ simulations at inverse temperature $(\beta_{i})$ and chemical potential $(\mu_{i})$, and $W_{n}(\beta,\mu)$ is the weight of the $n^{th}$ configuration in a simulation with arbitrary $\mu$ and $\beta$. The analogous MBAR equation to Equation \ref{eq: Weights} is
+\begin{eqnarray} \label{eq: MBAR free energy}
+\hat f(\theta,\beta,\mu) &=& - \ln \sum_{n=1}^{K^{\rm tot}_{\rm snaps}}
+\frac{\exp[-u(\x_{n},N_n;\beta,\mu)]}{\sum\limits_{i=1}^R K_i \, \exp[\hat{f}(\beta_{i},\mu_{i}) - u(\x_{n},N_n;\beta_{i},\mu_{i})]}
 \end{eqnarray}
-where $\hat f(\theta,\beta,\mu)$ is the reduced free energy, $K$ is the number of reference force fields, $N^{\rm tot}_{\rm snaps} = \sum_k N_k$ is the total number of snapshots for all $K$ reference force fields and all simulated $\beta$ and $\mu$ values, $N_k$ are the total number of snapshots from the $k^{th}$ reference force field, $\theta_{\rm ref,k}$ is the $k^{th}$ reference (i.e. simulated) force field, and $u(\x_{n};\theta,\beta,\mu)$ is the reduced potential energy evaluated with $\theta$, $\beta$, and $\mu$ for configuration $\x_n$. For the grand canonical ensemble, $u(\x_{n};\theta,\beta,\mu) = \beta U(\x_n;\theta) - \beta \mu N$, where $\beta = \frac{1}{k_{\rm B}T}$ and $k_{\rm B}$ is the Boltzmann constant.
+where $\hat f(\beta,\mu)$ is the reduced free energy, $K$ is the number of reference simulations, $K^{\rm tot}_{\rm snaps} = \sum_i K_i$ is the total number of snapshots for all $K$ reference simulations, $K_i$ are the total number of snapshots from the $i^{th}$ reference simulation force field, and $u(\x_{n};\theta,\beta,\mu)$ is the reduced potential energy evaluated with $\beta$ and $\mu$ for configuration $\x_n,N_n$. For the grand canonical ensemble, $u(\x_{n},N_n;\beta,\mu) = \beta U(\x_n) - \beta \mu N_n$, where $\beta = \frac{1}{k_{\rm B}T}$ and $k_{\rm B}$ is the Boltzmann constant.
 
-Equations \ref{eq: HR prob} and \ref{eq: Weights} or Equations \ref{eq: MBAR weights theta} and \ref{eq: MBAR free energy theta} are solved iteratively from an initial guess for $C_i$ or $\hat f$, respectively.
+%MRS: added this qualitative description of the reduction. 
+These two sets of equations can be seen as equivalent by letting the volumes of the histograms to shrink so that no histogram contains more than 1 sample.  In that case, $U$ and $N$ for each histogram can be taken to be the $U(x_n)$ and $N_n$ of the single observation in that histogram, and histograms with no particles can be omitted.  We then observe that $Pr_i(N,U)$ is either 1 or 0, and the sum over all histograms becomes a sum over samples conducted in all $R$ simulation runs. Eq.~\ref{eq: Weights} reduces in this approximation to Eq.~\ref{eq: MBAR free energy}, and Eq.~\ref{eq: HR prob} reduces to Eq.~\ref{eq: MBAR weights}.
 
-After the $C_i$ or $\hat f$ values have converged, ensemble averages of a given observable $(O)$ are computed in a similar way for HR and MBAR. The HR equation is 
-\begin{eqnarray} \label{eq: HR O}
-\langle O \rangle_{\mu,\beta} = \sum_{U} \sum_{N} p(N,U;\mu,\beta) \times O
-\end{eqnarray}
-while the MBAR equation is
-\begin{eqnarray} \label{eq: MBAR O theta}
-\langle O(\theta,\beta,\mu)\rangle = \sum_{n=1}^{N^{\rm tot}_{\rm snaps}} W_{n}(\theta,\beta,\mu) \times O(\x_{n};\theta,\beta,\mu)
-\end{eqnarray}
-
-The pressure of a system can be obtained from the following expression. If the conditions for run 1 are $(\mu_1, V, \beta_1)$ and for run 2 $(\mu_2, V, \beta_2)$, then
-\begin{eqnarray} \label{eq: press}
-C_2 - C_1 = \ln \frac{\Xi (\mu_2,V,\beta_2)}{\Xi (\mu_1,V,\beta_1)} = \beta_2 P_2 V - \beta_1 P_1 V
-\end{eqnarray}
-where $P$ is the pressure, since $\ln \Xi = \beta P V$. The analogous MBAR equation is
-\begin{eqnarray} \label{eq: MBAR press}
-\hat f_2 - \hat f_1 = \ln \frac{\Xi (\theta_2,\mu_2,V,\beta_2)}{\Xi (\theta_1,\mu_1,V,\beta_1)} = \beta_2 P_2 V - \beta_1 P_1 V
-\end{eqnarray}
-Equations \ref{eq: press} and \ref{eq: MBAR press} can be used to obtain the absolute value of the pressure for one of the two runs, provided that the absolute pressure can be estimated for the other run. Typically, this is done by performing simulations for low-density states for which the system follows the ideal gas equation of state, $P V = N k_{\rm B} T$. 
-
-%With MBAR the expectation $\langle O(\theta) \rangle$ for force field $(\theta)$ of any given observable $(O)$ can be expressed as:
-%\begin{eqnarray} \label{MBAR O theta}
-%\langle O(\theta,\beta,\mu)\rangle = \sum_{n=1}^{N} O(\x_{n};\theta,\beta,\mu) W_{n}(\theta,\beta,\mu)
-%\end{eqnarray}
-%where $\x_n$ are configurations sampled from one or more reference force fields $(\theta_{\rm ref})$, % is a set of samples collected from one or more previous simulations,
-%$O(\x_{n};\theta,\beta,\mu)$ is the observable value using force field 
-%$\theta$ with configurations $\x_n$, and $W_{n}(\theta)$ is the weight of the $n^{th}$
-%configuration using force field $\theta$, calculated by using:
-%\begin{eqnarray} \label{MBAR weights theta}
-%W_{n}(\theta,\beta,\mu) = \frac{\exp[\hat{f}(\theta,\beta,\mu)-u(\x_{n};\theta,\beta,\mu)]}{\sum\limits_{k=1}^K N_k \, \exp[\hat{f}(\theta_{\rm ref,k},\beta_{\rm sim,n},\mu_{\rm sim,n}) - u(\x_{n};\theta_{\rm ref,k},\beta_{\rm sim,n},\mu_{\rm sim,n})]}
-%\end{eqnarray}
-%where the reduced free energies $(\hat f(\theta))$ are calculated with:
-%\begin{eqnarray} \label{MBAR free energy theta}
-%\hat f(\theta,\beta,\mu) &=& - \ln \sum_{n=1}^{N^{\rm tot}_{\rm snaps}}
-%\frac{\exp[-u(\x_{n};\theta,\beta,\mu)]}{\sum\limits_{k=1}^K N_k \, \exp[\hat{f}(\theta_{\rm ref,k},\beta_{\rm sim,n},\mu_{\rm sim,n}) - u(\x_{n};\theta_{\rm ref,k},\beta_{\rm sim,n},\mu_{\rm sim,n})]}
-%\end{eqnarray}
-%where $K$ is the number of reference force fields, $N^{\rm tot}_{\rm snaps} = \sum_k N_k$ is the total number of snapshots for all $K$ reference force fields and all simulated $\beta$ and $\mu$ values, $N_k$ are the total number of snapshots from the $k^{th}$ reference force field, $\theta_{\rm ref,k}$ is the $k^{th}$ reference (i.e. simulated) force field, and $u(\x_{n};\theta,\beta,\mu)$ is the reduced potential energy evaluated with $\theta$, $\beta$, and $\mu$ for configuration $\x_n$. For the grand canonical ensemble, $u(\x_{n};\theta,\beta,\mu) = \beta U(\x_n;\theta) - \beta \mu N$, where $\beta = \frac{1}{k_{\rm B}T}$ and $k_{\rm B}$ is the Boltzmann constant. 
-
-Note that $\hat f(\theta_{\rm ref,k})$ is required to evaluate the denominator of Equations \ref{MBAR weights theta}-\ref{MBAR free energy theta}. The values for $\hat f(\theta_{\rm ref,k})$ are obtained by solving a system of $K$ equations for self-consistency. Specifically, an initial guess for $\hat f(\theta_{\rm ref,k})$ is used to evaluate Equation \ref{MBAR free energy theta} with $\theta=\theta_{\rm ref,k}$ to obtain updated values of $\hat f(\theta_{\rm ref,k})$. This process is repeated until the values for $\hat f(\theta_{\rm ref,k})$ converge to within a desired tolerance. Although solving the MBAR system of equations for self-consistency may require several iterations, fortunately, once this process has been performed $\hat f(\theta)$ (for an arbitrary $\theta$) is evaluated without further iteration.
-
-The performance of MBAR depends strongly on good phase space overlap, meaning that the configurations sampled by the reference force field(s) must represent a significant portion of the ``true'' configurations that the non-simulated force field would sample \cite{naden:jctc:2016}. If the configurational overlap is small the MBAR estimates are likely dominated by a few configurations, which are likely not representative of the ensemble that would be generated by direct simulation of force field $\theta$. The amount of overlap can be quantified by the number of effective samples $(N_{\rm eff})$ \cite{Dybeck2016}, using Kish's formula:
-\begin{eqnarray} \label{Neff}
-N_{\rm eff} = \frac{\left(\sum_n W_n\right)^2}{\sum_n W_n^2}
-\end{eqnarray}
-which reduces to $N_{\rm eff} = (\sum_n W_n^2)^{-1}$ when the weights are
-normalized. This has the property that when the weights are equal,
-$N_{\rm eff} = N$, when all but one weight is negligible, $N_{\rm eff} \approx
-1$, and behaves appropriately for intermediate cases. 
-In the case of poor overlap $(N_{\rm eff} \approx 1)$, the predicted values of MBAR will demonstrate a strong bias and the uncertainties will likely be underestimated by the MBAR covariance matrix. 
-
-
+However, a key advantage is of MBAR over HR is that by changing from a sum over histograms to a sum over samples, 
+we are free to perform simulations with other conditions besides $\mu$ and $\beta$. For example, we can carry out 
+simulations at different force field parameters $\theta_{\mathrm{parm}}$.  In the histogram context, we cannot 
+easily separate out samples in the same $E$ histogram that were performed with different force field parameters.  
+If we perform sums over samples, we can reevalue the configuration with a range of different parameters for a relatively small expense.
 
 \begin{enumerate}
 	\item Traditionally, histogram reweighting (HR) has been applied with GCMC to calculate vapor-liquid coexistence properties
