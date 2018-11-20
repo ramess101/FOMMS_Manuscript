@@ -8,7 +8,7 @@
 \providecommand*\mcitethebibliography{\thebibliography}
 \csname @ifundefined\endcsname{endmcitethebibliography}
   {\let\endmcitethebibliography\endthebibliography}{}
-\begin{mcitethebibliography}{31}
+\begin{mcitethebibliography}{29}
 \providecommand*\natexlab[1]{#1}
 \providecommand*\mciteSetBstSublistMode[1]{}
 \providecommand*\mciteSetBstMaxWidthForm[2]{}
@@ -267,24 +267,6 @@ Allen,~M.~P.; Tildesley,~D.~J. \emph{Computer simulation of liquids}; Clarendon
 Barhaghi,~M.~S.; Mick,~J.~R.; Potoff,~J.~J. Optimised Mie potentials for phase
   equilibria: application to alkynes. \emph{Molecular Physics} \textbf{2017},
   \emph{115}, 1378--1388\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Naden and Shirts(2016)Naden, and Shirts]{naden:jctc:2016}
-Naden,~L.~N.; Shirts,~M.~R. Rapid Computation of Thermodynamic Properties Over
-  Multidimensional Nonbonded Parameter Spaces using Adaptive Multistate
-  Reweighting. \emph{J. Chem. Theory Comput.} \textbf{2016}, \emph{12},
-  1806--1823\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Dybeck \latin{et~al.}(2016)Dybeck, K{\"o}nig, Brooks, and
-  Shirts]{Dybeck2016}
-Dybeck,~E.~C.; K{\"o}nig,~G.; Brooks,~B.~R.; Shirts,~M.~R. Comparison of
-  Methods To Reweight from Classical Molecular Simulations to QM/MM Potentials.
-  \emph{J. Chem. Theory Comput.} \textbf{2016}, \emph{12}, 1466--1480\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
