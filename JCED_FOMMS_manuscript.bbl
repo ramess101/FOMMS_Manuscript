@@ -8,7 +8,7 @@
 \providecommand*\mcitethebibliography{\thebibliography}
 \csname @ifundefined\endcsname{endmcitethebibliography}
   {\let\endmcitethebibliography\endthebibliography}{}
-\begin{mcitethebibliography}{29}
+\begin{mcitethebibliography}{31}
 \providecommand*\natexlab[1]{#1}
 \providecommand*\mciteSetBstSublistMode[1]{}
 \providecommand*\mciteSetBstMaxWidthForm[2]{}
@@ -26,6 +26,30 @@
   {\relax}
   {\relax}
 
+\bibitem[Panagiotopoulos(2000)]{Pana2000}
+Panagiotopoulos,~A.~Z. Monte Carlo methods for phase equilibria of fluids.
+  \emph{Journal of Physics: Condensed Matter} \textbf{2000}, \emph{12},
+  R25\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Fern \latin{et~al.}(2007)Fern, Keffer, and Steele]{Fern2007}
+Fern,~J.~T.; Keffer,~D.~J.; Steele,~W.~V. Measuring Coexisting Densities from a
+  Two-Phase Molecular Dynamics Simulation by Voronoi Tessellations. \emph{The
+  Journal of Physical Chemistry B} \textbf{2007}, \emph{111}, 3469--3475\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Razavi \latin{et~al.}(2018)Razavi, Messerly, and Elliott]{Mostafa2018}
+Razavi,~S.~M.; Messerly,~R.~A.; Elliott,~J.~R. Coexistence Calculation Using
+  the Isothermal-Isochoric Integration Method. \textbf{2018}, \emph{Pending
+  publication.}\relax
+\mciteBstWouldAddEndPunctfalse
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
 \bibitem[Martin and Siepmann(1998)Martin, and Siepmann]{TraPPE}
 Martin,~M.~G.; Siepmann,~J.~I. Transferable potentials for phase equilibria. 1.
   {United-atom} description of n-alkanes. \emph{J. Phys. Chem. B}
@@ -51,62 +75,20 @@ Potoff,~J.~J.; Bernard-Brunel,~D.~A. Mie Potentials for Phase Equilibria
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
 \EndOfBibitem
-\bibitem[Wick and Siepmann(2000)Wick, and Siepmann]{ConBias}
-Wick,~C.~D.; Siepmann,~J.~I. Self-adapting fixed-end-point configurational-bias
-  Monte Carlo method for the regrowth of interior segments of chain molecules
-  with strong intramolecular interactions. \emph{Macromolecules} \textbf{2000},
-  \emph{33}, 7207--7218\relax
+\bibitem[Ungerer \latin{et~al.}(2000)Ungerer, Beauvais, Delhommelle, Boutin,
+  Rousseau, and Fuchs]{AUA4}
+Ungerer,~P.; Beauvais,~C.; Delhommelle,~J.; Boutin,~A.; Rousseau,~B.;
+  Fuchs,~A.~H. Optimization of the anisotropic united atoms intermolecular
+  potential for n-alkanes. \emph{J. Chem. Phys.} \textbf{2000}, \emph{112},
+  5499--5510\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
 \EndOfBibitem
-\bibitem[Paluch \latin{et~al.}(2008)Paluch, Shen, and Errington]{GEMC_GCMC}
-Paluch,~A.~S.; Shen,~V.~K.; Errington,~J.~R. Comparing the Use of {Gibbs}
-  Ensemble and {Grand-Canonical} Transition-Matrix Monte Carlo Methods to
-  Determine Phase Equilibria. \emph{Ind. Eng. Chem. Res.} \textbf{2008},
-  \emph{47}, 4533--4541\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Hemmen \latin{et~al.}(2015)Hemmen, Panagiotopoulos, and
-  Gross]{Hemmen2015}
-Hemmen,~A.; Panagiotopoulos,~A.~Z.; Gross,~J. Grand Canonical Monte Carlo
-  Simulations Guided by an Analytic Equation of State{-}Transferable
-  Anisotropic Mie Potentials for Ethers. \emph{J. Phys. Chem. B} \textbf{2015},
-  \emph{119}, 7087--7099\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[McDonald and Singer(1967)McDonald, and Singer]{McDonald1967}
-McDonald,~I.~R.; Singer,~K. Machine Calculation of Thermodynamic Properties of
-  a Simple Fluid at Supercritical Temperatures. \emph{The Journal of Chemical
-  Physics} \textbf{1967}, \emph{47}, 4766--4772\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Card and Valleau(1970)Card, and Valleau]{Card1970}
-Card,~D.~N.; Valleau,~J.~P. Monte Carlo Study of the Thermodynamics of
-  Electrolyte Solutions. \emph{The Journal of Chemical Physics} \textbf{1970},
-  \emph{52}, 6232--6240\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Wood(1968)]{Wood1968}
-Wood,~W.~W. Monte Carlo Calculations for Hard Disks in the
-  Isothermal‐Isobaric Ensemble. \emph{The Journal of Chemical Physics}
-  \textbf{1968}, \emph{48}, 415--434\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Panagiotopoulos(2000)]{Pana2000}
-Panagiotopoulos,~A.~Z. Monte Carlo methods for phase equilibria of fluids.
-  \emph{Journal of Physics: Condensed Matter} \textbf{2000}, \emph{12},
-  R25\relax
+\bibitem[Messerly \latin{et~al.}(2017)Messerly, KnottsIV, and Wilding]{Mess4}
+Messerly,~R.~A.; KnottsIV,~T.~A.; Wilding,~W.~V. Uncertainty quantification and
+  propagation of errors of the Lennard-Jones 12-6 parameters for n-alkanes.
+  \emph{J. Chem. Phys.} \textbf{2017}, \emph{146}, 194110\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
@@ -166,14 +148,6 @@ Razavi,~S.~M. Optimization of a Transferable Shifted Force Field for Interfaces
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Razavi \latin{et~al.}(2018)Razavi, Messerly, and Elliott]{Mostafa2018}
-Razavi,~S.~M.; Messerly,~R.~A.; Elliott,~J.~R. Coexistence Calculation Using
-  the Isothermal-Isochoric Integration Method. \textbf{2018}, \emph{Pending
-  publication.}\relax
-\mciteBstWouldAddEndPunctfalse
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{}{\mcitedefaultseppunct}\relax
 \EndOfBibitem
 \bibitem[Kiyohara \latin{et~al.}(1996)Kiyohara, Spyriouni, Gubbins, and
   Panagiotopoulos]{Kiyohara1996}
@@ -267,6 +241,50 @@ Allen,~M.~P.; Tildesley,~D.~J. \emph{Computer simulation of liquids}; Clarendon
 Barhaghi,~M.~S.; Mick,~J.~R.; Potoff,~J.~J. Optimised Mie potentials for phase
   equilibria: application to alkynes. \emph{Molecular Physics} \textbf{2017},
   \emph{115}, 1378--1388\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[McDonald and Singer(1967)McDonald, and Singer]{McDonald1967}
+McDonald,~I.~R.; Singer,~K. Machine Calculation of Thermodynamic Properties of
+  a Simple Fluid at Supercritical Temperatures. \emph{The Journal of Chemical
+  Physics} \textbf{1967}, \emph{47}, 4766--4772\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Card and Valleau(1970)Card, and Valleau]{Card1970}
+Card,~D.~N.; Valleau,~J.~P. Monte Carlo Study of the Thermodynamics of
+  Electrolyte Solutions. \emph{The Journal of Chemical Physics} \textbf{1970},
+  \emph{52}, 6232--6240\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Wood(1968)]{Wood1968}
+Wood,~W.~W. Monte Carlo Calculations for Hard Disks in the
+  Isothermal‐Isobaric Ensemble. \emph{The Journal of Chemical Physics}
+  \textbf{1968}, \emph{48}, 415--434\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Duarte Ramos~Matos \latin{et~al.}(2017)Duarte Ramos~Matos, Kyu,
+  Loeffler, Chodera, Shirts, and Mobley]{Matos2017}
+Duarte Ramos~Matos,~G.; Kyu,~D.~Y.; Loeffler,~H.~H.; Chodera,~J.~D.;
+  Shirts,~M.~R.; Mobley,~D.~L. Approaches for Calculating Solvation Free
+  Energies and Enthalpies Demonstrated with an Update of the FreeSolv Database.
+  \emph{Journal of Chemical \& Engineering Data} \textbf{2017}, \emph{62},
+  1559--1569\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Naden and Shirts(2016)Naden, and Shirts]{naden:jctc:2016}
+Naden,~L.~N.; Shirts,~M.~R. Rapid Computation of Thermodynamic Properties Over
+  Multidimensional Nonbonded Parameter Spaces using Adaptive Multistate
+  Reweighting. \emph{J. Chem. Theory Comput.} \textbf{2016}, \emph{12},
+  1806--1823\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax

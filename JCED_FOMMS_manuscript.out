@@ -3,15 +3,19 @@
 \BOOKMARK [1][-]{section.2}{Methods}{}% 3
 \BOOKMARK [2][-]{subsection.2.1}{Force fields}{section.2}% 4
 \BOOKMARK [2][-]{subsection.2.2}{Simulation set-up}{section.2}% 5
-\BOOKMARK [2][-]{subsection.2.3}{Multistate Bennett Acceptance Ratio}{section.2}% 6
+\BOOKMARK [2][-]{subsection.2.3}{GCMC-MBAR compared with GCMC-HR}{section.2}% 6
 \BOOKMARK [2][-]{subsection.2.4}{Basis functions}{section.2}% 7
-\BOOKMARK [1][-]{section.3}{Results}{}% 8
-\BOOKMARK [2][-]{subsection.3.1}{Figures}{section.3}% 9
-\BOOKMARK [1][-]{section.4}{Discussion/Limitations/Future work}{}% 10
-\BOOKMARK [1][-]{section.5}{Conclusions}{}% 11
-\BOOKMARK [1][-]{section.6}{Acknowledgments}{}% 12
-\BOOKMARK [1][-]{section*.6}{References}{}% 13
-\BOOKMARK [1][-]{section.7}{Supporting Information}{}% 14
-\BOOKMARK [2][-]{subsection.7.1}{MBAR VLE estimates}{section.7}% 15
-\BOOKMARK [2][-]{subsection.7.2}{Basis functions}{section.7}% 16
-\BOOKMARK [2][-]{subsection.7.3}{Raw data}{section.7}% 17
+\BOOKMARK [2][-]{subsection.2.5}{-scaling}{section.2}% 8
+\BOOKMARK [1][-]{section.3}{Results}{}% 9
+\BOOKMARK [2][-]{subsection.3.1}{Constant }{section.3}% 10
+\BOOKMARK [2][-]{subsection.3.2}{-scaling}{section.3}% 11
+\BOOKMARK [2][-]{subsection.3.3}{ref =rr, ref =rr, and ref =rr}{section.3}% 12
+\BOOKMARK [2][-]{subsection.3.4}{Figures}{section.3}% 13
+\BOOKMARK [1][-]{section.4}{Discussion/Limitations/Future work}{}% 14
+\BOOKMARK [1][-]{section.5}{Conclusions}{}% 15
+\BOOKMARK [1][-]{section.6}{Acknowledgments}{}% 16
+\BOOKMARK [1][-]{section*.6}{References}{}% 17
+\BOOKMARK [1][-]{section.7}{Supporting Information}{}% 18
+\BOOKMARK [2][-]{subsection.7.1}{MBAR VLE estimates}{section.7}% 19
+\BOOKMARK [2][-]{subsection.7.2}{Basis functions}{section.7}% 20
+\BOOKMARK [2][-]{subsection.7.3}{Raw data}{section.7}% 21
