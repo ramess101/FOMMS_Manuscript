@@ -639,7 +639,7 @@ In addition to computing $P_{\rm vap}^{\rm sat}$, by solving Equations \ref{eq: 
 \begin{equation}
 \Delta H_{\rm v} = \bar U_{\rm vap}^{\rm sat} - \bar U_{\rm liq}^{\rm sat} + P_{\rm vap}^{\rm sat} (\bar V_{\rm vap}^{\rm sat} - \bar V_{\rm liq}^{\rm sat})
 \end{equation}
-where $\bar U$ and $\bar V$ denote a molar energy and a molar volume, respectively.
+where $\bar U$ and $\bar V$ denote molar energy and molar volume, respectively.
 
 %$P_{\rm vap}^{\rm sat}$ can be computed with Equations \ref{eq: HR press alt} (HR) or \ref{eq: MBAR press alt} (MBAR).
 
@@ -725,20 +725,20 @@ Reference \citenum{Weidler2018} proposes an $\epsilon$-scaling approach for conv
 \begin{equation}
 \epsilon_{ii}^{\rm ind} = \psi \epsilon_{ii}^{\rm tran}
 \end{equation}
-where $\epsilon_{ii}^{\rm ind}$ is the individualized $\epsilon$ value for united-atom $ii$ and $\epsilon_{ii}^{\rm tran}$ is the corresponding transferable $\epsilon$ value. $\psi$ is a constant value for a given compound. A truly transferable force field should have $\psi \approx 1$ for all compounds. Weigler et al. tend to characterize the individualization as being useful when the scaling is greater than 0.4\% (i.e., $|1 - \psi| > 0.004$). 
+where $\epsilon_{ii}^{\rm ind}$ is the individualized $\epsilon$ value for united-atom $ii$, $\epsilon_{ii}^{\rm tran}$ is the corresponding transferable $\epsilon$ value, and $\psi$ is a constant value for a given compound. 
 
 Figure \ref{fig:epsilon_scaling} presents the $\epsilon$-scaling results for 8 branched alkanes and 11 alkynes using the MiPPE force field as the initial force field. For consistency with the original MiPPE optimization, we use the same objective function for the branched alkanes and alkynes of Mick et al. and Barhaghi et al., respectively. Furthermore, the target values are computed with pseudo-experimental correlations. The alkyne correlations are from the Design Institute for Physical Properties (DIPPR) while the branched alkane correlations are from the National Institute of Standards and Technology (NIST) Reference Fluid Properties (REFPROP) database.
 
 % Reference Properties (REFPROP) values) are  alkyne target values are the same as those used by Barhaghi et al., namely, they are computed with pseudo-experimental correlations from the Design Institute for Physical Properties (DIPPR). The branched alkane target values are computed with  also the same as Mick et al.
 
-Figure \ref{fig:epsilon_scaling} shows that the alkynes require a greater degree of scaling than the branched alkanes. The TAMie force field also found $\psi \approx 1$ for branched alkanes. Although $\psi$ values for iTAMie were not reported for alkynes, the largest $\psi$ value for olefins, ethers, and ketones was $\approx 1.01$. Therefore, the transferability of the MiPPE force field appears to be slightly poorer for 2-pentyne and 2-hexyne, which have an optimized $\psi > 1.01$. It is also interesting that only 3 out of 19 compounds require $\psi < 1$. By contrast, this trend was not observed in Reference \citenum{Weidler2018}. 
+Figure \ref{fig:epsilon_scaling} shows that the alkynes require a greater degree of scaling than the branched alkanes. Weigler et al. tend to characterize the individualization as being useful when the scaling is greater than 0.4\% (i.e., $|1 - \psi| > 0.004$). With this rationale, of the branched alkanes only 3-methylpentane merits $\epsilon$-scaling for MiPPE-SL. Similarly, the TAMie force field also found $\psi \approx 1$ for all branched alkanes, except 3-methylpentane. Although $\psi$ values for iTAMie were not reported for alkynes, the largest $\psi$ value for olefins, ethers, and ketones was $\approx 1.01$. A truly transferable force field should have $\psi \approx 1$ for all compounds. Therefore, the transferability of the MiPPE force field appears to be slightly poorer for 2-pentyne and 2-hexyne, which have an optimized $\psi > 1.01$. It is also interesting that only 3 out of 19 compounds require $\psi < 1$. Thus, the well-depths appear to be slightly underestimated by the MiPPE force field. By contrast, this trend was not observed in Reference \citenum{Weidler2018} for TAMie. 
 
 %.  is introduced should result in low deviations between experiment and simulation, it is likely that such a parameter set would be overfit and, thus, perform poorly some compounds have sufficient experimental 
 
 	\begin{figure}[htb!]
 		\centering
 		\includegraphics[width=6.4in]{Optimal_epsilon_scaling.pdf}
-		\caption{One dimensional optimization with $\epsilon$-scaling $(\phi)$ of MiPPE-SL for select branched alkanes (left) and alkynes (right). Open symbols correspond to the original force field, i.e., $\phi = 1$, while the filled stars are the optimal $\phi$ value for a given compound.}
+		\caption{One dimensional optimization with $\epsilon$-scaling $(\psi)$ of MiPPE-SL for select branched alkanes (left) and alkynes (right). Open symbols correspond to the optimal $\psi$ value for a given compound.}
 		\label{fig:epsilon_scaling}
 	\end{figure}
 
@@ -748,11 +748,13 @@ Figure \ref{fig:epsilon_scaling} shows that the alkynes require a greater degree
 
 \subsection{$\epsilon_{\rm ref} \neq \epsilon_{\rm rr}$, $\sigma_{\rm ref} \neq \sigma_{\rm rr}$, and $\lambda_{\rm ref} \neq \lambda_{\rm rr}$}
 
-A more demanding test of GCMC-MBAR than $\epsilon$-scaling is to vary several non-bonded parameters simultaneously, including $\sigma$ and $\lambda$. Because it is not possible to visualize a parameter space of greater than two dimensions, we perform this analysis of GCMC-MBAR using the TraPPE, NERD, MiPPE-gen, and MiPPE-SL force fields. Specifically, we use GCMC-MBAR to predict coexistence properties of the TraPPE force field by sampling configurations with MiPPE-gen, and vice versa (see Figure \ref{fig:refFF_to_rrFF_lam12to16}). We also predict coexistence properties for the NERD and MiPPE-SL force fields using configurations sampled from TraPPE and MiPPE-gen, respectively (see Figure \ref{fig:refFF_to_rrFF_lam_constant}).
+A more demanding test of GCMC-MBAR than $\epsilon$-scaling is to vary several non-bonded parameters simultaneously, including $\sigma$ and $\lambda$. Because it is not possible to visualize a parameter space of greater than two dimensions, we perform this analysis of GCMC-MBAR using the TraPPE, NERD, MiPPE-gen, and MiPPE-SL force fields. Specifically, we utilize GCMC-MBAR to predict coexistence properties for the NERD and MiPPE-SL force fields using configurations sampled from TraPPE and MiPPE-gen, respectively (see Figure \ref{fig:refFF_to_rrFF_lam_constant}). We also use GCMC-MBAR to predict coexistence properties of the TraPPE force field by sampling configurations with MiPPE-gen, and vice versa (see Figure \ref{fig:refFF_to_rrFF_lam12to16}). 
 
 Note that all three non-bonded parameters ($\epsilon$, $\sigma$, and $\lambda$) for all four united-atom types (CH$_3$, CH$_2$, CH, and C) are different between the TraPPE and MiPPE-gen force fields. The TraPPE and NERD $\epsilon$ and $\sigma$ values are different for all four united-atom types while $\lambda = 12$ for both force fields. The MiPPE-gen and MiPPE-SL force fields only differ in the $\epsilon$ and/or $\sigma$ values for the CH and C sites . Specifically, the 2-methylpropane parameters are identical except for $\sigma_{\rm CH}$, the 2,2-dimethylpropane parameters are the same except for $\epsilon_{\rm C}$, and three parameters are different for 2,2,4-trimethylpentane ($\epsilon_{\rm CH}$, $\sigma_{\rm CH}$, and $\sigma_{\rm C}$). However, the difference in $\epsilon$ and $\sigma$ values for MiPPE-gen and MiPPE-SL is significantly smaller than that between TraPPE and NERD.
 
-Figures \ref{fig:refFF_to_rrFF_lam_constant} and \ref{fig:refFF_to_rrFF_lam12to16} compare the GCMC-MBAR predicted values for $\theta_{\rm rr} \neq \theta_{\rm ref}$ to those for $\theta_{\rm rr} = \theta_{\rm ref}$. Figure \ref{fig:refFF_to_rrFF_lam_constant} contains $\lambda_{rm rr} = \lambda_{\rm ref}$ while Figure \ref{fig:refFF_to_rrFF_lam12to16} corresponds to $\lambda_{rm rr} \neq \lambda_{\rm ref}$. Overall, MBAR is extremely reliable at predicting vapor phase properties ($\rho_{\rm vap}^{\rm sat}$ and $P_{\rm vap}^{\rm sat}$) while it is less reliable for liquid phase properties ($\rho_{\rm liq}^{\rm sat}$ and $\Delta H_{\rm v}$, which depends on both phases). In particular, note that the $\rho_{\rm liq}^{\rm sat}$ estimates in Figure \ref{fig:refFF_to_rrFF_lam12to16} are sporadic and unreliable. This can be explained by the low number of effective samples in the liquid phase, which demonstrate that the repulsive exponent $(\lambda)$ greatly impacts the configurational overlap in the liquid phase.
+Figures \ref{fig:refFF_to_rrFF_lam_constant} and \ref{fig:refFF_to_rrFF_lam12to16} compare the GCMC-MBAR predicted values for $\theta_{\rm rr} \neq \theta_{\rm ref}$ to those for $\theta_{\rm rr} = \theta_{\rm ref}$. Figure \ref{fig:refFF_to_rrFF_lam_constant} contains $\lambda_{\rm rr} = \lambda_{\rm ref}$ while Figure \ref{fig:refFF_to_rrFF_lam12to16} corresponds to $\lambda_{\rm rr} \neq \lambda_{\rm ref}$. As observed in Figures \ref{fig:refFF_to_rrFF_lam_constant} and \ref{fig:refFF_to_rrFF_lam12to16}, MBAR is extremely reliable at predicting vapor phase properties ($\rho_{\rm vap}^{\rm sat}$ and $P_{\rm vap}^{\rm sat}$) while it is less reliable for liquid phase properties ($\rho_{\rm liq}^{\rm sat}$ and $\Delta H_{\rm v}$, which depends on both phases). In particular, note that the $\rho_{\rm liq}^{\rm sat}$ estimates in Figure \ref{fig:refFF_to_rrFF_lam12to16} are sporadic and unreliable. This undesirable behavior can be explained by the low number of effective samples in the liquid phase, which demonstrates that the repulsive exponent $(\lambda)$ greatly impacts the configurational overlap in the liquid phase but not the vapor phase. The poor overlap when varying $\lambda$ is consistent with the MBAR-ITIC results \cite{Postdoc_1}. However, GCMC-MBAR provides considerable improvement in predicting $P_{\rm vap}^{\rm sat}$ compared to MBAR-ITIC. For this reaon, we recommend reducing the $\rho_{\rm liq}^{\rm sat}$ weight in the scoring function when varying $\lambda$. The degree to which the weight is reduced should depend on the number of effective samples.
+
+FIGURE: $K_{\rm snaps}^{\rm eff}$ or $K_{\rm snaps}^{\rm eff} / K_{\rm snaps}^{\rm tot}$ for vapor and liquid phases with error in densities. Or just with respect to reduced temperature. 
 
 %Because it is not possible to visualize a parameter space of greater than two dimensions, Figures \ref{fig:refFF_to_rrFF_lam_constant} and \ref{fig:refFF_to_rrFF_lam12to16} demonstrate the reliability of MBAR when multiple parameters are varied simultaneously. 
 
@@ -761,14 +763,14 @@ Figures \ref{fig:refFF_to_rrFF_lam_constant} and \ref{fig:refFF_to_rrFF_lam12to1
 	\begin{figure}[htb!]
 		\centering
 		\includegraphics[width=6.4in]{refFF_to_rrFF_lam_constant.png}
-		\caption{Comparison between MBAR-GCMC estimates (symbols) for $\theta_{\rm rr} \neq \theta_{\rm ref}$ and literature (MBAR-HR) values (lines) for $\theta_{\rm rr} = \theta_{\rm ref}$ with a constant repulsive exponent, i.e., $\lambda_{\rm rr} = \lambda_{\rm ref}$. MBAR-GCMC estimates for the NERD and MiPPE-SL force fields are computed using configurations sampled from TraPPE and MiPPE-gen, respectively. Top-left, top-right, bottom-left, and bottom-right panels correspond to saturated liquid density, saturated vapor density, saturated vapor pressure, and enthalpy of vaporization, respectively.}
+		\caption{Comparison between MBAR-GCMC estimates (symbols, for $\theta_{\rm rr} \neq \theta_{\rm ref}$) and MBAR-HR literature values (lines, for $\theta_{\rm rr} = \theta_{\rm ref}$) with a constant repulsive exponent, i.e., $\lambda_{\rm rr} = \lambda_{\rm ref}$. MBAR-GCMC estimates for the NERD and MiPPE-SL force fields are computed using configurations sampled from TraPPE and MiPPE-gen, respectively. Top-left, top-right, bottom-left, and bottom-right panels correspond to saturated liquid density, saturated vapor density, saturated vapor pressure, and enthalpy of vaporization, respectively.}
 		\label{fig:refFF_to_rrFF_lam_constant}
 	\end{figure}
 
 	\begin{figure}[htb!]
 		\centering
 		\includegraphics[width=6.4in]{refFF_to_rrFF_lam_12to16.png}
-		\caption{Comparison between MBAR-GCMC estimates (symbols) for $\theta_{\rm rr} \neq \theta_{\rm ref}$ and literature (MBAR-HR) values (lines) for $\theta_{\rm rr} = \theta_{\rm ref}$ with a non-constant repulsive exponent, i.e., $\lambda_{\rm rr} \neq \lambda_{\rm ref}$. MBAR-GCMC estimates for the TraPPE force field are computed using configurations sampled from MiPPE-gen, and vice versa. Top-left, top-right, bottom-left, and bottom-right panels correspond to saturated liquid density, saturated vapor density, saturated vapor pressure, and enthalpy of vaporization, respectively.}
+		\caption{Comparison between MBAR-GCMC estimates (symbols, for $\theta_{\rm rr} \neq \theta_{\rm ref}$) and MBAR-HR literature values (lines, for $\theta_{\rm rr} = \theta_{\rm ref}$) with a non-constant repulsive exponent, i.e., $\lambda_{\rm rr} \neq \lambda_{\rm ref}$. MBAR-GCMC estimates for the TraPPE force field are computed using configurations sampled from MiPPE-gen, and vice versa. Top-left, top-right, bottom-left, and bottom-right panels correspond to saturated liquid density, saturated vapor density, saturated vapor pressure, and enthalpy of vaporization, respectively.}
 		\label{fig:refFF_to_rrFF_lam12to16}
 	\end{figure}
 
@@ -786,7 +788,7 @@ Figures \ref{fig:refFF_to_rrFF_lam_constant} and \ref{fig:refFF_to_rrFF_lam12to1
 	\item For $\lambda_{\rm ref} = 12$ and $\lambda_{\rm rr} = 12$, i.e., computing NERD from TraPPE simulations, MBAR-GCMC predicts all four properties accurately    
 	\item We present how basis functions allow for rapid computation of wide range of parameter sets:
 	\begin{enumerate}
-		\item \textit{n}-hexane
+%		\item \textit{n}-hexane
 		\item 2-methylpropane
 		\item 2,2-dimethylpropane
 		\item cyclopentane or cyclohexane
@@ -803,7 +805,7 @@ Figures \ref{fig:refFF_to_rrFF_lam_constant} and \ref{fig:refFF_to_rrFF_lam12to1
 	\item Scaling of epsilon post-simulation for branched alkanes and alkynes
 	\item Prediction of VLE for $\lambda_{\rm ref} \neq \lambda_{\rm rr}$
 	\item Prediction of VLE for $\lambda_{\rm ref} = \lambda_{\rm rr}$
-	\item Two-D scans of scoring functions for $\epsilon-\sigma$ of CH3 (a) and CH2 (b) for \textit{n}-hexane
+%	\item Two-D scans of scoring functions for $\epsilon-\sigma$ of CH3 (a) and CH2 (b) for \textit{n}-hexane
 	\item Two-D scans of scoring functions for $\epsilon-\sigma$ of CH3 (a) and CH (b) for 2-methylpropane
 	\item Two-D scans of scoring functions for $\epsilon-\sigma$ of CH3 (a) and C (b) for 2,2-dimethylpropane
 	\item Two-D scans of scoring functions for $\epsilon-\sigma$ of CH2 for cyclopentane or cyclohexane (reference is TraPPE)
