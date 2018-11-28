@@ -8,7 +8,7 @@
 \providecommand*\mcitethebibliography{\thebibliography}
 \csname @ifundefined\endcsname{endmcitethebibliography}
   {\let\endmcitethebibliography\endthebibliography}{}
-\begin{mcitethebibliography}{31}
+\begin{mcitethebibliography}{33}
 \providecommand*\natexlab[1]{#1}
 \providecommand*\mciteSetBstSublistMode[1]{}
 \providecommand*\mciteSetBstMaxWidthForm[2]{}
@@ -112,17 +112,6 @@ Shirts,~M.~R.; Chodera,~J.~D. Statistically optimal analysis of samples from
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
 \EndOfBibitem
-\bibitem[Boulougouris \latin{et~al.}(2010)Boulougouris, Peristeras, Economou,
-  and Theodorou]{Boulougouris2010}
-Boulougouris,~G.~C.; Peristeras,~L.~D.; Economou,~I.~G.; Theodorou,~D.~N.
-  Predicting fluid phase equilibrium via histogram reweighting with Gibbs
-  ensemble Monte Carlo simulations. \emph{The Journal of Supercritical Fluids}
-  \textbf{2010}, \emph{55}, 503 -- 509, 100th year Anniversary of van der
-  Waals' Nobel Lecture\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
 \bibitem[Messerly \latin{et~al.}(2018)Messerly, Razavi, and Shirts]{Postdoc_1}
 Messerly,~R.~A.; Razavi,~S.~M.; Shirts,~M.~R. Configuration-Sampling-Based
   Surrogate Models for Rapid Parameterization of Non-Bonded Interactions.
@@ -187,14 +176,6 @@ Errington,~J.~R.; Panagiotopoulos,~A.~Z. New intermolecular potential models
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
 \EndOfBibitem
-\bibitem[Weidler and Gross(2018)Weidler, and Gross]{Weidler2018}
-Weidler,~D.; Gross,~J. Individualized force fields for alkanes, olefins, ethers
-  and ketones based on the transferable anisotropic Mie potential. \emph{Fluid
-  Phase Equilibria} \textbf{2018}, \relax
-\mciteBstWouldAddEndPunctfalse
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
 \bibitem[Martin and Siepmann(1999)Martin, and Siepmann]{Martin1999}
 Martin,~M.~G.; Siepmann,~J.~I. Novel Configurational-Bias Monte Carlo Method
   for Branched Molecules. {Transferable Potentials for Phase Equilibria. 2.
@@ -245,6 +226,12 @@ Barhaghi,~M.~S.; Mick,~J.~R.; Potoff,~J.~J. Optimised Mie potentials for phase
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
 \EndOfBibitem
+\bibitem[GOM()]{GOMC}
+GOMC: http://github.com/GOMC-WSU\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
 \bibitem[McDonald and Singer(1967)McDonald, and Singer]{McDonald1967}
 McDonald,~I.~R.; Singer,~K. Machine Calculation of Thermodynamic Properties of
   a Simple Fluid at Supercritical Temperatures. \emph{The Journal of Chemical
@@ -285,6 +272,34 @@ Naden,~L.~N.; Shirts,~M.~R. Rapid Computation of Thermodynamic Properties Over
   Multidimensional Nonbonded Parameter Spaces using Adaptive Multistate
   Reweighting. \emph{J. Chem. Theory Comput.} \textbf{2016}, \emph{12},
   1806--1823\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Dybeck \latin{et~al.}(2016)Dybeck, K{\"o}nig, Brooks, and
+  Shirts]{Dybeck2016}
+Dybeck,~E.~C.; K{\"o}nig,~G.; Brooks,~B.~R.; Shirts,~M.~R. Comparison of
+  Methods To Reweight from Classical Molecular Simulations to QM/MM Potentials.
+  \emph{J. Chem. Theory Comput.} \textbf{2016}, \emph{12}, 1466--1480\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Weidler and Gross(2018)Weidler, and Gross]{Weidler2018}
+Weidler,~D.; Gross,~J. Individualized force fields for alkanes, olefins, ethers
+  and ketones based on the transferable anisotropic Mie potential. \emph{Fluid
+  Phase Equilibria} \textbf{2018}, \relax
+\mciteBstWouldAddEndPunctfalse
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Boulougouris \latin{et~al.}(2010)Boulougouris, Peristeras, Economou,
+  and Theodorou]{Boulougouris2010}
+Boulougouris,~G.~C.; Peristeras,~L.~D.; Economou,~I.~G.; Theodorou,~D.~N.
+  Predicting fluid phase equilibrium via histogram reweighting with Gibbs
+  ensemble Monte Carlo simulations. \emph{The Journal of Supercritical Fluids}
+  \textbf{2010}, \emph{55}, 503 -- 509, 100th year Anniversary of van der
+  Waals' Nobel Lecture\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
