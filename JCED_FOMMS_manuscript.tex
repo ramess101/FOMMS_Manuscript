@@ -828,13 +828,13 @@ The GCMC-HR values used in Figure \ref{fig:comparison MBAR HR} were not recomput
 
 Figure \ref{fig:epsilon_scaling} presents the $\epsilon$-scaling results for 8 branched alkanes and 11 alkynes using the MiPPE force field as the initial force field. For consistency with the original MiPPE optimization, we use the same scoring function for the branched alkanes and alkynes as Mick et al. and Barhaghi et al., respectively
 \begin{multline} \label{eq: Score}
-S= \frac{1}{N_{\rm exp}} \left[ w_0 \sum_{j=0}^{N_{\rm exp}} APD(\rho_{\rm liq}^{\rm sat}(T^{\rm sat}_j)) + w_1 \sum_{j=0}^{N_{\rm exp}} APD(\rho_{\rm vap}^{\rm sat}(T^{\rm sat}_j)) \\ + w_2 \sum_{j=0}^{N_{\rm exp}} APD(P_{\rm vap}^{\rm sat}(T^{\rm sat}_j)) + w_3 \sum_{j=0}^{N_{\rm exp}} APD(\Delta H_{\rm v} (T^{\rm sat}_j)) \\ + w_4 \sum_{j=0}^{N_{\rm exp}} \frac{d APD(\rho_{\rm liq}^{\rm sat}(T^{\rm sat}_j))}{dT} + w_5 \sum_{j=0}^{N_{\rm exp}} \frac{d APD(\rho_{\rm vap}^{\rm sat}(T^{\rm sat}_j))}{dT} \\ + w_6 \sum_{j=0}^{N_{\rm exp}} \frac{d APD(P_{\rm vap}^{\rm sat}(T^{\rm sat}_j))}{dT} + w_7 \sum_{j=0}^{N_{\rm exp}} \frac{d APD(\Delta H_{\rm v} (T^{\rm sat}_j))}{dT} \right]
+S= \frac{1}{N_{\rm exp}} [ w_0 \sum_{j=0}^{N_{\rm exp}} APD(\rho_{\rm liq}^{\rm sat}(T^{\rm sat}_j)) + w_1 \sum_{j=0}^{N_{\rm exp}} APD(\rho_{\rm vap}^{\rm sat}(T^{\rm sat}_j)) \\ + w_2 \sum_{j=0}^{N_{\rm exp}} APD(P_{\rm vap}^{\rm sat}(T^{\rm sat}_j)) + w_3 \sum_{j=0}^{N_{\rm exp}} APD(\Delta H_{\rm v} (T^{\rm sat}_j)) \\ + w_4 \sum_{j=0}^{N_{\rm exp}} \frac{d APD(\rho_{\rm liq}^{\rm sat}(T^{\rm sat}_j))}{dT} + w_5 \sum_{j=0}^{N_{\rm exp}} \frac{d APD(\rho_{\rm vap}^{\rm sat}(T^{\rm sat}_j))}{dT} \\ + w_6 \sum_{j=0}^{N_{\rm exp}} \frac{d APD(P_{\rm vap}^{\rm sat}(T^{\rm sat}_j))}{dT} + w_7 \sum_{j=0}^{N_{\rm exp}} \frac{d APD(\Delta H_{\rm v} (T^{\rm sat}_j))}{dT} ]
 \end{multline}
 where $S$ is the scoring function, $N_{\rm exp}$ is the number of experimental data points, $w_{x}$ are the weights for property $x$, $T^{\rm sat}_j$ are the saturation temperatures for data point $j$, and the absolute percent deviation $(APD)$ is defined as
 \begin{equation} \label{eq: APD}
 APD(X) = \left| \frac{X_{\rm sim} - X_{\rm exp}}{X_{\rm exp}} \right| \times 100 \% 
 \end{equation}
-where $X_{\rm sim}$ and $X_{\rm exp}$ correspond to the respective simulation and (pseudo-) experimental values for property $X$ (e.g., $\rho_{\rm liq}^{\rm sat}$). Note that the weights $(w_x)$ are different for branched alkanes and alkynes, specifically, $w_x = $ {0.6135, 0.0123, 0.2455, 0.0245, 0.0613, 0.0061, 0.0245, 0.0123} and $w_x = $ {0.757, 0, 0.152, 0, 0.076, 0, 0.015, 0} for branched alkanes and alkynes, respectively.
+where $X_{\rm sim}$ and $X_{\rm exp}$ correspond to the respective simulation and (pseudo-) experimental values for property $X$ (e.g., $\rho_{\rm liq}^{\rm sat}$). Note that the weights $(w_x)$ are different for branched alkanes and alkynes, specifically, $w_x = $ (0.6135, 0.0123, 0.2455, 0.0245, 0.0613, 0.0061, 0.0245, 0.0123) and $w_x = $ (0.757, 0, 0.152, 0, 0.076, 0, 0.015, 0) for branched alkanes and alkynes, respectively.
 
 In accordance with the work of Mick et al. and Barhaghi et al., the target values $(X_{\rm exp})$ are computed with pseudo-experimental correlations. The alkyne correlations are from the Design Institute for Physical Properties (DIPPR) while the branched alkane correlations are from the National Institute of Standards and Technology (NIST) Reference Fluid Properties (REFPROP) database.
 
@@ -893,7 +893,7 @@ The poor overlap when varying $\lambda$ is consistent with the MBAR-ITIC results
 	\begin{figure}[htb!]
 		\centering
 		\includegraphics[width=6.4in]{refFF_to_rrFF_Neff_alt.pdf}
-		\caption{Number of effective snapshots $(K_{\rm snaps}^{\rm eff})$ in the liquid (left panel) and vapor (right panel) phases. Good overlap $(K_{\rm snaps}^{\rm eff} \gg 50)$ is achieved in the vapor phase for each system while poor overlap in liquid phase $(K_{\rm snaps}^{\rm eff} < 50)$ is observed for $\lambda_{\rm rr} \neq \lambda_{\rm ref}$. Colors and symbol shapes correspond to Figures \ref{fig:refFF_to_rrFF_lam_constant} and \ref{fig:refFF_to_rrFF_lam12to16}. Open and closed symbols correspond to $\lambda_{\rm rr} = \lambda_{\rm ref}$ and $\lambda_{\rm rr} \neq \lambda_{\rm ref}$, respectively.}
+		\caption{Number of effective snapshots $(K_{\rm snaps}^{\rm eff})$ in the liquid (left panel) and vapor (right panel) phases. Good overlap $(K_{\rm snaps}^{\rm eff} \gg 50)$ is achieved in the vapor phase for each system while poor overlap in liquid phase $(K_{\rm snaps}^{\rm eff} < 50)$ is observed for $\lambda_{\rm rr} \neq \lambda_{\rm ref}$. Symbol shapes correspond to Figures \ref{fig:refFF_to_rrFF_lam_constant} and \ref{fig:refFF_to_rrFF_lam12to16}. Closed and open symbols correspond to $\lambda_{\rm rr} = \lambda_{\rm ref}$ and $\lambda_{\rm rr} \neq \lambda_{\rm ref}$, respectively.}
 		\label{fig:Neff}
 	\end{figure} 
 
@@ -915,41 +915,41 @@ We have demonstrated that GCMC-MBAR is accurate when $K_{\rm snaps}^{\rm eff} \g
 		\label{fig:Neff_CYC6}
 	\end{figure}
 
-\begin{enumerate}
-	\item We validate that MBAR and HR are statistically indistinguishable with sufficient data by re-analyzing the simulation results of Mick et al. and Barhaghi et al. utilizing MBAR
-	%	\begin{enumerate}
-	%		\item Evaluate all of the compounds that Mohammad has U and N values for (branched alkanes and alkynes) and which have good experimental data
-	%		\item Compare MBAR results with either Potoff's or my own HR results (might be better to use my own for self consistency)
-	%	\end{enumerate}
-	%    \item Validation of the basis function approach
-	\item Epsilon scaling for all the compounds that Mohammad has U and N values for (branched alkanes and alkynes) and which have good experimental data
-	\item We estimate MiPPE generalized and NERD VLE from TraPPE simulations, MiPPE S/L from MiPPE generalized, and TraPPE from MiPPE generalized
-	\item For $\lambda_{\rm ref} = 12$ and $\lambda_{\rm rr} = 16$, MBAR-GCMC predicts vapor density, vapor pressure, and heat of vaporization more accurately than liquid density
-	\item For $\lambda_{\rm ref} = 12$ and $\lambda_{\rm rr} = 12$, i.e., computing NERD from TraPPE simulations, MBAR-GCMC predicts all four properties accurately    
-	\item We present how basis functions allow for rapid computation of wide range of parameter sets:
-	\begin{enumerate}
-%		\item \textit{n}-hexane
-		\item 2-methylpropane
-		\item 2,2-dimethylpropane
-		\item cyclopentane or cyclohexane
-	\end{enumerate}
-	\item We provide supporting information with basis functions for several branched alkanes with TraPPE and MiPPE force fields
-\end{enumerate}
-
-\subsection{Figures}
-
-
-\begin{enumerate}
-	\item Percent deviation between MBAR and HR results for rholiq, rhovap, Psat, and DeltaHv
-	\item Comparison between MBAR bootstrapping and analytical uncertainties and HR uncertainties (?)
-	\item Scaling of epsilon post-simulation for branched alkanes and alkynes
-	\item Prediction of VLE for $\lambda_{\rm ref} \neq \lambda_{\rm rr}$
-	\item Prediction of VLE for $\lambda_{\rm ref} = \lambda_{\rm rr}$
-%	\item Two-D scans of scoring functions for $\epsilon-\sigma$ of CH3 (a) and CH2 (b) for \textit{n}-hexane
-	\item Two-D scans of scoring functions for $\epsilon-\sigma$ of CH3 (a) and CH (b) for 2-methylpropane
-	\item Two-D scans of scoring functions for $\epsilon-\sigma$ of CH3 (a) and C (b) for 2,2-dimethylpropane
-	\item Two-D scans of scoring functions for $\epsilon-\sigma$ of CH2 for cyclopentane or cyclohexane (reference is TraPPE)
-\end{enumerate}
+%\begin{enumerate}
+%	\item We validate that MBAR and HR are statistically indistinguishable with sufficient data by re-analyzing the simulation results of Mick et al. and Barhaghi et al. utilizing MBAR
+%	%	\begin{enumerate}
+%	%		\item Evaluate all of the compounds that Mohammad has U and N values for (branched alkanes and alkynes) and which have good experimental data
+%	%		\item Compare MBAR results with either Potoff's or my own HR results (might be better to use my own for self consistency)
+%	%	\end{enumerate}
+%	%    \item Validation of the basis function approach
+%	\item Epsilon scaling for all the compounds that Mohammad has U and N values for (branched alkanes and alkynes) and which have good experimental data
+%	\item We estimate MiPPE generalized and NERD VLE from TraPPE simulations, MiPPE S/L from MiPPE generalized, and TraPPE from MiPPE generalized
+%	\item For $\lambda_{\rm ref} = 12$ and $\lambda_{\rm rr} = 16$, MBAR-GCMC predicts vapor density, vapor pressure, and heat of vaporization more accurately than liquid density
+%	\item For $\lambda_{\rm ref} = 12$ and $\lambda_{\rm rr} = 12$, i.e., computing NERD from TraPPE simulations, MBAR-GCMC predicts all four properties accurately    
+%	\item We present how basis functions allow for rapid computation of wide range of parameter sets:
+%	\begin{enumerate}
+%%		\item \textit{n}-hexane
+%		\item 2-methylpropane
+%		\item 2,2-dimethylpropane
+%		\item cyclopentane or cyclohexane
+%	\end{enumerate}
+%	\item We provide supporting information with basis functions for several branched alkanes with TraPPE and MiPPE force fields
+%\end{enumerate}
+%
+%\subsection{Figures}
+%
+%
+%\begin{enumerate}
+%	\item Percent deviation between MBAR and HR results for rholiq, rhovap, Psat, and DeltaHv
+%	\item Comparison between MBAR bootstrapping and analytical uncertainties and HR uncertainties (?)
+%	\item Scaling of epsilon post-simulation for branched alkanes and alkynes
+%	\item Prediction of VLE for $\lambda_{\rm ref} \neq \lambda_{\rm rr}$
+%	\item Prediction of VLE for $\lambda_{\rm ref} = \lambda_{\rm rr}$
+%%	\item Two-D scans of scoring functions for $\epsilon-\sigma$ of CH3 (a) and CH2 (b) for \textit{n}-hexane
+%	\item Two-D scans of scoring functions for $\epsilon-\sigma$ of CH3 (a) and CH (b) for 2-methylpropane
+%	\item Two-D scans of scoring functions for $\epsilon-\sigma$ of CH3 (a) and C (b) for 2,2-dimethylpropane
+%	\item Two-D scans of scoring functions for $\epsilon-\sigma$ of CH2 for cyclopentane or cyclohexane (reference is TraPPE)
+%\end{enumerate}
 
 \section{Discussion/Limitations/Future work} \label{sec: Discussion}
 

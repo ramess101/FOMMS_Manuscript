@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.8.11)  1 DEC 2018 12:45
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.8.11)  1 DEC 2018 14:39
 entering extended mode
 **./JCED_FOMMS_manuscript.tex
 (JCED_FOMMS_manuscript.tex
@@ -1722,7 +1722,7 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 808.
 
-<figures/Comparison_MBAR_HR_boxplot_CI.pdf, id=366, 867.24pt x 867.24pt>
+<figures/Comparison_MBAR_HR_boxplot_CI.pdf, id=362, 867.24pt x 867.24pt>
 File: figures/Comparison_MBAR_HR_boxplot_CI.pdf Graphic file (type pdf)
 
 <use figures/Comparison_MBAR_HR_boxplot_CI.pdf>
@@ -1762,44 +1762,8 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 
 LaTeX Warning: Text page 19 contains only floats.
 
-[19 <./figures/Comparison_MBAR_HR_boxplot_CI.pdf>]
-! Missing \right. inserted.
-<inserted text> 
-                \right .
-l.832 \end{multline}
-                    
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Extra \right.
-<argument> ...rm v} (T^{\rm sat}_j))}{dT} \right ]
-                                                   
-l.832 \end{multline}
-                    
-I'm ignoring a \right that had no matching \left.
-
-! Missing \right. inserted.
-<inserted text> 
-                \right .
-l.832 \end{multline}
-                    
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Extra \right.
-<argument> ...rm v} (T^{\rm sat}_j))}{dT} \right ]
-                                                   
-l.832 \end{multline}
-                    
-I'm ignoring a \right that had no matching \left.
-
-[20] <figures/Optimal_epsilon_scaling.pdf, id=431, 1445.4pt x 722.7pt>
+[19 <./figures/Comparison_MBAR_HR_boxplot_CI.pdf>] [20]
+<figures/Optimal_epsilon_scaling.pdf, id=427, 1445.4pt x 722.7pt>
 File: figures/Optimal_epsilon_scaling.pdf Graphic file (type pdf)
 
 <use figures/Optimal_epsilon_scaling.pdf>
@@ -1892,7 +1856,7 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 858.
 
 [21] [22 <./figures/Optimal_epsilon_scaling.pdf>]
-<figures/refFF_to_rrFF_lam_constant.pdf, id=498, 846.1885pt x 941.78418pt>
+<figures/refFF_to_rrFF_lam_constant.pdf, id=494, 846.1885pt x 941.78418pt>
 File: figures/refFF_to_rrFF_lam_constant.pdf Graphic file (type pdf)
 
 <use figures/refFF_to_rrFF_lam_constant.pdf>
@@ -1903,7 +1867,7 @@ ine 875.
 
 LaTeX Warning: Float too large for page by 5.86264pt on input line 878.
 
-<figures/refFF_to_rrFF_lam_12to16.pdf, id=499, 829.19553pt x 941.88007pt>
+<figures/refFF_to_rrFF_lam_12to16.pdf, id=495, 829.19553pt x 941.88007pt>
 File: figures/refFF_to_rrFF_lam_12to16.pdf Graphic file (type pdf)
 
 <use figures/refFF_to_rrFF_lam_12to16.pdf>
@@ -1914,7 +1878,7 @@ e 882.
 
 LaTeX Warning: Float too large for page by 16.44968pt on input line 885.
 
-<figures/refFF_to_rrFF_Neff_alt.pdf, id=503, 846.58594pt x 531.69313pt>
+<figures/refFF_to_rrFF_Neff_alt.pdf, id=499, 846.58594pt x 531.69313pt>
 File: figures/refFF_to_rrFF_Neff_alt.pdf Graphic file (type pdf)
 
 <use figures/refFF_to_rrFF_Neff_alt.pdf>
@@ -1934,7 +1898,7 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 900.
 
-<figures/CYC6_scoring_function_lam.pdf, id=508, 867.24pt x 867.24pt>
+<figures/CYC6_scoring_function_lam.pdf, id=504, 867.24pt x 867.24pt>
 File: figures/CYC6_scoring_function_lam.pdf Graphic file (type pdf)
 
 <use figures/CYC6_scoring_function_lam.pdf>
@@ -1942,70 +1906,46 @@ Package pdftex.def Info: figures/CYC6_scoring_function_lam.pdf used on input li
 ne 906.
 (pdftex.def)             Requested size: 462.52756pt x 462.53305pt.
 
-<figures/CYC6_Neff_lam.pdf, id=509, 867.24pt x 867.24pt>
+<figures/CYC6_Neff_lam.pdf, id=505, 867.24pt x 867.24pt>
 File: figures/CYC6_Neff_lam.pdf Graphic file (type pdf)
 
 <use figures/CYC6_Neff_lam.pdf>
 Package pdftex.def Info: figures/CYC6_Neff_lam.pdf used on input line 913.
 (pdftex.def)             Requested size: 462.52756pt x 462.53305pt.
- [23]
-Overfull \hbox (13.2858pt too wide) in paragraph at lines 943--944
-[]\T1/ppl/m/n/12 Percent de-vi-a-tion be-tween MBAR and HR re-sults for rholiq,
- rho-vap, Psat, and DeltaHv 
- []
-
-[24]
-Overfull \hbox (0.98157pt too wide) in paragraph at lines 949--950
-[]\T1/ppl/m/n/12 Two-D scans of scor-ing func-tions for $\OML/cmm/m/it/12  \OM
-S/cmsy/m/n/12   \OML/cmm/m/it/12 $ \T1/ppl/m/n/12 of CH3 (a) and CH (b) for 2-
-methylpropane 
- []
-
-
-Overfull \hbox (10.8215pt too wide) in paragraph at lines 950--951
-[]\T1/ppl/m/n/12 Two-D scans of scor-ing func-tions for $\OML/cmm/m/it/12  \OM
-S/cmsy/m/n/12   \OML/cmm/m/it/12 $ \T1/ppl/m/n/12 of CH3 (a) and C (b) for 2,2
--dimethylpropane 
- []
-
 
 Overfull \hbox (8.1347pt too wide) in paragraph at lines 956--957
 \T1/ppl/m/n/12 HR can also been ap-plied to GEMC sim-u-la-tions (GEMC-HR).$[]$ 
 There-fore, while the present
  []
 
-
+[23]
 Overfull \hbox (2.79575pt too wide) in paragraph at lines 958--959
 []\T1/ppl/m/n/12 As ITIC is more re-li-able at near-triple-point con-di-tions, 
 MBAR-ITIC and MBAR-GCMC
  []
 
-(JCED_FOMMS_manuscript.bbl [25] [26] [27] [28] [29]) [30]
+(JCED_FOMMS_manuscript.bbl [24] [25] [26] [27]) [28] [29]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 992.
- [31 <./figures/refFF_to_rrFF_lam_constant.pdf>] [32 <./figures/refFF_to_rrFF_l
+ [30 <./figures/refFF_to_rrFF_lam_constant.pdf>] [31 <./figures/refFF_to_rrFF_l
 am_12to16.pdf>]
-[33 <./figures/refFF_to_rrFF_Neff_alt.pdf>] [34 <./figures/CYC6_scoring_functio
-n_lam.pdf>] [35 <./figures/CYC6_Neff_lam.pdf>]
+[32 <./figures/refFF_to_rrFF_Neff_alt.pdf>] [33 <./figures/CYC6_scoring_functio
+n_lam.pdf>] [34 <./figures/CYC6_Neff_lam.pdf>]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 992.
  (JCED_FOMMS_manuscript.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 992.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 992.
 Package rerunfilecheck Info: File `JCED_FOMMS_manuscript.out' has not changed.
-(rerunfilecheck)             Checksum: CDFB16C1F869E2357F9915921EC817DB;1783.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
+(rerunfilecheck)             Checksum: 5FE092AA0475B591505B170776015669;1725.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 992.
  ) 
 Here is how much of TeX's memory you used:
- 32599 strings out of 493323
- 657934 string characters out of 3130449
- 695735 words of memory out of 3000000
- 35507 multiletter control sequences out of 15000+200000
+ 32578 strings out of 493323
+ 657776 string characters out of 3130449
+ 695724 words of memory out of 3000000
+ 35506 multiletter control sequences out of 15000+200000
  572466 words of font info for 105 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 62i,11n,94p,10421b,1014s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 62i,11n,94p,10421b,1000s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/ram9/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}
 <C:/Users/ram9/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
 /cmex10.pfb><C:/Users/ram9/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public
@@ -2027,9 +1967,9 @@ am9/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/palatino/uplb8a.pfb><C:/U
 sers/ram9/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/palatino/uplr8a.pfb
 ><C:/Users/ram9/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/palatino/uplr
 i8a.pfb>
-Output written on JCED_FOMMS_manuscript.pdf (35 pages, 543545 bytes).
+Output written on JCED_FOMMS_manuscript.pdf (34 pages, 538653 bytes).
 PDF statistics:
- 1030 PDF objects out of 1200 (max. 8388607)
- 152 named destinations out of 1000 (max. 500000)
- 264 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 999 PDF objects out of 1000 (max. 8388607)
+ 132 named destinations out of 1000 (max. 500000)
+ 256 words of extra memory for PDF output out of 10000 (max. 10000000)
 
