@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.8.11)  5 DEC 2018 09:16
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.8.11)  5 DEC 2018 09:55
 entering extended mode
 **./JCED_FOMMS_manuscript.tex
 (JCED_FOMMS_manuscript.tex
@@ -1918,7 +1918,7 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 937.
 
 [23] [24]
-<figures/CYC6_scoring_function_lam_alt.pdf, id=521, 875.68593pt x 813.74203pt>
+<figures/CYC6_scoring_function_lam_alt.pdf, id=520, 875.68593pt x 813.74203pt>
 File: figures/CYC6_scoring_function_lam_alt.pdf Graphic file (type pdf)
 
 <use figures/CYC6_scoring_function_lam_alt.pdf>
@@ -1926,7 +1926,7 @@ Package pdftex.def Info: figures/CYC6_scoring_function_lam_alt.pdf used on inpu
 t line 947.
 (pdftex.def)             Requested size: 462.52756pt x 429.81606pt.
 
-<figures/CYC6_Neff_lam.pdf, id=522, 889.03265pt x 813.74203pt>
+<figures/CYC6_Neff_lam.pdf, id=521, 889.03265pt x 813.74203pt>
 File: figures/CYC6_Neff_lam.pdf Graphic file (type pdf)
 
 <use figures/CYC6_Neff_lam.pdf>
@@ -1938,7 +1938,7 @@ Overfull \hbox (8.1347pt too wide) in paragraph at lines 1003--1004
 There-fore, while the present
  []
 
-(JCED_FOMMS_manuscript.bbl [25] [26] [27] [28] [29]
+[25] (JCED_FOMMS_manuscript.bbl [26] [27] [28] [29]
 LaTeX Font Info:    Try loading font information for T1+pcr on input line 330.
 
 ("C:\Users\ram9\AppData\Local\Programs\MiKTeX 2.9\tex\latex\psnfss\t1pcr.fd"
@@ -1962,11 +1962,11 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1040.
 Here is how much of TeX's memory you used:
  32625 strings out of 493323
  658670 string characters out of 3130449
- 697773 words of memory out of 3000000
+ 697814 words of memory out of 3000000
  35551 multiletter control sequences out of 15000+200000
  573087 words of font info for 107 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 62i,11n,94p,10421b,1020s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 62i,11n,94p,10421b,1016s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/ram9/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}
 <C:/Users/ram9/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
 /cmex10.pfb><C:/Users/ram9/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public
@@ -1989,9 +1989,9 @@ ers/ram9/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/palatino/uplb8a.pfb>
 <C:/Users/ram9/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/palatino/uplr8
 a.pfb><C:/Users/ram9/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/palatino
 /uplri8a.pfb>
-Output written on JCED_FOMMS_manuscript.pdf (35 pages, 848115 bytes).
+Output written on JCED_FOMMS_manuscript.pdf (35 pages, 849719 bytes).
 PDF statistics:
- 1061 PDF objects out of 1200 (max. 8388607)
+ 1065 PDF objects out of 1200 (max. 8388607)
  129 named destinations out of 1000 (max. 500000)
  224 words of extra memory for PDF output out of 10000 (max. 10000000)
 
