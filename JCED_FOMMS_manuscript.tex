@@ -152,6 +152,8 @@
 
 \section*{Abstract}
 
+NEEDS TO BE WRITTEN
+
 \section{Introduction}
 
 A key use of molecular simulation is the ability to accurately and efficiently estimate vapor-liquid coexistence properties, i.e., saturated liquid density $(\rho_{\rm liq}^{\rm sat})$, saturated vapor density $(\rho_{\rm vap}^{\rm sat})$, saturated vapor pressures $(P_{\rm vap}^{\rm sat})$, and enthalpy of vaporization $(\Delta H_{\rm v})$. The accuracy of coexistence estimates depends on the underlying molecular model (a.k.a., force field, potential model, or Hamiltonian) while the computational efficiency depends primarily on the simulation methods, software, and hardware. 
@@ -312,28 +314,43 @@ The outline for this study is the following. Section \ref{sec: Methods} provides
     \begin{equation}
     u^{\rm bend} = \frac{k_\theta}{2} \left(\theta-\theta_0\right)^2
     \end{equation}
-    where $u^{\rm bend}$ is the bending energy, $\theta$ is the instantaneous bond angle, $\theta_0$ is the equilibrium bond angle (see Table \ref{tab:angles}), and $k_\theta$ is the harmonic force constant with $k_\theta/k_{\rm B} = 62500$ K/rad$^2$ for all bonding angles, where $k_{\rm B}$ is the Boltzmann constant. 
+    where $u^{\rm bend}$ is the bending energy, $\theta$ is the instantaneous bond angle, $\theta_0$ is the equilibrium bond angle, and $k_\theta$ is the harmonic force constant with $k_\theta/k_{\rm B} = 62500$ K/rad$^2$ for all bonding angles, where $k_{\rm B}$ is the Boltzmann constant. Table \ref{tab:angles} provides the $\theta_0$ values for each angle type and force field. Note that the $\theta_0$ values are equivalent for the three force fields, with the exception of the NERD CH$_i$-CH-CH$_j$ $\theta_0$ value. 
     
+%    \begin{table}[h!]
+%    	\caption{Equilibrium bond angles $(\theta_0)$ \cite{Martin1999}. CH$_i$ and CH$_j$ represent CH$_3$, CH$_2$, CH, or C sites.} \label{tab:angles}
+%    	\begin{center}
+%    		\begin{tabular}{|c|c|}
+%    			\hline
+%    			Bending sites & $\theta_0$ (degrees) \\ \hline
+%    			CH$_i$-CH$_2$-CH$_j$ & 114.0 \\ 
+%    			CH$_i$-CH-CH$_j$ & 112.0 \\
+%    			CH$_i$-CH-CH$_j$, NERD & 109.5 \\ 
+%    			CH$_i$-C-CH$_j$ & 109.5 \\
+%    			\hline
+%    		\end{tabular}
+%    	\end{center} 
+%    \end{table}
+
     \begin{table}[h!]
-    	\caption{Equilibrium bond angles $(\theta_0)$ \cite{Martin1999}. CH$_i$ and CH$_j$ represent CH$_3$, CH$_2$, CH, or C sites.} \label{tab:angles}
-    	\begin{center}
-    		\begin{tabular}{|c|c|}
-    			\hline
-    			Bending sites & $\theta_0$ (degrees) \\ \hline
-    			CH$_i$-CH$_2$-CH$_j$ & 114.0 \\ 
-    			CH$_i$-CH-CH$_j$ & 112.0 \\
-    			CH$_i$-CH-CH$_j$, NERD & 109.5 \\ 
-    			CH$_i$-C-CH$_j$ & 109.5 \\
-    			\hline
-    		\end{tabular}
-    	\end{center} 
-    \end{table}
+		\caption{Equilibrium bond angles $(\theta_0)$ \cite{Martin1999}. CH$_i$ and CH$_j$ represent CH$_3$, CH$_2$, CH, or C sites.} \label{tab:angles}
+		\begin{center}
+			\begin{tabular}{|c|c|c|c|}
+				\hline
+				Bending sites & \multicolumn{3}{|c|}{$\theta_0$ (degrees)} \\ \hline
+				& TraPPE & MiPPE & NERD \\ \hline
+				CH$_i$-CH$_2$-CH$_j$ & 114.0 & 114.0 & 114.0 \\ 
+				CH$_i$-CH-CH$_j$ & 112.0 & 112.0 & 109.5 \\
+				CH$_i$-C-CH$_j$ & 109.5 & 109.5 & 109.5 \\
+				\hline
+			\end{tabular}
+		\end{center} 
+	\end{table}
     
     Dihedral torsional interactions are determined using a cosine series:
     \begin{equation}
     u^{\rm tors} = c_0 + c_1 [1+\cos{\phi}] + c_2 [1-\cos{2\phi}] + c_3 [1+\cos{3\phi}]
     \end{equation}
-    where $u^{\rm tors}$ is the torsional energy, $\phi$ is the dihedral angle and $c_n$ are the Fourier constants listed in Table \ref{tab:torsions}.
+    where $u^{\rm tors}$ is the torsional energy, $\phi$ is the dihedral angle and $c_n$ are the Fourier constants listed in Table \ref{tab:torsions}. In accordance with Reference \citenum{Yiannourakou2019}, we utilize the TraPPE CH$_i$-CH$_2$-CH$_2$-CH$_j$ torsional potential for cyclohexane dihedrals instead of the torsional parameters reported in Table 3 of Reference \citenum{Keasler2012}. We found this necessary in order to replicate the vapor-liquid coexistence densities reported in Reference \citenum{Keasler2012}. % with the TraPPE cyclic torsional potential.  
     
     \begin{table}[h!]
     	\caption{Fourier constants $(c_n/k_{\rm B})$ in units of K \cite{Martin1999}. CH$_i$ and CH$_j$ represent CH$_3$, CH$_2$, CH, or C sites.} \label{tab:torsions}
@@ -395,6 +412,7 @@ The outline for this study is the following. Section \ref{sec: Methods} provides
 				CH$_2$ & 46 & 0.395 & 12\\ 
 				CH & 10 & 0.468 & 12 \\
 				C & 0.5 & 0.640 & 12 \\
+				CH$_2$ (cyclohexane) & 52.5 & 0.391 & 12 \\
 				\hline
 				\multicolumn{4}{|c|}{MiPPE} \\ \hline
 				CH$_3$ & 121.25 & 0.3783 & 16  \\ 
@@ -407,10 +425,11 @@ The outline for this study is the following. Section \ref{sec: Methods} provides
 				C, long & 1.2 & 0.62 & 16\\
 				\hline
                 \multicolumn{4}{|c|}{NERD} \\ \hline
-				CH$_3$ (not side chain) & 104.00  & 0.3910 & 12\\ 
+				CH$_3$ (general) & 104.00  & 0.3910 & 12\\ 
 				CH$_3$ (2-methylpropane) & 78.23  & 0.3880 & 12\\ 
 				CH$_3$ (2,2-dimethylpropane) & 74.50  & 0.3910 & 12 \\  
 				CH$_3$ (methyl side chain) & 70.00 & 0.3850 & 12 \\
+				CH$_3$ (ethyl side chain) & 83.00 & 0.3820 & 12 \\
 				CH$_2$ & 45.80 & 0.3930 & 12 \\ 
 				CH & 39.70 & 0.3850 & 12\\
 				C & 17.00 & 0.3910 & 12 \\
@@ -439,7 +458,7 @@ The outline for this study is the following. Section \ref{sec: Methods} provides
 
 \subsection{Simulation set-up} \label{sec: Simulation set-up}
 
-The majority of results presented in Section \ref{sec: Results} are obtained by reprocessing simulation output that were analyzed in previous studies with histogram reweighting \cite{Potoff_branched,Barhaghi2017}. New simulation results are provided for 2-methylpropane, 2,2-dimethylpropane, 2,2,4-trimethylhexane, 2,3-dimethylbutane, 2,3,4-trimethylpentane, 2,2,3,3-tetramethylbutane, and cyclohexane. All simulations are performed using GPU optimized Monte Carlo (GOMC) \cite{GOMC} with Grand Canonical Monte Carlo (GCMC), where the chemical potential ($\mu$), volume $(V)$, and temperature $(T)$ are constant. 
+The majority of results presented in Section \ref{sec: Results} are obtained by reprocessing simulation output that were analyzed in previous studies with histogram reweighting \cite{Potoff_branched,Barhaghi2017}. New simulation results are provided for 2-methylpropane, 2,2-dimethylpropane, 2,2-dimethylbutane, 3,3-dimethylhexane, 3-methyl-3-ethylpentane, 2,2,4-trimethylhexane, 2,3-dimethylbutane, 2,3,4-trimethylpentane, 2,2,3,3-tetramethylbutane, and cyclohexane. All simulations are performed using GPU optimized Monte Carlo (GOMC) \cite{GOMC} with Grand Canonical Monte Carlo (GCMC), where the chemical potential ($\mu$), volume $(V)$, and temperature $(T)$ are constant. 
 
 A series of nine simulations are performed, two in the vapor phase, six in the liquid phase, and one near critical which acts as the ``bridge'' between the vapor and liquid phases. A low-density (less than twenty molecules) initial configuration is utilized for the vapor phase simulations, while the bridge and liquid phase simulations are initialized with a high-density (around 150 molecules) configuration. Initial configurations are generated with Packmol, while psfgen is used to generate the coordinate (*.pdb) and connectivity (*.psf) files.
 
@@ -775,7 +794,7 @@ Recently, Weidler and Gross proposed an $\epsilon$-scaling approach for converti
 \begin{equation}
 \epsilon_{ii}^{\rm ind} = \psi \times \epsilon_{ii}^{\rm tran}
 \end{equation}
-where $\epsilon_{ii}^{\rm ind}$ is the individualized $\epsilon$ value for united-atom $ii$, $\epsilon_{ii}^{\rm tran}$ is the corresponding transferable $\epsilon$ value, and $\psi$ is a fixed value for a given compound. 
+where $\epsilon_{ii}^{\rm ind}$ is the individualized $\epsilon$ value for united-atom $ii$, $\epsilon_{ii}^{\rm tran}$ is the corresponding transferable $\epsilon$ value, and $\psi$ is a fixed value for a given compound.
 
 %To avoid overfitting, a one-dimensional optimization is employed which scales $\epsilon$ for all united-atom sites while not adjusting $\sigma$ or $\lambda$.
 
@@ -797,19 +816,33 @@ U^{\rm nb, tot}_{\rm rr} = \psi \times U^{\rm nb, tot}_{\rm ref}
 \end{equation}
 where $U^{\rm nb, tot}_{\rm rr}$ and $U^{\rm nb, tot}_{\rm ref}$ are the total non-bonded energy with $\theta_{\rm rr}$ and $\theta_{\rm ref}$, respectively.
 
+Section \ref{sec: eps scaling} demonstrates the GCMC-MBAR $\epsilon$-scaling approach to convert the MiPPE-SL semi-transferable parameters into individualized parameters (iMiPPE) for 8 branched alkanes and 11 alkynes. For consistency with the original MiPPE-SL optimization, we use the same scoring function for the branched alkanes and alkynes as Mick et al. and Barhaghi et al., respectively
+\begin{multline} \label{eq: Score}
+S= \frac{1}{N_{\rm exp}} [ w_0 \sum_{j=0}^{N_{\rm exp}} APD(\rho_{\rm liq}^{\rm sat}(T^{\rm sat}_j)) + w_1 \sum_{j=0}^{N_{\rm exp}} APD(\rho_{\rm vap}^{\rm sat}(T^{\rm sat}_j)) \\ + w_2 \sum_{j=0}^{N_{\rm exp}} APD(P_{\rm vap}^{\rm sat}(T^{\rm sat}_j)) + w_3 \sum_{j=0}^{N_{\rm exp}} APD(\Delta H_{\rm v} (T^{\rm sat}_j)) \\ + w_4 \sum_{j=0}^{N_{\rm exp}} \frac{d APD(\rho_{\rm liq}^{\rm sat}(T^{\rm sat}_j))}{dT} + w_5 \sum_{j=0}^{N_{\rm exp}} \frac{d APD(\rho_{\rm vap}^{\rm sat}(T^{\rm sat}_j))}{dT} \\ + w_6 \sum_{j=0}^{N_{\rm exp}} \frac{d APD(P_{\rm vap}^{\rm sat}(T^{\rm sat}_j))}{dT} + w_7 \sum_{j=0}^{N_{\rm exp}} \frac{d APD(\Delta H_{\rm v} (T^{\rm sat}_j))}{dT} ]
+\end{multline}
+where $S$ is the scoring function, $N_{\rm exp}$ is the number of experimental data points, $w_{x}$ are the weights for property $x$, $T^{\rm sat}_j$ are the saturation temperatures for data point $j$, and the absolute percent deviation $(APD)$ is defined as
+\begin{equation} \label{eq: APD}
+APD(X) = \left| \frac{X_{\rm sim} - X_{\rm exp}}{X_{\rm exp}} \right| \times 100 \% 
+\end{equation}
+where $X_{\rm sim}$ and $X_{\rm exp}$ correspond to the respective simulation and (pseudo-) experimental values for property $X$ (e.g., $\rho_{\rm liq}^{\rm sat}$). Note that the weights $(w_x)$ are equal to (0.6135, 0.0123, 0.2455, 0.0245, 0.0613, 0.0061, 0.0245, 0.0123) and (0.757, 0, 0.152, 0, 0.076, 0, 0.015, 0) for branched alkanes and alkynes, respectively.
+
+% different for branched alkanes and alkynes, specifically, $w_x = $ (0.6135, 0.0123, 0.2455, 0.0245, 0.0613, 0.0061, 0.0245, 0.0123) and $w_x = $ (0.757, 0, 0.152, 0, 0.076, 0, 0.015, 0) for branched alkanes and alkynes, respectively.
+
+In accordance with the work of Mick et al. and Barhaghi et al., the target values $(X_{\rm exp})$ are computed with pseudo-experimental correlations. The alkyne correlations are from the Design Institute for Physical Properties (DIPPR) \cite{DIPPR} while the branched alkane correlations are from the National Institute of Standards and Technology (NIST) Reference Fluid Properties (REFPROP) database \cite{LEMMON-RP10}.
+
 %are simply multiplied by the $\epsilon$-scaling parameter.  
 
 \section{Results} \label{sec: Results}
 
-Four different applications for MBAR are demonstrated in this study, where slightly different types of simulation output are required. First, we demonstrate how MBAR yields consistent results to those previously reported using histogram reweighting. The standard simulation output is used in this application, namely, a 2x$K^{\rm tot}_{\rm snaps}$ array containing the number of molecules and the internal energy for all $K^{\rm tot}_{\rm snaps}$ snapshots. Second, we demonstrate how these same data can be used with MBAR to predict VLE properties when performing $\epsilon$-scaling. Third, we investigate how well MBAR can predict VLE for force field $j$ from configurations sampled with force field $i$. In this case, a 3x$K^{\rm tot}_{\rm snaps}$ array is required, where the additional column is the internal energy computed with force field $j$. Fourth, we demonstrate how storing basis functions is a computationally efficient method for predicting VLE for multiple force fields that are unknown at runtime.   
+Four different applications for GCMC-MBAR are demonstrated in this study, where slightly different types of simulation output are required. Section \ref{sec: Constant theta} demonstrates that GCMC-MBAR yields consistent results to those previously reported using histogram reweighting when the force field parameters do not change, i.e., $\theta_{\rm rr} = \theta_{\rm ref}$. The same simulation output as GCMC-HR is used in this application, namely, a 2x$K^{\rm tot}_{\rm snaps}$ array containing the number of molecules $(N)$ and the internal energy $(U)$ for all $K^{\rm tot}_{\rm snaps}$ snapshots. Section \ref{sec: eps scaling} demonstrates how these same data can be used with MBAR to perform a one-dimensional optimization with $\epsilon$-scaling, i.e., $\epsilon_{\rm rr} = \psi \times \epsilon_{\rm ref}$. Section \ref{sec: litFF} investigates how well GCMC-MBAR performs when predicting vapor-liquid coexistence properties for force field $j$ from configurations sampled with force field $i$, where $i$ and $j$ are common force fields from the literature. In this case, a 3x$K^{\rm tot}_{\rm snaps}$ array is required, where the additional column is the internal energy computed with force field $j$. Section \ref{sec: Case study} presents a case study for optimizing Mie $\lambda$-6 non-bonded parameters for cyclohexane. Basis functions are employed as a computationally efficient method for predicting vapor-liquid coexistence properties with hundreds of $\epsilon_{\rm CH_2}$, $\sigma_{\rm CH_2}$, and $\lambda_{\rm CH_2}$ values that are unknown at runtime.   
 
-In this section, we present results from several different applications of GCMC-MBAR. First, we compute vapor-liquid coexistence properties in the case where the force field parameters do not change, i.e., $\theta_{\rm rr} = \theta_{\rm ref}$. Second, we perform a one-dimensional optimization in the $\epsilon$-scaling parameter, $\psi$.  Third, we determine the reliability of GCMC-MBAR when $\theta_{\rm rr} \neq \theta_{\rm ref}$ for different literature force fields. Fourth, we demonstrate how GCMC-MBAR can be applied to obtain new Mie $\lambda$-6 parameters for cyclohexane.
+%In this section, we present results from several different applications of GCMC-MBAR. First, we compute vapor-liquid coexistence properties in the case where the force field parameters do not change, i.e., $\theta_{\rm rr} = \theta_{\rm ref}$. Second, we perform a one-dimensional optimization in the $\epsilon$-scaling parameter, $\psi$. Third, we determine the reliability of GCMC-MBAR when $\theta_{\rm rr} \neq \theta_{\rm ref}$ for different literature force fields. Fourth, we demonstrate how GCMC-MBAR can be applied to obtain new Mie $\lambda$-6 parameters for cyclohexane.
 
-\subsection{$\theta_{\rm rr} = \theta_{\rm ref}$}
+\subsection{$\theta_{\rm rr} = \theta_{\rm ref}$} \label{sec: Constant theta}
 
 Section \ref{sec: GCMC-HR and GCMC-MBAR} demonstrated that MBAR and HR are mathematically equivalent in the limit of zero bin width and when $\theta_{\rm rr} = \theta_{\rm ref}$. Figure \ref{fig:comparison MBAR HR} provides numerical validation that GCMC-MBAR and GCMC-HR yield indistinguishable vapor-liquid coexistence properties. The evidence for this conclusion is that the median percent deviation is approximately zero and that the largest deviations are within a few percent. The percent deviations shown in Figure \ref{fig:comparison MBAR HR} are averaged over the 31 branched alkanes studied by Mick et al. and the 11 alkynes studied by Barhaghi et al. 
 
-The GCMC-HR values used in Figure \ref{fig:comparison MBAR HR} were not recomputed in this study but were taken from the literature \cite{Potoff_branched,Barhaghi2017}. For a fair comparison between GCMC-HR and GCMC-MBAR, the GCMC-MBAR values were computed using the same raw simulation data as Mick et al. and Barhaghi et al. However, for simplicity, we only reprocess one of the five replicate simulations.
+The GCMC-HR values used in Figure \ref{fig:comparison MBAR HR} were not recomputed in this study but were taken from the literature \cite{Potoff_branched,Barhaghi2017}. For a fair comparison between GCMC-HR and GCMC-MBAR, the GCMC-MBAR values were computed using the same raw simulation data as Mick et al. and Barhaghi et al. However, for simplicity, we only reprocess one of the five replicate simulations. 
 
 % The GCMC-MBAR values were computed using a subset of the raw simulation data from Mick et al. and Barhaghi et al. Specifically, snapshots from only a single replicate simulation were used for the GCMC-MBAR analysis, while the GCMC-HR values reported by Mick et al. and Barhaghi et al. utilized five replicate simulations.
 
@@ -824,23 +857,23 @@ The GCMC-HR values used in Figure \ref{fig:comparison MBAR HR} were not recomput
 
 %(a), (b), (c), and (d)
 
-\subsection{$\epsilon_{\rm rr} = \psi \epsilon_{\rm ref}$}
+\subsection{$\epsilon_{\rm rr} = \psi \times \epsilon_{\rm ref}$} \label{sec: eps scaling}
 
-Figure \ref{fig:epsilon_scaling} presents the $\epsilon$-scaling results for 8 branched alkanes and 11 alkynes using the MiPPE force field as the initial force field. For consistency with the original MiPPE optimization, we use the same scoring function for the branched alkanes and alkynes as Mick et al. and Barhaghi et al., respectively
-\begin{multline} \label{eq: Score}
-S= \frac{1}{N_{\rm exp}} [ w_0 \sum_{j=0}^{N_{\rm exp}} APD(\rho_{\rm liq}^{\rm sat}(T^{\rm sat}_j)) + w_1 \sum_{j=0}^{N_{\rm exp}} APD(\rho_{\rm vap}^{\rm sat}(T^{\rm sat}_j)) \\ + w_2 \sum_{j=0}^{N_{\rm exp}} APD(P_{\rm vap}^{\rm sat}(T^{\rm sat}_j)) + w_3 \sum_{j=0}^{N_{\rm exp}} APD(\Delta H_{\rm v} (T^{\rm sat}_j)) \\ + w_4 \sum_{j=0}^{N_{\rm exp}} \frac{d APD(\rho_{\rm liq}^{\rm sat}(T^{\rm sat}_j))}{dT} + w_5 \sum_{j=0}^{N_{\rm exp}} \frac{d APD(\rho_{\rm vap}^{\rm sat}(T^{\rm sat}_j))}{dT} \\ + w_6 \sum_{j=0}^{N_{\rm exp}} \frac{d APD(P_{\rm vap}^{\rm sat}(T^{\rm sat}_j))}{dT} + w_7 \sum_{j=0}^{N_{\rm exp}} \frac{d APD(\Delta H_{\rm v} (T^{\rm sat}_j))}{dT} ]
-\end{multline}
-where $S$ is the scoring function, $N_{\rm exp}$ is the number of experimental data points, $w_{x}$ are the weights for property $x$, $T^{\rm sat}_j$ are the saturation temperatures for data point $j$, and the absolute percent deviation $(APD)$ is defined as
-\begin{equation} \label{eq: APD}
-APD(X) = \left| \frac{X_{\rm sim} - X_{\rm exp}}{X_{\rm exp}} \right| \times 100 \% 
-\end{equation}
-where $X_{\rm sim}$ and $X_{\rm exp}$ correspond to the respective simulation and (pseudo-) experimental values for property $X$ (e.g., $\rho_{\rm liq}^{\rm sat}$). Note that the weights $(w_x)$ are different for branched alkanes and alkynes, specifically, $w_x = $ (0.6135, 0.0123, 0.2455, 0.0245, 0.0613, 0.0061, 0.0245, 0.0123) and $w_x = $ (0.757, 0, 0.152, 0, 0.076, 0, 0.015, 0) for branched alkanes and alkynes, respectively.
-
-In accordance with the work of Mick et al. and Barhaghi et al., the target values $(X_{\rm exp})$ are computed with pseudo-experimental correlations. The alkyne correlations are from the Design Institute for Physical Properties (DIPPR) while the branched alkane correlations are from the National Institute of Standards and Technology (NIST) Reference Fluid Properties (REFPROP) database.
+%Figure \ref{fig:epsilon_scaling} presents the $\epsilon$-scaling results for 8 branched alkanes and 11 alkynes using the MiPPE force field as the initial force field. For consistency with the original MiPPE optimization, we use the same scoring function for the branched alkanes and alkynes as Mick et al. and Barhaghi et al., respectively
+%\begin{multline} \label{eq: Score}
+%S= \frac{1}{N_{\rm exp}} [ w_0 \sum_{j=0}^{N_{\rm exp}} APD(\rho_{\rm liq}^{\rm sat}(T^{\rm sat}_j)) + w_1 \sum_{j=0}^{N_{\rm exp}} APD(\rho_{\rm vap}^{\rm sat}(T^{\rm sat}_j)) \\ + w_2 \sum_{j=0}^{N_{\rm exp}} APD(P_{\rm vap}^{\rm sat}(T^{\rm sat}_j)) + w_3 \sum_{j=0}^{N_{\rm exp}} APD(\Delta H_{\rm v} (T^{\rm sat}_j)) \\ + w_4 \sum_{j=0}^{N_{\rm exp}} \frac{d APD(\rho_{\rm liq}^{\rm sat}(T^{\rm sat}_j))}{dT} + w_5 \sum_{j=0}^{N_{\rm exp}} \frac{d APD(\rho_{\rm vap}^{\rm sat}(T^{\rm sat}_j))}{dT} \\ + w_6 \sum_{j=0}^{N_{\rm exp}} \frac{d APD(P_{\rm vap}^{\rm sat}(T^{\rm sat}_j))}{dT} + w_7 \sum_{j=0}^{N_{\rm exp}} \frac{d APD(\Delta H_{\rm v} (T^{\rm sat}_j))}{dT} ]
+%\end{multline}
+%where $S$ is the scoring function, $N_{\rm exp}$ is the number of experimental data points, $w_{x}$ are the weights for property $x$, $T^{\rm sat}_j$ are the saturation temperatures for data point $j$, and the absolute percent deviation $(APD)$ is defined as
+%\begin{equation} \label{eq: APD}
+%APD(X) = \left| \frac{X_{\rm sim} - X_{\rm exp}}{X_{\rm exp}} \right| \times 100 \% 
+%\end{equation}
+%where $X_{\rm sim}$ and $X_{\rm exp}$ correspond to the respective simulation and (pseudo-) experimental values for property $X$ (e.g., $\rho_{\rm liq}^{\rm sat}$). Note that the weights $(w_x)$ are different for branched alkanes and alkynes, specifically, $w_x = $ (0.6135, 0.0123, 0.2455, 0.0245, 0.0613, 0.0061, 0.0245, 0.0123) and $w_x = $ (0.757, 0, 0.152, 0, 0.076, 0, 0.015, 0) for branched alkanes and alkynes, respectively.
+%
+%In accordance with the work of Mick et al. and Barhaghi et al., the target values $(X_{\rm exp})$ are computed with pseudo-experimental correlations. The alkyne correlations are from the Design Institute for Physical Properties (DIPPR) while the branched alkane correlations are from the National Institute of Standards and Technology (NIST) Reference Fluid Properties (REFPROP) database.
 
 % Reference Properties (REFPROP) values) are  alkyne target values are the same as those used by Barhaghi et al., namely, they are computed with pseudo-experimental correlations from the Design Institute for Physical Properties (DIPPR). The branched alkane target values are computed with  also the same as Mick et al.
 
-Figure \ref{fig:epsilon_scaling} shows that the alkynes require a greater degree of scaling than the branched alkanes. Weigler et al. tend to characterize the individualization as being useful when the scaling is greater than 0.4\% (i.e., $|1 - \psi| > 0.004$). With this rationale, 3-methylpentane is the only branched alkane that merits $\epsilon$-scaling with the MiPPE-SL force field. Similarly, the TAMie force field also found $\psi \approx 1$ for all branched alkanes, except 3-methylpentane. Although $\psi$ values for iTAMie were not reported for alkynes, the largest $\psi$ value for olefins, ethers, and ketones was $\approx 1.01$. A truly transferable force field should have $\psi \approx 1$ for all compounds. Therefore, the transferability of the MiPPE force field appears to be slightly poorer for 2-pentyne and 2-hexyne, which have an optimized $\psi > 1.01$. It is also interesting that only 3 out of 19 compounds require $\psi < 1$. Thus, the well-depths appear to be slightly underestimated by the MiPPE force field. By contrast, this trend was not observed in Reference \citenum{Weidler2018} for TAMie. 
+Figure \ref{fig:epsilon_scaling} presents the $\epsilon$-scaling results for 8 branched alkanes and 11 alkynes using the MiPPE force field as the initial force field. Figure \ref{fig:epsilon_scaling} shows that the alkynes require a greater degree of scaling than the branched alkanes. Weigler et al. tend to characterize the individualization as being useful when the scaling is greater than 0.4\% (i.e., $|1 - \psi| > 0.004$). With this rationale, 3-methylpentane is the only branched alkane that merits $\epsilon$-scaling with the MiPPE-SL force field. Similarly, the TAMie force field also found $\psi \approx 1$ for all branched alkanes, except 3-methylpentane. Although $\psi$ values for iTAMie were not reported for alkynes, the largest $\psi$ value for olefins, ethers, and ketones was $\approx 1.01$. A truly transferable force field should have $\psi \approx 1$ for all compounds. Therefore, the transferability of the MiPPE force field appears to be slightly poorer for 2-pentyne and 2-hexyne, which have an optimized $\psi > 1.01$. It is also interesting that only 3 out of 19 compounds require $\psi < 1$. Thus, the well-depths appear to be slightly underestimated by the MiPPE force field. By contrast, this trend was not observed in Reference \citenum{Weidler2018} for TAMie. 
 
 %.  is introduced should result in low deviations between experiment and simulation, it is likely that such a parameter set would be overfit and, thus, perform poorly some compounds have sufficient experimental 
 
@@ -855,7 +888,7 @@ Figure \ref{fig:epsilon_scaling} shows that the alkynes require a greater degree
  
 %At least two reasons exist for why MBAR is ideally suited for $\epsilon$-scaling. First, the energies in Equation \ref{BLANK} can be scaled by $\psi$ such that the configurations do not need to be stored or recomputed. Second, MBAR is more reliable for changes in $\epsilon$ rather than changes in $\sigma$ and/or $\lambda$ \cite{Postdoc_1}. 
 
-\subsection{$\epsilon_{\rm ref} \neq \epsilon_{\rm rr}$, $\sigma_{\rm ref} \neq \sigma_{\rm rr}$, and $\lambda_{\rm ref} \neq \lambda_{\rm rr}$}
+\subsection{$\epsilon_{\rm ref} \neq \epsilon_{\rm rr}$, $\sigma_{\rm ref} \neq \sigma_{\rm rr}$, and $\lambda_{\rm ref} \neq \lambda_{\rm rr}$} \label{sec: litFF}
 
 A more demanding test of GCMC-MBAR than $\epsilon$-scaling is to vary several non-bonded parameters simultaneously, including $\sigma$ and $\lambda$. Because it is not possible to visualize a parameter space of greater than two dimensions, we perform this analysis of GCMC-MBAR using the TraPPE, NERD, MiPPE-gen, and MiPPE-SL force fields. Specifically, we utilize GCMC-MBAR to predict coexistence properties for the NERD and MiPPE-SL force fields using configurations sampled from TraPPE and MiPPE-gen, respectively (see Figure \ref{fig:refFF_to_rrFF_lam_constant}). We also use GCMC-MBAR to predict coexistence properties for the TraPPE force field by sampling configurations with MiPPE-gen, and vice versa (see Figure \ref{fig:refFF_to_rrFF_lam12to16}). 
 
@@ -888,7 +921,7 @@ Figure \ref{fig:Neff} demonstrates that $K_{\rm snaps}^{\rm eff}$ is typically m
 
 % while  is much greater in the liquid phase than the vapor phase.  if the overlap between systems is sufficient for MBAR to be reliable.  is 
 
-The poor overlap when varying $\lambda$ is consistent with the MBAR-ITIC results \cite{Postdoc_1}. However, GCMC-MBAR provides considerable improvement in predicting $\rho_{\rm vap}^{\rm sat}$ and $P_{\rm vap}^{\rm sat}$ compared to MBAR-ITIC. For this reason, we recommend reducing the $\rho_{\rm liq}^{\rm sat}$ weight $(w_0$ and $w_4)$ in the scoring function (Equation \ref{eq: Score}) when varying $\lambda$. The degree to which the weight is reduced should depend on the number of effective samples $(K_{\rm snaps}^{\rm eff})$.
+The poor overlap when varying $\lambda$ is consistent with the MBAR-ITIC results \cite{Postdoc_1}. However, GCMC-MBAR provides considerable improvement in predicting $\rho_{\rm vap}^{\rm sat}$ and $P_{\rm vap}^{\rm sat}$ compared to what was previously observed for MBAR-ITIC. For this reason, we recommend reducing the $\rho_{\rm liq}^{\rm sat}$ and $\Delta H_{\rm v}$ weights $(w_0$, $w_3$, $w_4$, and $w_7)$ in the scoring function (Equation \ref{eq: Score}) when varying $\lambda$. The degree to which the weight is reduced should depend on the number of effective samples $(K_{\rm snaps}^{\rm eff})$.
 
 	\begin{figure}[htb!]
 		\centering
@@ -897,21 +930,25 @@ The poor overlap when varying $\lambda$ is consistent with the MBAR-ITIC results
 		\label{fig:Neff}
 	\end{figure} 
 
-\subsection{Case Study: Optimizing cyclohexane Mie $\lambda$-6 parameters}
+\subsection{Case Study: Optimizing cyclohexane Mie $\lambda$-6 parameters} \label{sec: Case study}
 
-We have demonstrated that GCMC-MBAR is accurate when $K_{\rm snaps}^{\rm eff} \gg 50$, which is typically the case in the vapor phase and in the liquid phase when $\lambda_{\rm rr} = \lambda_{\rm ref}$. In this section, we show the power of GCMC-MBAR to rapidly optimize the Mie $\lambda$-6 parameters. We have chosen cyclohexane for this case study as this is a compound for which MiPPE does not yet have non-bonded parameters. Also, as cyclohexane consists of a single united-atom site type, it is a convenient molecule for representing the scoring function in 2-dimensions ($\epsilon_{\rm CH_2}$ and $\sigma_{\rm CH_2}$ for a given value of $\lambda_{\rm CH_2}$).
+We have demonstrated that GCMC-MBAR is accurate when $K_{\rm snaps}^{\rm eff} \gg 50$, which is typically the case in the vapor phase and in the liquid phase when $\lambda_{\rm rr} = \lambda_{\rm ref}$. In this section, we show the power of GCMC-MBAR to rapidly optimize the Mie $\lambda$-6 parameters. We have chosen cyclohexane for this case study as this is a compound for which MiPPE does not yet have non-bonded parameters. Also, because cyclohexane consists of a single united-atom site type, it is a convenient molecule for representing the scoring function in 2-dimensions ($\epsilon_{\rm CH_2}$ and $\sigma_{\rm CH_2}$ for a given value of $\lambda_{\rm CH_2}$).
+
+Figure \ref{fig:Score_CYC6} depicts the scoring function for different values of $\epsilon_{\rm CH_2}$, $\sigma_{\rm CH_2}$, and $\lambda_{\rm CH_2}$ as a heat map, where red denotes the optimal parameter set (i.e., the lowest values of $S$.) Similar figures have been reported in the literature using GCMC-HR \cite{Potoff_branched,Barhaghi2017}. The key difference is that the heat maps reported in the literature were obtained by performing GCMC simulations with each value of $\epsilon$, $\sigma$, and $\lambda$. By contrast, the results shown in Figure \ref{fig:Score_CYC6} were obtained with GCMC-MBAR by performing GCMC simulations with a single parameter set, namely, the TraPPE parameters (depicted as an ``X'' in Figures \ref{fig:Score_CYC6} and \ref{fig:Neff}), and reweighting these same configurations for all other parameter sets. Furthermore, $U(\theta_{\rm rr})$ is computed with basis functions, enabling the GCMC-MBAR recompute step to be extremely fast. In this optimization example (a 2-dimensional grid search over integer values of $\lambda$) the GCMC simulations could be run in parallel, which would negate the computational gain of GCMC-MBAR compared with GCMC-HR. However, in general, higher dimensional optimization algorithms are performed in sequence, where each iteration proposes new parameter set(s). In this scenario, GCMC-MBAR (with basis functions) is orders of magnitude faster than the traditional GCMC-HR approach, which would require performing new GCMC simulations for each iteration. 
+
+Note that the TraPPE force field utilizes a Lennard-Jones 12-6 potential (i.e., $\lambda_{\rm TraPPE} = 12$) and, therefore, the results in the top-left panel are for the case where $\lambda_{\rm rr} = \lambda_{\rm ref} = 12$, while the other panels correspond to $\lambda_{\rm rr} \neq \lambda_{\rm ref}$. Figure \ref{fig:Neff_CYC6} shows that, as expected, $K_{\rm snaps}^{\rm eff}$ in the liquid phase are much lower for $\lambda_{\rm rr} \neq \lambda_{\rm ref}$ than for $\lambda_{\rm rr} = \lambda_{\rm ref}$. In addition, the smooth contours in Figure \ref{fig:Score_CYC6} for $\lambda_{\rm rr} = \lambda_{\rm ref} = 12$ and the wide range of parameters over which $K_{\rm snaps}^{\rm eff} \gg 50$ suggests that GCMC-MBAR is highly reliable for optimizing $\epsilon_{\rm CH_2}$ and $\sigma_{\rm CH_2}$ for a given value of $\lambda_{\rm CH_2}$.  
 
 	\begin{figure}[htb!]
 		\centering
 		\includegraphics[width=6.4in]{CYC6_scoring_function_lam.pdf}
-		\caption{Heat map of scoring function values with respect to $\epsilon_{\rm CH_2}$ and $\sigma_{\rm CH_2}$ for cyclohexane. GCMC-MBAR enables rapid optimization of Mie $\lambda$-6 parameters from a single reference force field $(\theta_{\rm ref} = \theta_{\rm TraPPE})$. Top-left, top-right, bottom-left, and bottom-right panels correspond $\lambda_{\rm CH_2} = 12$, $\lambda_{\rm CH_2} = 14$, $\lambda_{\rm CH_2} = 16$, $\lambda_{\rm CH_2} = 18$, respectively. Red region represents the optimal parameter set, i.e., the lowest value of $S$.}
+		\caption{Scoring function values with respect to $\epsilon_{\rm CH_2}$ and $\sigma_{\rm CH_2}$ for cyclohexane. GCMC-MBAR enables rapid optimization of Mie $\lambda$-6 parameters from a single reference force field $(\theta_{\rm ref} = \theta_{\rm TraPPE})$. Top-left, top-right, bottom-left, and bottom-right panels correspond $\lambda_{\rm CH_2} = 12$, $\lambda_{\rm CH_2} = 14$, $\lambda_{\rm CH_2} = 16$, $\lambda_{\rm CH_2} = 18$, respectively. Red region represents the optimal parameter set, i.e., the lowest value of $S$.}
 		\label{fig:Score_CYC6}
 	\end{figure} 
 
 	\begin{figure}[htb!]
 		\centering
 		\includegraphics[width=6.4in]{CYC6_Neff_lam.pdf}
-		\caption{}
+		\caption{Average number of effective samples in the liquid phase with respect to $\epsilon_{\rm CH_2}$ and $\sigma_{\rm CH_2}$ for cyclohexane. $K_{\rm snaps}^{\rm eff, liq} \gg 50$ over a wide range of parameters when $\lambda_{\rm rr} = \lambda_{\rm ref} = 12$ (top-left panel), while $K_{\rm snaps}^{\rm eff, liq}$ is typically less than $50$ for $\lambda_{\rm rr} \neq \lambda_{\rm ref}$ (other panels). Top-left, top-right, bottom-left, and bottom-right panels correspond $\lambda_{\rm CH_2} = 12$, $\lambda_{\rm CH_2} = 14$, $\lambda_{\rm CH_2} = 16$, $\lambda_{\rm CH_2} = 18$, respectively.}
 		\label{fig:Neff_CYC6}
 	\end{figure}
 
@@ -953,40 +990,47 @@ We have demonstrated that GCMC-MBAR is accurate when $K_{\rm snaps}^{\rm eff} \g
 
 \section{Discussion/Limitations/Future work} \label{sec: Discussion}
 
+NEEDS MORE
+
+As molecular insertion moves are frequently rejected in high density systems, GCMC simulations are typically not reliable below a reduced temperature of $\approx 0.65$. As ITIC does not suffer from this low-temperature limitation, we recommend combining the MBAR-ITIC and GCMC-MBAR methods when predicting vapor-liquid coexistence properties from near-triple-point to near-critical-point conditions.
+
+The results presented in this study were obtained by performing simulations with only a single reference force field. As shown in previous studies, a logical approach for improving the performance of MBAR is to include additional reference force fields \cite{Postdoc_1,Postdoc_2}. For example, we could include a reference parameter set for each value of $\lambda_{\rm CH_2}$ to increase $K_{\rm snaps}^{\rm eff, liq}$ and, thereby, improve the reliability of liquid phase property estimates.
+
 Although GCMC-HR is a standard approach for computing vapor-liquid coexistence, HR can also been applied to GEMC simulations (GEMC-HR) \cite{Boulougouris2010}. Therefore, while the present study presents how MBAR can be applied to GCMC simulations, an analogous GEMC-MBAR approach is worth investigating in future work.
 
-As ITIC is more reliable at near-triple-point conditions, MBAR-ITIC and MBAR-GCMC can be combined to cover most temperatures that span the vapor-liquid coexistence curve.
-
-\begin{enumerate}
-	\item We recommend that future GCMC-VLE studies report the snapshots of $N$ and $U$ and/or basis functions to recompute $U$ as this allows for future force field optimization
-	\item Improvements are possible with multiple $\theta$ or simulating a range of $\mu$ values
-\end{enumerate}
+%
+%\begin{enumerate}
+%	\item We recommend that future GCMC-VLE studies report the snapshots of $N$ and $U$ and/or basis functions to recompute $U$ as this allows for future force field optimization
+%	\item Improvements are possible with multiple $\theta$ or simulating a range of $\mu$ values
+%\end{enumerate}
 
 \section{Conclusions} \label{sec: Conclusions}
 
+NEEDS TO BE WRITTEN
+
 \section{Acknowledgments}
 
-Mostafa and J. Richard Elliott provided valuable insights.
+We are grateful for the insights provided by Dr. J. Richard Elliott.
 
 \bibliography{JCED_FOMMS_references}
 
-\section{Supporting Information}
-
-\subsection{MBAR VLE estimates}
-
-Provide tables of MBAR estimates
-
-\subsection{Basis functions}
-
-\begin{enumerate}
-	\item Validation that basis functions give accurate energies
-\end{enumerate}
-
-\subsection{Raw data}
-
-\begin{enumerate}
-	\item Comparison of 2-D histograms for TraPPE and MiPPE. MBAR overlap, possible? Probably not without rerunning the simulations.
-\end{enumerate}
+%\section{Supporting Information}
+%
+%\subsection{MBAR VLE estimates}
+%
+%Provide tables of MBAR estimates
+%
+%\subsection{Basis functions}
+%
+%\begin{enumerate}
+%	\item Validation that basis functions give accurate energies
+%\end{enumerate}
+%
+%\subsection{Raw data}
+%
+%\begin{enumerate}
+%	\item Comparison of 2-D histograms for TraPPE and MiPPE. MBAR overlap, possible? Probably not without rerunning the simulations.
+%\end{enumerate}
 
 
 \end{document}

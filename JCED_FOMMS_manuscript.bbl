@@ -8,7 +8,7 @@
 \providecommand*\mcitethebibliography{\thebibliography}
 \csname @ifundefined\endcsname{endmcitethebibliography}
   {\let\endmcitethebibliography\endthebibliography}{}
-\begin{mcitethebibliography}{33}
+\begin{mcitethebibliography}{37}
 \providecommand*\natexlab[1]{#1}
 \providecommand*\mciteSetBstSublistMode[1]{}
 \providecommand*\mciteSetBstMaxWidthForm[2]{}
@@ -202,6 +202,26 @@ Mick,~J.~R.; Soroush~Barhaghi,~M.; Jackman,~B.; Schwiebert,~L.; Potoff,~J.~J.
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
 \EndOfBibitem
+\bibitem[Yiannourakou \latin{et~al.}(2019)Yiannourakou, Ungerer, Lachet,
+  Rousseau, and Teuler]{Yiannourakou2019}
+Yiannourakou,~M.; Ungerer,~P.; Lachet,~V.; Rousseau,~B.; Teuler,~J.-M. United
+  atom forcefield for vapor-liquid equilibrium (VLE) properties of cyclic and
+  polycyclic compounds from Monte Carlo simulations. \emph{Fluid Phase
+  Equilibria} \textbf{2019}, \emph{481}, 28 -- 43\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Keasler \latin{et~al.}(2012)Keasler, Charan, Wick, Economou, and
+  Siepmann]{Keasler2012}
+Keasler,~S.~J.; Charan,~S.~M.; Wick,~C.~D.; Economou,~I.~G.; Siepmann,~J.~I.
+  Transferable Potentials for Phase Equilibria–United Atom Description of
+  Five- and Six-Membered Cyclic Alkanes and Ethers. \emph{The Journal of
+  Physical Chemistry B} \textbf{2012}, \emph{116}, 11234--11246\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
 \bibitem[Nath \latin{et~al.}(1998)Nath, Escobedo, and de~Pablo]{NERD}
 Nath,~S.~K.; Escobedo,~F.~A.; de~Pablo,~J.~J. On the simulation of vapor-liquid
   equilibria for alkanes. \emph{J. Chem. Phys.} \textbf{1998}, \emph{108},
@@ -292,6 +312,25 @@ Weidler,~D.; Gross,~J. Individualized force fields for alkanes, olefins, ethers
 \mciteBstWouldAddEndPunctfalse
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Rowley \latin{et~al.}(2013)Rowley, Wilding, Oscarson, KnottsIV, and
+  Giles]{DIPPR}
+Rowley,~R.~L.; Wilding,~W.~V.; Oscarson,~J.~L.; KnottsIV,~T.~A.; Giles,~N.~F.
+  \emph{{DIPPR} Data Compilation of Pure Chemical Properties}; Design Institute
+  for Physical Properties; AIChE: New York, NY, 2013\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Lemmon \latin{et~al.}(2018)Lemmon, Bell, Huber, and
+  McLinden]{LEMMON-RP10}
+Lemmon,~E.~W.; Bell,~I.~H.; Huber,~M.~L.; McLinden,~M.~O. {NIST Standard
+  Reference Database 23: Reference Fluid Thermodynamic and Transport
+  Properties-REFPROP, Version 10.0, National Institute of Standards and
+  Technology}. 2018; \url{https://www.nist.gov/srd/refprop}\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
 \EndOfBibitem
 \bibitem[Boulougouris \latin{et~al.}(2010)Boulougouris, Peristeras, Economou,
   and Theodorou]{Boulougouris2010}
