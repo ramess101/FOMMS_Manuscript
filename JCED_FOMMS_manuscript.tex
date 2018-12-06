@@ -148,11 +148,17 @@
 %	\begin{tocentry}
 %	\end{tocentry}
 
-\blfootnote{Contribution of NIST, an agency of the United States government; not subject to copyright in the United States.}
+%\blfootnote{Contribution of NIST, an agency of the United States government; not subject to copyright in the United States.}
 
 \section*{Abstract}
 
-NEEDS TO BE WRITTEN
+The prediction of accurate vapor-liquid coexistence properties with molecular simulation relies on well-parameterized force fields. Histogram reweighting (HR) is a standard approach for converting Grand Canonical Monte Carlo (GCMC) simulation output into vapor-liquid coexistence properties (saturated liquid density, $\rho_{\rm liq}^{\rm sat}$, saturated vapor density, $\rho_{\rm vap}^{\rm sat}$, saturated vapor pressures, $P_{\rm vap}^{\rm sat}$, and enthalpy of vaporization, $\Delta H_{\rm v}$). Due to the abundance of experimental vapor-liquid coexistence data and the sensitivity of such properties to both short- and long-range non-bonded interactions, numerous force fields have been parameterized using $\rho_{\rm liq}^{\rm sat}$, $\rho_{\rm vap}^{\rm sat}$, $P_{\rm vap}^{\rm sat}$, and/or $\Delta H_{\rm v}$. Unfortunately, computing $\rho_{\rm liq}^{\rm sat}$, $\rho_{\rm vap}^{\rm sat}$, $P_{\rm vap}^{\rm sat}$, and/or $\Delta H_{\rm v}$ for each proposed parameter set requires a large amount of GCMC simulations. 
+	
+We demonstrate how a histogram-free reweighting approach can alleviate the computational burden of force field parameterization. Specifically, we utilize the Multistate Bennett Acceptance Ratio (MBAR) to estimate coexistence properties for non-bonded parameters without simulating each parameter set directly. Thus, MBAR greatly reduces the amount of GCMC simulations that are required for parameterizing the non-bonded potential.
+
+First, we validate that GCMC-MBAR and GCMC-HR yield indistinguishable results when computing coexistence properties for only the simulated force field. Second, we utilize GCMC-MBAR to optimize compound-specific parameters, where simulations are only performed with the initial ``transferable'' parameter set. Third, we predict coexistence properties of force field $j$ by simulating force field $i$, where $i$ and $j$ are common force fields from the literature. Fourth, we simulate cyclohexane with a common united-atom Lennard-Jones 12-6 potential (Transferable Potentials for Phase Equilibria, TraPPE) to predict coexistence properties over a wide range of Mie $\lambda$-6 (generalized Lennard-Jones) parameters ($\epsilon$, $\sigma$, and $\lambda$). We provide guidelines for determining the accuracy of GCMC-MBAR predicted $\rho_{\rm liq}^{\rm sat}$, $\rho_{\rm vap}^{\rm sat}$, $P_{\rm vap}^{\rm sat}$, and/or $\Delta H_{\rm v}$ values for non-simulated force fields. 
+
+% potentials for cyclohexane. where only the Lennard-Jones parameters are simulated directly. % without performing any additional simulations.
 
 \section{Introduction}
 
@@ -994,8 +1000,6 @@ Note that the TraPPE force field utilizes a Lennard-Jones 12-6 potential (i.e., 
 
 \section{Discussion/Limitations/Future work} \label{sec: Discussion}
 
-NEEDS MORE
-
 As molecular insertion moves are frequently rejected in high density systems, GCMC simulations are typically not reliable below a reduced temperature of $\approx 0.65$. As ITIC does not suffer from this low-temperature limitation, we recommend combining the MBAR-ITIC and GCMC-MBAR methods when predicting vapor-liquid coexistence properties from near-triple-point to near-critical-point conditions.
 
 The results presented in this study were obtained by performing simulations with only a single reference force field. As shown in previous studies, a logical approach for improving the performance of MBAR is to include additional reference force fields \cite{Postdoc_1,Postdoc_2}. For example, we could include a reference parameter set for each value of $\lambda_{\rm CH_2}$ to increase $K_{\rm snaps}^{\rm eff, liq}$ and, thereby, improve the reliability of liquid phase property estimates.
@@ -1010,11 +1014,17 @@ Although GCMC-HR is a standard approach for computing vapor-liquid coexistence, 
 
 \section{Conclusions} \label{sec: Conclusions}
 
-NEEDS TO BE WRITTEN
+This study demonstrates how the Multistate Bennett Acceptance Ratio can replace the traditional histogram reweighting approach for estimating vapor-liquid coexistence properties from Grand Canonical Monte Carlo simulations. MBAR and HR are mathematically equivalent in the limit of infinitesimal bin widths when the coexistence properties are computed for a single force field. However, the primary benefit of MBAR is the ability to estimate properties for multiple force fields. This enables rapid non-bonded parameterization without requiring large amounts of simulation. We demonstrate this capability by performing a one-dimensional $\epsilon$-scaling optimization of several branched alkanes and alkynes. We then show how GCMC-MBAR can re-optimize a Lennard-Jones 12-6 potential into a family of Mie $\lambda$-6 potentials for cyclohexane. 
 
 \section{Acknowledgments}
 
-We are grateful for the insights provided by Dr. J. Richard Elliott.
+We would like to acknowledge Dr. J. Richard Elliott for his invaluable insights. We are also appreciative of the internal review provided by Eugene Paulechka, Andrei F. Kazakov, Daniel G. Friend, and Marcia L. Huber of the National Institute of Standards and Technology (NIST).
+
+This research was performed while Richard A. Messerly held a National Research Council (NRC) Postdoctoral Research Associateship at NIST and while Michelle C. Anderson held a Summer Undergraduate Research Fellowship (SURF) position at NIST. 
+
+Commercial equipment, instruments, or materials are identified only in order to adequately specify certain procedures. In no case does such identification imply recommendation or endorsement by NIST, nor does it imply that the products identified are necessarily the best available for the intended purpose.
+
+Contribution of NIST, an agency of the United States government; not subject to copyright in the United States.
 
 \bibliography{JCED_FOMMS_references}
 

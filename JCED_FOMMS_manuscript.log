@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.8.11)  5 DEC 2018 09:55
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.8.11)  5 DEC 2018 21:17
 entering extended mode
 **./JCED_FOMMS_manuscript.tex
 (JCED_FOMMS_manuscript.tex
@@ -1662,27 +1662,27 @@ LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <17.28> not available
 
 [1
 
-{C:/Users/ram9/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-Overfull \hbox (2.34312pt too wide) in paragraph at lines 161--162
+{C:/Users/ram9/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2]
+Overfull \hbox (2.34312pt too wide) in paragraph at lines 167--168
 \T1/ppl/m/n/12 ram-e-ter-i-za-tion of non-bonded in-ter-ac-tions with vapor-liq
 uid co-ex-is-tence cal-cu-la-tions over
  []
 
 
-Overfull \hbox (0.95897pt too wide) in paragraph at lines 173--174
+Overfull \hbox (0.95897pt too wide) in paragraph at lines 179--180
 \T1/ppl/m/n/12 sti-tut-ing his-togram reweight-ing with the Mul-ti-state Ben-ne
 tt Ac-cep-tance Ra-tio (MBAR),$[]$
  []
 
-[2] [3]
+[3] [4]
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 307.
- [4]
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 313.
+ [5]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[5]
-Overfull \hbox (10.79178pt too wide) in paragraph at lines 376--377
+[6]
+Overfull \hbox (10.79178pt too wide) in paragraph at lines 382--383
 \T1/ppl/m/n/12 pro-vided in Ta-ble []3[]. MiPPE re-ports a ``gen-er-al-ized'' (
 MiPPE-gen) and ``short/long'' (MiPPE-
  []
@@ -1690,283 +1690,283 @@ MiPPE-gen) and ``short/long'' (MiPPE-
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[6]
-Overfull \hbox (15.60371pt too wide) in paragraph at lines 461--462
+[7]
+Overfull \hbox (15.60371pt too wide) in paragraph at lines 467--468
 \T1/ppl/m/n/12 u-la-tion re-sults are pro-vided for 2-methylpropane, 2,2-dimeth
 ylpropane, 2,2-dimethylbutane,
  []
 
 
-Overfull \hbox (4.11958pt too wide) in paragraph at lines 461--462
+Overfull \hbox (4.11958pt too wide) in paragraph at lines 467--468
 \T1/ppl/m/n/12 3,3-dimethylhexane, 3-methyl-3-ethylpentane, 2,2,4-trimethylhexa
 ne, 2,3-dimethylbutane,
  []
 
-[7] [8] [9] [10] [11] [12] [13] [14] [15]
+[8] [9] [10] [11] [12] [13] [14] [15] [16]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 791.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\epsilon' on input line 791.
+(hyperref)                removing `math shift' on input line 797.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 791.
-
-[16] [17] [18]
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 841.
+(hyperref)                removing `\epsilon' on input line 797.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\theta' on input line 841.
+(hyperref)                removing `math shift' on input line 797.
+
+[17] [18] [19]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 847.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 841.
+(hyperref)                removing `\theta' on input line 847.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\theta' on input line 841.
+(hyperref)                removing `subscript' on input line 847.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 841.
+(hyperref)                removing `\theta' on input line 847.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 841.
+(hyperref)                removing `subscript' on input line 847.
 
-[19] <figures/Comparison_MBAR_HR_boxplot_CI.pdf, id=373, 867.24pt x 867.24pt>
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 847.
+
+[20] <figures/Comparison_MBAR_HR_boxplot_CI.pdf, id=375, 867.24pt x 867.24pt>
 File: figures/Comparison_MBAR_HR_boxplot_CI.pdf Graphic file (type pdf)
 
 <use figures/Comparison_MBAR_HR_boxplot_CI.pdf>
 Package pdftex.def Info: figures/Comparison_MBAR_HR_boxplot_CI.pdf used on inpu
-t line 853.
+t line 859.
 (pdftex.def)             Requested size: 462.52756pt x 462.53305pt.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 860.
+(hyperref)                removing `math shift' on input line 866.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\epsilon' on input line 860.
+(hyperref)                removing `\epsilon' on input line 866.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 860.
+(hyperref)                removing `subscript' on input line 866.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\psi' on input line 860.
+(hyperref)                removing `\psi' on input line 866.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\times' on input line 860.
+(hyperref)                removing `\times' on input line 866.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\epsilon' on input line 860.
+(hyperref)                removing `\epsilon' on input line 866.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 860.
+(hyperref)                removing `subscript' on input line 866.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 860.
+(hyperref)                removing `math shift' on input line 866.
 
-<figures/Optimal_epsilon_scaling.pdf, id=377, 1445.4pt x 722.7pt>
+<figures/Optimal_epsilon_scaling.pdf, id=379, 1445.4pt x 722.7pt>
 File: figures/Optimal_epsilon_scaling.pdf Graphic file (type pdf)
 
 <use figures/Optimal_epsilon_scaling.pdf>
 Package pdftex.def Info: figures/Optimal_epsilon_scaling.pdf used on input line
- 884.
+ 890.
 (pdftex.def)             Requested size: 462.52756pt x 231.25769pt.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 893.
+(hyperref)                removing `math shift' on input line 899.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\epsilon' on input line 893.
+(hyperref)                removing `\epsilon' on input line 899.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 893.
+(hyperref)                removing `subscript' on input line 899.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\not' on input line 893.
+(hyperref)                removing `\not' on input line 899.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\epsilon' on input line 893.
+(hyperref)                removing `\epsilon' on input line 899.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 893.
+(hyperref)                removing `subscript' on input line 899.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 893.
+(hyperref)                removing `math shift' on input line 899.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 893.
+(hyperref)                removing `math shift' on input line 899.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\sigma' on input line 893.
+(hyperref)                removing `\sigma' on input line 899.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 893.
+(hyperref)                removing `subscript' on input line 899.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\not' on input line 893.
+(hyperref)                removing `\not' on input line 899.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\sigma' on input line 893.
+(hyperref)                removing `\sigma' on input line 899.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 893.
+(hyperref)                removing `subscript' on input line 899.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 893.
+(hyperref)                removing `math shift' on input line 899.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 893.
+(hyperref)                removing `math shift' on input line 899.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\lambda' on input line 893.
+(hyperref)                removing `\lambda' on input line 899.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 893.
+(hyperref)                removing `subscript' on input line 899.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\not' on input line 893.
+(hyperref)                removing `\not' on input line 899.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\lambda' on input line 893.
+(hyperref)                removing `\lambda' on input line 899.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 893.
+(hyperref)                removing `subscript' on input line 899.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 893.
+(hyperref)                removing `math shift' on input line 899.
 
-[20]
+[21]
 
-LaTeX Warning: Text page 21 contains only floats.
+LaTeX Warning: Text page 22 contains only floats.
 
-[21 <./figures/Comparison_MBAR_HR_boxplot_CI.pdf>] [22 <./figures/Optimal_epsil
+[22 <./figures/Comparison_MBAR_HR_boxplot_CI.pdf>] [23 <./figures/Optimal_epsil
 on_scaling.pdf>]
-<figures/refFF_to_rrFF_lam_constant.pdf, id=492, 872.07054pt x 955.82657pt>
+<figures/refFF_to_rrFF_lam_constant.pdf, id=494, 872.07054pt x 955.82657pt>
 File: figures/refFF_to_rrFF_lam_constant.pdf Graphic file (type pdf)
 
 <use figures/refFF_to_rrFF_lam_constant.pdf>
 Package pdftex.def Info: figures/refFF_to_rrFF_lam_constant.pdf used on input l
-ine 912.
+ine 918.
 (pdftex.def)             Requested size: 462.52756pt x 506.95029pt.
 
-<figures/refFF_to_rrFF_lam_12to16.pdf, id=493, 829.19553pt x 941.88007pt>
+<figures/refFF_to_rrFF_lam_12to16.pdf, id=495, 829.19553pt x 941.88007pt>
 File: figures/refFF_to_rrFF_lam_12to16.pdf Graphic file (type pdf)
 
 <use figures/refFF_to_rrFF_lam_12to16.pdf>
 Package pdftex.def Info: figures/refFF_to_rrFF_lam_12to16.pdf used on input lin
-e 919.
+e 925.
 (pdftex.def)             Requested size: 462.52756pt x 525.3797pt.
 
 
-LaTeX Warning: Float too large for page by 16.44968pt on input line 922.
+LaTeX Warning: Float too large for page by 16.44968pt on input line 928.
 
-<figures/refFF_to_rrFF_Neff_alt.pdf, id=497, 846.58594pt x 586.63037pt>
+<figures/refFF_to_rrFF_Neff_alt.pdf, id=499, 846.58594pt x 586.63037pt>
 File: figures/refFF_to_rrFF_Neff_alt.pdf Graphic file (type pdf)
 
 <use figures/refFF_to_rrFF_Neff_alt.pdf>
 Package pdftex.def Info: figures/refFF_to_rrFF_Neff_alt.pdf used on input line 
-932.
+938.
 (pdftex.def)             Requested size: 462.52756pt x 320.50835pt.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 937.
+(hyperref)                removing `math shift' on input line 943.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\lambda' on input line 937.
+(hyperref)                removing `\lambda' on input line 943.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 937.
+(hyperref)                removing `math shift' on input line 943.
 
-[23] [24]
-<figures/CYC6_scoring_function_lam_alt.pdf, id=520, 875.68593pt x 813.74203pt>
+[24] [25]
+<figures/CYC6_scoring_function_lam_alt.pdf, id=523, 875.68593pt x 813.74203pt>
 File: figures/CYC6_scoring_function_lam_alt.pdf Graphic file (type pdf)
 
 <use figures/CYC6_scoring_function_lam_alt.pdf>
 Package pdftex.def Info: figures/CYC6_scoring_function_lam_alt.pdf used on inpu
-t line 947.
+t line 953.
 (pdftex.def)             Requested size: 462.52756pt x 429.81606pt.
 
-<figures/CYC6_Neff_lam.pdf, id=521, 889.03265pt x 813.74203pt>
+<figures/CYC6_Neff_lam.pdf, id=524, 889.03265pt x 813.74203pt>
 File: figures/CYC6_Neff_lam.pdf Graphic file (type pdf)
 
 <use figures/CYC6_Neff_lam.pdf>
-Package pdftex.def Info: figures/CYC6_Neff_lam.pdf used on input line 954.
+Package pdftex.def Info: figures/CYC6_Neff_lam.pdf used on input line 960.
 (pdftex.def)             Requested size: 462.52756pt x 423.35938pt.
 
-Overfull \hbox (8.1347pt too wide) in paragraph at lines 1003--1004
+Overfull \hbox (8.1347pt too wide) in paragraph at lines 1007--1008
 \T1/ppl/m/n/12 HR can also been ap-plied to GEMC sim-u-la-tions (GEMC-HR).$[]$ 
 There-fore, while the present
  []
 
-[25] (JCED_FOMMS_manuscript.bbl [26] [27] [28] [29]
+[26] [27] (JCED_FOMMS_manuscript.bbl [28] [29] [30] [31]
 LaTeX Font Info:    Try loading font information for T1+pcr on input line 330.
 
 ("C:\Users\ram9\AppData\Local\Programs\MiKTeX 2.9\tex\latex\psnfss\t1pcr.fd"
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 ))
-[30]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1040.
- [31 <./figures/refFF_to_rrFF_lam_constant.pdf>] [32 <./figures/refFF_to_rrFF_l
-am_12to16.pdf>] [33 <./figures/refFF_to_rrFF_Neff_alt.pdf>] [34 <./figures/CYC6
-_scoring_function_lam_alt.pdf>] [35 <./figures/CYC6_Neff_lam.pdf>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1040.
+[32]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1050.
+ [33 <./figures/refFF_to_rrFF_lam_constant.pdf>] [34 <./figures/refFF_to_rrFF_l
+am_12to16.pdf>] [35 <./figures/refFF_to_rrFF_Neff_alt.pdf>] [36 <./figures/CYC6
+_scoring_function_lam_alt.pdf>] [37 <./figures/CYC6_Neff_lam.pdf>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1050.
 
 (JCED_FOMMS_manuscript.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1040.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1040.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1050.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1050.
 
 Package rerunfilecheck Info: File `JCED_FOMMS_manuscript.out' has not changed.
 (rerunfilecheck)             Checksum: 485080DA09981A2C2D3EFCE9A3DE46BC;1472.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1040.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1050.
  ) 
 Here is how much of TeX's memory you used:
- 32625 strings out of 493323
- 658670 string characters out of 3130449
- 697814 words of memory out of 3000000
- 35551 multiletter control sequences out of 15000+200000
- 573087 words of font info for 107 fonts, out of 3000000 for 9000
+ 32621 strings out of 493323
+ 658614 string characters out of 3130449
+ 697815 words of memory out of 3000000
+ 35547 multiletter control sequences out of 15000+200000
+ 570082 words of font info for 102 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 62i,11n,94p,10421b,1016s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 62i,11n,94p,10421b,1020s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/ram9/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}
 <C:/Users/ram9/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
 /cmex10.pfb><C:/Users/ram9/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public
@@ -1989,9 +1989,9 @@ ers/ram9/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/palatino/uplb8a.pfb>
 <C:/Users/ram9/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/palatino/uplr8
 a.pfb><C:/Users/ram9/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/palatino
 /uplri8a.pfb>
-Output written on JCED_FOMMS_manuscript.pdf (35 pages, 849719 bytes).
+Output written on JCED_FOMMS_manuscript.pdf (37 pages, 854360 bytes).
 PDF statistics:
- 1065 PDF objects out of 1200 (max. 8388607)
- 129 named destinations out of 1000 (max. 500000)
+ 1074 PDF objects out of 1200 (max. 8388607)
+ 130 named destinations out of 1000 (max. 500000)
  224 words of extra memory for PDF output out of 10000 (max. 10000000)
 
