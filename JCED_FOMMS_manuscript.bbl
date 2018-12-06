@@ -8,7 +8,7 @@
 \providecommand*\mcitethebibliography{\thebibliography}
 \csname @ifundefined\endcsname{endmcitethebibliography}
   {\let\endmcitethebibliography\endthebibliography}{}
-\begin{mcitethebibliography}{37}
+\begin{mcitethebibliography}{41}
 \providecommand*\natexlab[1]{#1}
 \providecommand*\mciteSetBstSublistMode[1]{}
 \providecommand*\mciteSetBstMaxWidthForm[2]{}
@@ -252,6 +252,32 @@ GOMC: http://github.com/GOMC-WSU\relax
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
 \EndOfBibitem
+\bibitem[Mart{\'i}nez \latin{et~al.}()Mart{\'i}nez, Andrade, Birgin, and
+  Mart{\'i}nez]{PACKMOL}
+Mart{\'i}nez,~L.; Andrade,~R.; Birgin,~E.~G.; Mart{\'i}nez,~J.~M. PACKMOL: A
+  package for building initial configurations for molecular dynamics
+  simulations. \emph{Journal of Computational Chemistry} \emph{30},
+  2157--2164\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Humphrey \latin{et~al.}(1996)Humphrey, Dalke, and Schulten]{VMD}
+Humphrey,~W.; Dalke,~A.; Schulten,~K. VMD: Visual molecular dynamics.
+  \emph{Journal of Molecular Graphics} \textbf{1996}, \emph{14}, 33 -- 38\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Shah and Maginn(2011)Shah, and Maginn]{Shah2011}
+Shah,~J.~K.; Maginn,~E.~J. A general and efficient Monte Carlo method for
+  sampling intramolecular degrees of freedom of branched and cyclic molecules.
+  \emph{The Journal of Chemical Physics} \textbf{2011}, \emph{135},
+  134121\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
 \bibitem[McDonald and Singer(1967)McDonald, and Singer]{McDonald1967}
 McDonald,~I.~R.; Singer,~K. Machine Calculation of Thermodynamic Properties of
   a Simple Fluid at Supercritical Temperatures. \emph{The Journal of Chemical
@@ -272,6 +298,16 @@ Card,~D.~N.; Valleau,~J.~P. Monte Carlo Study of the Thermodynamics of
 Wood,~W.~W. Monte Carlo Calculations for Hard Disks in the
   Isothermal‐Isobaric Ensemble. \emph{The Journal of Chemical Physics}
   \textbf{1968}, \emph{48}, 415--434\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Kumar \latin{et~al.}(1992)Kumar, Rosenberg, Bouzida, Swendsen, and
+  Kollman]{Kumar1992}
+Kumar,~S.; Rosenberg,~J.~M.; Bouzida,~D.; Swendsen,~R.~H.; Kollman,~P.~A. THE
+  weighted histogram analysis method for free-energy calculations on
+  biomolecules. I. The method. \emph{Journal of Computational Chemistry}
+  \textbf{1992}, \emph{13}, 1011--1021\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
