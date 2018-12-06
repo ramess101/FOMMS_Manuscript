@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.3.9)  6 DEC 2018 08:53
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.3.9)  6 DEC 2018 09:03
 entering extended mode
 **./JCED_FOMMS_manuscript.tex
 (JCED_FOMMS_manuscript.tex
@@ -1782,14 +1782,14 @@ e 941.
 
 LaTeX Warning: Float too large for page by 16.44968pt on input line 944.
 
-<figures/refFF_to_rrFF_Neff_alt.pdf, id=517, 846.58594pt x 586.63037pt>
+[24] <figures/refFF_to_rrFF_Neff_alt.pdf, id=522, 846.58594pt x 586.63037pt>
 File: figures/refFF_to_rrFF_Neff_alt.pdf Graphic file (type pdf)
 
 <use figures/refFF_to_rrFF_Neff_alt.pdf>
 Package pdftex.def Info: figures/refFF_to_rrFF_Neff_alt.pdf used on input line 
 954.
 (pdftex.def)             Requested size: 462.52756pt x 320.50835pt.
- [24]
+
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 959.
@@ -1868,7 +1868,7 @@ pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Progra
 m Files/MiKTeX 2.9/fonts/type1/urw/palatino/uplb8a.pfb><C:/Program Files/MiKTeX
  2.9/fonts/type1/urw/palatino/uplr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/typ
 e1/urw/palatino/uplri8a.pfb>
-Output written on JCED_FOMMS_manuscript.pdf (38 pages, 859936 bytes).
+Output written on JCED_FOMMS_manuscript.pdf (38 pages, 860083 bytes).
 PDF statistics:
  1097 PDF objects out of 1200 (max. 8388607)
  135 named destinations out of 1000 (max. 500000)
