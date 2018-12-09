@@ -124,7 +124,10 @@
 %\title{Estimating vapor-liquid coexistence properties with histogram-free reweighting}
 %\title{Histogram-free reweighting for vapor-liquid coexistence calculations of multiple force fields}
 \title{Histogram-free reweighting to estimate vapor-liquid coexistence properties of non-simulated force fields}
-%MRS: suggest ``Using Histogram-free reweighting''; otherwise it's grammatically ambiguous.  
+%MRS2: suggest ``Using Histogram-free reweighting''; otherwise it's grammatically ambiguous.  
+%MRS2: Overall:
+%MRS2: I'm not sure how the (\theta) notation works for force fields - why not without the parenthesis?
+%MRS2: I would focus on repeating/reinforcing the messages you most want to communicate - they may be getting a bit lost in the details.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Some journals require a list of abbreviations or keywords to be
 %% supplied. These should be set up here, and will be printed after
@@ -157,9 +160,12 @@ The prediction of accurate vapor-liquid coexistence properties with molecular si
 We demonstrate how a histogram-free reweighting approach can alleviate the computational burden of force field parameterization. Specifically, we utilize the Multistate Bennett Acceptance Ratio (MBAR) to estimate coexistence properties for non-bonded parameters without simulating each parameter set directly. MBAR thus greatly reduces the amount of GCMC simulations that are required for parameterizing the non-bonded potential.
 
 First, we validate that GCMC-MBAR and GCMC-HR yield 
-%MRS: added
+%MRS2: added
 statistically
-indistinguishable results when computing coexistence properties for only the simulated force field. Second, we utilize GCMC-MBAR to optimize compound-specific parameters, where simulations are only performed with the initial ``transferable'' parameter set. Third, we predict coexistence properties of force field $j$ by simulating force field $i$, where $i$ and $j$ are common force fields from the literature. Fourth, we simulate cyclohexane with a common united-atom Lennard-Jones 12-6 potential (Transferable Potentials for Phase Equilibria, TraPPE) to predict coexistence properties over a wide range of Mie $\lambda$-6 (generalized Lennard-Jones) parameters ($\epsilon$, $\sigma$, and $\lambda$). We provide guidelines for determining the accuracy of GCMC-MBAR predicted $\rho_{\rm liq}^{\rm sat}$, $\rho_{\rm vap}^{\rm sat}$, $P_{\rm vap}^{\rm sat}$, and/or $\Delta H_{\rm v}$ values for non-simulated force fields. 
+indistinguishable results when computing coexistence properties for only the simulated force field. Second, we utilize GCMC-MBAR to optimize compound-specific parameters, where simulations are only performed with the initial 
+%MRS2: probably not needed?
+%``transferable'' 
+parameter set. Third, we predict coexistence properties of force field $j$ by simulating force field $i$, where $i$ and $j$ are common force fields from the literature. Fourth, we simulate cyclohexane with a common united-atom Lennard-Jones 12-6 potential (Transferable Potentials for Phase Equilibria, TraPPE) to predict coexistence properties over a wide range of Mie $\lambda$-6 (generalized Lennard-Jones) parameters ($\epsilon$, $\sigma$, and $\lambda$). We provide guidelines for determining the accuracy of GCMC-MBAR predicted $\rho_{\rm liq}^{\rm sat}$, $\rho_{\rm vap}^{\rm sat}$, $P_{\rm vap}^{\rm sat}$, and/or $\Delta H_{\rm v}$ values for non-simulated force fields. 
 
 % potentials for cyclohexane. where only the Lennard-Jones parameters are simulated directly. % without performing any additional simulations.
 
@@ -179,7 +185,10 @@ Several simulation approaches exist for computing vapor-liquid coexistence prope
 
 %Histogram reweighting (and more generally, configuration reweighting) is an important tool in many fields of molecular simulation. In fact, it has long since been known that it is possible to estimate properties for state $j$ by reweighting configurations that were sampled with state $i$. \cite{McDonald1967,Card1970,Wood1968,Pana2000} For example, umbrella sampling simulations are often processed using the weighted histogram analysis method (WHAM) to compute free energy differences between states. A popular alternative to WHAM is the Multistate Bennett Acceptance Ratio (MBAR) \cite{chodera:jctc:2007,shirts-chodera:jcp:2008:mbar}, which is readily available in the \textit{pymbar} package.
 
-Our primary objective is to reduce the computational cost of optimizing non-bonded parameters with vapor-liquid saturation properties. This is achieved by substituting histogram reweighting with the Multistate Bennett Acceptance Ratio (MBAR), \cite{chodera:jctc:2007,shirts-chodera:jcp:2008:mbar} a histogram-free reweighting schema. The proposed GCMC-MBAR method is identical to the traditional GCMC-HR approach except that it uses MBAR to reweight configurations rather than reweighting histograms. The benefit of this simple modification is that GCMC-MBAR can estimate coexistence properties for non-bonded parameter sets that have not been simulated directly. 
+%MRS2: sounds a bit off.  We are presenting a general approach, and what the particular objective in this study is is somewhat irrelevant. 
+%Our primary objective is to reduce the 
+We can significantly
+computational cost of optimizing non-bonded parameters with vapor-liquid saturation properties. This is achieved by substituting histogram reweighting with the Multistate Bennett Acceptance Ratio (MBAR), \cite{chodera:jctc:2007,shirts-chodera:jcp:2008:mbar} a histogram-free reweighting schema. The proposed GCMC-MBAR method is identical to the traditional GCMC-HR approach except that it uses MBAR to reweight configurations rather than reweighting histograms. The benefit of this simple modification is that GCMC-MBAR can estimate coexistence properties for non-bonded parameter sets that have not been simulated directly. 
 
 % we perform GCMC simulations and reweight the configurations with MBAR to predict vapor-liquid coexistence properties for non-bonded parameter sets that are not simulated directly.  substitute traditional HR with MBAR to obtain a GCMC-MBAR method for computing vapor-liquid coexistence properties. Because MBAR reweights configurations rather than histograms, GCMC-MBAR can estimate coexistence properties for non-bonded parameter sets that have not been simulated directly. 
 %
@@ -195,7 +204,13 @@ Our primary objective is to reduce the computational cost of optimizing non-bond
 
 %Histogram reweighting (and more generally, configuration reweighting) is an important tool in many fields of molecular simulation. In fact, it has long since been known that it is possible to estimate properties for state $j$ by reweighting configurations that were sampled with state $i$. \cite{McDonald1967,Card1970,Wood1968,Pana2000} For example, umbrella sampling simulations are often processed using the weighted histogram analysis method (WHAM) to compute free energy differences between states. A popular alternative to WHAM is the Multistate Bennett Acceptance Ratio (MBAR) \cite{chodera:jctc:2007,shirts-chodera:jcp:2008:mbar}, which is readily available in the \textit{pymbar} package.
 
-In similar studies, Messerly et al. demonstrate how to combine MBAR with ITIC (MBAR-ITIC) to optimize generalized Lennard-Jones (Mie $\lambda$-6) potentials \cite{Postdoc_1,Postdoc_2}. For MBAR-ITIC, a series of constant number of molecules, constant volume, and constant temperature $(NVT)$ simulations are performed along an isotherm and isochore(s) with a ``reference'' force field(s) $(\theta_{\rm ref})$. MBAR reweights configurations sampled with $\theta_{\rm ref}$ to estimate the internal energy $(U)$ and pressure $(P)$ at each $(T$, $\rho)$ state point for a non-simulated (``rerun'') force field $(\theta_{\rm rr})$. ITIC then converts the $U$ and $P$ estimates into vapor-liquid coexistence properties \cite{Mostafa_Diss,Mostafa2018}.
+In 
+%similar 
+related
+studies, Messerly et al.~demonstrated how to combine MBAR with ITIC (MBAR-ITIC) to optimize generalized Lennard-Jones (Mie $\lambda$-6) potentials \cite{Postdoc_1,Postdoc_2}. For MBAR-ITIC, a series of constant number of molecules, constant volume, and constant temperature $(NVT)$ simulations are performed along an isotherm and isochore(s) with a ``reference'' force field(s) $(\theta_{\rm ref})$. MBAR reweights configurations sampled with $\theta_{\rm ref}$ to estimate the internal energy $(U)$ and pressure $(P)$ at each $(T$, $\rho)$ state point for a non-simulated 
+%MRS2: really only meaningful term in context of GROMACS
+%(``rerun'') 
+force field $(\theta_{\rm rr})$, with only single stored snapshots from simulations with $(\theta_{\rm ref})$ evaluated using simulations with $(\theta_{\rm rr})$. ITIC then converts the $U$ and $P$ estimates into vapor-liquid coexistence properties~\cite{Mostafa_Diss,Mostafa2018}.
 
 %In this study, we substitute HR with MBAR for the GCMC-HR approach of computing vapor-liquid coexistence properties. Section \ref{sec: GCMC-HR and GCMC-MBAR} demonstrates that MBAR and HR are mathematically equivalent (in the limit of zero bin width) while Section \ref{sec: Results} shows that they are also numerically equivalent (to within statistical uncertainties). Boulougouris et al. demonstrate how to combine HR with GEMC (GEMC-HR) to estimate saturation properties at non-simulated temperatures \cite{Boulougouris2010}, therefore, MBAR could alternatively be applied to GEMC simulations.
 
@@ -342,6 +357,8 @@ The outline for this study is the following. Section \ref{sec: Methods} provides
 %    	\end{center} 
 %    \end{table}
 
+%MRS2: maybe CH_X? i and j seem like they necessarily are different substituents, stating X matches any of the groups CH3, CH2, CH, C.
+%MRS2: maybe it would be better to put these tables as an appendix or supporting information?  I don't think they necessarily convey much information?
     \begin{table}[h!]
 		\caption{Equilibrium bond angles $(\theta_0)$ \cite{Martin1999}. CH$_i$ and CH$_j$ represent CH$_3$, CH$_2$, CH, or C sites.} \label{tab:angles}
 		\begin{center}
@@ -359,7 +376,7 @@ The outline for this study is the following. Section \ref{sec: Methods} provides
     
     Dihedral torsional interactions for each force field are determined using a cosine series:
     \begin{equation}
-    u^{\rm tors} = c_0 + c_1 [1+\cos{\phi}] + c_2 [1-\cos{2\phi}] + c_3 [1+\cos{3\phi}]
+    u^{\rm tors} = c_0 + c_1 \left(1+\cos{\phi}\right) + c_2 \left(1-\cos{2\phi}\right) + c_3 \left(1+\cos{3\phi}\right)
     \end{equation}
     where $u^{\rm tors}$ is the torsional energy, $\phi$ is the dihedral angle and $c_n$ are the Fourier constants listed in Table \ref{tab:torsions}. In accordance with Reference \citenum{Yiannourakou2019}, we simulate cyclohexane using the TraPPE CH$_i$-CH$_2$-CH$_2$-CH$_j$ torsional parameters instead of the TraPPE C-C-C-C six-member ring torsional parameters reported in Table 3 of Reference \citenum{Keasler2012}. We found this necessary in order to replicate the vapor-liquid coexistence densities reported in Reference \citenum{Keasler2012}. % with the TraPPE cyclic torsional potential.  
     
@@ -608,7 +625,7 @@ Equations \ref{eq: HR ave}, \ref{eq: HR prob}, and \ref{eq: Weights} only allow 
 \begin{eqnarray} \label{eq: MBAR ave}
 \langle O(\theta,\mu,\beta)\rangle = \sum_{n=1}^{K^{\rm tot}_{\rm snaps}} O(\x_{n},N_n;\theta,\mu,\beta) \times W_{n}(\theta,\mu,\beta)
 \end{eqnarray}
-where $\x_n,N_n$ are configurations sampled from $i=1 \ldots R$ simulations at inverse temperature $(\beta_{i})$, chemical potential $(\mu_{i})$, and force field parameters $(\theta_i)$, and $K^{\rm tot}_{\rm snaps} = \sum_i K_{\mathrm{snaps}, i}$ is the total number of snapshots for all $R$ runs. $W_{n}(\theta,\beta,\mu)$ is the weight of the $n^{\rm th}$ configuration in a simulation with arbitrary $\mu$, $\beta$, and $\theta$. $W_{n}$ is computed with the following expression (analogous to Equation \ref{eq: HR prob})
+where $\x_n,N_n$ are configurations sampled from $i=1 \ldots R$ simulations at inverse temperature $(\beta_{i})$, chemical potential $(\mu_{i})$, and force field parameters $(\theta_i)$, and $K^{\rm tot}_{\rm snaps} = \sum_{i=1}^R K_{\mathrm{snaps}, i}$ is the total number of snapshots for all $R$ runs. $W_{n}(\theta,\beta,\mu)$ is the weight of the $n^{\rm th}$ configuration in a simulation with arbitrary $\mu$, $\beta$, and $\theta$. $W_{n}$ is computed with the following expression (analogous to Equation \ref{eq: HR prob})
 %The analogous MBAR equation to Equation \ref{eq: HR prob} is 
 \begin{eqnarray} \label{eq: MBAR weights}
 W_{n}(\theta,\beta,\mu) = \frac{\exp[\hat{f}(\theta,\beta,\mu)-u(\x_{n},N_n;\theta,\beta,\mu)]}{\sum\limits_{i=1}^R K_{\mathrm{snaps}, i} \, \exp[\hat{f}(\theta_i,\beta_{i},\mu_{i}) - u(\x_{n},N_n;\theta_i,\beta_{i},\mu_{i})]}
@@ -630,6 +647,7 @@ u(\x_{n},N_n;\theta,\beta,\mu) = \beta U(\x_n,N_n;\theta) - \beta \mu N_n
 \subsubsection{Comparison between HR and MBAR} \label{sec: HR and MBAR}
 
 Both HR and MBAR require solving a system of $R-1$ nonlinear equations for self-consistency (Equations \ref{eq: HR prob} and \ref{eq: Weights} for HR and Equations \ref{eq: MBAR weights} and \ref{eq: MBAR free energy} for MBAR). Specifically, initial guesses for $\hat f_i$ are updated iteratively until convergence. There is provably only one solution, so as long as certain criteria are met that will be discussed below. Thus, although a range of different solver methods exist, the only difference is efficiency and numerical stability.
+%MRS2: cite the 2008 paper on provably one solution.
 %MRSHIRTS: I am not sure that we discuss the ``certain criteria.'' Could you elaborate on this some more?
 
 The similarities between MBAR (Equations \ref{eq: MBAR weights} and \ref{eq: MBAR free energy}) and HR (Equations \ref{eq: HR prob} and \ref{eq: Weights}) are readily apparent after substituting Equation \ref{eq: reduced potential} into Equations \ref{eq: MBAR weights} and \ref{eq: MBAR free energy}. Indeed, the difference between HR and MBAR is primarily that of bookkeeping, although the histogram-free approach of MBAR does have some benefits when varying force field parameters, as discussed below. 
@@ -848,7 +866,7 @@ where $S$ is the scoring function, $N_{\rm exp}$ is the number of (pseudo-)exper
 APD(X) = \left| \frac{X_{\rm sim} - X_{\rm exp}}{X_{\rm exp}} \right| \times 100 \% 
 \end{equation}
 where $X_{\rm sim}$ and $X_{\rm exp}$ correspond to the respective simulation and (pseudo-) experimental values for property $X$ (e.g., $\rho_{\rm liq}^{\rm sat}$). Note that the weights $(w_x)$ are equal to (0.6135, 0.0123, 0.2455, 0.0245, 0.0613, 0.0061, 0.0245, 0.0123) and (0.757, 0, 0.152, 0, 0.076, 0, 0.015, 0) for branched alkanes and alkynes, respectively.
-
+%MRS2: maybe provide a little explanation for the weights, even though it's not your scheme? 
 % different for branched alkanes and alkynes, specifically, $w_x = $ (0.6135, 0.0123, 0.2455, 0.0245, 0.0613, 0.0061, 0.0245, 0.0123) and $w_x = $ (0.757, 0, 0.152, 0, 0.076, 0, 0.015, 0) for branched alkanes and alkynes, respectively.
 
 In accordance with the work of Mick et al. and Barhaghi et al., the target values $(X_{\rm exp})$ are computed with pseudo-experimental correlations. The alkyne correlations are from the Design Institute for Physical Properties (DIPPR) \cite{DIPPR} while the branched alkane correlations are from the National Institute of Standards and Technology (NIST) Reference Fluid Properties (REFPROP) database \cite{LEMMON-RP10}.
@@ -861,7 +879,8 @@ Four different applications for GCMC-MBAR are demonstrated in this study, where 
 
 %In this section, we present results from several different applications of GCMC-MBAR. First, we compute vapor-liquid coexistence properties in the case where the force field parameters do not change, i.e., $\theta_{\rm rr} = \theta_{\rm ref}$. Second, we perform a one-dimensional optimization in the $\epsilon$-scaling parameter, $\psi$. Third, we determine the reliability of GCMC-MBAR when $\theta_{\rm rr} \neq \theta_{\rm ref}$ for different literature force fields. Fourth, we demonstrate how GCMC-MBAR can be applied to obtain new Mie $\lambda$-6 parameters for cyclohexane.
 
-\subsection{$\theta_{\rm rr} = \theta_{\rm ref}$} \label{sec: Constant theta}
+\subsection{$\theta_{\rm rr} = \theta_{\rm ref}$} \label{sec: Constant theta}  
+%MRS2: maybe a clearer section name that isn't just variables.
 
 Section \ref{sec: GCMC-HR and GCMC-MBAR} demonstrated that MBAR and HR are mathematically equivalent in the limit of zero bin width when $\theta_{\rm rr} = \theta_{\rm ref}$. Figure \ref{fig:comparison MBAR HR} provides numerical validation that GCMC-MBAR and GCMC-HR yield indistinguishable vapor-liquid coexistence properties. The evidence for this conclusion is that the median percent deviation is approximately zero and the largest deviations are within a few percent. Note that the uncertainties are largest near the critical point, i.e., reduced temperatures $(T_{\rm r}) \approx 1$. The percent deviations shown in Figure \ref{fig:comparison MBAR HR} are averaged over the 31 branched alkanes studied by Mick et al. and the 11 alkynes studied by Barhaghi et al. 
 
@@ -881,7 +900,7 @@ The GCMC-HR values used in Figure \ref{fig:comparison MBAR HR} were not recomput
 %(a), (b), (c), and (d)
 
 \subsection{$\epsilon_{\rm rr} = \psi \times \epsilon_{\rm ref}$} \label{sec: eps scaling}
-
+%MRS2: can this start with more of a summary of what the reader should think/approach the findings?  Stating what this experiment explains would help readers follow.
 %Figure \ref{fig:epsilon_scaling} presents the $\epsilon$-scaling results for 8 branched alkanes and 11 alkynes using the MiPPE force field as the initial force field. For consistency with the original MiPPE optimization, we use the same scoring function for the branched alkanes and alkynes as Mick et al. and Barhaghi et al., respectively
 %\begin{multline} \label{eq: Score}
 %S= \frac{1}{N_{\rm exp}} [ w_0 \sum_{j=0}^{N_{\rm exp}} APD(\rho_{\rm liq}^{\rm sat}(T^{\rm sat}_j)) + w_1 \sum_{j=0}^{N_{\rm exp}} APD(\rho_{\rm vap}^{\rm sat}(T^{\rm sat}_j)) \\ + w_2 \sum_{j=0}^{N_{\rm exp}} APD(P_{\rm vap}^{\rm sat}(T^{\rm sat}_j)) + w_3 \sum_{j=0}^{N_{\rm exp}} APD(\Delta H_{\rm v} (T^{\rm sat}_j)) \\ + w_4 \sum_{j=0}^{N_{\rm exp}} \frac{d APD(\rho_{\rm liq}^{\rm sat}(T^{\rm sat}_j))}{dT} + w_5 \sum_{j=0}^{N_{\rm exp}} \frac{d APD(\rho_{\rm vap}^{\rm sat}(T^{\rm sat}_j))}{dT} \\ + w_6 \sum_{j=0}^{N_{\rm exp}} \frac{d APD(P_{\rm vap}^{\rm sat}(T^{\rm sat}_j))}{dT} + w_7 \sum_{j=0}^{N_{\rm exp}} \frac{d APD(\Delta H_{\rm v} (T^{\rm sat}_j))}{dT} ]
@@ -926,7 +945,7 @@ Figures \ref{fig:refFF_to_rrFF_lam_constant} and \ref{fig:refFF_to_rrFF_lam12to1
 %In particular, note that the $\rho_{\rm liq}^{\rm sat}$ estimates in Figure \ref{fig:refFF_to_rrFF_lam12to16} are sporadic and unreliable.
 
 %, which demonstrates that the repulsive exponent $(\lambda)$ greatly impacts the configurational overlap in the liquid phase but not the vapor phase. The poor overlap when varying $\lambda$ is consistent with the MBAR-ITIC results \cite{Postdoc_1}. However, GCMC-MBAR provides considerable improvement in predicting $P_{\rm vap}^{\rm sat}$ compared to MBAR-ITIC. For this reaon, we recommend reducing the $\rho_{\rm liq}^{\rm sat}$ weight in the scoring function when varying $\lambda$. The degree to which the weight is reduced should depend on the number of effective samples.
-
+%MRS2: Without any reasons for the weights given, it makes no sense to talk about changing them -- will that cause some other problem  Are they arbitary nor not? Why not just say more simulations are needed instead of getting into the discussion?
 
 %Because it is not possible to visualize a parameter space of greater than two dimensions, Figures \ref{fig:refFF_to_rrFF_lam_constant} and \ref{fig:refFF_to_rrFF_lam12to16} demonstrate the reliability of MBAR when multiple parameters are varied simultaneously. 
 
@@ -945,7 +964,7 @@ Figures \ref{fig:refFF_to_rrFF_lam_constant} and \ref{fig:refFF_to_rrFF_lam12to1
 		\caption{Comparison between MBAR-GCMC estimates (symbols, $\theta_{\rm rr} \neq \theta_{\rm ref}$) and MBAR-HR literature values (lines) with a non-constant repulsive exponent, i.e., $\lambda_{\rm rr} \neq \lambda_{\rm ref}$. MBAR predicts only vapor properties accurately for $\lambda_{\rm rr} \neq \lambda_{\rm ref}$. MBAR-GCMC estimates for the TraPPE force field are computed using configurations sampled from MiPPE-gen, and vice versa. Top-left, top-right, bottom-left, and bottom-right panels correspond to saturated liquid density, saturated vapor density, saturated vapor pressure, and enthalpy of vaporization, respectively.}
 		\label{fig:refFF_to_rrFF_lam12to16}
 	\end{figure}
-
+%MRS: might want to comment how this is entirely expected, since 1) there are fewer molecules in vapor and 2) there are fewer instances of molecules shoved up against one another, which is where the overlap problems occur.
 Figure \ref{fig:Neff} demonstrates that $K_{\rm snaps}^{\rm eff}$ is typically much greater in the vapor phase than in the liquid phase. Messerly et al. report that MBAR-ITIC is reliable if $K_{\rm snaps}^{\rm eff} > 50$. Applying this heuristic to GCMC-MBAR helps qualify why the liquid properties are poorly estimated in some systems while the vapor properties are much more accurate. Specifically, $K_{\rm snaps}^{\rm eff}$ is less than $50$ in the liquid phase when $\lambda_{\rm rr} \neq \lambda_{\rm ref}$ (TraPPE $\Leftrightarrow$ MiPPE-gen) while it is typically greater than 50 for $\lambda_{\rm rr} = \lambda_{\rm ref}$ (MiPPE-gen $\Rightarrow$ MiPPE-SL and TraPPE $\Rightarrow$ NERD). This demonstrates that $K_{\rm snaps}^{\rm eff} > 50$ is a good indication that the GCMC-MBAR estimates are reliable.
 
 % while  is much greater in the liquid phase than the vapor phase.  if the overlap between systems is sufficient for MBAR to be reliable.  is 
@@ -965,9 +984,12 @@ We have demonstrated that GCMC-MBAR is accurate when $K_{\rm snaps}^{\rm eff} \g
 
 Figure \ref{fig:Score_CYC6} depicts the scoring function for different values of $\epsilon_{\rm CH_2}$, $\sigma_{\rm CH_2}$, and $\lambda_{\rm CH_2}$ as a heat map, where red denotes the optimal parameter set (i.e., the lowest values of $S$.) Similar figures have been reported in the literature using GCMC-HR \cite{Potoff_branched,Barhaghi2017}. The key difference is that the heat maps reported in the literature were obtained by performing GCMC simulations with each value of $\epsilon$, $\sigma$, and $\lambda$. By contrast, the results shown in Figure \ref{fig:Score_CYC6} were obtained by performing GCMC simulations with a single parameter set, namely, the TraPPE parameters (depicted as an ``X'' in Figures \ref{fig:Score_CYC6} and \ref{fig:Neff}). MBAR reweights these same configurations for all other parameter sets. Furthermore, $U(\theta_{\rm rr})$ is computed with basis functions, enabling the GCMC-MBAR recompute step to be extremely fast. 
 
+%MRS2: not sure why this negates MBAR computational advantage, since you still need to run less simulations with MBAR?  Would not help the wall clock problem, but would reduce the total CPU time? Unclear paragraph.
 In this optimization example (a 2-dimensional grid search over integer values of $\lambda$) the GCMC simulations could be run in parallel, which would negate the computational gain of GCMC-MBAR compared with GCMC-HR. However, in general, higher dimensional optimization algorithms are performed in sequence, where each iteration proposes new parameter set(s). In this scenario, GCMC-MBAR (with basis functions) is orders of magnitude faster than the traditional GCMC-HR approach, which would require performing new GCMC simulations for each iteration. 
 
-Note that the TraPPE force field utilizes a Lennard-Jones 12-6 potential (i.e., $\lambda_{\rm TraPPE} = 12$) and, therefore, the results in the top-left panel are for the case where $\lambda_{\rm rr} = \lambda_{\rm ref} = 12$, while the other panels correspond to $\lambda_{\rm rr} \neq \lambda_{\rm ref}$. Figure \ref{fig:Neff_CYC6} shows that, as expected, $K_{\rm snaps}^{\rm eff}$ in the liquid phase are much lower for $\lambda_{\rm rr} \neq \lambda_{\rm ref}$ than for $\lambda_{\rm rr} = \lambda_{\rm ref}$. In addition, the smooth contours in Figure \ref{fig:Score_CYC6} for $\lambda_{\rm rr} = \lambda_{\rm ref} = 12$ and the wide range of parameters over which $\bar K_{\rm snaps}^{\rm eff, liq} \gg 50$ suggests that GCMC-MBAR is highly reliable for optimizing $\epsilon_{\rm CH_2}$ and $\sigma_{\rm CH_2}$ for a fixed value of $\lambda_{\rm CH_2}$. Even more remarkable is that GCMC-MBAR predicts smooth contours for $\lambda_{\rm rr} \neq \lambda_{\rm ref}$ despite lower values of $\bar K_{\rm snaps}^{\rm eff, liq}$. This demonstrates that GCMC-MBAR is capable of converting a pre-tuned Lennard-Jones 12-6 potential (TraPPE) into a Mie $\lambda$-6 potential without simulating hundreds of different parameter sets.     
+Note that the TraPPE force field utilizes a Lennard-Jones 12-6 potential (i.e., $\lambda_{\rm TraPPE} = 12$) and, therefore, the results in the top-left panel are for the case where $\lambda_{\rm rr} = \lambda_{\rm ref} = 12$, while the other panels correspond to $\lambda_{\rm rr} \neq \lambda_{\rm ref}$. Figure \ref{fig:Neff_CYC6} shows that, as expected, $K_{\rm snaps}^{\rm eff}$ in the liquid phase are much lower for $\lambda_{\rm rr} \neq \lambda_{\rm ref}$ than for $\lambda_{\rm rr} = \lambda_{\rm ref}$. In addition, the smooth contours in Figure \ref{fig:Score_CYC6} for $\lambda_{\rm rr} = \lambda_{\rm ref} = 12$ and the wide range of parameters over which $\bar K_{\rm snaps}^{\rm eff, liq} \gg 50$ suggests that GCMC-MBAR is highly reliable for optimizing $\epsilon_{\rm CH_2}$ and $\sigma_{\rm CH_2}$ for a fixed value of $\lambda_{\rm CH_2}$. 
+%MRS2: might not be as clear to others why remarkable.
+Even more remarkable is that GCMC-MBAR predicts smooth contours for $\lambda_{\rm rr} \neq \lambda_{\rm ref}$ despite lower values of $\bar K_{\rm snaps}^{\rm eff, liq}$. This demonstrates that GCMC-MBAR is capable of converting a pre-tuned Lennard-Jones 12-6 potential (TraPPE) into a Mie $\lambda$-6 potential without simulating hundreds of different parameter sets.     
 
 	\begin{figure}[htb!]
 		\centering
