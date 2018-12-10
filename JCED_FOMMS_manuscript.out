@@ -8,13 +8,13 @@
 \BOOKMARK [3][-]{subsubsection.2.3.2}{Histogram-free reweighting}{subsection.2.3}% 8
 \BOOKMARK [3][-]{subsubsection.2.3.3}{Comparison between HR and MBAR}{subsection.2.3}% 9
 \BOOKMARK [3][-]{subsubsection.2.3.4}{Computing saturation properties}{subsection.2.3}% 10
-\BOOKMARK [3][-]{subsubsection.2.3.5}{Number of effective samples}{subsection.2.3}% 11
+\BOOKMARK [3][-]{subsubsection.2.3.5}{Number of effective snapshots}{subsection.2.3}% 11
 \BOOKMARK [2][-]{subsection.2.4}{Basis functions}{section.2}% 12
 \BOOKMARK [2][-]{subsection.2.5}{-scaling}{section.2}% 13
 \BOOKMARK [1][-]{section.3}{Results}{}% 14
-\BOOKMARK [2][-]{subsection.3.1}{rr = ref}{section.3}% 15
-\BOOKMARK [2][-]{subsection.3.2}{rr = ref}{section.3}% 16
-\BOOKMARK [2][-]{subsection.3.3}{ref =rr, ref =rr, and ref =rr}{section.3}% 17
+\BOOKMARK [2][-]{subsection.3.1}{Validation of GCMC-MBAR for constant }{section.3}% 15
+\BOOKMARK [2][-]{subsection.3.2}{Application of GCMC-MBAR to -scaling}{section.3}% 16
+\BOOKMARK [2][-]{subsection.3.3}{Performance of GCMC-MBAR when rr ref}{section.3}% 17
 \BOOKMARK [2][-]{subsection.3.4}{Case Study: Optimizing cyclohexane Mie -6 parameters}{section.3}% 18
 \BOOKMARK [1][-]{section.4}{Discussion/Limitations/Future work}{}% 19
 \BOOKMARK [1][-]{section.5}{Conclusions}{}% 20
