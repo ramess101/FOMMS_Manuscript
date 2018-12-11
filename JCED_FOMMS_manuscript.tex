@@ -386,7 +386,13 @@ The outline for this study is the following. Section \ref{sec: Methods} provides
     \begin{equation}
     u^{\rm tors} = c_0 + c_1 \left(1+\cos{\phi}\right) + c_2 \left(1-\cos{2\phi}\right) + c_3 \left(1+\cos{3\phi}\right)
     \end{equation}
-    where $u^{\rm tors}$ is the torsional energy, $\phi$ is the dihedral angle and $c_n$ are the Fourier constants listed in Table \ref{tab:torsions}. In accordance with Reference \citenum{Yiannourakou2019}, we simulate cyclohexane using the TraPPE CH$_x$-CH$_2$-CH$_2$-CH$_y$ torsional parameters instead of the TraPPE C-C-C-C six-member ring torsional parameters reported in Table 3 of Reference \citenum{Keasler2012}. We found this necessary in order to replicate the vapor-liquid coexistence densities reported in Reference \citenum{Keasler2012}. % with the TraPPE cyclic torsional potential.  
+    where $u^{\rm tors}$ is the torsional energy, $\phi$ is the dihedral angle and $c_n$ are the Fourier constants listed in Table \ref{tab:torsions}. In accordance with Reference \citenum{Yiannourakou2019}, we simulate cyclohexane using the TraPPE CH$_x$-CH$_2$-CH$_2$-CH$_y$ torsional parameters instead of the TraPPE C-C-C-C six-member ring torsional parameters reported in Table 3 of Reference \citenum{Keasler2012}. This choice is made to better replicate the vapor-liquid coexistence densities reported in Reference \citenum{Keasler2012}. After investigating the dihedral distributions for cyclohexane obtained with the torsional parameters from Reference \cite{Keasler2012}, we suspect there is a sign error for at least the $c_1$ term.
+    
+    % reported in Reference \citenum{Keasler2012}.
+    
+    %, as changing the sign of the $c_1$ term for TraPPE C-C-C-C six-member rings also we obtained reliable coexistence densitie 
+    
+    %Alternatively, we obtained reliable coexistence densities by changing the sign of the $c_1$ term reported in Table 3 of Reference \citenum{Keasler2012}. Therefore, we suspect a sign error for the $c_1$ term reported in \citenum{Keasler2012}. We found it necessary to use th in order to replicate the vapor-liquid coexistence densities reported in Reference \citenum{Keasler2012}. Alternatively, we obtained reliable results by s found similar results We suspect a sign error the $c_1$ term reported in \citenum{Keasler2012} % with the TraPPE cyclic torsional potential.  
     
     \begin{table}[h!]
     	\caption{Fourier constants $(c_n/k_{\rm B})$ in units of K \cite{Martin1999}. CH$_x$ and CH$_y$ represent CH$_3$, CH$_2$, CH, or C sites.} \label{tab:torsions}
@@ -445,20 +451,23 @@ The outline for this study is the following. Section \ref{sec: Methods} provides
 				United-atom & $\epsilon/k_{\rm B}$ (K) & $\sigma$ (nm) & $\lambda$ \\ \hline
 				\multicolumn{4}{|c|}{TraPPE} \\ \hline
 				CH$_3$ & 98 & 0.375 & 12 \\ 
-				CH$_2$ & 46 & 0.395 & 12\\ 
-				CH & 10 & 0.468 & 12 \\
-				C & 0.5 & 0.640 & 12 \\
+				CH$_2$(sp$^3$) & 46 & 0.395 & 12\\ 
+				CH(sp$^3$) & 10 & 0.468 & 12 \\
+				C(sp$^3$) & 0.5 & 0.640 & 12 \\
 				CH$_2$ (cyclohexane) & 52.5 & 0.391 & 12 \\
 				\hline
 				\multicolumn{4}{|c|}{MiPPE} \\ \hline
 				CH$_3$ & 121.25 & 0.3783 & 16  \\ 
-				CH$_2$ & 61 & 0.399 & 16 \\ 
-				CH, gen. & 15 & 0.46 & 16\\
-				C, gen. & 1.2 & 0.61 & 16\\
-				CH, short & 15 & 0.47 & 16\\
-				C, short & 1.45 & 0.61 & 16\\
-				CH, long & 14 & 0.47 & 16\\
-				C, long & 1.2 & 0.62 & 16\\
+				CH$_2$(sp$^3$) & 61 & 0.399 & 16 \\ 
+				CH(sp$^3$), gen. & 15 & 0.46 & 16\\
+				C(sp$^3$), gen. & 1.2 & 0.61 & 16\\
+				CH(sp$^3$), short & 15 & 0.47 & 16\\
+				C(sp$^3$), short & 1.45 & 0.61 & 16\\
+				CH(sp$^3$), long & 14 & 0.47 & 16\\
+				C(sp$^3$), long & 1.2 & 0.62 & 16\\
+				CH(sp) & 148.5 & 0.357 & 28\\
+				C(sp) (1-alkyne) & 206 & 0.2875 & 16\\
+				C(sp) (2-alkyne) & 118 & 0.312 & 16\\
 				\hline
                 \multicolumn{4}{|c|}{NERD} \\ \hline
 				CH$_3$ (general) & 104.00  & 0.3910 & 12\\ 
@@ -466,9 +475,9 @@ The outline for this study is the following. Section \ref{sec: Methods} provides
 				CH$_3$ (2,2-dimethylpropane) & 74.50  & 0.3910 & 12 \\  
 				CH$_3$ (methyl side chain) & 70.00 & 0.3850 & 12 \\
 				CH$_3$ (ethyl side chain) & 83.00 & 0.3820 & 12 \\
-				CH$_2$ & 45.80 & 0.3930 & 12 \\ 
-				CH & 39.70 & 0.3850 & 12\\
-				C & 17.00 & 0.3910 & 12 \\
+				CH$_2$(sp$^3$) & 45.80 & 0.3930 & 12 \\ 
+				CH(sp$^3$) & 39.70 & 0.3850 & 12\\
+				C(sp$^3$) & 17.00 & 0.3910 & 12 \\
 				\hline
 			\end{tabular}
 		\end{center} 
@@ -504,9 +513,9 @@ The system volume is constant with respect to $\mu$ and $T$ for a given compound
 
 Each GCMC simulation performed in this study consists of an equilibration stage of $2 \times 10^7$ Monte Carlo steps (MCS). The production stage is $4 \times 10^7$ MCS for vapor simulations and $2.5 \times 10^7$ MCS for the liquid and ``bridge'' simulations. Snapshots (i.e., number of molecules, internal energy, and optionally the xyz coordinates) are stored every 200 MCS to reduce the correlation between sequential configurations. Thus, the number of snapshots $(K_{\rm snaps})$ is $2 \times 10^5$ for vapor simulations and $1.25 \times 10^5$ for liquid and ``bridge'' simulations. 
 
-The type of Monte Carlo move implemented for each step is selected randomly with a 30\%, 10\%, and 60\% probability of performing a displacement, rotation, and particle swap move, respectively. The move probabilities are slightly different for cyclohexane, namely, 30\%, 10\%, 40\%, and 20\% for displacement, rotation, particle swap, and crank-shaft moves \cite{Shah2011}, respectively. All simulations utilize coupled-decoupled configurational-bias Monte Carlo (CBMC)\cite{Martin1999} to enhance the insertion acceptance rate, with 100 angle trials, 30 dihedral trials, 10 initial site trials, and 4 subsequent site trials. The move probabilities are consistent with those of Mick et al.~and Soroush Barhaghi et al., while the CBMC dihedral trials and initial site trials differ slightly.
+The type of Monte Carlo move implemented for each step is selected randomly with a 30\%, 10\%, and 60\% probability of performing a displacement, rotation, and particle swap move, respectively. Displacement and rotation moves are required to thermally equilibrate the system at the simulation temperature while particle swap moves ensure that $\mu$ is equal to the prescribed value. Cyclohexane simulations also employ crank-shaft moves to sample internal configurations, which can be challenging for ring molecules \cite{Shah2011}. The move probabilities for cyclohexane are 30\%, 10\%, 40\%, and 20\% for displacement, rotation, particle swap, and crank-shaft moves, respectively. All simulations utilize coupled-decoupled configurational-bias Monte Carlo (CBMC)\cite{Martin1999} to enhance the insertion acceptance rate, with 100 angle trials, 30 dihedral trials, 10 initial site trials, and 4 subsequent site trials. The move probabilities are consistent with those of Mick et al.~and Soroush Barhaghi et al. \cite{Potoff_branched,Barhaghi2017}, while the CBMC dihedral trials and initial site trials differ slightly.
 
-All simulations are performed using GPU optimized Monte Carlo (GOMC) \cite{GOMC} version 2.31, compiled using GCC with OpenMP enabled. CPU GCMC simulations are run on a Linux 4.4.0-112-generic x86\_64 on an Intel(R) Xeon(R) CPU E5-2699 v4 @ 2.20GHz machine. Initial configurations are generated with Packmol \cite{PACKMOL}, while psfgen is used to generate the coordinate (*.pdb) and connectivity (*.psf) files \cite{VMD}. Example GOMC input files with corresponding shell and Python scripts for preparing, running, and analyzing simulations are provided at https://github.com/ramess101/MBAR\_GCMC.
+All simulations are performed using GPU optimized Monte Carlo (GOMC) \cite{Nejahi2018} version 2.31, compiled using GCC with OpenMP enabled. CPU GCMC simulations are run on a Linux 4.4.0-112-generic x86\_64 on an Intel(R) Xeon(R) CPU E5-2699 v4 @ 2.20GHz machine. Initial configurations are generated with Packmol \cite{PACKMOL}, while psfgen is used to generate the coordinate (*.pdb) and connectivity (*.psf) files \cite{VMD}. Example GOMC input files with corresponding shell and Python scripts for preparing, running, and analyzing simulations are provided at https://github.com/ramess101/MBAR\_GCMC.
 
 %, where a Monte Carlo cycle is defined as $N$ individual Monte Carlo steps
 
@@ -594,7 +603,7 @@ All simulations are performed using GPU optimized Monte Carlo (GOMC) \cite{GOMC}
 %Pr(N,U|\mu,\beta) = \frac{\sum_{i=1}^{R} Pr_i(N,U)  \exp(-\beta U + \beta \mu N)}{\sum_{i=1}^{R} K_i \exp(-\beta_i U + \beta_i \mu_i N - C_i)}
 %\end{eqnarray}
 
-Converting the GCMC simulation output into phase coexistence properties requires significant post-processing through reweighting. Histogram reweighting (HR) and, more generally, configuration reweighting is an important tool in many fields of molecular simulation. In fact, it has long since been known that it is possible to estimate properties for state $j$ by reweighting configurations that were sampled with state $i$. \cite{McDonald1967,Card1970,Wood1968,Pana2000} For example, umbrella sampling simulations are often processed using the weighted histogram analysis method (WHAM) to compute free energy differences between states \cite{Kumar1992}. WHAM (or HR) is essentially an approximation of MBAR and, therefore, MBAR should be favored whenever a histogram-free approach is feasible \cite{Matos2017}. In this study, we implement MBAR in Python 2.7 through the \textit{pymbar} package. 
+Converting the GCMC simulation output into phase coexistence properties requires significant post-processing through reweighting. Histogram reweighting (HR) and, more generally, configuration reweighting is an important tool in many fields of molecular simulation. In fact, it has long since been known that it is possible to estimate properties for state $j$ by reweighting configurations that were sampled with state $i$. \cite{McDonald1967,Card1970,Wood1968,Pana2000} For example, umbrella sampling simulations are often processed using the weighted histogram analysis method (WHAM) to compute free energy differences between states \cite{Kumar1992}. WHAM (or HR) is essentially an approximation of MBAR and, therefore, MBAR should be favored whenever a histogram-free approach is feasible \cite{Matos2017}. In this study, we implement MBAR in Python 2.7 through the \textit{pymbar} package \cite{pymbar}. 
 
 Before demonstrating how to compute vapor-liquid coexistence with GCMC-MBAR, we review the traditional GCMC-HR approach. We also discuss the steps of this procedure that are the same for both GCMC-HR and GCMC-MBAR. We refer the interested reader to the literature for derivations and more detailed discussion of the GCMC-HR equations (cf. Reference \citenum{Pana2000}).
 
@@ -808,7 +817,7 @@ where $C_6$ and $C_\lambda$ are proportional to $\epsilon \sigma^6$ and $\epsilo
 \begin{equation} \label{Utotal basis function}
 U_{\alpha\beta}^{\rm nb}(C_6,C_\lambda) = C_\lambda \sum_{i \neq j} r_{ij}^{-\lambda} - C_6 \sum_{i \neq j} r_{ij}^{-6} = C_\lambda \Psi_{\rm r} + C_6 \Psi_{\rm a}
 \end{equation}
-where $\Psi_{\rm r} (\equiv \sum_{i \neq j} r_{ij}^{-\lambda})$ is the repulsive basis function, $\Psi_{\rm a} (\equiv \sum_{i \neq j} r_{ij}^{-6})$ is the attractive basis function and, for simplicity, $\sum_{i \neq j}$ denotes a sum over all unique pairwise interactions.
+where $\Psi_{\rm r} (\equiv \sum_{i \neq j} r_{ij}^{-\lambda})$ is the repulsive basis function, $\Psi_{\rm a} (\equiv \sum_{i \neq j} r_{ij}^{-6})$ is the attractive basis function and, for simplicity, $\sum_{i \neq j}$ denotes a sum over all unique pairwise interactions. Details regarding how we obtain $\Psi_{\rm r}$ and $\Psi_{\rm a}$ with GOMC are provided as Supporting Information.
 
 With Equation \ref{Utotal basis function}, the total non-bonded internal energy for all interaction sites of all $K^{\rm tot}_{\rm snaps}$ snapshots can be recomputed for any $\epsilon$ and $\sigma$ with linear algebra instead of computing $u^{\rm nb}(\theta_{\rm rr};r_{ij})$ for each unique pairwise interaction. 
 
@@ -899,7 +908,7 @@ Four different applications for GCMC-MBAR are demonstrated in this study, where 
 
 Section \ref{sec: GCMC-HR and GCMC-MBAR} demonstrated that MBAR and HR are mathematically equivalent in the limit of zero bin width when $\theta_{\rm rr} = \theta_{\rm ref}$. Figure \ref{fig:comparison MBAR HR} provides numerical validation that GCMC-MBAR and GCMC-HR yield indistinguishable vapor-liquid coexistence properties. The evidence for this conclusion is that the median percent deviation is approximately zero and the largest deviations are within a few percent. Note that the uncertainties are largest near the critical point, i.e., reduced temperatures $(T_{\rm r}) \approx 1$. The percent deviations shown in Figure \ref{fig:comparison MBAR HR} are averaged over the 31 branched alkanes studied by Mick et al.~and the 11 alkynes studied by Soroush Barhaghi et al. 
 
-The GCMC-HR values used in Figure \ref{fig:comparison MBAR HR} were not recomputed in this study but were taken from the literature \cite{Potoff_branched,Barhaghi2017}. For a fair comparison between GCMC-HR and GCMC-MBAR, the GCMC-MBAR values were computed using the same raw simulation data as Mick et al.~and Soroush Barhaghi et al. However, for simplicity, we only reprocess one of the five replicate simulations. 
+The GCMC-HR values used in Figure \ref{fig:comparison MBAR HR} were not recomputed in this study but were taken from the literature \cite{Potoff_branched,Barhaghi2017}. For a fair comparison between GCMC-HR and GCMC-MBAR, the GCMC-MBAR values were computed using the same raw simulation data as Mick et al.~and Soroush Barhaghi et al. However, for simplicity, we only reprocess one of the five replicate simulations. Tabulated results are provided as Supporting Information.
 
 % The GCMC-MBAR values were computed using a subset of the raw simulation data from Mick et al. and Barhaghi et al. Specifically, snapshots from only a single replicate simulation were used for the GCMC-MBAR analysis, while the GCMC-HR values reported by Mick et al. and Barhaghi et al. utilized five replicate simulations.
 
