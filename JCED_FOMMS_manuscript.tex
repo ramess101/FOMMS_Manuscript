@@ -43,6 +43,7 @@
 \usepackage[hidelinks,colorlinks=false,citecolor=black,linkcolor=black]{hyperref}
 \usepackage{siunitx}
 \usepackage{xr}
+\usepackage[flushleft]{threeparttable}
 
 \makeatletter
 \newcommand*{\addFileDependency}[1]{% argument=file name and extension
@@ -341,18 +342,65 @@ The outline for this study is the following. Section \ref{sec: Methods} provides
     
     %The non-bonded potential is of the generalized Lennard-Jones (Mie $\lambda$-6) form. 
     
-    The bond lengths for the TraPPE, MiPPE, and NERD force fields are 0.154 nm for all compounds studied. Angular bending interactions for each force field are evaluated using a harmonic potential:
+    For computational efficiency, we utilize fixed bond lengths for each force field. Note that the original NERD publications utilized a harmonic bond potential \cite{NERD}. The bond lengths for all bonds, compounds, and force fields simulated in this study are 0.154 nm. Although we do not simulate alkynes, the MiPPE alkyne bond lengths are also reported in Table \ref{tab:bonds} because we re-analyze the MiPPE alkyne simulation data produced by Soroush Barhaghi et al.
+    
+    % The bond length values required to simulate the branched alkanes, alkynes, and cyclohexane with the for each force field  
+    %, but this typically does not impact vapor-liquid coexistence properties. 
+    % rather than a harmonic bond potential (although this was im)
+%    Fixed bond lengths are utilized in this study. The bond lengths for the TraPPE, MiPPE, and NERD force fields are 0.154 nm for all compounds studied. 
+
+%    \begin{table}[h!]
+%		\caption{Equilibrium (fixed) bond lengths $(r_{\rm eq})$ \cite{Martin1999}.} \label{tab:bonds}
+%		\begin{center}
+%			\begin{tabular}{|c|c|c|c|}
+%				\hline
+%				Bending sites & \multicolumn{3}{|c|}{$r_{\rm eq}$ (nm)} \\ \hline
+%				& TraPPE & MiPPE & NERD \\ \hline
+%				CH$_2$-CH$_3$ & 0.154 & 0.154 & 0.154 \\ 
+%				CH$_2$-CH$_2$ & 0.154 & 0.154 & 0.154 \\ 
+%				CH$_2$-CH & 0.154 & 0.154 & 0.154 \\ 
+%				CH$_2$-C & 0.154 & 0.154 & 0.154 \\
+%				CH-CH$_3$ & 0.154 & 0.154 & 0.154 \\ 
+%				CH-CH$_2$ & 0.154 & 0.154 & 0.154 \\ 
+%				CH-CH & 0.154 & 0.154 & 0.154 \\ 
+%				CH-C & 0.154 & 0.154 & 0.154 \\ 
+%				CH$_x$-CH-CH$_y$ & 112.0 & 112.0 & 109.5 \\
+%				CH$_x$-C-CH$_y$ & 109.5 & 109.5 & 109.5 \\
+%				\hline
+%			\end{tabular}
+%		\end{center} 
+%	\end{table}
+
+    \begin{table}[h!]
+		\caption{Equilibrium (fixed) bond lengths $(r_{\rm eq})$ \cite{Martin1999,Nath2001,Potoff_branched,Barhaghi2017}. CH$_x$ and CH$_y$ represent CH$_3$, CH$_2$(sp$^3$), CH(sp$^3$), or C(sp$^3$) sites.} \label{tab:bonds}
+		\begin{center}
+			\begin{tabular}{|c|c|c|c|}
+				\hline
+				Bending sites & \multicolumn{3}{|c|}{$r_{\rm eq}$ (nm)} \\ \hline
+				& TraPPE & MiPPE & NERD \\ \hline
+				CH$_x$-CH$_y$ & 0.154 & 0.154 & 0.154 \\ 
+				C(sp)-CH$_x$ & -- & 0.146 & -- \\
+				CH$\equiv$CH & -- & 0.121 & -- \\ 
+				C$\equiv$CH & -- & 0.121 & -- \\
+				\hline
+			\end{tabular}
+		\end{center} 
+	\end{table}
+    
+    Angular bending interactions for each force field are evaluated using a harmonic potential:
     \begin{equation}
-    u^{\rm bend} = \frac{k_\theta}{2} \left(\theta-\theta_0\right)^2
+    u^{\rm bend} = \frac{k_\theta}{2} \left(\theta-\theta_{\rm eq}\right)^2
     \end{equation}
-    where $u^{\rm bend}$ is the bending energy, $\theta$ is the instantaneous bond angle, $\theta_0$ is the equilibrium bond angle, and $k_\theta$ is the harmonic force constant with $k_\theta/k_{\rm B} = 62500$ K/rad$^2$ for all bonding angles, where $k_{\rm B}$ is the Boltzmann constant. Table \ref{tab:angles} provides the $\theta_0$ values for each angle type and force field. Note that the $\theta_0$ values are equivalent for the three force fields, with the exception of the NERD CH$_x$-CH-CH$_y$ $\theta_0$ value. 
+    where $u^{\rm bend}$ is the bending energy, $\theta$ is the instantaneous bond angle, $\theta_{\rm eq}$ is the equilibrium bond angle, and $k_\theta$ is the harmonic force constant. Table \ref{tab:angles} provides the $\theta_{\rm eq}$ and $k_\theta$ values for each angle type and force field. Note that the $\theta_{\rm eq}$ and $k_\theta$ values are equivalent for the three force fields, with the exception of the NERD CH$_x$-CH-CH$_y$ $\theta_{\rm eq}$ value. 
+    
+%    with $k_\theta/k_{\rm B} = 62500$ K/rad$^2$ for all bonding angles, where $k_{\rm B}$ is the Boltzmann constant
     
 %    \begin{table}[h!]
-%    	\caption{Equilibrium bond angles $(\theta_0)$ \cite{Martin1999}. CH$_i$ and CH$_j$ represent CH$_3$, CH$_2$, CH, or C sites.} \label{tab:angles}
+%    	\caption{Equilibrium bond angles $(\theta_{\rm eq})$ \cite{Martin1999}. CH$_i$ and CH$_j$ represent CH$_3$, CH$_2$, CH, or C sites.} \label{tab:angles}
 %    	\begin{center}
 %    		\begin{tabular}{|c|c|}
 %    			\hline
-%    			Bending sites & $\theta_0$ (degrees) \\ \hline
+%    			Bending sites & $\theta_{\rm eq}$ (degrees) \\ \hline
 %    			CH$_i$-CH$_2$-CH$_j$ & 114.0 \\ 
 %    			CH$_i$-CH-CH$_j$ & 112.0 \\
 %    			CH$_i$-CH-CH$_j$, NERD & 109.5 \\ 
@@ -367,16 +415,35 @@ The outline for this study is the following. Section \ref{sec: Methods} provides
 % helps convey that they could be the same substituent, but this is also the notation Mick et al. used in JCED previously, so I am going to use x and y
 %MRS2: maybe it would be better to put these tables as an appendix or supporting information?  I don't think they necessarily convey much information?
 %RAM: I believe JCED wants these in the manuscript
+%    \begin{table}[h!]
+%		\caption{Equilibrium bond angles $(\theta_{\rm eq})$ \cite{Martin1999}. CH$_x$ and CH$_y$ represent CH$_3$, CH$_2$, CH, or C sites.} \label{tab:angles}
+%		\begin{center}
+%			\begin{tabular}{|c|c|c|c|}
+%				\hline
+%				Bending sites & \multicolumn{3}{|c|}{$\theta_{\rm eq}$ (degrees)} \\ \hline
+%				& TraPPE & MiPPE & NERD \\ \hline
+%				CH$_x$-CH$_2$-CH$_y$ & 114.0 & 114.0 & 114.0 \\ 
+%				CH$_x$-CH-CH$_y$ & 112.0 & 112.0 & 109.5 \\
+%				CH$_x$-C-CH$_y$ & 109.5 & 109.5 & 109.5 \\
+%				\hline
+%			\end{tabular}
+%		\end{center} 
+%	\end{table}
+
+%%% Included alkyne parameters
     \begin{table}[h!]
-		\caption{Equilibrium bond angles $(\theta_0)$ \cite{Martin1999}. CH$_x$ and CH$_y$ represent CH$_3$, CH$_2$, CH, or C sites.} \label{tab:angles}
+		\caption{Equilibrium bond angles $(\theta_{\rm eq})$ and force constants $(k_\theta/k_{\rm B})$, where $k_{\rm B}$ is the Boltzmann constant \cite{Martin1999,Nath2001,Potoff_branched,Barhaghi2017}. CH$_x$ and CH$_y$ represent CH$_3$, CH$_2$, CH, or C sites.} \label{tab:angles}
 		\begin{center}
-			\begin{tabular}{|c|c|c|c|}
+			\begin{tabular}{|c|c|c|c|c|}
 				\hline
-				Bending sites & \multicolumn{3}{|c|}{$\theta_0$ (degrees)} \\ \hline
-				& TraPPE & MiPPE & NERD \\ \hline
-				CH$_x$-CH$_2$-CH$_y$ & 114.0 & 114.0 & 114.0 \\ 
-				CH$_x$-CH-CH$_y$ & 112.0 & 112.0 & 109.5 \\
-				CH$_x$-C-CH$_y$ & 109.5 & 109.5 & 109.5 \\
+				Bending sites & \multicolumn{3}{|c|}{$\theta_{\rm eq}$ (degrees)} & $k_\theta/k_{\rm B}$ (K/rad$^2$) \\ \hline
+				& TraPPE & MiPPE & NERD & \\ \hline
+				CH$_x$-CH$_2$-CH$_y$ & 114.0 & 114.0 & 114.0 &  62500 \\ 
+				CH$_x$-CH-CH$_y$ & 112.0 & 112.0 & 109.5 & 62500 \\
+				CH$_x$-C-CH$_y$ & 109.5 & 109.5 & 109.5 & 62500 \\
+				CH$_x$-CH$_y$-C(sp) & -- & 112 & -- & 62500 \\
+				CH$_x$-C(sp)$\equiv$CH & -- & 180 & -- & 30800 \\
+				CH$_x$-C(sp)$\equiv$C & -- & 180 & -- & 30800 \\
 				\hline
 			\end{tabular}
 		\end{center} 
@@ -393,21 +460,41 @@ The outline for this study is the following. Section \ref{sec: Methods} provides
     %, as changing the sign of the $c_1$ term for TraPPE C-C-C-C six-member rings also we obtained reliable coexistence densitie 
     
     %Alternatively, we obtained reliable coexistence densities by changing the sign of the $c_1$ term reported in Table 3 of Reference \citenum{Keasler2012}. Therefore, we suspect a sign error for the $c_1$ term reported in \citenum{Keasler2012}. We found it necessary to use th in order to replicate the vapor-liquid coexistence densities reported in Reference \citenum{Keasler2012}. Alternatively, we obtained reliable results by s found similar results We suspect a sign error the $c_1$ term reported in \citenum{Keasler2012} % with the TraPPE cyclic torsional potential.  
-    
+ 
+ %%% Only branched alkanes and cyclohexane   
+%    \begin{table}[h!]
+%    	\caption{Fourier constants $(c_n/k_{\rm B})$ in units of K \cite{Martin1999}. CH$_x$ and CH$_y$ represent CH$_3$, CH$_2$, CH, or C sites.} \label{tab:torsions}
+%    	\begin{center}
+%    		\begin{tabular}{|c|c|c|c|c|}
+%    			\hline
+%    			Torsion sites & $c_0/k_{\rm B}$ & $c_1/k_{\rm B}$ & $c_2/k_{\rm B}$ & $c_3/k_{\rm B}$ \\ \hline
+%    			CH$_x$-CH$_2$-CH$_2$-CH$_y$ & 0.0 & 355.03 & -68.19 & 791.32 \\ 
+%    			CH$_x$-CH$_2$-CH-CH$_y$ & -251.06 & 428.73 & -111.85 & 441.27 \\
+%    			CH$_x$-CH$_2$-C-CH$_y$ & 0.0 & 0.0 & 0.0 & 461.29 \\
+%    			CH$_x$-CH-CH-CH$_y$ & -251.06 & 428.73 & -111.85 & 441.27 \\
+%    			\hline
+%    		\end{tabular}
+%    	\end{center} 
+%    \end{table}
+
     \begin{table}[h!]
-    	\caption{Fourier constants $(c_n/k_{\rm B})$ in units of K \cite{Martin1999}. CH$_x$ and CH$_y$ represent CH$_3$, CH$_2$, CH, or C sites.} \label{tab:torsions}
-    	\begin{center}
-    		\begin{tabular}{|c|c|c|c|c|}
-    			\hline
-    			Torsion sites & $c_0/k_{\rm B}$ & $c_1/k_{\rm B}$ & $c_2/k_{\rm B}$ & $c_3/k_{\rm B}$ \\ \hline
-    			CH$_x$-CH$_2$-CH$_2$-CH$_y$ & 0.0 & 355.03 & -68.19 & 791.32 \\ 
-    			CH$_x$-CH$_2$-CH-CH$_y$ & -251.06 & 428.73 & -111.85 & 441.27 \\
-    			CH$_x$-CH$_2$-C-CH$_y$ & 0.0 & 0.0 & 0.0 & 461.29 \\
-    			CH$_x$-CH-CH-CH$_y$ & -251.06 & 428.73 & -111.85 & 441.27 \\
-    			\hline
-    		\end{tabular}
-    	\end{center} 
-    \end{table}
+		\caption{Fourier constants $(c_n/k_{\rm B})$ in units of K \cite{Martin1999,Nath2001,Potoff_branched,Barhaghi2017}. CH$_x$ and CH$_y$ represent CH$_3$, CH$_2$(sp$^3$), CH(sp$^3$), or C(sp$^3$) sites.} \label{tab:torsions}
+		\begin{center}
+			\begin{tabular}{|c|c|c|c|c|}
+				\hline
+				Torsion sites & $c_0/k_{\rm B}$ & $c_1/k_{\rm B}$ & $c_2/k_{\rm B}$ & $c_3/k_{\rm B}$ \\ \hline
+				CH$_x$-CH$_2$-CH$_2$-CH$_y$ & 0.0 & 355.03 & -68.19 & 791.32 \\ 
+				CH$_x$-CH$_2$-CH-CH$_y$ & -251.06 & 428.73 & -111.85 & 441.27 \\
+				CH$_x$-CH$_2$-C-CH$_y$ & 0.0 & 0.0 & 0.0 & 461.29 \\
+				CH$_x$-CH-CH-CH$_y$ & -251.06 & 428.73 & -111.85 & 441.27 \\
+				CH$_x$-CH$_2$-$CH_2$-C(sp) & 94.88 & 162.00 & -205.40 & 980.40 \\
+				CH$_x$-CH$_2$-C(sp)$\equiv$C(sp) & 0 & 0 & 0 & 0 \\
+				CH$_x$-CH$_2$-C(sp)$\equiv$CH(sp) & 0 & 0 & 0 & 0 \\
+				CH$_x$-C(sp)$\equiv$C(sp)-CH$_y$ & 0 & 0 & 0 & 0 \\
+				\hline
+			\end{tabular}
+		\end{center} 
+	\end{table}
     
     Non-bonded interactions between sites located in two different molecules or separated by more than three bonds within the same molecule are calculated using a Mie $\lambda$-6 potential (of which the Lennard-Jones, LJ, 12-6 is a subclass):
     \begin{equation} \label{eq:Mie}
@@ -444,7 +531,8 @@ The outline for this study is the following. Section \ref{sec: Methods} provides
 %    \end{table}
 
     \begin{table}[h!]
-		\caption{Non-bonded (Mie $\lambda$-6) parameters for TraPPE \cite{TraPPE,Martin1999}, MiPPE \cite{Mie,Potoff_branched}, and NERD \cite{NERD}.} \label{tab:nonbonded params}
+%    	\begin{threeparttable}
+		\caption{Non-bonded (Mie $\lambda$-6) parameters for TraPPE \cite{TraPPE,Martin1999,Keasler2012}, MiPPE \cite{Mie,Potoff_branched,Barhaghi2017}, and NERD \cite{NERD,Nath2001}.} \label{tab:nonbonded params}
 		\begin{center}
 			\begin{tabular}{|c|c|c|c|}
 				\hline
@@ -468,6 +556,7 @@ The outline for this study is the following. Section \ref{sec: Methods} provides
 				CH(sp) & 148.5 & 0.357 & 28\\
 				C(sp) (1-alkyne) & 206 & 0.2875 & 16\\
 				C(sp) (2-alkyne) & 118 & 0.312 & 16\\
+				CH$_2$ (cyclohexane)$^a$ & 70.0 & 0.389 & 16 \\
 				\hline
                 \multicolumn{4}{|c|}{NERD} \\ \hline
 				CH$_3$ (general) & 104.00  & 0.3910 & 12\\ 
@@ -479,8 +568,16 @@ The outline for this study is the following. Section \ref{sec: Methods} provides
 				CH(sp$^3$) & 39.70 & 0.3850 & 12\\
 				C(sp$^3$) & 17.00 & 0.3910 & 12 \\
 				\hline
+				\multicolumn{4}{|l|}{$^a$ This work. See Section \ref{sec: Case study}} \\
+				\hline
 			\end{tabular}
-		\end{center} 
+		\end{center}
+	    %\raggedright{$^a$ This work. See Section \ref{sec: Case study}}
+%	    \begin{tablenotes}
+%	    	\small
+%	    	\item $^a$ This work. See Section \ref{sec: Case study}
+%	    \end{tablenotes}
+%	    \end{threeparttable}
 	\end{table}
     
     Non-bonded parameters between two different site types (i.e., cross-interactions) are determined using Lorentz-Berthelot combining rules \cite{Allen1987} for $\epsilon$ and $\sigma$ and an arithmetic mean for the repulsive exponent $\lambda$ (as recommended in Reference \citenum{Mie}):
@@ -1068,9 +1165,9 @@ Even more remarkable, considering the erroneous prediction of $\rho_{\rm liq}^{\
 
 	\begin{figure}[htb!]
 		\centering
-		\includegraphics[width=6.4in]{CYC6_scoring_function_lam_alt.pdf}
+		\includegraphics[width=6.4in]{CYC6_scoring_function_lam.pdf}
 %MRS2: the upper label (lambda_CH2 = 12. etc) is bleeding into the top of the figure. Also next figure. 
-%RAM: Will fix this
+%RAM: Fixed
 		\caption{Scoring function values with respect to $\epsilon_{\rm CH_2}$ and $\sigma_{\rm CH_2}$ for cyclohexane. GCMC-MBAR enables rapid optimization of Mie $\lambda$-6 parameters from a single reference force field $(\theta_{\rm ref} = \theta_{\rm TraPPE}$, depicted as a black ``X''). Top-left, top-right, bottom-left, and bottom-right panels correspond $\lambda_{\rm CH_2} = 12$, $\lambda_{\rm CH_2} = 14$, $\lambda_{\rm CH_2} = 16$, $\lambda_{\rm CH_2} = 18$, respectively. White star represents the optimal parameter set, i.e., the lowest value of $S$, for a given $\lambda_{\rm CH_2}$.} %Red denotes the optimal parameter set, i.e., the lowest value of $S$.
 		\label{fig:Score_CYC6}
 	\end{figure} 
@@ -1104,7 +1201,7 @@ The overall optimal parameter set is reported in Table \ref{tab:nonbonded params
 
 \begin{figure}[htb!]
 	\centering
-	%	\includegraphics[width=6.4in]{CYC6_Neff_lam.pdf}
+		\includegraphics[width=6.4in]{CYC6_deviations_iterations.pdf}
 	\caption{Percent deviations between coexistence properties computed with GCMC-MBAR (for $\theta_{\rm rr} = \theta_{\rm ref}$) and REFPROP. The first iteration parameter sets provide significant improvement while the final optimized parameter set is the most accurate. Top-left, top-right, bottom-left, and bottom-right panels correspond to saturated liquid density, saturated vapor density, saturated vapor pressure, and enthalpy of vaporization, respectively.}
 	\label{fig: VLE cyclohexane}
 \end{figure}
