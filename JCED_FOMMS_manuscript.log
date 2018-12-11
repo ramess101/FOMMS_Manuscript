@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.8.11)  10 DEC 2018 20:21
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.8.11)  10 DEC 2018 23:28
 entering extended mode
 **./JCED_FOMMS_manuscript.tex
 (JCED_FOMMS_manuscript.tex
@@ -1801,82 +1801,82 @@ e 993.
 
 LaTeX Warning: Float too large for page by 16.44968pt on input line 996.
 
-
-Overfull \hbox (10.15527pt too wide) in paragraph at lines 1006--1007
-[]\T1/ppl/m/n/12 We rec-om-mend the fol-low-ing al-go-rithm for op-ti-miz-ing M
-ie $\OML/cmm/m/it/12 $\T1/ppl/m/n/12 -6 pa-ram-e-ters with GCMC-
- []
-
-[26] <figures/refFF_to_rrFF_Neff_alt.pdf, id=557, 846.58594pt x 586.63037pt>
+<figures/refFF_to_rrFF_Neff_alt.pdf, id=543, 846.58594pt x 586.63037pt>
 File: figures/refFF_to_rrFF_Neff_alt.pdf Graphic file (type pdf)
 
 <use figures/refFF_to_rrFF_Neff_alt.pdf>
 Package pdftex.def Info: figures/refFF_to_rrFF_Neff_alt.pdf used on input line 
-1038.
+1004.
 (pdftex.def)             Requested size: 462.52756pt x 320.50835pt.
 
+Overfull \hbox (10.15527pt too wide) in paragraph at lines 1018--1019
+[]\T1/ppl/m/n/12 We rec-om-mend the fol-low-ing al-go-rithm for op-ti-miz-ing M
+ie $\OML/cmm/m/it/12 $\T1/ppl/m/n/12 -6 pa-ram-e-ters with GCMC-
+ []
+
+[26]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1047.
+(hyperref)                removing `math shift' on input line 1049.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\lambda' on input line 1047.
+(hyperref)                removing `\lambda' on input line 1049.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1047.
+(hyperref)                removing `math shift' on input line 1049.
 
 [27]
-<figures/CYC6_scoring_function_lam_alt.pdf, id=585, 875.68593pt x 813.74203pt>
+<figures/CYC6_scoring_function_lam_alt.pdf, id=586, 875.68593pt x 813.74203pt>
 File: figures/CYC6_scoring_function_lam_alt.pdf Graphic file (type pdf)
 
 <use figures/CYC6_scoring_function_lam_alt.pdf>
 Package pdftex.def Info: figures/CYC6_scoring_function_lam_alt.pdf used on inpu
-t line 1069.
+t line 1071.
 (pdftex.def)             Requested size: 462.52756pt x 429.81606pt.
 
-<figures/CYC6_Neff_lam.pdf, id=586, 889.03265pt x 813.74203pt>
+<figures/CYC6_Neff_lam.pdf, id=587, 889.03265pt x 813.74203pt>
 File: figures/CYC6_Neff_lam.pdf Graphic file (type pdf)
 
 <use figures/CYC6_Neff_lam.pdf>
-Package pdftex.def Info: figures/CYC6_Neff_lam.pdf used on input line 1078.
+Package pdftex.def Info: figures/CYC6_Neff_lam.pdf used on input line 1080.
 (pdftex.def)             Requested size: 462.52756pt x 423.35938pt.
- [28]
-Overfull \hbox (8.1347pt too wide) in paragraph at lines 1125--1126
+ [28] [29]
+Overfull \hbox (8.1347pt too wide) in paragraph at lines 1160--1161
 \T1/ppl/m/n/12 HR can also been ap-plied to GEMC sim-u-la-tions (GEMC-HR).$[]$ 
 There-fore, while the present
  []
 
-[29] (JCED_FOMMS_manuscript.bbl [30] [31] [32] [33] [34]
+[30] (JCED_FOMMS_manuscript.bbl [31] [32] [33] [34] [35]
 LaTeX Font Info:    Try loading font information for T1+pcr on input line 404.
 
 ("C:\Users\ram9\AppData\Local\Programs\MiKTeX 2.9\tex\latex\psnfss\t1pcr.fd"
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
-)
-[35]) [36]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1168.
+))
+[36]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1203.
  [37 <./figures/refFF_to_rrFF_lam_constant.pdf>] [38 <./figures/refFF_to_rrFF_l
 am_12to16.pdf>] [39 <./figures/refFF_to_rrFF_Neff_alt.pdf>] [40 <./figures/CYC6
-_scoring_function_lam_alt.pdf>] [41 <./figures/CYC6_Neff_lam.pdf>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1168.
+_scoring_function_lam_alt.pdf>] [41 <./figures/CYC6_Neff_lam.pdf>] [42]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1203.
 
 (JCED_FOMMS_manuscript.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1168.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1168.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1203.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1203.
 
 Package rerunfilecheck Info: File `JCED_FOMMS_manuscript.out' has not changed.
-(rerunfilecheck)             Checksum: 98D491B6711DA7E208062ED39B61DE37;1538.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1168.
+(rerunfilecheck)             Checksum: BD8BF59DA930297E4F18B7F5B2690C4B;1539.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1203.
  ) 
 Here is how much of TeX's memory you used:
- 32683 strings out of 493323
- 659610 string characters out of 3130449
- 697269 words of memory out of 3000000
- 35587 multiletter control sequences out of 15000+200000
+ 32690 strings out of 493323
+ 659738 string characters out of 3130449
+ 707650 words of memory out of 3000000
+ 35590 multiletter control sequences out of 15000+200000
  570082 words of font info for 102 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 62i,11n,94p,10421b,1062s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 62i,11n,94p,10421b,1046s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/ram9/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}
 <C:/Users/ram9/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
 /cmex10.pfb><C:/Users/ram9/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public
@@ -1899,9 +1899,9 @@ ers/ram9/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/palatino/uplb8a.pfb>
 <C:/Users/ram9/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/palatino/uplr8
 a.pfb><C:/Users/ram9/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/palatino
 /uplri8a.pfb>
-Output written on JCED_FOMMS_manuscript.pdf (41 pages, 874079 bytes).
+Output written on JCED_FOMMS_manuscript.pdf (42 pages, 879254 bytes).
 PDF statistics:
- 1149 PDF objects out of 1200 (max. 8388607)
- 152 named destinations out of 1000 (max. 500000)
+ 1160 PDF objects out of 1200 (max. 8388607)
+ 156 named destinations out of 1000 (max. 500000)
  224 words of extra memory for PDF output out of 10000 (max. 10000000)
 
