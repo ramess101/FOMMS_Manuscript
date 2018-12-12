@@ -342,7 +342,9 @@ The outline for this study is the following. Section \ref{sec: Methods} provides
     
     %The non-bonded potential is of the generalized Lennard-Jones (Mie $\lambda$-6) form. 
     
-    For computational efficiency, we utilize fixed bond lengths for each force field. Note that the original NERD publications utilized a harmonic bond potential \cite{NERD}. The bond lengths for all bonds, compounds, and force fields simulated in this study are 0.154 nm. Although we do not simulate alkynes, the MiPPE alkyne bond lengths are also reported in Table \ref{tab:bonds} because we re-analyze the MiPPE alkyne simulation data produced by Soroush Barhaghi et al.
+    For computational efficiency, we utilize fixed bond lengths for each force field. Note that the original NERD publications utilized a harmonic bond potential \cite{NERD}. The bond lengths for all bonds, compounds, and force fields investigated in this study are reported in Table \ref{tab:bonds}.
+    
+%    The bond lengths for all bonds, compounds, and force fields simulated in this study are 0.154 nm. Although we do not simulate alkynes, the MiPPE alkyne bond lengths are also reported in Table \ref{tab:bonds} because we re-analyze the MiPPE alkyne simulation data produced by Soroush Barhaghi et al.
     
     % The bond length values required to simulate the branched alkanes, alkynes, and cyclohexane with the for each force field  
     %, but this typically does not impact vapor-liquid coexistence properties. 
@@ -556,7 +558,7 @@ The outline for this study is the following. Section \ref{sec: Methods} provides
 				CH(sp) & 148.5 & 0.357 & 28\\
 				C(sp) (1-alkyne) & 206 & 0.2875 & 16\\
 				C(sp) (2-alkyne) & 118 & 0.312 & 16\\
-				CH$_2$ (cyclohexane)$^a$ & 70.0 & 0.389 & 16 \\
+				CH$_2$ (cyclohexane)$^a$ & 69.5 & 0.391 & 16 \\
 				\hline
                 \multicolumn{4}{|c|}{NERD} \\ \hline
 				CH$_3$ (general) & 104.00  & 0.3910 & 12\\ 
@@ -914,11 +916,23 @@ where $C_6$ and $C_\lambda$ are proportional to $\epsilon \sigma^6$ and $\epsilo
 \begin{equation} \label{Utotal basis function}
 U_{\alpha\beta}^{\rm nb}(C_6,C_\lambda) = C_\lambda \sum_{i \neq j} r_{ij}^{-\lambda} - C_6 \sum_{i \neq j} r_{ij}^{-6} = C_\lambda \Psi_{\rm r} + C_6 \Psi_{\rm a}
 \end{equation}
-where $\Psi_{\rm r} (\equiv \sum_{i \neq j} r_{ij}^{-\lambda})$ is the repulsive basis function, $\Psi_{\rm a} (\equiv \sum_{i \neq j} r_{ij}^{-6})$ is the attractive basis function and, for simplicity, $\sum_{i \neq j}$ denotes a sum over all unique pairwise interactions. Details regarding how we obtain $\Psi_{\rm r}$ and $\Psi_{\rm a}$ with GOMC are provided as Supporting Information.
+where $\Psi_{\rm r} (\equiv \sum_{i \neq j} r_{ij}^{-\lambda})$ is the repulsive basis function, $\Psi_{\rm a} (\equiv \sum_{i \neq j} r_{ij}^{-6})$ is the attractive basis function and, for simplicity, $\sum_{i \neq j}$ denotes a sum over all unique pairwise interactions. Note that, because $C_\lambda$ depends on $\lambda$, a separate repulsive basis function is required for each value of $\lambda$. For this reason, we adopt the common practice of limiting $\lambda$ to integer values.
 
-With Equation \ref{Utotal basis function}, the total non-bonded internal energy for all interaction sites of all $K^{\rm tot}_{\rm snaps}$ snapshots can be recomputed for any $\epsilon$ and $\sigma$ with linear algebra instead of computing $u^{\rm nb}(\theta_{\rm rr};r_{ij})$ for each unique pairwise interaction. 
+With Equation \ref{Utotal basis function}, the total non-bonded internal energy for all interaction sites of all $K^{\rm tot}_{\rm snaps}$ snapshots can be recomputed for any $\epsilon$ and $\sigma$ with linear algebra instead of computing $u^{\rm nb}(\theta_{\rm rr};r_{ij})$ for each unique pairwise interaction. Storing $\Psi_{\rm r}$ and $\Psi_{\rm a}$ for $K^{\rm tot}_{\rm snaps}$ snapshots also greatly reduces the memory storage load compared to storing $K^{\rm tot}_{\rm snaps}$ configurational snapshots (which must be full-precision for reliable ``rerun'' results). 
 
-Storing $\Psi_{\rm r}$ and $\Psi_{\rm a}$ for $K^{\rm tot}_{\rm snaps}$ snapshots also greatly reduces the memory storage load compared to storing $K^{\rm tot}_{\rm snaps}$ configurational snapshots (which must be full-precision for reliable ``rerun'' results). Note that, because $C_\lambda$ depends on $\lambda$, a separate repulsive basis function is required for each value of $\lambda$. For this reason, we adopt the common practice of limiting $\lambda$ to integer values.
+Although it is preferable to output $\Psi_{\rm r}$ and $\Psi_{\rm a}$ at runtime, including this capability would require significant modification of GOMC. Instead, we utilize the GOMC ``rerun'' feature to indirectly compute $\Psi_{\rm r}$ and $\Psi_{\rm a}$ post-simulation. Specifically, we recompute $U_{\alpha\beta}^{\rm nb}$ for $\sigma_{\rm rr} \neq \sigma_{\rm ref}$, such that $C_{6\rm{, ref}} \neq C_{6\rm{, ref}}$ and $C_{\lambda \rm{, rr}} \neq C_{\lambda \rm{, ref}}$. We then perform an additional ``rerun'' calculation for each value of $\lambda_{\rm rr} \neq \lambda_{\rm ref}$. Finally, we solve the following system of equations for $\Psi_{\rm a}$ and $\Psi_{\rm{r}, \lambda}$ (where $\lambda$ corresponds to each value of $\lambda_{\rm rr}$):
+
+
+% the superscript $\lambda$) and 
+
+%Computing $\Psi_{\rm r}$ for multiple values of $\lambda$ requires an additional ``rerun'' calculation with the corresponding $\lambda_{\rm rr}$.
+%, such that $C_{\lambda \rm{, rr}} \neq C_{\lambda \rm{, ref}}$.
+
+%% An additional rerun simulation is required for each value of $\lambda$.
+
+%  as this  different values of $\sigma$ and $\lambda$ (and, thereby, different values of $C_{\lambda}$ and $C_6$). If we are and solve a system of equations for  with $\sigma_{\rm rr} \neq \sigma_{\rm ref}$  
+
+%Details regarding how we compute $\Psi_{\rm r}$ and $\Psi_{\rm a}$ with GOMC are provided as Supporting Information.
 
 %For a given $\lambda$, the total internal energy can be recomputed for any value of $\epsilon$ and $\sigma$. As $C_\lambda$ depends on $\lambda$, a separate repulsive basis function is required for each value of $\lambda$. 
 
@@ -1129,10 +1143,9 @@ We recommend the following algorithm for optimizing Mie $\lambda$-6 parameters w
 		\item Estimating $\rho_{\rm liq}^{\rm sat}$, $\rho_{\rm vap}^{\rm sat}$, $P_{\rm vap}^{\rm sat}$, and $\Delta H_{\rm v}$ with GCMC-MBAR for $\lambda_{\rm rr} = \lambda_{\rm ref}$
 		\item Minimizing scoring function $(S)$
 	\end{enumerate}
-	\item Repeat Steps \ref{step: Resim opt} and \ref{step: Opt eps,sig,lam} until $K_{\rm snaps}^{\rm eff} \gg 50$ for $\theta_{\rm opt}$ 
+	\item Repeat Steps \ref{step: Resim opt} and \ref{step: Opt eps,sig,lam} until $\min(K_{\rm snaps}^{\rm eff}) \gg 50$ for $\theta_{\rm opt}$ 
 \end{enumerate}
-The stopping criterion is based on the number of effective snapshots because if the optimal parameter set has $K_{\rm snaps}^{\rm eff} \gg 50$ the GCMC-MBAR estimates are considered reliable. Any additional iterations would be ill-advised as the optimization would primarily be fitting to the uncertainty in the simulation output.
-Section \ref{sec: Case study} presents an application of this approach.
+The stopping criterion is based on the minimum number of effective snapshots, which always corresponds to the liquid phase at lower values of $T^{\rm sat}$. If the optimal parameter set has $\min(K_{\rm snaps}^{\rm eff}) \gg 50$ the GCMC-MBAR estimates should be reliable over the entire range of saturation temperatures. Any additional iterations would be ill-advised and unnecessary as the optimization would primarily be fitting to the uncertainty in the simulation output. Section \ref{sec: Case study} presents an application of this approach.
 %where $\theta_{\rm ref}$ in Step \ref{step: Sim ref} is 
 
 
@@ -1145,13 +1158,15 @@ Section \ref{sec: Case study} presents an application of this approach.
 
 \subsection{Case Study: Optimizing cyclohexane Mie $\lambda$-6 parameters} \label{sec: Case study}
 
-We have demonstrated that GCMC-MBAR is accurate when $K_{\rm snaps}^{\rm eff} \gg 50$, which is typically the case in the vapor phase and in the liquid phase when $\lambda_{\rm rr} = \lambda_{\rm ref}$. In this section, we present how GCMC-MBAR can rapidly optimize the Mie $\lambda$-6 parameters when starting with a Lennard-Jones 12-6 potential (namely, TraPPE). We have chosen cyclohexane for this case study as this is a compound for which MiPPE does not yet have non-bonded parameters, while the TraPPE force field does. Also, because cyclohexane consists of a single united-atom site type, it is a convenient molecule for representing the scoring function in 2-dimensions ($\epsilon_{\rm CH_2}$ and $\sigma_{\rm CH_2}$ for a given value of $\lambda_{\rm CH_2}$).
+We have demonstrated that GCMC-MBAR is accurate when $K_{\rm snaps}^{\rm eff} \gg 50$, which is typically the case in the vapor phase and in the liquid phase when $\lambda_{\rm rr} = \lambda_{\rm ref}$. In this section, we present how GCMC-MBAR can rapidly optimize the Mie $\lambda$-6 parameters when starting with a Lennard-Jones 12-6 potential (namely, TraPPE). We have chosen cyclohexane for this case study as MiPPE does not yet have non-bonded parameters for this compound, while the TraPPE force field does. Also, because cyclohexane consists of a single united-atom site type $(CH_2)$, it is a convenient molecule for representing the scoring function in 2-dimensions ($\epsilon_{\rm CH_2}$ and $\sigma_{\rm CH_2}$ for a given value of $\lambda_{\rm CH_2}$).
 
-Figure \ref{fig:Score_CYC6} depicts the scoring function for different values of $\epsilon_{\rm CH_2}$, $\sigma_{\rm CH_2}$, and $\lambda_{\rm CH_2}$ as a heat map, where red denotes the optimal parameter set (i.e., the lowest values of $S$.) Similar figures have been reported in the literature using GCMC-HR \cite{Potoff_branched,Barhaghi2017}. The key difference is that the heat maps reported in the literature were obtained by performing GCMC simulations with each value of $\epsilon$, $\sigma$, and $\lambda$. By contrast, the results shown in Figure \ref{fig:Score_CYC6} were obtained by performing GCMC simulations with a single parameter set, namely, the TraPPE parameters (depicted as an ``X'' in Figures \ref{fig:Score_CYC6} and \ref{fig:Neff}). MBAR reweights these same configurations for all other parameter sets. Furthermore, $U(\theta_{\rm rr})$ is computed with basis functions, enabling the GCMC-MBAR recompute step to be extremely fast. 
+Figure \ref{fig:Score_CYC6} depicts the scoring function for different values of $\epsilon_{\rm CH_2}$, $\sigma_{\rm CH_2}$, and $\lambda_{\rm CH_2}$ as a heat map. The optimal parameter set for each value of $\lambda_{\rm CH_2}$ (depicted as a white star in Figures \ref{fig:Score_CYC6} and \ref{fig:Neff}) corresponds to the lowest values of $S$. Similar figures have been reported in the literature using GCMC-HR \cite{Potoff_branched,Barhaghi2017}. The key difference is that the heat maps reported in the literature were obtained by performing GCMC simulations with each value of $\epsilon$, $\sigma$, and $\lambda$. By contrast, the results shown in Figure \ref{fig:Score_CYC6} were obtained by performing GCMC simulations with a single parameter set, namely, the TraPPE parameters (depicted as an ``X'' in Figures \ref{fig:Score_CYC6} and \ref{fig:Neff}). MBAR reweights these same configurations for all other parameter sets. Furthermore, $U(\theta_{\rm rr})$ is computed with basis functions, enabling the GCMC-MBAR recompute step to be extremely fast. 
+
+%, where red denotes the optimal parameter set (i.e., the lowest values of $S$.)
 
 %MRS2: not sure why this negates MBAR computational advantage, since you still need to run less simulations with MBAR?  Would not help the wall clock problem, but would reduce the total CPU time? Unclear paragraph.
 %RAM: Hopefully it is clear that we are referring to the real time to solution
-In this optimization example (a 2-dimensional grid search over integer values of $\lambda$), each proposed parameter set could be simulated directly in parallel. Therefore, the real time to solution for GCMC-MBAR would be similar to that of the GCMC-HR approach utilized by Mick et al.~and Soroush Barhaghi et al.~(although GCMC-MBAR would still reduce the total CPU time). In general, however, higher dimensional optimization algorithms are performed in sequence, where each iteration proposes new parameter set(s). In this scenario, GCMC-MBAR (with basis functions) is orders of magnitude faster than the literature GCMC-HR approach, which would require performing new GCMC simulations for each iteration. 
+In this optimization example (an exhaustive 2-dimensional grid search over integer values of $\lambda$), each proposed parameter set could be simulated directly in parallel. Therefore, the real time to solution for GCMC-MBAR would be similar to that of the GCMC-HR approach utilized by Mick et al.~and Soroush Barhaghi et al.~(although GCMC-MBAR would still reduce the total CPU time). In general, however, higher dimensional optimization algorithms are performed in sequence, where each iteration proposes new parameter set(s). In this scenario, GCMC-MBAR (with basis functions) is orders of magnitude faster than the literature GCMC-HR approach, which would require performing new GCMC simulations for each iteration. 
 
 %each proposed parameter set could be simulated directly in parallel.
 % direct GCMC simulations could be run in parallel for each proposed parameter set.
@@ -1161,50 +1176,77 @@ In this optimization example (a 2-dimensional grid search over integer values of
 
 Note that the TraPPE force field utilizes a Lennard-Jones 12-6 potential (i.e., $\lambda_{\rm TraPPE} = 12$) and, therefore, the results in the top-left panel are for the case where $\lambda_{\rm rr} = \lambda_{\rm ref} = 12$, while the other panels correspond to $\lambda_{\rm rr} \neq \lambda_{\rm ref}$. Figure \ref{fig:Neff_CYC6} shows that, as expected, $K_{\rm snaps}^{\rm eff}$ in the liquid phase are much lower for $\lambda_{\rm rr} \neq \lambda_{\rm ref}$ than for $\lambda_{\rm rr} = \lambda_{\rm ref}$. In addition, the smooth contours in Figure \ref{fig:Score_CYC6} for $\lambda_{\rm rr} = \lambda_{\rm ref} = 12$ and the wide range of parameters over which $\bar K_{\rm snaps}^{\rm eff, liq} \gg 50$ suggests that GCMC-MBAR is highly reliable for optimizing $\epsilon_{\rm CH_2}$ and $\sigma_{\rm CH_2}$ for a fixed value of $\lambda_{\rm CH_2}$. 
 %MRS2: might not be as clear to others why remarkable.
-Even more remarkable, considering the erroneous prediction of $\rho_{\rm liq}^{\rm sat}$ and $\Delta H_{\rm v}$ for $\lambda_{\rm rr} \neq \lambda_{\rm ref}$ (see Figure \ref{fig:refFF_to_rrFF_lam12to16}), is that GCMC-MBAR predicts smooth contours for $\lambda \neq 12$ despite lower values of $\bar K_{\rm snaps}^{\rm eff, liq}$.      
+Even more remarkable, considering the erroneous prediction of $\rho_{\rm liq}^{\rm sat}$ and $\Delta H_{\rm v}$ for $\lambda_{\rm rr} \neq \lambda_{\rm ref}$ (see Figure \ref{fig:refFF_to_rrFF_lam12to16}), is that GCMC-MBAR predicts smooth contours for $\lambda \neq 12$ despite lower values of $\bar K_{\rm snaps}^{\rm eff, liq}$. This characteristic would be important when implementing gradient descent optimization schemes.     
 
 	\begin{figure}[htb!]
 		\centering
 		\includegraphics[width=6.4in]{CYC6_scoring_function_lam.pdf}
 %MRS2: the upper label (lambda_CH2 = 12. etc) is bleeding into the top of the figure. Also next figure. 
 %RAM: Fixed
-		\caption{Scoring function values with respect to $\epsilon_{\rm CH_2}$ and $\sigma_{\rm CH_2}$ for cyclohexane. GCMC-MBAR enables rapid optimization of Mie $\lambda$-6 parameters from a single reference force field $(\theta_{\rm ref} = \theta_{\rm TraPPE}$, depicted as a black ``X''). Top-left, top-right, bottom-left, and bottom-right panels correspond $\lambda_{\rm CH_2} = 12$, $\lambda_{\rm CH_2} = 14$, $\lambda_{\rm CH_2} = 16$, $\lambda_{\rm CH_2} = 18$, respectively. White star represents the optimal parameter set, i.e., the lowest value of $S$, for a given $\lambda_{\rm CH_2}$.} %Red denotes the optimal parameter set, i.e., the lowest value of $S$.
+		\caption{Scoring function values with respect to $\epsilon_{\rm CH_2}$ and $\sigma_{\rm CH_2}$ for cyclohexane. GCMC-MBAR enables rapid optimization of Mie $\lambda$-6 parameters from a single reference force field $(\theta_{\rm ref} = \theta_{\rm TraPPE}$, depicted as a black ``X''). Top-left, top-right, bottom-left, and bottom-right panels correspond $\lambda_{\rm CH_2} = 12$, $\lambda_{\rm CH_2} = 14$, $\lambda_{\rm CH_2} = 16$, $\lambda_{\rm CH_2} = 18$, respectively. White stars represent the optimal parameter set, i.e., the lowest value of $S$, for each $\lambda_{\rm CH_2}$.} %Red denotes the optimal parameter set, i.e., the lowest value of $S$.
 		\label{fig:Score_CYC6}
 	\end{figure} 
 
 	\begin{figure}[htb!]
 		\centering
 		\includegraphics[width=6.4in]{CYC6_Neff_lam.pdf}
-		\caption{Average number of effective snapshots in the liquid phase $(\bar K_{\rm snaps}^{\rm eff, liq})$ with respect to $\epsilon_{\rm CH_2}$ and $\sigma_{\rm CH_2}$ for cyclohexane. $K_{\rm snaps}^{\rm eff, liq} \gg 50$ over a wide range of parameters when $\lambda_{\rm rr} = \lambda_{\rm ref} = 12$ (top-left panel), while $K_{\rm snaps}^{\rm eff, liq}$ is typically less than $50$ for $\lambda_{\rm rr} \neq \lambda_{\rm ref}$ (other panels). Top-left, top-right, bottom-left, and bottom-right panels correspond $\lambda_{\rm CH_2} = 12$, $\lambda_{\rm CH_2} = 14$, $\lambda_{\rm CH_2} = 16$, $\lambda_{\rm CH_2} = 18$, respectively. White star represents the optimal parameter set, i.e., the lowest value of $S$, for a given $\lambda_{\rm CH_2}$.}
+		\caption{Average number of effective snapshots in the liquid phase $(\bar K_{\rm snaps}^{\rm eff, liq})$ with respect to $\epsilon_{\rm CH_2}$ and $\sigma_{\rm CH_2}$ for cyclohexane. $K_{\rm snaps}^{\rm eff, liq} \gg 50$ over a wide range of parameters when $\lambda_{\rm rr} = \lambda_{\rm ref} = 12$ (top-left panel), while $K_{\rm snaps}^{\rm eff, liq}$ is typically less than $50$ for $\lambda_{\rm rr} \neq \lambda_{\rm ref}$ (other panels). Top-left, top-right, bottom-left, and bottom-right panels correspond $\lambda_{\rm CH_2} = 12$, $\lambda_{\rm CH_2} = 14$, $\lambda_{\rm CH_2} = 16$, $\lambda_{\rm CH_2} = 18$, respectively. White stars are the same as Figure \ref{fig:Score_CYC6}.}% represent the optimal parameter set, i.e., the lowest value of $S$, for a given $\lambda_{\rm CH_2}$.}
 		\label{fig:Neff_CYC6}
 	\end{figure}
 
-Having minimized the scoring function for each value of $\lambda$, we perform additional simulations with the optimal parameter sets ($\epsilon_{\rm opt}^{\lambda}$, $\sigma_{\rm opt}^{\lambda}$). Because the optimal $\epsilon$ and $\sigma$ parameters for $\lambda = 12$ already have $\bar K_{\rm snaps}^{\rm eff, liq} \gg 50$, we only consider $\lambda \ge 14$. Figure \ref{fig:Iterate_Score_CYC6} presents the results from this iteration of the two-dimensional optimization for each $\lambda$. The original optimized parameter sets appear to be reasonably accurate as the black ``X''s and the white stars are quite similar. Figure \ref{fig:Iterate_Neff_CYC6} demonstrates that the new optimal parameter sets have sufficient overlap to consider the optimization converged. 
+Having minimized the scoring function for each value of $\lambda_{\rm CH_2}$, we perform additional simulations with the optimal parameter sets ($\epsilon_{\rm opt}^{\lambda}$, $\sigma_{\rm opt}^{\lambda}$) serving as new reference parameter sets. Because the optimal $\epsilon_{\rm CH_2}$ and $\sigma_{\rm CH_2}$ parameters for $\lambda_{\rm CH_2} = 12$ already have $\min(K_{\rm snaps}^{\rm eff}) \gg 50$, we only consider $\lambda_{\rm CH_2} \ge 14$. Figure \ref{fig:Iterate_Score_CYC6} presents the results from this second iteration of the two-dimensional optimization for each $\lambda_{\rm CH_2}$. Note that the first iteration optimal parameter sets (black ``X''s) are quite similar to the second iteration (white stars). Figure \ref{fig:Iterate_Neff_CYC6} verifies that there is sufficient overlap $(\min(K_{\rm snaps}^{\rm eff}) \gg 50)$ between the first and second iterations to consider the optimization converged. Table \ref{tab:lam opt} summarizes the parameter sets obtained at each stage of the optimization. 
 
 	\begin{figure}[htb!]
-	\centering
-%	\includegraphics[width=6.4in]{CYC6_scoring_function_lam_alt.pdf}
-	%MRS2: the upper label (lambda_CH2 = 12. etc) is bleeding into the top of the figure. Also next figure. 
-	%RAM: Will fix this
-	\caption{Scoring function values with respect to $\epsilon_{\rm CH_2}$ and $\sigma_{\rm CH_2}$ for cyclohexane. Original pseudo-optimal parameter sets are refined with GCMC-MBAR. Top-left, top-right, bottom-left, and bottom-right panels correspond $\lambda_{\rm CH_2} = 14$, $\lambda_{\rm CH_2} = 16$, $\lambda_{\rm CH_2} = 18$, and $\lambda_{\rm CH_2} = 20$, respectively. White star represents the optimal parameter set, i.e., the lowest value of $S$, for a given $\lambda_{\rm CH_2}$. Black ``X'' depicts the single reference force field for each $\lambda$, i.e., $\lambda_{\rm rr} = \lambda_{\rm ref}$.} %Red denotes the optimal parameter set, i.e., the lowest value of $S$.
-	\label{fig:Iterate_Score_CYC6}
-\end{figure} 
+		\centering
+	%	\includegraphics[width=6.4in]{CYC6_scoring_function_lam_alt.pdf}
+		\caption{Refined scoring function values with respect to $\epsilon_{\rm CH_2}$ and $\sigma_{\rm CH_2}$ for cyclohexane. Pseudo-optimal parameter sets from first iteration serve as reliable reference parameter sets for refining the optimization. Top-left, top-right, bottom-left, and bottom-right panels correspond $\lambda_{\rm CH_2} = 14$, $\lambda_{\rm CH_2} = 16$, $\lambda_{\rm CH_2} = 18$, and $\lambda_{\rm CH_2} = 20$, respectively. White star represents the overall optimal parameter set (MiPPE), i.e., the lowest value of $S$ between all four $\lambda_{\rm CH_2}$ values. Black ``X'' depicts the single reference force field for each $\lambda_{\rm CH_2}$, i.e., $\lambda_{\rm rr} = \lambda_{\rm ref}$.} 
+		\label{fig:Iterate_Score_CYC6}
+	\end{figure} 
+
+%\begin{figure}[htb!]
+%	\centering
+%%	\includegraphics[width=6.4in]{CYC6_Neff_lam.pdf}
+%	\caption{Average number of effective snapshots in the liquid phase $(\bar K_{\rm snaps}^{\rm eff, liq})$ with respect to $\epsilon_{\rm CH_2}$ and $\sigma_{\rm CH_2}$ for cyclohexane. $K_{\rm snaps}^{\rm eff, liq} \gg 50$ for the optimal $\epsilon$ and $\sigma$ parameter set for each $\lambda$. Top-left, top-right, bottom-left, and bottom-right panels correspond $\lambda_{\rm CH_2} = 14$, $\lambda_{\rm CH_2} = 16$, $\lambda_{\rm CH_2} = 18$, and $\lambda_{\rm CH_2} = 12$, respectively. White star represents the optimal parameter set, i.e., the lowest value of $S$, for a given $\lambda_{\rm CH_2}$}
+%	\label{fig:Iterate_Neff_CYC6}
+%\end{figure}
+
+	\begin{figure}[htb!]
+		\centering
+		%	\includegraphics[width=6.4in]{CYC6_Neff_lam.pdf}
+		\caption{Minimum number of effective snapshots $(\min(K_{\rm snaps}^{\rm eff}))$ with respect to $\epsilon_{\rm CH_2}$ and $\sigma_{\rm CH_2}$ for cyclohexane. Optimization has converged as $\min(K_{\rm snaps}^{\rm eff}) \gg 50$ for the optimal $\epsilon_{\rm CH_2}$, $\sigma_{\rm CH_2}$, $\lambda_{\rm CH_2}$ parameter set. Top-left, top-right, bottom-left, and bottom-right panels correspond $\lambda_{\rm CH_2} = 14$, $\lambda_{\rm CH_2} = 16$, $\lambda_{\rm CH_2} = 18$, and $\lambda_{\rm CH_2} = 12$, respectively. White star represents the optimal parameter set, i.e., the lowest value of $S$, for a given $\lambda_{\rm CH_2}$}
+		\label{fig:Iterate_Neff_CYC6}
+	\end{figure}
+
+    \begin{table}[h!]
+		\caption{Optimal Mie $\lambda$-6 cyclohexane parameters for $\lambda_{\rm CH_2} =$ 12, 14, 16, 18, and 20. Superscript denotes the iteration stage of the optimization.} \label{tab:lam opt}
+		\begin{center}
+			\begin{tabular}{|c|c|c|c|c|c|c|}
+				\hline
+				$\lambda_{\rm CH_2}$ & $\epsilon_{\rm CH_2}^{\langle0\rangle}/k_{\rm B}$ (K) & $\sigma_{\rm CH_2}^{\langle0\rangle}$ (nm) & $\epsilon_{\rm CH_2}^{\langle1\rangle}/k_{\rm B}$ (K) & $\sigma_{\rm CH_2}^{\langle1\rangle}$ (nm) & $\epsilon_{\rm CH_2}^{\langle2\rangle}/k_{\rm B}$ (K) & $\sigma_{\rm CH_2}^{\langle2\rangle}$ (nm) \\ \hline
+				12 & 52.5 & 0.391 & 53.0 & 0.393 & -- & -- \\ 
+				14 & -- & -- & 61.5 & 0.393 &  &  \\ 
+				16 & -- & -- & 70.0 & 0.389 & 69.5 & 0.391 \\
+				18 & -- & -- & 77.0 & 0.389 &  & \\
+				20 & -- & -- & 84.0 & 0.388 &  & \\
+				\hline
+			\end{tabular}
+		\end{center} 
+	\end{table}
+
+The overall optimal parameter set is reported in Table \ref{tab:nonbonded params} as the MiPPE cyclohexane parameters. Note that $\lambda_{\rm CH_2} = 16$ is once again found to be the optimal repulsive exponent value. It is important to verify that the overall optimal parameter set does indeed provide accurate predictions of vapor-liquid coexistence properties. For this reason, we perform direct GCMC simulations with the overall optimal parameter set to compare the new MiPPE force field with the initial reference (TraPPE) and the first iteration parameter sets.
+
+Figure \ref{fig: VLE cyclohexane} is provided to quantify the improved accuracy achieved for the two iterations by comparing the percent deviations between predicted and pseudo-experimental (REFPROP) values of $\rho_{\rm liq}^{\rm sat}$, $\rho_{\rm vap}^{\rm sat}$, $P_{\rm vap}^{\rm sat}$, and $\Delta H_{\rm v}$ for the zeroth iteration (TraPPE), first iteration for $\lambda_{\rm CH_2} = 14, 16, 18,$ and $20$, and final iteration parameter sets. Even the first iteration parameters demonstrate considerable improvement compared to the zeroth iteration (TraPPE) for predicting $\rho_{\rm vap}^{\rm sat}$ and $P_{\rm vap}^{\rm sat}$ without significantly deminishing the accuracy for $\rho_{\rm liq}^{\rm sat}$ and $\Delta H_{\rm v}$. The second (final) iteration is clearly the optimal parameter set as it is the most accurate for $\rho_{\rm vap}^{\rm sat}$ and $P_{\rm vap}^{\rm sat}$ with similar performance for $\rho_{\rm liq}^{\rm sat}$ and $\Delta H_{\rm v}$ as the first iteration.
 
 \begin{figure}[htb!]
 	\centering
-%	\includegraphics[width=6.4in]{CYC6_Neff_lam.pdf}
-	\caption{Average number of effective snapshots in the liquid phase $(\bar K_{\rm snaps}^{\rm eff, liq})$ with respect to $\epsilon_{\rm CH_2}$ and $\sigma_{\rm CH_2}$ for cyclohexane. $K_{\rm snaps}^{\rm eff, liq} \gg 50$ for the optimal $\epsilon$ and $\sigma$ parameter set for each $\lambda$. Top-left, top-right, bottom-left, and bottom-right panels correspond $\lambda_{\rm CH_2} = 14$, $\lambda_{\rm CH_2} = 16$, $\lambda_{\rm CH_2} = 18$, and $\lambda_{\rm CH_2} = 12$, respectively. White star represents the optimal parameter set, i.e., the lowest value of $S$, for a given $\lambda_{\rm CH_2}$}
-	\label{fig:Iterate_Neff_CYC6}
-\end{figure}
-
-The overall optimal parameter set is reported in Table \ref{tab:nonbonded params} as the MiPPE cyclohexane parameters. Note that $\lambda = 16$ is once again found to be the optimal repulsive exponent value. It is important to verify that the overall optimal parameter set does indeed provide accurate predictions of vapor-liquid coexistence properties. Figure BLANK is provided to quantify the improved accuracy achieved for the two iterations by comparing the percent deviations between predicted and pseudo-experimental (REFPROP) values of $\rho_{\rm liq}^{\rm sat}$, $\rho_{\rm vap}^{\rm sat}$, $P_{\rm vap}^{\rm sat}$, and $\Delta H_{\rm v}$ for the zeroth iteration (TraPPE), first iteration for $\lambda = 14, 16, 18,$ and $20$, and final iteration parameter sets. Even the first iteration parameters demonstrate considerable improvement compared to the zeroth iteration (TraPPE). The second (final) iteration is clearly the optimal parameter set. This section has shown that GCMC-MBAR is capable of converting a pre-tuned Lennard-Jones 12-6 potential (TraPPE) into a Mie $\lambda$-6 potential without simulating hundreds of different parameter sets.
-
-\begin{figure}[htb!]
-	\centering
-		\includegraphics[width=6.4in]{CYC6_deviations_iterations.pdf}
-	\caption{Percent deviations between coexistence properties computed with GCMC-MBAR (for $\theta_{\rm rr} = \theta_{\rm ref}$) and REFPROP. The first iteration parameter sets provide significant improvement while the final optimized parameter set is the most accurate. Top-left, top-right, bottom-left, and bottom-right panels correspond to saturated liquid density, saturated vapor density, saturated vapor pressure, and enthalpy of vaporization, respectively.}
+		\includegraphics[width=5.8in]{CYC6_deviations_iterations.pdf}
+	\caption{Percent deviations between coexistence properties computed with GCMC-MBAR (for $\theta_{\rm rr} = \theta_{\rm ref}$) and REFPROP. The first iteration parameter sets provide significant improvement while the final optimized parameter set is the most accurate. Top-left, top-right, bottom-left, and bottom-right panels correspond to saturated liquid density, saturated vapor density, saturated vapor pressure, and enthalpy of vaporization, respectively. When not depicted, uncertainties are smaller than one symbol size. TraPPE uncertainties are not provided by Keasler et al. Yiannourakou et al. obtained uncertainties for TraPPE using block averaging, but it is unclear what type of uncertainties are reported, i.e., standard error or 95\% confidence intervals. Uncertainties for reference force fields (including TraPPE) are 95\% confidence intervals obtained with bootstrap re-sampling of a single set of GCMC simulations. Uncertainties for the MiPPE force field are 95\% confidence intervals from 20 independent replicate sets of GCMC simulations.}
 	\label{fig: VLE cyclohexane}
 \end{figure}
+
+This section has shown that GCMC-MBAR is capable of converting a pre-tuned Lennard-Jones 12-6 potential (TraPPE) into a Mie $\lambda$-6 potential (MiPPE) without performing hundreds of simulations. Specifically, with only two stages of direct simulation we considered hundreds of $\epsilon_{\rm CH_2}$, $\sigma_{\rm CH_2}$, and $\lambda_{\rm CH_2}$ parameter sets.
+
+% simulating hundreds of different parameter sets
 
 %\begin{enumerate}
 %	\item We validate that MBAR and HR are statistically indistinguishable with sufficient data by re-analyzing the simulation results of Mick et al. and Barhaghi et al. utilizing MBAR
@@ -1244,9 +1286,7 @@ The overall optimal parameter set is reported in Table \ref{tab:nonbonded params
 
 \section{Discussion/Limitations/Future work} \label{sec: Discussion}
 
-As molecular insertion moves are frequently rejected in high density systems, GCMC simulations are typically not reliable at low saturation temperatures $(T_{\rm } < 0.65)$. As ITIC does not suffer from this low-temperature limitation, we recommend combining the MBAR-ITIC and GCMC-MBAR methods when predicting vapor-liquid coexistence properties from near-triple-point to near-critical-point conditions.
-
-The results presented in this study were obtained by performing simulations with only a single reference force field. As shown in previous studies, a logical approach for improving the performance of MBAR is to include additional reference force fields \cite{Postdoc_1,Postdoc_2}.
+The results presented in this study were obtained by performing simulations with only a single reference force field. As shown in previous studies, a logical approach for improving the performance of MBAR is to include additional reference force fields \cite{Postdoc_1,Postdoc_2}. For example, in Section \ref{sec: Case study}, we did not utilize the snapshots from $\lambda_{\rm ref} = 14$ when computing properties for $\lambda_{\rm rr} = 16$ and vice versa. Although this would increase the number of effective snapshots, a single reference provides sufficient overlap when $\lambda_{\rm CH_2}$ is constant. 
 
 % For example, it could be helpful to simulate multiple $\sigma_{\rm ref}$ and $\lambda_{\rm ref}$ values 
 
@@ -1254,7 +1294,9 @@ The results presented in this study were obtained by performing simulations with
 
 %For example, we could include a reference parameter set for each value of $\lambda_{\rm CH_2}$ to increase $K_{\rm snaps}^{\rm eff, liq}$ and, thereby, improve the reliability of liquid phase property estimates.
 
-Although GCMC-HR is a standard approach for computing vapor-liquid coexistence, HR can also been applied to GEMC simulations (GEMC-HR) \cite{Boulougouris2010}. Therefore, while the present study presents how MBAR can be applied to GCMC simulations, an analogous GEMC-MBAR approach is worth investigating in future work.
+As molecular insertion moves are frequently rejected in high density systems, GCMC simulations are typically not reliable at low saturation temperatures $(T_{\rm } < 0.65 T_{\rm c})$. Because ITIC does not suffer from this low-temperature limitation, we recommend combining the MBAR-ITIC and GCMC-MBAR methods when predicting vapor-liquid coexistence properties from near-triple-point to near-critical-point conditions.
+
+Although GCMC-HR is a standard approach for computing vapor-liquid coexistence, HR has also been applied to GEMC simulations (GEMC-HR) \cite{Boulougouris2010}. Therefore, while the present study presents how MBAR can be applied to GCMC simulations, an analogous GEMC-MBAR approach is worth investigating in future work.
 
 %
 %\begin{enumerate}
@@ -1264,11 +1306,11 @@ Although GCMC-HR is a standard approach for computing vapor-liquid coexistence, 
 
 \section{Conclusions} \label{sec: Conclusions}
 
-This study demonstrates how the Multistate Bennett Acceptance Ratio can replace the traditional histogram reweighting approach for estimating vapor-liquid coexistence properties from Grand Canonical Monte Carlo simulations. MBAR and HR are mathematically equivalent in the limit of infinitesimal bin widths when the coexistence properties are computed for a single force field. However, the primary benefit of MBAR is the ability to estimate properties for force fields that are not simulated directly. This enables rapid non-bonded parameterization without requiring large amounts of simulation. We demonstrate this capability by performing a one-dimensional $\epsilon$-scaling optimization of several branched alkanes and alkynes. We then show how GCMC-MBAR can re-optimize a Lennard-Jones 12-6 potential into a family of Mie $\lambda$-6 potentials for cyclohexane. 
+This study demonstrates how the Multistate Bennett Acceptance Ratio can replace the traditional histogram reweighting approach for estimating vapor-liquid coexistence properties from Grand Canonical Monte Carlo simulations. MBAR and HR are mathematically equivalent in the limit of infinitesimal bin widths when the coexistence properties are computed for a single force field. However, the primary benefit of MBAR is the ability to estimate properties for force fields that are not simulated directly. This greatly accelerates non-bonded parameterization without requiring large amounts of simulation. We demonstrate this capability by performing a one-dimensional $\epsilon$-scaling optimization of several branched alkanes and alkynes. We then show how GCMC-MBAR can rapidly re-optimize a Lennard-Jones 12-6 potential (TraPPE) into a family of Mie $\lambda$-6 potentials for cyclohexane. The optimized Mie 16-6 parameters form the most recent contribution to the Mie Potentials for Phase Equilibria (MiPPE) force field. 
 
 \section{Acknowledgments}
 
-We would like to acknowledge Dr. J. Richard Elliott for his invaluable insights. We are also appreciative of the internal review provided by Eugene Paulechka, Andrei F. Kazakov, Daniel G. Friend, and Marcia L. Huber of the National Institute of Standards and Technology (NIST).
+We would like to acknowledge Dr. J. Richard Elliott for several invaluable discussions regarding force field optimization. We are also appreciative of the internal review provided by Eugene Paulechka, Andrei F. Kazakov, Daniel G. Friend, and Marcia L. Huber of the National Institute of Standards and Technology (NIST).
 
 This research was performed while Richard A. Messerly held a National Research Council (NRC) Postdoctoral Research Associateship at NIST and while Michelle C. Anderson held a Summer Undergraduate Research Fellowship (SURF) position at NIST. 
 

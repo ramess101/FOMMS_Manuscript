@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.3.9)  11 DEC 2018 16:08
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.3.9)  12 DEC 2018 15:22
 entering extended mode
 **./JCED_FOMMS_manuscript.tex
 (JCED_FOMMS_manuscript.tex
@@ -1565,7 +1565,7 @@ ond po-ten-tial.$[]$ The bond lengths
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [7]
-Overfull \hbox (10.79178pt too wide) in paragraph at lines 505--506
+Overfull \hbox (10.79178pt too wide) in paragraph at lines 507--508
 \T1/ppl/m/n/12 pro-vided in Ta-ble []4[]. MiPPE re-ports a ``gen-er-al-ized'' (
 MiPPE-gen) and ``short/long'' (MiPPE-
  []
@@ -1574,113 +1574,113 @@ MiPPE-gen) and ``short/long'' (MiPPE-
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [8]
-Overfull \hbox (22.03625pt too wide) in paragraph at lines 603--604
+Overfull \hbox (22.03625pt too wide) in paragraph at lines 605--606
 \T1/ppl/m/n/12 u-la-tion re-sults are pro-vided in Sec-tions []3.3[] and []3.4[
 ] for 2-methylpropane, 2,2-dimethylpropane,
  []
 
 
-Overfull \hbox (4.11958pt too wide) in paragraph at lines 603--604
+Overfull \hbox (4.11958pt too wide) in paragraph at lines 605--606
 \T1/ppl/m/n/12 2,2-dimethylbutane, 3,3-dimethylhexane, 3-methyl-3-ethylpentane,
  2,2,4-trimethylhexane,
  []
 
 [9]
-Overfull \hbox (6.89192pt too wide) in paragraph at lines 607--608
+Overfull \hbox (6.89192pt too wide) in paragraph at lines 609--610
 \T1/ppl/m/n/12 bic box side length is 3 nm for 2-methylpropane, 2,2-dimethylpro
 pane, 2,3-dimethylbutane,
  []
 
-[10] [11] [12] [13] [14] [15] [16] [17]
+[10] [11] [12] [13] [14] [15] [16] [17] [18]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 941.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\epsilon' on input line 941.
+(hyperref)                removing `math shift' on input line 955.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 941.
-
-[18] [19] [20]
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1003.
+(hyperref)                removing `\epsilon' on input line 955.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\theta' on input line 1003.
+(hyperref)                removing `math shift' on input line 955.
+
+[19] [20] [21]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 1017.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1003.
+(hyperref)                removing `\theta' on input line 1017.
 
-[21] <figures/Comparison_MBAR_HR_boxplot_CI.pdf, id=442, 867.24pt x 867.24pt>
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 1017.
+
+<figures/Comparison_MBAR_HR_boxplot_CI.pdf, id=442, 867.24pt x 867.24pt>
 File: figures/Comparison_MBAR_HR_boxplot_CI.pdf Graphic file (type pdf)
 
 <use figures/Comparison_MBAR_HR_boxplot_CI.pdf>
 Package pdftex.def Info: figures/Comparison_MBAR_HR_boxplot_CI.pdf used on inpu
-t line 1016.
+t line 1030.
 (pdftex.def)             Requested size: 462.52756pt x 462.53305pt.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1024.
+(hyperref)                removing `math shift' on input line 1038.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\epsilon' on input line 1024.
+(hyperref)                removing `\epsilon' on input line 1038.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1024.
+(hyperref)                removing `math shift' on input line 1038.
 
 [22]
 
 LaTeX Warning: Text page 23 contains only floats.
 
 [23 <./figures/Comparison_MBAR_HR_boxplot_CI.pdf>]
-<figures/Optimal_epsilon_scaling.pdf, id=501, 1445.4pt x 722.7pt>
+<figures/Optimal_epsilon_scaling.pdf, id=500, 1445.4pt x 722.7pt>
 File: figures/Optimal_epsilon_scaling.pdf Graphic file (type pdf)
 
 <use figures/Optimal_epsilon_scaling.pdf>
 Package pdftex.def Info: figures/Optimal_epsilon_scaling.pdf used on input line
- 1051.
+ 1065.
 (pdftex.def)             Requested size: 462.52756pt x 231.25769pt.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1061.
+(hyperref)                removing `math shift' on input line 1075.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\theta' on input line 1061.
+(hyperref)                removing `\theta' on input line 1075.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 1061.
+(hyperref)                removing `subscript' on input line 1075.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\not' on input line 1061.
+(hyperref)                removing `\not' on input line 1075.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\approx' on input line 1061.
+(hyperref)                removing `\approx' on input line 1075.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\theta' on input line 1061.
+(hyperref)                removing `\theta' on input line 1075.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 1061.
+(hyperref)                removing `subscript' on input line 1075.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1061.
+(hyperref)                removing `math shift' on input line 1075.
 
 [24] [25 <./figures/Optimal_epsilon_scaling.pdf>]
 <figures/refFF_to_rrFF_lam_constant.pdf, id=570, 872.07054pt x 955.82657pt>
@@ -1688,7 +1688,7 @@ File: figures/refFF_to_rrFF_lam_constant.pdf Graphic file (type pdf)
 
 <use figures/refFF_to_rrFF_lam_constant.pdf>
 Package pdftex.def Info: figures/refFF_to_rrFF_lam_constant.pdf used on input l
-ine 1083.
+ine 1097.
 (pdftex.def)             Requested size: 462.52756pt x 506.95029pt.
 
 <figures/refFF_to_rrFF_lam_12to16.pdf, id=571, 829.19553pt x 941.88007pt>
@@ -1696,21 +1696,21 @@ File: figures/refFF_to_rrFF_lam_12to16.pdf Graphic file (type pdf)
 
 <use figures/refFF_to_rrFF_lam_12to16.pdf>
 Package pdftex.def Info: figures/refFF_to_rrFF_lam_12to16.pdf used on input lin
-e 1090.
+e 1104.
 (pdftex.def)             Requested size: 462.52756pt x 525.3797pt.
 
 
-LaTeX Warning: Float too large for page by 16.44968pt on input line 1093.
+LaTeX Warning: Float too large for page by 16.44968pt on input line 1107.
 
 <figures/refFF_to_rrFF_Neff_alt.pdf, id=573, 846.58594pt x 586.63037pt>
 File: figures/refFF_to_rrFF_Neff_alt.pdf Graphic file (type pdf)
 
 <use figures/refFF_to_rrFF_Neff_alt.pdf>
 Package pdftex.def Info: figures/refFF_to_rrFF_Neff_alt.pdf used on input line 
-1101.
+1115.
 (pdftex.def)             Requested size: 462.52756pt x 320.50835pt.
 
-Overfull \hbox (10.15527pt too wide) in paragraph at lines 1115--1116
+Overfull \hbox (10.15527pt too wide) in paragraph at lines 1129--1130
 []\T1/ppl/m/n/12 We rec-om-mend the fol-low-ing al-go-rithm for op-ti-miz-ing M
 ie $\OML/cmm/m/it/12 $\T1/ppl/m/n/12 -6 pa-ram-e-ters with GCMC-
  []
@@ -1718,70 +1718,81 @@ ie $\OML/cmm/m/it/12 $\T1/ppl/m/n/12 -6 pa-ram-e-ters with GCMC-
 [26]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1146.
+(hyperref)                removing `math shift' on input line 1159.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\lambda' on input line 1146.
+(hyperref)                removing `\lambda' on input line 1159.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1146.
+(hyperref)                removing `math shift' on input line 1159.
 
-[27] <figures/CYC6_scoring_function_lam.pdf, id=616, 875.68593pt x 820.1636pt>
+[27] [28]
+<figures/CYC6_scoring_function_lam.pdf, id=623, 875.68593pt x 820.1636pt>
 File: figures/CYC6_scoring_function_lam.pdf Graphic file (type pdf)
 
 <use figures/CYC6_scoring_function_lam.pdf>
 Package pdftex.def Info: figures/CYC6_scoring_function_lam.pdf used on input li
-ne 1168.
+ne 1183.
 (pdftex.def)             Requested size: 462.52756pt x 433.2079pt.
 
-<figures/CYC6_Neff_lam.pdf, id=617, 889.03265pt x 820.1636pt>
+<figures/CYC6_Neff_lam.pdf, id=624, 889.03265pt x 820.1636pt>
 File: figures/CYC6_Neff_lam.pdf Graphic file (type pdf)
 
 <use figures/CYC6_Neff_lam.pdf>
-Package pdftex.def Info: figures/CYC6_Neff_lam.pdf used on input line 1177.
+Package pdftex.def Info: figures/CYC6_Neff_lam.pdf used on input line 1192.
 (pdftex.def)             Requested size: 462.52756pt x 426.70027pt.
- [28]
-<figures/CYC6_deviations_iterations.pdf, id=627, 841.04883pt x 921.24571pt>
+ [29]
+<figures/CYC6_deviations_iterations.pdf, id=640, 842.44687pt x 921.24571pt>
 File: figures/CYC6_deviations_iterations.pdf Graphic file (type pdf)
 
 <use figures/CYC6_deviations_iterations.pdf>
 Package pdftex.def Info: figures/CYC6_deviations_iterations.pdf used on input l
-ine 1204.
-(pdftex.def)             Requested size: 462.52756pt x 506.63048pt.
- [29]
-Overfull \hbox (8.1347pt too wide) in paragraph at lines 1257--1258
-\T1/ppl/m/n/12 HR can also been ap-plied to GEMC sim-u-la-tions (GEMC-HR).$[]$ 
+ine 1242.
+(pdftex.def)             Requested size: 419.16621pt x 458.37259pt.
+
+
+LaTeX Warning: Float too large for page by 21.94257pt on input line 1245.
+
+
+Overfull \hbox (11.62854pt too wide) in paragraph at lines 1247--1248
+[]\T1/ppl/m/n/12 This sec-tion has shown that GCMC-MBAR is ca-pa-ble of con-ver
+t-ing a pre-tuned Lennard-
+ []
+
+
+Overfull \hbox (7.89476pt too wide) in paragraph at lines 1299--1300
+\T1/ppl/m/n/12 HR has also been ap-plied to GEMC sim-u-la-tions (GEMC-HR).$[]$ 
 There-fore, while the present
  []
 
-[30] (JCED_FOMMS_manuscript.bbl [31] [32] [33] [34] [35]
+[30] [31] (JCED_FOMMS_manuscript.bbl [32] [33] [34] [35] [36]
 LaTeX Font Info:    Try loading font information for T1+pcr on input line 404.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\t1pcr.fd"
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
-)) [36]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1300.
- [37 <./figures/refFF_to_rrFF_lam_constant.pdf>] [38 <./figures/refFF_to_rrFF_l
+)) [37]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1342.
+ [38 <./figures/refFF_to_rrFF_lam_constant.pdf>] [39 <./figures/refFF_to_rrFF_l
 am_12to16.pdf>]
-[39 <./figures/refFF_to_rrFF_Neff_alt.pdf>] [40 <./figures/CYC6_scoring_functio
-n_lam.pdf>] [41 <./figures/CYC6_Neff_lam.pdf>] [42] [43 <./figures/CYC6_deviati
+[40 <./figures/refFF_to_rrFF_Neff_alt.pdf>] [41 <./figures/CYC6_scoring_functio
+n_lam.pdf>] [42 <./figures/CYC6_Neff_lam.pdf>] [43] [44 <./figures/CYC6_deviati
 ons_iterations.pdf>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1300.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1342.
  (JCED_FOMMS_manuscript.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1300.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1300.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1342.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1342.
 
 Package rerunfilecheck Info: File `JCED_FOMMS_manuscript.out' has not changed.
 (rerunfilecheck)             Checksum: BD8BF59DA930297E4F18B7F5B2690C4B;1539.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1300.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1342.
  ) 
 Here is how much of TeX's memory you used:
- 31896 strings out of 493333
- 633369 string characters out of 3139198
- 685200 words of memory out of 3000000
- 34778 multiletter control sequences out of 15000+200000
+ 31899 strings out of 493333
+ 633396 string characters out of 3139198
+ 695630 words of memory out of 3000000
+ 34779 multiletter control sequences out of 15000+200000
  43450 words of font info for 94 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  62i,11n,94p,10421b,1048s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1802,9 +1813,9 @@ pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Progra
 m Files/MiKTeX 2.9/fonts/type1/urw/palatino/uplb8a.pfb><C:/Program Files/MiKTeX
  2.9/fonts/type1/urw/palatino/uplr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/typ
 e1/urw/palatino/uplri8a.pfb>
-Output written on JCED_FOMMS_manuscript.pdf (43 pages, 916298 bytes).
+Output written on JCED_FOMMS_manuscript.pdf (44 pages, 968102 bytes).
 PDF statistics:
- 1268 PDF objects out of 1440 (max. 8388607)
- 158 named destinations out of 1000 (max. 500000)
+ 1358 PDF objects out of 1440 (max. 8388607)
+ 160 named destinations out of 1000 (max. 500000)
  229 words of extra memory for PDF output out of 10000 (max. 10000000)
 
