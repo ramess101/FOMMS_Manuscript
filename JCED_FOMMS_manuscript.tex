@@ -350,7 +350,20 @@ The outline for this study is the following. Section \ref{sec: Methods} provides
     
     %The non-bonded potential is of the generalized Lennard-Jones (Mie $\lambda$-6) form. 
     
-    For computational efficiency, we utilize fixed bond lengths for each force field. Note that the original NERD publications utilized a harmonic bond potential \cite{NERD}. The bond lengths for all bonds, compounds, and force fields investigated in this study are reported in Table \ref{tab:bonds}.
+    For computational efficiency, we utilize fixed bond lengths for each force field, although the original NERD publication utilizes a harmonic bond potential \cite{NERD}. Angular bending interactions for each force field are evaluated using a harmonic potential:
+    \begin{equation}
+    u^{\rm bend} = \frac{k_\theta}{2} \left(\theta-\theta_{\rm eq}\right)^2
+    \end{equation}
+    where $u^{\rm bend}$ is the bending energy, $\theta$ is the instantaneous bond angle, $\theta_{\rm eq}$ is the equilibrium bond angle, and $k_\theta$ is the harmonic force constant. Dihedral torsional interactions for each force field are determined using a cosine series:
+    \begin{equation}
+    u^{\rm tors} = c_0 + c_1 \left(1+\cos{\phi}\right) + c_2 \left(1-\cos{2\phi}\right) + c_3 \left(1+\cos{3\phi}\right)
+    \end{equation}
+    where $u^{\rm tors}$ is the torsional energy, $\phi$ is the dihedral angle and $c_n$ are the Fourier constants. Bond lengths, $\theta_{\rm eq}$, $k_\theta$, and $c_n$ values for each force field are reported in Section \ref{SI sec: Bonded parameters} of Supporting Information.
+    
+    In accordance with Reference \citenum{Yiannourakou2019}, we simulate cyclohexane using the TraPPE CH$_x$-CH$_2$-CH$_2$-CH$_y$ torsional parameters instead of the TraPPE C-C-C-C six-member ring torsional parameters reported in Table 3 of Reference \citenum{Keasler2012}. This choice is made to better replicate the vapor-liquid coexistence densities reported in Reference \citenum{Keasler2012}. After investigating the dihedral distributions for cyclohexane obtained with the torsional parameters from Reference \cite{Keasler2012}, we suspect there is a sign error for at least the $c_1$ term.
+    
+    %%% Old version, moved to SI    
+%    For computational efficiency, we utilize fixed bond lengths for each force field, although the original NERD publication utilizes a harmonic bond potential \cite{NERD}. The bond lengths for all bonds, compounds, and force fields investigated in this study are reported in Table \ref{tab:bonds}.
     
 %    The bond lengths for all bonds, compounds, and force fields simulated in this study are 0.154 nm. Although we do not simulate alkynes, the MiPPE alkyne bond lengths are also reported in Table \ref{tab:bonds} because we re-analyze the MiPPE alkyne simulation data produced by Soroush Barhaghi et al.
     
@@ -381,28 +394,30 @@ The outline for this study is the following. Section \ref{sec: Methods} provides
 %		\end{center} 
 %	\end{table}
 
-    \begin{table}[h!]
-		\caption{Equilibrium (fixed) bond lengths $(r_{\rm eq})$ \cite{Martin1999,Nath2001,Potoff_branched,Barhaghi2017}. CH$_x$ and CH$_y$ represent CH$_3$, CH$_2$(sp$^3$), CH(sp$^3$), or C(sp$^3$) sites.} \label{tab:bonds}
-		\begin{center}
-			\begin{tabular}{|c|c|c|c|}
-				\hline
-				Bending sites & \multicolumn{3}{|c|}{$r_{\rm eq}$ (nm)} \\ \hline
-				& TraPPE & MiPPE & NERD \\ \hline
-				CH$_x$-CH$_y$ & 0.154 & 0.154 & 0.154 \\ 
-				C(sp)-CH$_x$ & -- & 0.146 & -- \\
-				CH$\equiv$CH & -- & 0.121 & -- \\ 
-				C$\equiv$CH & -- & 0.121 & -- \\
-				\hline
-			\end{tabular}
-		\end{center} 
-	\end{table}
-    
-    Angular bending interactions for each force field are evaluated using a harmonic potential:
-    \begin{equation}
-    u^{\rm bend} = \frac{k_\theta}{2} \left(\theta-\theta_{\rm eq}\right)^2
-    \end{equation}
-    where $u^{\rm bend}$ is the bending energy, $\theta$ is the instantaneous bond angle, $\theta_{\rm eq}$ is the equilibrium bond angle, and $k_\theta$ is the harmonic force constant. Table \ref{tab:angles} provides the $\theta_{\rm eq}$ and $k_\theta$ values for each angle type and force field. Note that the $\theta_{\rm eq}$ and $k_\theta$ values are equivalent for the three force fields, with the exception of the NERD CH$_x$-CH-CH$_y$ $\theta_{\rm eq}$ value. 
-    
+%%% Old version, moved to SI
+%    \begin{table}[h!]
+%		\caption{Equilibrium (fixed) bond lengths $(r_{\rm eq})$ \cite{Martin1999,Nath2001,Potoff_branched,Barhaghi2017}. CH$_x$ and CH$_y$ represent CH$_3$, CH$_2$(sp$^3$), CH(sp$^3$), or C(sp$^3$) sites.} \label{tab:bonds}
+%		\begin{center}
+%			\begin{tabular}{|c|c|c|c|}
+%				\hline
+%				Bending sites & \multicolumn{3}{|c|}{$r_{\rm eq}$ (nm)} \\ \hline
+%				& TraPPE & MiPPE & NERD \\ \hline
+%				CH$_x$-CH$_y$ & 0.154 & 0.154 & 0.154 \\ 
+%				C(sp)-CH$_x$ & -- & 0.146 & -- \\
+%				CH$\equiv$CH & -- & 0.121 & -- \\ 
+%				C$\equiv$CH & -- & 0.121 & -- \\
+%				\hline
+%			\end{tabular}
+%		\end{center} 
+%	\end{table}
+%    
+%    Angular bending interactions for each force field are evaluated using a harmonic potential:
+%    \begin{equation}
+%    u^{\rm bend} = \frac{k_\theta}{2} \left(\theta-\theta_{\rm eq}\right)^2
+%    \end{equation}
+%    where $u^{\rm bend}$ is the bending energy, $\theta$ is the instantaneous bond angle, $\theta_{\rm eq}$ is the equilibrium bond angle, and $k_\theta$ is the harmonic force constant. Table \ref{tab:angles} provides the $\theta_{\rm eq}$ and $k_\theta$ values for each angle type and force field. Note that the $\theta_{\rm eq}$ and $k_\theta$ values are equivalent for the three force fields, with the exception of the NERD CH$_x$-CH-CH$_y$ $\theta_{\rm eq}$ value. 
+%%%
+ 
 %    with $k_\theta/k_{\rm B} = 62500$ K/rad$^2$ for all bonding angles, where $k_{\rm B}$ is the Boltzmann constant
     
 %    \begin{table}[h!]
@@ -424,7 +439,7 @@ The outline for this study is the following. Section \ref{sec: Methods} provides
 %RAM: Agreed. I had CH_x and CH_y in a previous manuscript and the reviewer complained, so we changed it to CH_i and CH_j. I don't know if using x and y
 % helps convey that they could be the same substituent, but this is also the notation Mick et al. used in JCED previously, so I am going to use x and y
 %MRS2: maybe it would be better to put these tables as an appendix or supporting information?  I don't think they necessarily convey much information?
-%RAM: I believe JCED wants these in the manuscript
+%RAM: I believe JCED wants these in the manuscript. Nevermind, JCED says to put this in SI :-)
 %    \begin{table}[h!]
 %		\caption{Equilibrium bond angles $(\theta_{\rm eq})$ \cite{Martin1999}. CH$_x$ and CH$_y$ represent CH$_3$, CH$_2$, CH, or C sites.} \label{tab:angles}
 %		\begin{center}
@@ -440,30 +455,31 @@ The outline for this study is the following. Section \ref{sec: Methods} provides
 %		\end{center} 
 %	\end{table}
 
+%%% Old version, moved to SI
 %%% Included alkyne parameters
-    \begin{table}[h!]
-		\caption{Equilibrium bond angles $(\theta_{\rm eq})$ and force constants $(k_\theta/k_{\rm B})$, where $k_{\rm B}$ is the Boltzmann constant \cite{Martin1999,Nath2001,Potoff_branched,Barhaghi2017}. CH$_x$ and CH$_y$ represent CH$_3$, CH$_2$(sp$^3$), CH(sp$^3$), or C(sp$^3$) sites.} \label{tab:angles}
-		\begin{center}
-			\begin{tabular}{|c|c|c|c|c|}
-				\hline
-				Bending sites & \multicolumn{3}{|c|}{$\theta_{\rm eq}$ (degrees)} & $k_\theta/k_{\rm B}$ (K/rad$^2$) \\ \hline
-				& TraPPE & MiPPE & NERD & \\ \hline
-				CH$_x$-CH$_2$-CH$_y$ & 114.0 & 114.0 & 114.0 &  62500 \\ 
-				CH$_x$-CH-CH$_y$ & 112.0 & 112.0 & 109.5 & 62500 \\
-				CH$_x$-C-CH$_y$ & 109.5 & 109.5 & 109.5 & 62500 \\
-				CH$_x$-CH$_2$-C(sp) & -- & 112 & -- & 62500 \\
-				CH$_x$-C(sp)$\equiv$CH & -- & 180 & -- & 30800 \\
-				CH$_x$-C(sp)$\equiv$C & -- & 180 & -- & 30800 \\
-				\hline
-			\end{tabular}
-		\end{center} 
-	\end{table}
-    
-    Dihedral torsional interactions for each force field are determined using a cosine series:
-    \begin{equation}
-    u^{\rm tors} = c_0 + c_1 \left(1+\cos{\phi}\right) + c_2 \left(1-\cos{2\phi}\right) + c_3 \left(1+\cos{3\phi}\right)
-    \end{equation}
-    where $u^{\rm tors}$ is the torsional energy, $\phi$ is the dihedral angle and $c_n$ are the Fourier constants listed in Table \ref{tab:torsions}. In accordance with Reference \citenum{Yiannourakou2019}, we simulate cyclohexane using the TraPPE CH$_x$-CH$_2$-CH$_2$-CH$_y$ torsional parameters instead of the TraPPE C-C-C-C six-member ring torsional parameters reported in Table 3 of Reference \citenum{Keasler2012}. This choice is made to better replicate the vapor-liquid coexistence densities reported in Reference \citenum{Keasler2012}. After investigating the dihedral distributions for cyclohexane obtained with the torsional parameters from Reference \cite{Keasler2012}, we suspect there is a sign error for at least the $c_1$ term.
+%    \begin{table}[h!]
+%		\caption{Equilibrium bond angles $(\theta_{\rm eq})$ and force constants $(k_\theta/k_{\rm B})$, where $k_{\rm B}$ is the Boltzmann constant \cite{Martin1999,Nath2001,Potoff_branched,Barhaghi2017}. CH$_x$ and CH$_y$ represent CH$_3$, CH$_2$(sp$^3$), CH(sp$^3$), or C(sp$^3$) sites.} \label{tab:angles}
+%		\begin{center}
+%			\begin{tabular}{|c|c|c|c|c|}
+%				\hline
+%				Bending sites & \multicolumn{3}{|c|}{$\theta_{\rm eq}$ (degrees)} & $k_\theta/k_{\rm B}$ (K/rad$^2$) \\ \hline
+%				& TraPPE & MiPPE & NERD & \\ \hline
+%				CH$_x$-CH$_2$-CH$_y$ & 114.0 & 114.0 & 114.0 &  62500 \\ 
+%				CH$_x$-CH-CH$_y$ & 112.0 & 112.0 & 109.5 & 62500 \\
+%				CH$_x$-C-CH$_y$ & 109.5 & 109.5 & 109.5 & 62500 \\
+%				CH$_x$-CH$_2$-C(sp) & -- & 112 & -- & 62500 \\
+%				CH$_x$-C(sp)$\equiv$CH & -- & 180 & -- & 30800 \\
+%				CH$_x$-C(sp)$\equiv$C & -- & 180 & -- & 30800 \\
+%				\hline
+%			\end{tabular}
+%		\end{center} 
+%	\end{table}
+%    
+%    Dihedral torsional interactions for each force field are determined using a cosine series:
+%    \begin{equation}
+%    u^{\rm tors} = c_0 + c_1 \left(1+\cos{\phi}\right) + c_2 \left(1-\cos{2\phi}\right) + c_3 \left(1+\cos{3\phi}\right)
+%    \end{equation}
+%    where $u^{\rm tors}$ is the torsional energy, $\phi$ is the dihedral angle and $c_n$ are the Fourier constants listed in Table \ref{tab:torsions}. In accordance with Reference \citenum{Yiannourakou2019}, we simulate cyclohexane using the TraPPE CH$_x$-CH$_2$-CH$_2$-CH$_y$ torsional parameters instead of the TraPPE C-C-C-C six-member ring torsional parameters reported in Table 3 of Reference \citenum{Keasler2012}. This choice is made to better replicate the vapor-liquid coexistence densities reported in Reference \citenum{Keasler2012}. After investigating the dihedral distributions for cyclohexane obtained with the torsional parameters from Reference \cite{Keasler2012}, we suspect there is a sign error for at least the $c_1$ term.
     
     % reported in Reference \citenum{Keasler2012}.
     
@@ -487,24 +503,25 @@ The outline for this study is the following. Section \ref{sec: Methods} provides
 %    	\end{center} 
 %    \end{table}
 
-    \begin{table}[h!]
-		\caption{Fourier constants $(c_n/k_{\rm B})$ in units of K \cite{Martin1999,Nath2001,Potoff_branched,Barhaghi2017}. CH$_x$ and CH$_y$ represent CH$_3$, CH$_2$(sp$^3$), CH(sp$^3$), or C(sp$^3$) sites.} \label{tab:torsions}
-		\begin{center}
-			\begin{tabular}{|c|c|c|c|c|}
-				\hline
-				Torsion sites & $c_0/k_{\rm B}$ & $c_1/k_{\rm B}$ & $c_2/k_{\rm B}$ & $c_3/k_{\rm B}$ \\ \hline
-				CH$_x$-CH$_2$-CH$_2$-CH$_y$ & 0.0 & 355.03 & -68.19 & 791.32 \\ 
-				CH$_x$-CH$_2$-CH-CH$_y$ & -251.06 & 428.73 & -111.85 & 441.27 \\
-				CH$_x$-CH$_2$-C-CH$_y$ & 0.0 & 0.0 & 0.0 & 461.29 \\
-				CH$_x$-CH-CH-CH$_y$ & -251.06 & 428.73 & -111.85 & 441.27 \\
-				CH$_x$-CH$_2$-CH$_2$-C(sp) & 94.88 & 162.00 & -205.40 & 980.40 \\
-				CH$_x$-CH$_2$-C(sp)$\equiv$C(sp) & 0 & 0 & 0 & 0 \\
-				CH$_x$-CH$_2$-C(sp)$\equiv$CH(sp) & 0 & 0 & 0 & 0 \\
-				CH$_x$-C(sp)$\equiv$C(sp)-CH$_y$ & 0 & 0 & 0 & 0 \\
-				\hline
-			\end{tabular}
-		\end{center} 
-	\end{table}
+%%% Old version, moved to SI
+%    \begin{table}[h!]
+%		\caption{Fourier constants $(c_n/k_{\rm B})$ in units of K \cite{Martin1999,Nath2001,Potoff_branched,Barhaghi2017}. CH$_x$ and CH$_y$ represent CH$_3$, CH$_2$(sp$^3$), CH(sp$^3$), or C(sp$^3$) sites.} \label{tab:torsions}
+%		\begin{center}
+%			\begin{tabular}{|c|c|c|c|c|}
+%				\hline
+%				Torsion sites & $c_0/k_{\rm B}$ & $c_1/k_{\rm B}$ & $c_2/k_{\rm B}$ & $c_3/k_{\rm B}$ \\ \hline
+%				CH$_x$-CH$_2$-CH$_2$-CH$_y$ & 0.0 & 355.03 & -68.19 & 791.32 \\ 
+%				CH$_x$-CH$_2$-CH-CH$_y$ & -251.06 & 428.73 & -111.85 & 441.27 \\
+%				CH$_x$-CH$_2$-C-CH$_y$ & 0.0 & 0.0 & 0.0 & 461.29 \\
+%				CH$_x$-CH-CH-CH$_y$ & -251.06 & 428.73 & -111.85 & 441.27 \\
+%				CH$_x$-CH$_2$-CH$_2$-C(sp) & 94.88 & 162.00 & -205.40 & 980.40 \\
+%				CH$_x$-CH$_2$-C(sp)$\equiv$C(sp) & 0 & 0 & 0 & 0 \\
+%				CH$_x$-CH$_2$-C(sp)$\equiv$CH(sp) & 0 & 0 & 0 & 0 \\
+%				CH$_x$-C(sp)$\equiv$C(sp)-CH$_y$ & 0 & 0 & 0 & 0 \\
+%				\hline
+%			\end{tabular}
+%		\end{center} 
+%	\end{table}
     
     Non-bonded interactions between sites located in two different molecules or separated by more than three bonds within the same molecule are calculated using a Mie $\lambda$-6 potential (of which the Lennard-Jones, LJ, 12-6 is a subclass):
     \begin{equation} \label{eq:Mie}
@@ -612,13 +629,15 @@ The outline for this study is the following. Section \ref{sec: Methods} provides
 
 The results presented in Sections \ref{sec: Constant theta} and \ref{sec: eps scaling} are obtained by reprocessing simulation output that were analyzed in previous studies with histogram reweighting \cite{Potoff_branched,Barhaghi2017}. New simulation results are provided in Sections \ref{sec: litFF} and \ref{sec: Case study} for 2-methylpropane, 2,2-dimethylpropane, 2,2-dimethylbutane, 3,3-dimethylhexane, 3-methyl-3-ethylpentane, 2,2,4-trimethylhexane, 2,3-dimethylbutane, 2,3,4-trimethylpentane, and cyclohexane. 
 
-Each compound is simulated with Grand Canonical Monte Carlo (GCMC), i.e., constant chemical potential ($\mu$), volume $(V)$, and temperature $(T)$. A series of nine simulations are performed, two in the vapor phase, six in the liquid phase, and one near critical which acts as the ``bridge'' between the vapor and liquid phases. A single simulation is performed at each state point $(\mu$, $V$, and $T)$, unless otherwise stated. A low-density (less than twenty molecules) initial configuration is utilized for the vapor phase simulations, while the bridge and liquid phase simulations are initialized with a high-density (around 150 molecules) configuration. 
+Each compound is simulated with Grand Canonical Monte Carlo (GCMC), i.e., constant chemical potential ($\mu$), volume $(V)$, and temperature $(T)$. A series of nine simulations are performed, two in the vapor phase, six in the liquid phase, and one near critical which acts as the ``bridge'' between the vapor and liquid phases. A single simulation is performed at each state point $(\mu$, $V$, and $T)$, unless otherwise stated. A low-density (less than twenty molecules) initial configuration is utilized for the vapor phase simulations, while the bridge and liquid phase simulations are initialized with a high-density (around 150 molecules) configuration. To verify that finite size effects are negligible in the low-density vapor phase, we confirm that the saturated vapor compressibility factor $(Z^{\rm sat}_{\rm vap})$ converges smoothly to 1 for each compound \cite{Nezbeda2016}.
 
 The system volume is constant with respect to $\mu$ and $T$ for a given compound. The cubic box side length is 3 nm for 2-methylpropane, 2,2-dimethylpropane, 2,3-dimethylbutane, and cyclohexane, 3.5 nm for 2,3,4-trimethylpentane and 3,3-dimethylhexane, and 4 nm for 2,2,4-trimethylhexane and 3-methyl-3-ethylpentane. The prescribed $\mu$, $T$, and $V$ values for the branched alkanes are the same as those utilized in Mick et al.~and vary somewhat between force fields \cite{Potoff_branched}. All simulated state points are reported in Section \ref{SI sec: State Points} of Supporting Information. 
 
 % The $\mu-T$ values for \textit{n}-hexane and cyclohexane are determined in this study.
 
 Each GCMC simulation performed in this study consists of an equilibration stage of $2 \times 10^7$ Monte Carlo steps (MCS). The production stage is $4 \times 10^7$ MCS for vapor simulations and $2.5 \times 10^7$ MCS for the liquid and ``bridge'' simulations. Snapshots (i.e., number of molecules, internal energy, and optionally the xyz coordinates) are stored every 200 MCS to reduce the correlation between sequential configurations. Thus, the number of snapshots $(K_{\rm snaps})$ is $2 \times 10^5$ for vapor simulations and $1.25 \times 10^5$ for liquid and ``bridge'' simulations. 
+
+All simulations utilize a 1.0 nm non-bonded cut-off distance with analytical tail corrections for internal energy. This cut-off distance is consistent with previous MiPPE studies \cite{Mie,Potoff_branched,Barhaghi2017}. By contrast, TraPPE \cite{TraPPE,Martin1999,Keasler2012} and NERD \cite{NERD,Nath2001} were parameterized using a 1.4 nm and 1.38 nm cut-off, respectively.
 
 The type of Monte Carlo move implemented for each step is selected randomly with a 30\%, 10\%, and 60\% probability of performing a displacement, rotation, and particle swap move, respectively. Displacement and rotation moves are required to thermally equilibrate the system at the simulation temperature while particle swap moves ensure that $\mu$ is equal to the prescribed value. Cyclohexane simulations also employ crank-shaft moves to sample internal configurations, which can be challenging for ring molecules \cite{Shah2011,Binder1979}. The move probabilities for cyclohexane are 30\%, 10\%, 40\%, and 20\% for displacement, rotation, particle swap, and crank-shaft moves, respectively. All simulations utilize coupled-decoupled configurational-bias Monte Carlo (CBMC)\cite{Martin1999} to enhance the insertion acceptance rate, with 100 angle trials, 30 dihedral trials, 10 initial site trials, and 4 subsequent site trials. The move probabilities are consistent with those of Mick et al.~and Soroush Barhaghi et al.~\cite{Potoff_branched,Barhaghi2017}, while the CBMC dihedral trials and initial site trials differ slightly.
 

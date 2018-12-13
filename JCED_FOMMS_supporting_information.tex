@@ -150,6 +150,65 @@
 %% executed automatically.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
+	
+\section{Bonded parameters} \label{SI sec: Bonded parameters}
+
+    \begin{table}[h!]
+		\caption{Equilibrium (fixed) bond lengths $(r_{\rm eq})$. CH$_x$ and CH$_y$ represent CH$_3$, CH$_2$(sp$^3$), CH(sp$^3$), or C(sp$^3$) sites.} \label{tab:bonds}
+		\begin{center}
+			\begin{tabular}{|c|c|c|c|}
+				\hline
+				Bending sites & \multicolumn{3}{|c|}{$r_{\rm eq}$ (nm)} \\ \hline
+				& TraPPE & MiPPE & NERD \\ \hline
+				CH$_x$-CH$_y$ & 0.154 & 0.154 & 0.154 \\ 
+				C(sp)-CH$_x$ & -- & 0.146 & -- \\
+				CH$\equiv$CH & -- & 0.121 & -- \\ 
+				C$\equiv$CH & -- & 0.121 & -- \\
+				\hline
+			\end{tabular}
+		\end{center} 
+	\end{table}
+
+    \begin{table}[h!]
+	\caption{Equilibrium bond angles $(\theta_{\rm eq})$ and force constants $(k_\theta/k_{\rm B})$, where $k_{\rm B}$ is the Boltzmann constant. CH$_x$ and CH$_y$ represent CH$_3$, CH$_2$(sp$^3$), CH(sp$^3$), or C(sp$^3$) sites.} \label{tab:angles}
+		\begin{center}
+			\begin{tabular}{|c|c|c|c|c|}
+				\hline
+				Bending sites & \multicolumn{3}{|c|}{$\theta_{\rm eq}$ (degrees)} & $k_\theta/k_{\rm B}$ (K/rad$^2$) \\ \hline
+				& TraPPE & MiPPE & NERD & \\ \hline
+				CH$_x$-CH$_2$-CH$_y$ & 114.0 & 114.0 & 114.0 &  62500 \\ 
+				CH$_x$-CH-CH$_y$ & 112.0 & 112.0 & 109.5 & 62500 \\
+				CH$_x$-C-CH$_y$ & 109.5 & 109.5 & 109.5 & 62500 \\
+				CH$_x$-CH$_2$-C(sp) & -- & 112 & -- & 62500 \\
+				CH$_x$-C(sp)$\equiv$CH & -- & 180 & -- & 30800 \\
+				CH$_x$-C(sp)$\equiv$C & -- & 180 & -- & 30800 \\
+				\hline
+			\end{tabular}
+		\end{center} 
+	\end{table}
+
+    \begin{table}[h!]
+		\caption{Fourier constants $(c_n/k_{\rm B})$ in units of K. CH$_x$ and CH$_y$ represent CH$_3$, CH$_2$(sp$^3$), CH(sp$^3$), or C(sp$^3$) sites.} \label{tab:torsions}
+		\begin{center}
+			\begin{tabular}{|c|c|c|c|c|}
+				\hline
+				Torsion sites & $c_0/k_{\rm B}$ & $c_1/k_{\rm B}$ & $c_2/k_{\rm B}$ & $c_3/k_{\rm B}$ \\ \hline
+				CH$_x$-CH$_2$-CH$_2$-CH$_y$ & 0.0 & 355.03 & -68.19 & 791.32 \\ 
+				CH$_x$-CH$_2$-CH-CH$_y$ & -251.06 & 428.73 & -111.85 & 441.27 \\
+				CH$_x$-CH$_2$-C-CH$_y$ & 0.0 & 0.0 & 0.0 & 461.29 \\
+				CH$_x$-CH-CH-CH$_y$ & -251.06 & 428.73 & -111.85 & 441.27 \\
+				CH$_x$-CH$_2$-CH$_2$-C(sp) & 94.88 & 162.00 & -205.40 & 980.40 \\
+				CH$_x$-CH$_2$-C(sp)$\equiv$C(sp) & 0 & 0 & 0 & 0 \\
+				CH$_x$-CH$_2$-C(sp)$\equiv$CH(sp) & 0 & 0 & 0 & 0 \\
+				CH$_x$-C(sp)$\equiv$C(sp)-CH$_y$ & 0 & 0 & 0 & 0 \\
+				\hline
+			\end{tabular}
+		\end{center} 
+	\end{table}
+
+% In accordance with Reference \citenum{Yiannourakou2019}, we simulate cyclohexane using the TraPPE CH$_x$-CH$_2$-CH$_2$-CH$_y$ torsional parameters instead of the TraPPE C-C-C-C six-member ring torsional parameters reported in Table 3 of Reference \citenum{Keasler2012}. This choice is made to better replicate the vapor-liquid coexistence densities reported in Reference \citenum{Keasler2012}. After investigating the dihedral distributions for cyclohexane obtained with the torsional parameters from Reference \cite{Keasler2012}, we suspect there is a sign error for at least the $c_1$ term.
+
+
 
 \section{State Points} \label{SI sec: State Points}
 
