@@ -8,7 +8,7 @@
 \providecommand*\mcitethebibliography{\thebibliography}
 \csname @ifundefined\endcsname{endmcitethebibliography}
   {\let\endmcitethebibliography\endthebibliography}{}
-\begin{mcitethebibliography}{45}
+\begin{mcitethebibliography}{46}
 \providecommand*\natexlab[1]{#1}
 \providecommand*\mciteSetBstSublistMode[1]{}
 \providecommand*\mciteSetBstMaxWidthForm[2]{}
@@ -233,8 +233,8 @@ Martin,~M.~G.; Siepmann,~J.~I. Novel Configurational-Bias Monte Carlo Method
 \bibitem[Keasler \latin{et~al.}(2012)Keasler, Charan, Wick, Economou, and
   Siepmann]{Keasler2012}
 Keasler,~S.~J.; Charan,~S.~M.; Wick,~C.~D.; Economou,~I.~G.; Siepmann,~J.~I.
-  Transferable Potentials for Phase Equilibria–United Atom Description of
-  Five- and Six-Membered Cyclic Alkanes and Ethers. \emph{The Journal of
+  Transferable Potentials for Phase Equilibria{-}United Atom Description of
+  Five{-} and Six{-}Membered Cyclic Alkanes and Ethers. \emph{The Journal of
   Physical Chemistry B} \textbf{2012}, \emph{116}, 11234--11246\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
@@ -279,6 +279,15 @@ Shah,~J.~K.; Maginn,~E.~J. A general and efficient Monte Carlo method for
   sampling intramolecular degrees of freedom of branched and cyclic molecules.
   \emph{The Journal of Chemical Physics} \textbf{2011}, \emph{135},
   134121\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Baumg{\"a}rtner and Binder(1979)Baumg{\"a}rtner, and
+  Binder]{Binder1979}
+Baumg{\"a}rtner,~A.; Binder,~K. Monte Carlo studies on the freely jointed
+  polymer chain with excluded volume interaction. \emph{The Journal of Chemical
+  Physics} \textbf{1979}, \emph{71}, 2541--2545\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
