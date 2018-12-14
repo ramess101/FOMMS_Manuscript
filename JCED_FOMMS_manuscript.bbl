@@ -8,7 +8,7 @@
 \providecommand*\mcitethebibliography{\thebibliography}
 \csname @ifundefined\endcsname{endmcitethebibliography}
   {\let\endmcitethebibliography\endthebibliography}{}
-\begin{mcitethebibliography}{47}
+\begin{mcitethebibliography}{50}
 \providecommand*\natexlab[1]{#1}
 \providecommand*\mciteSetBstSublistMode[1]{}
 \providecommand*\mciteSetBstMaxWidthForm[2]{}
@@ -419,6 +419,34 @@ Lemmon,~E.~W.; Bell,~I.~H.; Huber,~M.~L.; McLinden,~M.~O. {NIST Standard
   Reference Database 23: Reference Fluid Thermodynamic and Transport
   Properties-REFPROP, Version 10.0, National Institute of Standards and
   Technology}. 2018; \url{https://www.nist.gov/srd/refprop}\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Eckl \latin{et~al.}(2008)Eckl, Vrabec, and Hasse]{Eckl2008}
+Eckl,~B.; Vrabec,~J.; Hasse,~H. Set of Molecular Models Based on Quantum
+  Mechanical Ab Initio Calculations and Thermodynamic Data. \emph{The Journal
+  of Physical Chemistry B} \textbf{2008}, \emph{112}, 12710--12721\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Bourasseau \latin{et~al.}(2002)Bourasseau, Ungerer, and
+  Boutin]{Bourasseau2002CYC6}
+Bourasseau,~E.; Ungerer,~P.; Boutin,~A. Prediction of Equilibrium Properties of
+  Cyclic Alkanes by Monte Carlo Simulation{-}New Anisotropic United Atoms
+  Intermolecular Potentia{-}lNew Transfer Bias Method. \emph{The Journal of
+  Physical Chemistry B} \textbf{2002}, \emph{106}, 5483--5491\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Mu{\~n}oz-Mu{\~n}oz \latin{et~al.}(2015)Mu{\~n}oz-Mu{\~n}oz,
+  Guevara-Carrion, Llano-Restrepo, and Vrabec]{Mauricio2015}
+Mu{\~n}oz-Mu{\~n}oz,~Y.~M.; Guevara-Carrion,~G.; Llano-Restrepo,~M.; Vrabec,~J.
+  Lennard{-}Jones force field parameters for cyclic alkanes from cyclopropane
+  to cyclohexane. \emph{Fluid Phase Equilibria} \textbf{2015}, \emph{404}, 150
+  -- 160\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
