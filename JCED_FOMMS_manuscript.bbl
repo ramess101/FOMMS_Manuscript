@@ -490,13 +490,12 @@ Bourasseau,~E.; Ungerer,~P.; Boutin,~A. Prediction of Equilibrium Properties of
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
 \EndOfBibitem
-\bibitem[Mauricio Mu{\~n}oz-Mu{\~n}oz \latin{et~al.}(2015)Mauricio
-  Mu{\~n}oz-Mu{\~n}oz, Guevara-Carrion, Llano-Restrepo, and
-  Vrabec]{Mauricio2015}
-Mauricio Mu{\~n}oz-Mu{\~n}oz,~Y.; Guevara-Carrion,~G.; Llano-Restrepo,~M.;
-  Vrabec,~J. Lennard{-}Jones force field parameters for cyclic alkanes from
-  cyclopropane to cyclohexane. \emph{Fluid Phase Equilibria} \textbf{2015},
-  \emph{404}, 150 -- 160\relax
+\bibitem[Mu{\~n}oz-Mu{\~n}oz \latin{et~al.}(2015)Mu{\~n}oz-Mu{\~n}oz,
+  Guevara-Carrion, Llano-Restrepo, and Vrabec]{Mauricio2015}
+Mu{\~n}oz-Mu{\~n}oz,~Y.~M.; Guevara-Carrion,~G.; Llano-Restrepo,~M.; Vrabec,~J.
+  Lennard{-}Jones force field parameters for cyclic alkanes from cyclopropane
+  to cyclohexane. \emph{Fluid Phase Equilibria} \textbf{2015}, \emph{404}, 150
+  -- 160\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
