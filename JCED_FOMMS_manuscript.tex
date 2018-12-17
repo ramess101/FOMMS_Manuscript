@@ -1268,21 +1268,21 @@ We recommend the following algorithm for optimizing Mie $\lambda$-6 parameters w
 	\item Simulate initial reference force field $(\theta^{\langle0\rangle}_{\rm ref})$, e.g., TraPPE \label{step: Sim ref}
 	\item Compute basis functions for various values of $\lambda$ \label{step: Basis Functions}
 %	\item Optimize $\epsilon$ and $\sigma$ for each $\lambda$ $(\epsilon_{\rm opt}^\lambda$, $\sigma_{\rm opt}^\lambda$) by: \label{step: Opt eps,sig}
-    \item Optimize $\epsilon$ and $\sigma$ for each $\lambda$ $(\epsilon^{\langlei\rangle}$, $\sigma^{\langlei\rangle}$) by: \label{step: Opt eps,sig}
+    \item Optimize $\epsilon$ and $\sigma$ for each $\lambda$ $(\epsilon^{\langle i \rangle}$, $\sigma^{\langle i \rangle}$) by: \label{step: Opt eps,sig}
 	\begin{enumerate}
 		\item Estimating $\rho_{\rm liq}^{\rm sat}$, $\rho_{\rm vap}^{\rm sat}$, $P_{\rm vap}^{\rm sat}$, and $\Delta H_{\rm v}$ with GCMC-MBAR
 		\item Minimizing scoring function $(S)$
 	\end{enumerate}
 %	\item Determine optimal $\epsilon$ and $\sigma$ for various values of $\lambda$ by minimizing $S$ \label{Opt eps,sig}
-	\item Perform additional simulations with $\epsilon^{\langlei\rangle}$, $\sigma^{\langlei\rangle}$ from Step \ref{step: Opt eps,sig} for each $\lambda$ \label{step: Resim opt}
+	\item Perform additional simulations with $\epsilon^{\langle i \rangle}$, $\sigma^{\langle i \rangle}$ from Step \ref{step: Opt eps,sig} for each $\lambda$ \label{step: Resim opt}
 	% each optimal $\epsilon$, $\sigma$, $\lambda$ \label{step: Resim opt}
 %	\item Determine overall optimal parameter set $(\theta_{\rm opt})$ by: \label{step: Opt eps,sig,lam}
 %	\begin{enumerate}
 %		\item Estimating $\rho_{\rm liq}^{\rm sat}$, $\rho_{\rm vap}^{\rm sat}$, $P_{\rm vap}^{\rm sat}$, and $\Delta H_{\rm v}$ with GCMC-MBAR for $\lambda_{\rm rr} = \lambda_{\rm ref}$
 %		\item Minimizing scoring function $(S)$
-	\end{enumerate}
+%	\end{enumerate}
 %	\item Repeat Steps \ref{step: Resim opt} and \ref{step: Opt eps,sig,lam} until $\min(K_{\rm snaps}^{\rm eff}) \gg 50$ for $\theta_{\rm opt}$ 
-	\item Repeat Steps \ref{step: Opt eps,sig} and \ref{step: Resim opt} until $\min(K_{\rm snaps}^{\rm eff}) \gg 50$ for $\theta^{\langlei\rangle}$
+	\item Repeat Steps \ref{step: Opt eps,sig} and \ref{step: Resim opt} until $\min(K_{\rm snaps}^{\rm eff}) \gg 50$ for $\theta^{\langle i \rangle}$
 	\item Determine overall optimal parameter set $(\theta_{\rm opt})$ \label{step: Opt eps,sig,lam}
 \end{enumerate}
 The stopping criterion is based on the minimum number of effective snapshots $\min(K_{\rm snaps}^{\rm eff})$, which always corresponds to the liquid phase at lower values of $T^{\rm sat}$ (see Figure \ref{fig:Neff}). Therefore, GCMC-MBAR estimates should be reliable over the entire range of saturation temperatures when $\min(K_{\rm snaps}^{\rm eff}) \gg 50$. If this is true for the optimal region of parameter space, any additional iterations would be ill-advised and unnecessary as the optimization would primarily be fitting to the uncertainty in the simulation output. Section \ref{sec: Case study} presents an application of this approach for cyclohexane.
@@ -1379,9 +1379,9 @@ Figure \ref{fig:Iterate_Score_CYC6} presents the results from this second iterat
 				$\lambda_{\rm CH_2}$ & $\epsilon_{\rm CH_2}^{\langle0\rangle}/k_{\rm B}$ (K) & $\sigma_{\rm CH_2}^{\langle0\rangle}$ (nm) & $\epsilon_{\rm CH_2}^{\langle1\rangle}/k_{\rm B}$ (K) & $\sigma_{\rm CH_2}^{\langle1\rangle}$ (nm) & $\epsilon_{\rm CH_2}^{\langle2\rangle}/k_{\rm B}$ (K) & $\sigma_{\rm CH_2}^{\langle2\rangle}$ (nm) \\ \hline
 				12 & 52.5 & 0.391 & 53.0 & 0.394 & -- & -- \\ 
 				14 & -- & -- & 61.5 & 0.393 & 61.5 & 0.393 \\ 
-				16 & -- & -- & 70.0 & 0.389 & 69.5 & 0.391 \\
-				18 & -- & -- & 77.0 & 0.389 &  & \\
-				20 & -- & -- & 84.0 & 0.388 &  & \\
+				16 & -- & -- & 70.0 & 0.389 & 69.6 & 0.3905 \\
+				18 & -- & -- & 77.0 & 0.389 & 76.5 & 0.390 \\
+				20 & -- & -- & 84.0 & 0.388 & 82.5 & 0.389 \\
 				\hline
 			\end{tabular}
 		\end{center} 
