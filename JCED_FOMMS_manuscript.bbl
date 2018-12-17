@@ -8,7 +8,7 @@
 \providecommand*\mcitethebibliography{\thebibliography}
 \csname @ifundefined\endcsname{endmcitethebibliography}
   {\let\endmcitethebibliography\endthebibliography}{}
-\begin{mcitethebibliography}{47}
+\begin{mcitethebibliography}{49}
 \providecommand*\natexlab[1]{#1}
 \providecommand*\mciteSetBstSublistMode[1]{}
 \providecommand*\mciteSetBstMaxWidthForm[2]{}
@@ -300,6 +300,13 @@ Baumg{\"a}rtner,~A.; Binder,~K. Monte Carlo studies on the freely jointed
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
 \EndOfBibitem
+\bibitem[Allen and Tildesley(2017)Allen, and Tildesley]{Allen2017}
+Allen,~M.~P.; Tildesley,~D.~J. \emph{Computer simulation of liquids}, 2nd ed.;
+  Oxford University Press: Oxford England, 2017; pp xix, 385 p.\relax
+\mciteBstWouldAddEndPunctfalse
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
 \bibitem[Nejahi \latin{et~al.}()Nejahi, Soroush~Barhaghi, Mick, Jackman,
   Rushaidat, Li, Schwiebert, and Potoff]{Nejahi2018}
 Nejahi,~Y.; Soroush~Barhaghi,~M.; Mick,~J.; Jackman,~B.; Rushaidat,~K.; Li,~U.;
@@ -374,6 +381,13 @@ Duarte Ramos~Matos,~G.; Kyu,~D.~Y.; Loeffler,~H.~H.; Chodera,~J.~D.;
 \EndOfBibitem
 \bibitem[pym()]{pymbar}
 https://github.com/choderalab/pymbar\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Efron(1979)]{Efron1979}
+Efron,~B. Bootstrap Methods: Another Look at the Jackknife. \emph{The Annals of
+  Statistics} \textbf{1979}, \emph{7}, 1--26\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
