@@ -208,7 +208,8 @@
 
 % In accordance with Reference \citenum{Yiannourakou2019}, we simulate cyclohexane using the TraPPE CH$_x$-CH$_2$-CH$_2$-CH$_y$ torsional parameters instead of the TraPPE C-C-C-C six-member ring torsional parameters reported in Table 3 of Reference \citenum{Keasler2012}. This choice is made to better replicate the vapor-liquid coexistence densities reported in Reference \citenum{Keasler2012}. After investigating the dihedral distributions for cyclohexane obtained with the torsional parameters from Reference \cite{Keasler2012}, we suspect there is a sign error for at least the $c_1$ term.
 
-
+\newpage
+\clearpage
 
 \section{State Points} \label{SI sec: State Points}
 
@@ -588,6 +589,9 @@
 		\end{tabular}
 	\end{center}
 \end{table}
+
+\newpage
+\clearpage
 
 \section{Tabulated GCMC-MBAR results} \label{SI sec: Tabulated MBAR results}
 
@@ -1196,7 +1200,12 @@
 	\end{center}
 \end{table}
 
+\newpage
+
 \section{Optimal $\psi$ values} \label{SI sec: eps scale}
+
+\newpage
+\clearpage
 
 \section{Minimum number of effective snapshots} \label{SI sec: Min eff}
 
@@ -1206,5 +1215,31 @@
 		\caption{Minimum number of effective snapshots $(\min(K_{\rm snaps}^{\rm eff}))$ with respect to $\epsilon_{\rm CH_2}$ and $\sigma_{\rm CH_2}$ for cyclohexane. Optimization has converged as $\min(K_{\rm snaps}^{\rm eff}) \gg 50$ for the optimal $\epsilon_{\rm CH_2}$, $\sigma_{\rm CH_2}$, $\lambda_{\rm CH_2}$ parameter set. Top-left, top-right, bottom-left, and bottom-right panels correspond $\lambda_{\rm CH_2} = 14$, $\lambda_{\rm CH_2} = 16$, $\lambda_{\rm CH_2} = 18$, and $\lambda_{\rm CH_2} = 12$, respectively. White star represents the optimal parameter set, i.e., the lowest value of $S$, for a given $\lambda_{\rm CH_2}$}
 		\label{SI fig:Iterate_Neff_CYC6}
 	\end{figure}
+
+\newpage
+\clearpage
+
+\section{Compiler and hardware} \label{SI sec: Machine hardward}
+
+With the exception of the 20 replicates performed for MiPPE cyclohexane, all simulations are run on a Linux 4.4.0-112-generic x86\_64 on an Intel(R) Xeon(R) CPU E5-2699 v4 @ 2.20GHz machine. On this machine, GOMC was erroneously compiled using the sub-optimal GNU compiler collection (GCC) instead of the preferred Intel compiler. GOMC compiled with the Intel compiler typically runs approximately twice as fast as GOMC compiled with the GCC compiler.
+
+The 20 replicate simulations for MiPPE cyclohexane utilize several different machine hardware architectures, listed in Table \ref{SI tab: Machine hardware}. GOMC was compiled with the Intel compiler on each of these machines.
+
+\begin{table}[htb!]
+	\caption{Machine hardware for 20 replicate simulations of MiPPE cyclohexane} \label{SI tab: Machine hardware}
+	\begin{center}
+		\begin{tabular}{|c|}
+			\hline
+			Intel(R) Core(TM) i7-4790K CPU @ 4.00GHz \\
+			Intel(R) Core(TM) i5-3570 CPU @ 3.40GHz \\
+			Intel(R) Core(TM) i5-2500K CPU @ 3.30GHz \\
+			Intel(R) Xeon(R) CPU X5450 @ 3.00GHz \\
+			Intel(R) Xeon(R) CPU X5355 @ 2.66GHz \\
+			Intel(R) Xeon(R) CPU E5-2640 v3 @ 2.60GHz \\
+			Intel(R) Core(TM)2 Quad CPU Q6600 @ 2.40GHz \\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{table}
 
 \end{document}

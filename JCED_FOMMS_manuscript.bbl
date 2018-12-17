@@ -8,11 +8,7 @@
 \providecommand*\mcitethebibliography{\thebibliography}
 \csname @ifundefined\endcsname{endmcitethebibliography}
   {\let\endmcitethebibliography\endthebibliography}{}
-<<<<<<< HEAD
-\begin{mcitethebibliography}{49}
-=======
-\begin{mcitethebibliography}{50}
->>>>>>> fad896b677fbbba4be2d97c65350fb90a6e3464e
+\begin{mcitethebibliography}{56}
 \providecommand*\natexlab[1]{#1}
 \providecommand*\mciteSetBstSublistMode[1]{}
 \providecommand*\mciteSetBstMaxWidthForm[2]{}
@@ -64,10 +60,10 @@ Fern,~J.~T.; Keffer,~D.~J.; Steele,~W.~V. Measuring Coexisting Densities from a
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
 \EndOfBibitem
-\bibitem[Razavi \latin{et~al.}(2018)Razavi, Messerly, and Elliott]{Mostafa2018}
+\bibitem[Razavi \latin{et~al.}(2019)Razavi, Messerly, and Elliott]{Mostafa2018}
 Razavi,~S.~M.; Messerly,~R.~A.; Elliott,~J.~R. Coexistence Calculation Using
-  the Isothermal-Isochoric Integration Method. \textbf{2018}, \emph{Pending
-  publication.}\relax
+  the Isothermal-Isochoric Integration Method. \emph{Fluid Phase Equilibria}
+  \textbf{2019}, \emph{Pending publication.}\relax
 \mciteBstWouldAddEndPunctfalse
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {}{\mcitedefaultseppunct}\relax
@@ -134,10 +130,11 @@ Mick,~J.~R.; Soroush~Barhaghi,~M.; Jackman,~B.; Schwiebert,~L.; Potoff,~J.~J.
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
 \EndOfBibitem
-\bibitem[Barhaghi \latin{et~al.}(2017)Barhaghi, Mick, and Potoff]{Barhaghi2017}
-Barhaghi,~M.~S.; Mick,~J.~R.; Potoff,~J.~J. Optimised Mie potentials for phase
-  equilibria: application to alkynes. \emph{Molecular Physics} \textbf{2017},
-  \emph{115}, 1378--1388\relax
+\bibitem[Soroush~Barhaghi \latin{et~al.}(2017)Soroush~Barhaghi, Mick, and
+  Potoff]{Barhaghi2017}
+Soroush~Barhaghi,~M.; Mick,~J.~R.; Potoff,~J.~J. Optimised Mie potentials for
+  phase equilibria: application to alkynes. \emph{Molecular Physics}
+  \textbf{2017}, \emph{115}, 1378--1388\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
@@ -304,13 +301,6 @@ Baumg{\"a}rtner,~A.; Binder,~K. Monte Carlo studies on the freely jointed
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
 \EndOfBibitem
-\bibitem[Allen and Tildesley(2017)Allen, and Tildesley]{Allen2017}
-Allen,~M.~P.; Tildesley,~D.~J. \emph{Computer simulation of liquids}, 2nd ed.;
-  Oxford University Press: Oxford England, 2017; pp xix, 385 p.\relax
-\mciteBstWouldAddEndPunctfalse
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
 \bibitem[Nejahi \latin{et~al.}()Nejahi, Soroush~Barhaghi, Mick, Jackman,
   Rushaidat, Li, Schwiebert, and Potoff]{Nejahi2018}
 Nejahi,~Y.; Soroush~Barhaghi,~M.; Mick,~J.; Jackman,~B.; Rushaidat,~K.; Li,~U.;
@@ -356,7 +346,7 @@ Card,~D.~N.; Valleau,~J.~P. Monte Carlo Study of the Thermodynamics of
 \EndOfBibitem
 \bibitem[Wood(1968)]{Wood1968}
 Wood,~W.~W. Monte Carlo Calculations for Hard Disks in the
-  Isothermal‐Isobaric Ensemble. \emph{The Journal of Chemical Physics}
+  Isothermal{‐}Isobaric Ensemble. \emph{The Journal of Chemical Physics}
   \textbf{1968}, \emph{48}, 415--434\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
@@ -372,6 +362,14 @@ Kumar,~S.; Rosenberg,~J.~M.; Bouzida,~D.; Swendsen,~R.~H.; Kollman,~P.~A. THE
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
 \EndOfBibitem
+\bibitem[Souaille and Roux(2001)Souaille, and Roux]{Souaille2001}
+Souaille,~M.; Roux,~B. Extension to the weighted histogram analysis method:
+  combining umbrella sampling with free energy calculations. \emph{Computer
+  Physics Communications} \textbf{2001}, \emph{135}, 40 -- 57\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
 \bibitem[Duarte Ramos~Matos \latin{et~al.}(2017)Duarte Ramos~Matos, Kyu,
   Loeffler, Chodera, Shirts, and Mobley]{Matos2017}
 Duarte Ramos~Matos,~G.; Kyu,~D.~Y.; Loeffler,~H.~H.; Chodera,~J.~D.;
@@ -379,12 +377,6 @@ Duarte Ramos~Matos,~G.; Kyu,~D.~Y.; Loeffler,~H.~H.; Chodera,~J.~D.;
   Energies and Enthalpies Demonstrated with an Update of the FreeSolv Database.
   \emph{Journal of Chemical \& Engineering Data} \textbf{2017}, \emph{62},
   1559--1569\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[pym()]{pymbar}
-https://github.com/choderalab/pymbar\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
@@ -441,6 +433,45 @@ Lemmon,~E.~W.; Bell,~I.~H.; Huber,~M.~L.; McLinden,~M.~O. {NIST Standard
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
 \EndOfBibitem
+\bibitem[Lemmon and Span(2006)Lemmon, and Span]{Lemmon2006}
+Lemmon,~E.~W.; Span,~R. Short Fundamental Equations of State for 20 Industrial
+  Fluids. \emph{Journal of Chemical \& Engineering Data} \textbf{2006},
+  \emph{51}, 785--850\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Blackham \latin{et~al.}(2018)Blackham, Lemmon, and
+  Lemmon]{Blackham2017}
+Blackham,~T.; Lemmon,~A.; Lemmon,~E. Fundamental Equation of State for
+  Isooctane. \emph{International Journal of Thermophysics} \textbf{2018},
+  \emph{Pending publication}\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Gao \latin{et~al.}(2017)Gao, Wu, and Lemmon]{Gao2017}
+Gao,~K.; Wu,~J.; Lemmon,~E. \textbf{2017}, \emph{Unpublished equation.}\relax
+\mciteBstWouldAddEndPunctfalse
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Polt \latin{et~al.}(1992)Polt, Platzer, and Mauer]{Polt1992}
+Polt,~A.; Platzer,~B.; Mauer,~G. Parameter der Thermischen Zustandsgleichung
+  von Bender fuer 14 Mehratomige Reine Stoffe. \emph{Chemische Technik
+  (Leipzig)} \textbf{1992}, \emph{44}\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Zhou \latin{et~al.}(2014)Zhou, Liu, Penoncello, and Lemmon]{Zhou2014}
+Zhou,~Y.; Liu,~J.; Penoncello,~S.~G.; Lemmon,~E.~W. An Equation of State for
+  the Thermodynamic Properties of Cyclohexane. \emph{Journal of Physical and
+  Chemical Reference Data} \textbf{2014}, \emph{43}, 043105\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
 \bibitem[Eckl \latin{et~al.}(2008)Eckl, Vrabec, and Hasse]{Eckl2008}
 Eckl,~B.; Vrabec,~J.; Hasse,~H. Set of Molecular Models Based on Quantum
   Mechanical Ab Initio Calculations and Thermodynamic Data. \emph{The Journal
@@ -459,12 +490,13 @@ Bourasseau,~E.; Ungerer,~P.; Boutin,~A. Prediction of Equilibrium Properties of
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
 \EndOfBibitem
-\bibitem[Mu{\~n}oz-Mu{\~n}oz \latin{et~al.}(2015)Mu{\~n}oz-Mu{\~n}oz,
-  Guevara-Carrion, Llano-Restrepo, and Vrabec]{Mauricio2015}
-Mu{\~n}oz-Mu{\~n}oz,~Y.~M.; Guevara-Carrion,~G.; Llano-Restrepo,~M.; Vrabec,~J.
-  Lennard{-}Jones force field parameters for cyclic alkanes from cyclopropane
-  to cyclohexane. \emph{Fluid Phase Equilibria} \textbf{2015}, \emph{404}, 150
-  -- 160\relax
+\bibitem[Mauricio Mu{\~n}oz-Mu{\~n}oz \latin{et~al.}(2015)Mauricio
+  Mu{\~n}oz-Mu{\~n}oz, Guevara-Carrion, Llano-Restrepo, and
+  Vrabec]{Mauricio2015}
+Mauricio Mu{\~n}oz-Mu{\~n}oz,~Y.; Guevara-Carrion,~G.; Llano-Restrepo,~M.;
+  Vrabec,~J. Lennard{-}Jones force field parameters for cyclic alkanes from
+  cyclopropane to cyclohexane. \emph{Fluid Phase Equilibria} \textbf{2015},
+  \emph{404}, 150 -- 160\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
