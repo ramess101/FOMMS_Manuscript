@@ -135,7 +135,7 @@
 %\title{Multistate histogram-free reweighting for vapor-liquid coexistence calculations of non-simulated force field parameters}
 %\title{Estimating vapor-liquid coexistence properties with histogram-free reweighting}
 %\title{Histogram-free reweighting for vapor-liquid coexistence calculations of multiple force fields}
-\title{Supporting information: Histogram-free reweighting to estimate vapor-liquid coexistence properties of non-simulated force fields}
+\title{Supporting information: Histogram-free reweighting with grand canonical Monte Carlo: Post-simulation optimization of non-bonded potentials for phase equilibria}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Some journals require a list of abbreviations or keywords to be
@@ -143,13 +143,16 @@
 %% the title and author information, if needed.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\abbreviations{IR,NMR,UV}
-\keywords{MBAR, Monte Carlo, Grand Canonical, Vapor-liquid equilibria}
+%\keywords{MBAR, Monte Carlo, Grand Canonical, Vapor-liquid equilibria}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% The manuscript does not need to include \maketitle, which is
 %% executed automatically.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
+	
+\newpage
+\clearpage
 	
 \section{Bonded parameters} \label{SI sec: Bonded parameters}
 
@@ -158,7 +161,7 @@
 		\begin{center}
 			\begin{tabular}{|c|c|c|c|}
 				\hline
-				Bending sites & \multicolumn{3}{|c|}{$r_{\rm eq}$ (nm)} \\ \hline
+				Bond sites & \multicolumn{3}{|c|}{$r_{\rm eq}$ (nm)} \\ \hline
 				& TraPPE & MiPPE & NERD \\ \hline
 				CH$_x$-CH$_y$ & 0.154 & 0.154 & 0.154 \\ 
 				C(sp)-CH$_x$ & -- & 0.146 & -- \\
@@ -170,7 +173,7 @@
 	\end{table}
 
     \begin{table}[h!]
-	\caption{Equilibrium bond angles $(\theta_{\rm eq})$ and force constants $(k_\theta/k_{\rm B})$, where $k_{\rm B}$ is the Boltzmann constant. CH$_x$ and CH$_y$ represent CH$_3$, CH$_2$(sp$^3$), CH(sp$^3$), or C(sp$^3$) sites.} \label{tab:angles}
+	\caption{Equilibrium bond angles $(\theta_{\rm eq})$ and force constants $(k_\theta/k_{\rm B})$, where $k_{\rm B}$ is the Boltzmann constant.} \label{tab:angles} % CH$_x$ and CH$_y$ represent CH$_3$, CH$_2$(sp$^3$), CH(sp$^3$), or C(sp$^3$) sites.
 		\begin{center}
 			\begin{tabular}{|c|c|c|c|c|}
 				\hline
@@ -188,7 +191,7 @@
 	\end{table}
 
     \begin{table}[h!]
-		\caption{Fourier constants $(c_n/k_{\rm B})$ in units of K. CH$_x$ and CH$_y$ represent CH$_3$, CH$_2$(sp$^3$), CH(sp$^3$), or C(sp$^3$) sites.} \label{tab:torsions}
+		\caption{Fourier constants $(c_n/k_{\rm B})$ in units of K.} \label{tab:torsions} %CH$_x$ and CH$_y$ represent CH$_3$, CH$_2$(sp$^3$), CH(sp$^3$), or C(sp$^3$) sites.
 		\begin{center}
 			\begin{tabular}{|c|c|c|c|c|}
 				\hline
@@ -207,6 +210,81 @@
 	\end{table}
 
 % In accordance with Reference \citenum{Yiannourakou2019}, we simulate cyclohexane using the TraPPE CH$_x$-CH$_2$-CH$_2$-CH$_y$ torsional parameters instead of the TraPPE C-C-C-C six-member ring torsional parameters reported in Table 3 of Reference \citenum{Keasler2012}. This choice is made to better replicate the vapor-liquid coexistence densities reported in Reference \citenum{Keasler2012}. After investigating the dihedral distributions for cyclohexane obtained with the torsional parameters from Reference \cite{Keasler2012}, we suspect there is a sign error for at least the $c_1$ term.
+
+\newpage
+\clearpage
+
+\section{Compiler and hardware} \label{SI sec: Machine hardward}
+
+With the exception of the 20 replicates performed for MiPPE cyclohexane, all simulations are run on a Linux 4.4.0-112-generic x86\_64 on an Intel(R) Xeon(R) CPU E5-2699 v4 @ 2.20GHz machine. On this machine, GOMC was erroneously compiled using the sub-optimal GNU compiler collection (GCC) instead of the preferred Intel compiler. GOMC compiled with the Intel compiler typically runs approximately twice as fast as GOMC compiled with the GCC compiler.
+
+The 20 replicate simulations for MiPPE cyclohexane utilize several different machine hardware architectures, listed in Table \ref{SI tab: Machine hardware}. GOMC was compiled with the Intel compiler on each of these machines.
+
+\begin{table}[htb!]
+	\caption{Machine hardware for 20 replicate simulations of MiPPE cyclohexane} \label{SI tab: Machine hardware}
+	\begin{center}
+		\begin{tabular}{|c|}
+			\hline
+			Intel(R) Core(TM) i7-4790K CPU @ 4.00GHz \\
+			Intel(R) Core(TM) i5-3570 CPU @ 3.40GHz \\
+			Intel(R) Core(TM) i5-2500K CPU @ 3.30GHz \\
+			Intel(R) Xeon(R) CPU X5450 @ 3.00GHz \\
+			Intel(R) Xeon(R) CPU X5355 @ 2.66GHz \\
+			Intel(R) Xeon(R) CPU E5-2640 v3 @ 2.60GHz \\
+			Intel(R) Core(TM)2 Quad CPU Q6600 @ 2.40GHz \\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
+\newpage
+\clearpage
+
+\section{Tabulated $\epsilon$-scaling values} \label{SI sec: eps scale}
+
+\begin{table}[htb!]
+	\caption{Optimal $\epsilon$-scaling parameter $(\psi)$ values and corresponding scoring function. Abbreviations correspond to those in Figure \ref{fig:epsilon_scaling}.}
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|}
+			\hline
+			Molecular name & Abbreviation & Optimal $\psi$ & Optimal score \\ \hline
+			\multicolumn{4}{|c|}{Branched alkanes} \\ \hline
+			2-methylpropane & 2MC$_3$ & 1.0015 & 0.3883 \\
+			2-methylbutane & 2MC$_4$ & 1.0025 & 0.4281 \\
+			2-methylpentane & 2MC$_5$ & 1.0020 & 0.4770 \\
+			3-methylpentane & 3MC$_5$ & 1.0103 & 0.4050 \\
+			2,2-dimethylpropane & 22DMC$_3$ & 1.0035 & 0.5132 \\
+			2,2-dimethylbutane & 22DMC$_4$ & 0.9985 & 0.5445 \\
+			2,3-dimethylbutane & 23DMC$_4$ & 1.0000 & 0.4724 \\
+			2,2,4-trimethylpentane & 234TMC$_5$ & 1.0005 & 0.4367 \\ \hline	
+			\multicolumn{4}{|c|}{Alkynes} \\ \hline
+			1-ethyne & C$_2$ & 1.0005 & 0.2931 \\
+			1-propyne & C$_3$ & 0.9965 & 0.3307 \\
+			1-butyne & 1C$_4$ & 1.0063 & 1.143 \\
+			2-butyne & 2C$_4$ & 1.0031 & 0.3191 \\
+			1-pentyne & 1C$_5$ & 1.0087 & 1.8505 \\
+			2-pentyne & 2C$_5$ & 1.0186 & 1.3801 \\
+			1-hexyne & 1C$_6$ & 1.0063 & 1.908 \\
+			2-hexyne & 2C$_6$ & 1.0228 & 1.0594 \\
+			1-heptyne & 1C$_7$ & 1.0066 & 0.8415 \\
+			1-octyne & 1C$_8$ & 1.0034 & 0.9777 \\
+			1-nonyne & 1C$_9$ & 1.0000 & 0.9128 \\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
+\newpage
+\clearpage
+
+\section{Minimum number of effective snapshots} \label{SI sec: Min eff}
+
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=6.4in]{CYC6_min_Neff_lam_iteration.pdf}
+	\caption{Minimum number of effective snapshots $(\min(K_{\rm snaps}^{\rm eff}))$ with respect to $\epsilon_{\rm CH_2}$ and $\sigma_{\rm CH_2}$ for cyclohexane. Optimization has converged as $\min(K_{\rm snaps}^{\rm eff}) \gg 50$ for the optimal $\epsilon_{\rm CH_2}$, $\sigma_{\rm CH_2}$, $\lambda_{\rm CH_2}$ parameter set. Top-left, top-right, bottom-left, and bottom-right panels correspond $\lambda_{\rm CH_2} = 14$, $\lambda_{\rm CH_2} = 16$, $\lambda_{\rm CH_2} = 18$, and $\lambda_{\rm CH_2} = 12$, respectively. White star represents the optimal parameter set, i.e., the lowest value of $S$, for a given $\lambda_{\rm CH_2}$}
+	\label{SI fig:Iterate_Neff_CYC6}
+\end{figure}
 
 \newpage
 \clearpage
@@ -378,7 +456,7 @@
 \end{table}
 
 \begin{table}[htb!]
-	\caption{State points simulated for cyclohexane with the TraPPE force field.}
+	\caption{State points simulated for cyclohexane with the TraPPE force field $(\theta^{\langle0\rangle})$.}
 	\begin{center}
 		\begin{tabular}{|c|c|c|}
 			\hline
@@ -396,7 +474,7 @@
 \end{table}
 
 \begin{table}[htb!]
-	\caption{State points simulated for cyclohexane with the $\lambda^{(1)}_{\rm CH_2} = 14$ force field.}
+	\caption{State points simulated for cyclohexane with the first iteration $(\theta^{\langle1\rangle})$ $\lambda_{\rm CH_2} = 14$ force field.}
 	\begin{center}
 		\begin{tabular}{|c|c|c|}
 			\hline
@@ -414,7 +492,7 @@
 \end{table}
 
 \begin{table}[htb!]
-	\caption{State points simulated for cyclohexane with the $\lambda^{(1)}_{\rm CH_2} = 16$ force field.}
+	\caption{State points simulated for cyclohexane with the first iteration $(\theta^{\langle1\rangle})$ $\lambda_{\rm CH_2} = 16$ force field.}
 	\begin{center}
 		\begin{tabular}{|c|c|c|}
 			\hline
@@ -432,7 +510,7 @@
 \end{table}
 
 \begin{table}[htb!]
-	\caption{State points simulated for cyclohexane with the $\lambda^{(1)}_{\rm CH_2} = 18$ force field.}
+	\caption{State points simulated for cyclohexane with the first iteration $(\theta^{\langle1\rangle})$ $\lambda_{\rm CH_2} = 18$ force field.}
 	\begin{center}
 		\begin{tabular}{|c|c|c|}
 			\hline
@@ -450,7 +528,7 @@
 \end{table}
 
 \begin{table}[htb!]
-	\caption{State points simulated for cyclohexane with the $\lambda^{(1)}_{\rm CH_2} = 20$ force field.}
+	\caption{State points simulated for cyclohexane with the first iteration $(\theta^{\langle1\rangle})$ $\lambda_{\rm CH_2} = 20$ force field.}
 	\begin{center}
 		\begin{tabular}{|c|c|c|}
 			\hline
@@ -462,6 +540,24 @@
 			460	&	-4062	&	3.0	\\
 			410	&	-3946	&	3.0	\\
 			360	&	-3866	&	3.0	\\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
+\begin{table}[htb!]
+	\caption{State points simulated for cyclohexane with the MiPPE force field (second iteration, $\theta^{\langle2\rangle}$ $\lambda_{\rm CH_2} = 16$).}
+	\begin{center}
+		\begin{tabular}{|c|c|c|}
+			\hline
+			$T$ (K) & $\mu$ (K) & $L$ (nm) \\ \hline
+			450	&	-4367	&	3.0	\\
+			500	&	-4367	&	3.0	\\
+			550	&	-4367	&	3.0	\\
+			500	&	-4149	&	3.0	\\
+			460	&	-4024	&	3.0	\\
+			410	&	-3893	&	3.0	\\
+			360	&	-3792	&	3.0	\\
 			\hline
 		\end{tabular}
 	\end{center}
@@ -1195,63 +1291,6 @@
 			440 & $618.21_{0.61}$ & $5.516_{0.091}$ & $1.516_{0.023}$ & $37.91_{0.10}$ & $0.933_{0.021}$ \\
 			430 & $628.74_{0.51}$ & $4.292_{0.090}$ & $1.166_{0.026}$ & $38.85_{0.14}$ & $0.944_{0.029}$ \\
 			420 & $638.50_{0.50}$ & $3.296_{0.086}$ & $0.885_{0.030}$ & $39.72_{0.18}$ & $0.955_{0.040}$ \\
-			\hline
-		\end{tabular}
-	\end{center}
-\end{table}
-
-\newpage
-\clearpage
-
-\section{Optimal $\psi$ values} \label{SI sec: eps scale}
-
-\begin{table}[htb!]
-	\caption{}
-	\begin{center}
-		\begin{tabular}{|c|c|c|}
-			\hline
-			Molecular name & Abbreviation & Optimal $\psi$ \\ \hline
-		    1-butyne & 1C$_4$ & 1.0063 \\
-		    
-			
-			\hline
-		\end{tabular}
-	\end{center}
-\end{table}
-
-\newpage
-\clearpage
-
-\section{Minimum number of effective snapshots} \label{SI sec: Min eff}
-
-	\begin{figure}[htb!]
-		\centering
-		\includegraphics[width=6.4in]{CYC6_min_Neff_lam_iteration.pdf}
-		\caption{Minimum number of effective snapshots $(\min(K_{\rm snaps}^{\rm eff}))$ with respect to $\epsilon_{\rm CH_2}$ and $\sigma_{\rm CH_2}$ for cyclohexane. Optimization has converged as $\min(K_{\rm snaps}^{\rm eff}) \gg 50$ for the optimal $\epsilon_{\rm CH_2}$, $\sigma_{\rm CH_2}$, $\lambda_{\rm CH_2}$ parameter set. Top-left, top-right, bottom-left, and bottom-right panels correspond $\lambda_{\rm CH_2} = 14$, $\lambda_{\rm CH_2} = 16$, $\lambda_{\rm CH_2} = 18$, and $\lambda_{\rm CH_2} = 12$, respectively. White star represents the optimal parameter set, i.e., the lowest value of $S$, for a given $\lambda_{\rm CH_2}$}
-		\label{SI fig:Iterate_Neff_CYC6}
-	\end{figure}
-
-\newpage
-\clearpage
-
-\section{Compiler and hardware} \label{SI sec: Machine hardward}
-
-With the exception of the 20 replicates performed for MiPPE cyclohexane, all simulations are run on a Linux 4.4.0-112-generic x86\_64 on an Intel(R) Xeon(R) CPU E5-2699 v4 @ 2.20GHz machine. On this machine, GOMC was erroneously compiled using the sub-optimal GNU compiler collection (GCC) instead of the preferred Intel compiler. GOMC compiled with the Intel compiler typically runs approximately twice as fast as GOMC compiled with the GCC compiler.
-
-The 20 replicate simulations for MiPPE cyclohexane utilize several different machine hardware architectures, listed in Table \ref{SI tab: Machine hardware}. GOMC was compiled with the Intel compiler on each of these machines.
-
-\begin{table}[htb!]
-	\caption{Machine hardware for 20 replicate simulations of MiPPE cyclohexane} \label{SI tab: Machine hardware}
-	\begin{center}
-		\begin{tabular}{|c|}
-			\hline
-			Intel(R) Core(TM) i7-4790K CPU @ 4.00GHz \\
-			Intel(R) Core(TM) i5-3570 CPU @ 3.40GHz \\
-			Intel(R) Core(TM) i5-2500K CPU @ 3.30GHz \\
-			Intel(R) Xeon(R) CPU X5450 @ 3.00GHz \\
-			Intel(R) Xeon(R) CPU X5355 @ 2.66GHz \\
-			Intel(R) Xeon(R) CPU E5-2640 v3 @ 2.60GHz \\
-			Intel(R) Core(TM)2 Quad CPU Q6600 @ 2.40GHz \\
 			\hline
 		\end{tabular}
 	\end{center}
