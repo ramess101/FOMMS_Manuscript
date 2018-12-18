@@ -240,19 +240,9 @@ The 20 replicate simulations for MiPPE cyclohexane utilize several different mac
 \newpage
 \clearpage
 
-\section{Compressibility factor} \label{SI sec: Z}
+\section{$\epsilon$-scaling} \label{SI sec: eps scale}
 
-	\begin{figure}[htb!]
-		\centering
-		\includegraphics[width=3.2in]{Compressibility_factor.pdf}
-		\caption{Compressibility factor in saturated vapor phase $(Z^{\rm sat}_{\rm vap})$ for all compounds simulated in Mick et al. and Soroush Barhaghi et al.}
-		\label{SI fig:Z}
-	\end{figure}
-
-\newpage
-\clearpage
-
-\section{Tabulated $\psi$ values} \label{SI sec: eps scale}
+\subsection{Tabulated $\psi$ values}
 
 \begin{table}[htb!]
 	\caption{Optimal $\epsilon$-scaling parameter $(\psi)$ values and corresponding scoring function. Abbreviations correspond to those in Figure \ref{fig:epsilon_scaling}.}
@@ -289,421 +279,196 @@ The 20 replicate simulations for MiPPE cyclohexane utilize several different mac
 \newpage
 \clearpage
 
-\section{Minimum number of effective snapshots} \label{SI sec: Min eff}
+\subsection{Tabulated phase equilibria for optimal $\psi$}
+
+
+\newpage
+\clearpage
+
+\section{Case study: Cyclohexane optimization}
+
+\subsection{Minimum number of effective snapshots} \label{SI sec: Min eff}
 
 \begin{figure}[htb!]
 	\centering
 	\includegraphics[width=6.4in]{CYC6_min_Neff_lam_iteration.pdf}
-	\caption{Minimum number of effective snapshots $(\min(K_{\rm snaps}^{\rm eff}))$ with respect to $\epsilon_{\rm CH_2}$ and $\sigma_{\rm CH_2}$ for cyclohexane. Optimization has converged as $\min(K_{\rm snaps}^{\rm eff}) \gg 50$ for the optimal $\epsilon_{\rm CH_2}$, $\sigma_{\rm CH_2}$, $\lambda_{\rm CH_2}$ parameter set. Top-left, top-right, bottom-left, and bottom-right panels correspond $\lambda_{\rm CH_2} = 14$, $\lambda_{\rm CH_2} = 16$, $\lambda_{\rm CH_2} = 18$, and $\lambda_{\rm CH_2} = 12$, respectively. White star represents the optimal parameter set, i.e., the lowest value of $S$, for a given $\lambda_{\rm CH_2}$}
+	\caption{Second iteration minimum number of effective snapshots $(\min(K_{\rm snaps}^{\rm eff}))$ with respect to $\epsilon_{\rm CH_2}$ and $\sigma_{\rm CH_2}$ for cyclohexane. Optimization has converged as $\min(K_{\rm snaps}^{\rm eff}) \gg 50$ for the optimal $\epsilon_{\rm CH_2}$, $\sigma_{\rm CH_2}$, $\lambda_{\rm CH_2}$ parameter set. Top-left, top-right, bottom-left, and bottom-right panels correspond $\lambda_{\rm CH_2} = 14$, $\lambda_{\rm CH_2} = 16$, $\lambda_{\rm CH_2} = 18$, and $\lambda_{\rm CH_2} = 12$, respectively. White star represents the optimal parameter set, i.e., the lowest value of $S$, for a given $\lambda_{\rm CH_2}$}
 	\label{SI fig:Iterate_Neff_CYC6}
 \end{figure}
 
 \newpage
 \clearpage
 
-\section{State Points} \label{SI sec: State Points}
+\subsection{Tabulated phase equilibria for iterations}
 
-\begin{table}[htb!]
-	\caption{State points simulated for 2-methylpropane with the TraPPE force field.}
-	\begin{center}
-		\begin{tabular}{|c|c|c|}
-			\hline
-			$T$ (K) & $\mu$ (K) & $L$ (nm) \\ \hline
-			350	&	-3120	&	3.0	\\
-			380	&	-3120	&	3.0	\\
-			405	&	-3117	&	3.0	\\
-			380	&	-2980	&	3.0	\\
-			350	&	-2880	&	3.0	\\
-			320	&	-2790	&	3.0	\\
-			290	&	-2705	&	3.0	\\
-			260	&	-2645	&	3.0	\\
-			230	&	-2600	&	3.0	\\
-			200	&	-2570	&	3.0	\\
-			\hline
-		\end{tabular}
-	\end{center}
-\end{table}
+	\begin{table}[htb!]
+		\caption{GCMC-MBAR results for the MiPPE force field (second iteration, $\theta^{\langle2\rangle}$ $\lambda_{\rm CH_2} = 16$). Subscripts correspond to the 95\% confidence interval computed with twenty independent replicate GCMC simulations at each state point.}
+		\begin{center}
+			\begin{tabular}{|c|c|c|c|c|c|}
+				\hline
+				$T^{\rm sat}$ (K) & $\rho_{\rm liq}^{\rm sat}$ (kg/m$^3$) & $\rho_{\rm vap}^{\rm sat}$ (kg/m$^3$) & $P_{\rm vap}^{\rm sat}$ (MPa) & $\Delta H_{\rm v}$ (kJ/mol) & $Z_{\rm vap}^{\rm sat}$ \\ \hline
+				
+				\hline
+			\end{tabular}
+		\end{center}
+	\end{table}
 
-\begin{table}[htb!]
-	\caption{State points simulated for 2,2-dimethylpropane with the TraPPE force field.}
-	\begin{center}
-		\begin{tabular}{|c|c|c|}
-			\hline
-			$T$ (K) & $\mu$ (K) & $L$ (nm) \\ \hline
-			380	&	-3405	&	3.0	\\
-			410	&	-3405	&	3.0	\\
-			440	&	-3405	&	3.0	\\
-			410	&	-3250	&	3.0	\\
-			380	&	-3140	&	3.0	\\
-			350	&	-3037	&	3.0	\\
-			330	&	-2970	&	3.0	\\
-			300	&	-2900	&	3.0	\\
-			270	&	-2820	&	3.0	\\
-			\hline
-		\end{tabular}
-	\end{center}
-\end{table}
+	\begin{table}[htb!]
+		\caption{GCMC-MBAR results for the TraPPE force field (zeroth iteration, $\theta^{\langle0\rangle})$. Subscripts correspond to the 95\% confidence interval computed with bootstrap re-sampling.}
+		\begin{center}
+			\begin{tabular}{|c|c|c|c|c|c|}
+				\hline
+				$T^{\rm sat}$ (K) & $\rho_{\rm liq}^{\rm sat}$ (kg/m$^3$) & $\rho_{\rm vap}^{\rm sat}$ (kg/m$^3$) & $P_{\rm vap}^{\rm sat}$ (MPa) & $\Delta H_{\rm v}$ (kJ/mol) & $Z_{\rm vap}^{\rm sat}$ \\ \hline
+				360 & $709.02_{0.33}$ & $4.775_{0.062}$ & $1.606_{0.016}$ & $26.916_{0.050}$ & $0.946_{0.016}$ \\
+				370 & $698.93_{0.39}$ & $6.067_{0.072}$ & $2.079_{0.012}$ & $26.440_{0.042}$ & $0.937_{0.012}$ \\
+				380 & $688.03_{0.44}$ & $7.610_{0.088}$ & $2.65_{0.01}$ & $25.919_{0.036}$ & $0.927_{0.011}$ \\
+				390 & $677.14_{0.49}$ & $9.43_{0.11}$ & $3.33_{0.01}$ & $25.382_{0.033}$ & $0.916_{0.010}$ \\
+				400 & $666.43_{0.55}$ & $11.57_{0.12}$ & $4.13_{0.01}$ & $24.835_{0.030}$ & $0.90_{0.01}$ \\
+				410 & $655.56_{0.39}$ & $14.07_{0.13}$ & $5.071_{0.017}$ & $24.266_{0.023}$ & $0.89_{0.01}$ \\
+				420 & $644.33_{0.48}$ & $16.97_{0.13}$ & $6.158_{0.025}$ & $23.665_{0.027}$ & $0.87_{0.01}$ \\
+				430 & $632.76_{0.54}$ & $20.32_{0.12}$ & $7.408_{0.031}$ & $23.030_{0.030}$ & $0.86_{0.01}$ \\
+				440 & $620.79_{0.67}$ & $24.18_{0.26}$ & $8.833_{0.039}$ & $22.356_{0.051}$ & $0.84_{0.01}$ \\
+				450 & $608.2_{1.2}$ & $28.64_{0.96}$ & $10.450_{0.052}$ & $21.63_{0.10}$ & $0.821_{0.028}$ \\
+				460 & $595.0_{2.9}$ & $33.8_{2.4}$ & $12.271_{0.098}$ & $20.85_{0.20}$ & $0.799_{0.057}$ \\
+				470 & $581.0_{4.6}$ & $39.7_{3.8}$ & $14.31_{0.17}$ & $20.01_{0.30}$ & $0.776_{0.075}$ \\
+				480 & $566.2_{4.8}$ & $46.7_{4.6}$ & $16.59_{0.24}$ & $19.08_{0.33}$ & $0.750_{0.074}$ \\
+				490 & $550.4_{4.5}$ & $54.8_{4.7}$ & $19.12_{0.29}$ & $18.06_{0.38}$ & $0.720_{0.063}$ \\
+				500 & $533.2_{5.4}$ & $64.6_{3.8}$ & $21.93_{0.38}$ & $16.913_{0.088}$ & $0.687_{0.042}$ \\
+				510 & $513.8_{5.3}$ & $76.6_{5.4}$ & $25.04_{0.37}$ & $15.59_{0.33}$ & $0.649_{0.047}$ \\
+				520 & $491.6_{3.8}$ & $91.4_{7.6}$ & $28.48_{0.28}$ & $14.08_{0.34}$ & $0.607_{0.051}$ \\
+				\hline
+			\end{tabular}
+		\end{center}
+	\end{table}
 
-\begin{table}[htb!]
-	\caption{State points simulated for 2,2-dimethylbutane with the TraPPE force field.}
-	\begin{center}
-		\begin{tabular}{|c|c|c|}
-			\hline
-			$T$ (K) & $\mu$ (K) & $L$ (nm) \\ \hline
-			420	&	-3860	&	3.5	\\
-			450	&	-3860	&	3.5	\\
-			480	&	-3860	&	3.5	\\
-			450	&	-3719	&	3.5	\\
-			420	&	-3600	&	3.5	\\
-			400	&	-3524	&	3.5	\\
-			380	&	-3450	&	3.5	\\
-			360	&	-3368	&	3.5	\\
-			340	&	-3288	&	3.5	\\
-			310	&	-3280	&	3.5	\\
-			\hline
-		\end{tabular}
-	\end{center}
-\end{table}
+	\begin{table}[htb!]
+		\caption{GCMC-MBAR results for the first iteration $(\theta^{\langle1\rangle})$ $\lambda_{\rm CH_2} = 14$ force field. Subscripts correspond to the 95\% confidence interval computed with bootstrap re-sampling.}
+		\begin{center}
+			\begin{tabular}{|c|c|c|c|c|c|}
+				\hline
+				$T^{\rm sat}$ (K) & $\rho_{\rm liq}^{\rm sat}$ (kg/m$^3$) & $\rho_{\rm vap}^{\rm sat}$ (kg/m$^3$) & $P_{\rm vap}^{\rm sat}$ (MPa) & $\Delta H_{\rm v}$ (kJ/mol) & $Z_{\rm vap}^{\rm sat}$ \\ \hline
+				360 & $704.93_{0.26}$ & $3.743_{0.073}$ & $1.271_{0.044}$ & $28.78_{0.10}$ & $0.955_{0.038}$ \\
+				370 & $695.36_{0.63}$ & $4.822_{0.057}$ & $1.669_{0.048}$ & $28.28_{0.11}$ & $0.947_{0.029}$ \\
+				380 & $684.68_{0.79}$ & $6.125_{0.057}$ & $2.157_{0.049}$ & $27.73_{0.11}$ & $0.938_{0.023}$ \\
+				390 & $673.71_{0.68}$ & $7.680_{0.084}$ & $2.745_{0.048}$ & $27.144_{0.099}$ & $0.928_{0.019}$ \\
+				400 & $663.17_{0.45}$ & $9.52_{0.13}$ & $3.445_{0.044}$ & $26.568_{0.086}$ & $0.916_{0.017}$ \\
+				410 & $652.73_{0.24}$ & $11.68_{0.17}$ & $4.273_{0.039}$ & $25.980_{0.062}$ & $0.903_{0.016}$ \\
+				420 & $641.98_{0.82}$ & $14.21_{0.23}$ & $5.240_{0.033}$ & $25.360_{0.039}$ & $0.889_{0.015}$ \\
+				430 & $630.8_{1.2}$ & $17.15_{0.30}$ & $6.362_{0.032}$ & $24.703_{0.036}$ & $0.873_{0.016}$ \\
+				440 & $619.3_{1.1}$ & $20.57_{0.39}$ & $7.652_{0.041}$ & $24.005_{0.044}$ & $0.856_{0.017}$ \\
+				450 & $607.24_{0.80}$ & $24.53_{0.54}$ & $9.125_{0.062}$ & $23.261_{0.063}$ & $0.837_{0.019}$ \\
+				460 & $594.62_{0.73}$ & $29.11_{0.77}$ & $10.796_{0.093}$ & $22.463_{0.085}$ & $0.816_{0.023}$ \\
+				470 & $581.33_{0.87}$ & $34.4_{1.1}$ & $12.68_{0.14}$ & $21.60_{0.11}$ & $0.793_{0.027}$ \\
+				480 & $567.3_{1.1}$ & $40.6_{1.6}$ & $14.80_{0.21}$ & $20.68_{0.13}$ & $0.768_{0.032}$ \\
+				490 & $552.4_{1.5}$ & $47.9_{2.1}$ & $17.16_{0.30}$ & $19.66_{0.14}$ & $0.741_{0.035}$ \\
+				500 & $536.3_{2.5}$ & $56.5_{2.6}$ & $19.80_{0.41}$ & $18.52_{0.14}$ & $0.709_{0.036}$ \\
+				510 & $518.2_{4.3}$ & $67.2_{2.8}$ & $22.73_{0.54}$ & $17.20_{0.16}$ & $0.672_{0.033}$ \\
+				\hline
+			\end{tabular}
+		\end{center}
+	\end{table}
 
-\begin{table}[htb!]
-	\caption{State points simulated for 2,3-dimethylbutane with the TraPPE force field.}
-	\begin{center}
-		\begin{tabular}{|c|c|c|}
-			\hline
-			$T$ (K) & $\mu$ (K) & $L$ (nm) \\ \hline
-			440	&	-4015	&	3.0	\\
-			470	&	-4015	&	3.0	\\
-			500	&	-4011	&	3.0	\\
-			470	&	-3845	&	3.0	\\
-			440	&	-3735	&	3.0	\\
-			410	&	-3635	&	3.0	\\
-			380	&	-3555	&	3.0	\\
-			350	&	-3480	&	3.0	\\
-			320	&	-3415	&	3.0	\\
-			\hline
-		\end{tabular}
-	\end{center}
-\end{table}
+	\begin{table}[htb!]
+		\caption{GCMC-MBAR results for the first iteration $(\theta^{\langle1\rangle})$ $\lambda_{\rm CH_2} = 16$ force field. Subscripts correspond to the 95\% confidence interval computed with bootstrap re-sampling.}
+		\begin{center}
+			\begin{tabular}{|c|c|c|c|c|c|}
+				\hline
+				$T^{\rm sat}$ (K) & $\rho_{\rm liq}^{\rm sat}$ (kg/m$^3$) & $\rho_{\rm vap}^{\rm sat}$ (kg/m$^3$) & $P_{\rm vap}^{\rm sat}$ (MPa) & $\Delta H_{\rm v}$ (kJ/mol) & $Z_{\rm vap}^{\rm sat}$ \\ \hline
+				360 & $713.64_{0.38}$ & $3.583_{0.049}$ & $1.225_{0.039}$ & $29.59_{0.13}$ & $0.961_{0.033}$ \\
+				370 & $704.1_{1.2}$ & $4.647_{0.057}$ & $1.617_{0.036}$ & $29.065_{0.088}$ & $0.952_{0.024}$ \\
+				380 & $695.0_{2.4}$ & $5.943_{0.071}$ & $2.102_{0.032}$ & $28.551_{0.098}$ & $0.942_{0.018}$ \\
+				390 & $685.2_{2.3}$ & $7.505_{0.090}$ & $2.692_{0.027}$ & $27.993_{0.084}$ & $0.931_{0.015}$ \\
+				400 & $674.3_{1.1}$ & $9.37_{0.11}$ & $3.400_{0.024}$ & $27.376_{0.037}$ & $0.918_{0.013}$ \\
+				410 & $662.91_{0.76}$ & $11.57_{0.12}$ & $4.241_{0.026}$ & $26.717_{0.040}$ & $0.905_{0.011}$ \\
+				420 & $651.2_{1.0}$ & $14.16_{0.14}$ & $5.229_{0.032}$ & $26.027_{0.065}$ & $0.890_{0.011}$ \\
+				430 & $639.4_{1.1}$ & $17.19_{0.18}$ & $6.378_{0.040}$ & $25.310_{0.078}$ & $0.873_{0.011}$ \\
+				440 & $627.31_{0.89}$ & $20.71_{0.22}$ & $7.704_{0.050}$ & $24.565_{0.072}$ & $0.856_{0.011}$ \\
+				450 & $614.82_{0.58}$ & $24.79_{0.24}$ & $9.223_{0.059}$ & $23.777_{0.051}$ & $0.84_{0.01}$ \\
+				460 & $601.71_{0.56}$ & $29.53_{0.25}$ & $10.952_{0.067}$ & $22.935_{0.053}$ & $0.82_{0.01}$ \\
+				470 & $587.98_{0.65}$ & $35.03_{0.48}$ & $12.907_{0.067}$ & $22.033_{0.094}$ & $0.794_{0.012}$ \\
+				480 & $573.59_{0.74}$ & $41.45_{0.99}$ & $15.106_{0.063}$ & $21.06_{0.15}$ & $0.768_{0.019}$ \\
+				490 & $558.19_{0.80}$ & $49.0_{1.7}$ & $17.571_{0.086}$ & $19.99_{0.20}$ & $0.740_{0.026}$ \\
+				500 & $541.27_{0.93}$ & $58.2_{2.6}$ & $20.33_{0.16}$ & $18.78_{0.24}$ & $0.707_{0.032}$ \\
+				510 & $522.1_{1.7}$ & $69.5_{3.4}$ & $23.40_{0.28}$ & $17.36_{0.25}$ & $0.668_{0.034}$ \\
+				520 & $499.8_{2.6}$ & $83.7_{3.9}$ & $26.82_{0.43}$ & $15.71_{0.22}$ & $0.624_{0.031}$ \\
+				\hline
+			\end{tabular}
+		\end{center}
+	\end{table}
 
-\begin{table}[htb!]
-	\caption{State points simulated for 3,3-dimethylhexane with the TraPPE force field.}
-	\begin{center}
-		\begin{tabular}{|c|c|c|}
-			\hline
-			$T$ (K) & $\mu$ (K) & $L$ (nm) \\ \hline
-			500	&	-4670	&	3.5	\\
-			530	&	-4670	&	3.5	\\
-			560	&	-4670	&	3.5	\\
-			520	&	-4476	&	3.5	\\
-			490	&	-4370	&	3.5	\\
-			460	&	-4268	&	3.5	\\
-			430	&	-4164	&	3.5	\\
-			400	&	-4039	&	3.5	\\
-			370	&	-3925	&	3.5	\\
-			\hline
-		\end{tabular}
-	\end{center}
-\end{table}
+	\begin{table}[htb!]
+		\caption{GCMC-MBAR results for the first iteration $(\theta^{\langle1\rangle})$ $\lambda_{\rm CH_2} = 18$ force field. Subscripts correspond to the 95\% confidence interval computed with bootstrap re-sampling.}
+		\begin{center}
+			\begin{tabular}{|c|c|c|c|c|c|}
+				\hline
+				$T^{\rm sat}$ (K) & $\rho_{\rm liq}^{\rm sat}$ (kg/m$^3$) & $\rho_{\rm vap}^{\rm sat}$ (kg/m$^3$) & $P_{\rm vap}^{\rm sat}$ (MPa) & $\Delta H_{\rm v}$ (kJ/mol) & $Z_{\rm vap}^{\rm sat}$ \\ \hline
+				360 & $713.60_{0.89}$ & $3.294_{0.099}$ & $1.126_{0.020}$ & $30.527_{0.066}$ & $0.961_{0.034}$ \\
+				370 & $702.86_{0.81}$ & $4.306_{0.092}$ & $1.499_{0.015}$ & $29.921_{0.044}$ & $0.952_{0.023}$ \\
+				380 & $692.51_{0.62}$ & $5.545_{0.081}$ & $1.962_{0.013}$ & $29.327_{0.039}$ & $0.943_{0.015}$ \\
+				390 & $682.23_{0.53}$ & $7.043_{0.088}$ & $2.529_{0.011}$ & $28.725_{0.043}$ & $0.932_{0.012}$ \\
+				400 & $671.99_{0.38}$ & $8.84_{0.13}$ & $3.21_{0.01}$ & $28.110_{0.043}$ & $0.920_{0.013}$ \\
+				410 & $661.74_{0.33}$ & $10.98_{0.17}$ & $4.029_{0.013}$ & $27.478_{0.038}$ & $0.906_{0.015}$ \\
+				420 & $650.92_{0.46}$ & $13.51_{0.21}$ & $4.995_{0.024}$ & $26.801_{0.037}$ & $0.891_{0.015}$ \\
+				430 & $639.09_{0.44}$ & $16.48_{0.24}$ & $6.125_{0.039}$ & $26.056_{0.039}$ & $0.875_{0.014}$ \\
+				440 & $626.49_{0.39}$ & $19.96_{0.27}$ & $7.435_{0.055}$ & $25.253_{0.042}$ & $0.857_{0.013}$ \\
+				450 & $613.53_{0.38}$ & $24.02_{0.35}$ & $8.941_{0.073}$ & $24.409_{0.048}$ & $0.837_{0.014}$ \\
+				460 & $600.27_{0.57}$ & $28.75_{0.70}$ & $10.662_{0.096}$ & $23.525_{0.086}$ & $0.816_{0.021}$ \\
+				470 & $586.50_{0.90}$ & $34.3_{1.6}$ & $12.62_{0.14}$ & $22.58_{0.16}$ & $0.793_{0.037}$ \\
+				480 & $571.9_{1.5}$ & $40.7_{2.6}$ & $14.82_{0.23}$ & $21.56_{0.21}$ & $0.767_{0.051}$ \\
+				490 & $556.3_{2.5}$ & $48.4_{3.2}$ & $17.30_{0.35}$ & $20.44_{0.25}$ & $0.738_{0.050}$ \\
+				500 & $538.9_{3.0}$ & $57.7_{3.1}$ & $20.08_{0.46}$ & $19.16_{0.25}$ & $0.705_{0.041}$ \\
+				510 & $519.1_{2.0}$ & $69.1_{2.7}$ & $23.19_{0.54}$ & $17.67_{0.18}$ & $0.666_{0.030}$ \\
+				520 & $495.9_{1.6}$ & $83.5_{2.4}$ & $26.66_{0.62}$ & $15.93_{0.12}$ & $0.621_{0.023}$ \\
+				\hline
+			\end{tabular}
+		\end{center}
+	\end{table}
 
-\begin{table}[htb!]
-	\caption{State points simulated for 3-methyl-3-ethylpentane with the TraPPE force field.}
-	\begin{center}
-		\begin{tabular}{|c|c|c|}
-			\hline
-			$T$ (K) & $\mu$ (K) & $L$ (nm) \\ \hline
-			500	&	-4785	&	4.0	\\
-			550	&	-4785	&	4.0	\\
-			580	&	-4785	&	4.0	\\
-			550	&	-4636	&	4.0	\\
-			520	&	-4520	&	4.0	\\
-			490	&	-4400	&	4.0	\\
-			460	&	-4280	&	4.0	\\
-			430	&	-4160	&	4.0	\\
-			410	&	-4080	&	4.0	\\
-			390	&	-3990	&	4.0	\\
-			\hline
-		\end{tabular}
-	\end{center}
-\end{table}
-
-\begin{table}[htb!]
-	\caption{State points simulated for 2,3,4-trimethylpentane with the TraPPE force field.}
-	\begin{center}
-		\begin{tabular}{|c|c|c|}
-			\hline
-			$T$ (K) & $\mu$ (K) & $L$ (nm) \\ \hline
-			480	&	-4740	&	3.5	\\
-			520	&	-4740	&	3.5	\\
-			565	&	-4735	&	3.5	\\
-			530	&	-4549	&	3.5	\\
-			500	&	-4436	&	3.5	\\
-			470	&	-4337	&	3.5	\\
-			440	&	-4241	&	3.5	\\
-			410	&	-4182	&	3.5	\\
-			380	&	-4090	&	3.5	\\
-			350	&	-4020	&	3.5	\\
-			\hline
-		\end{tabular}
-	\end{center}
-\end{table}
-
-\begin{table}[htb!]
-	\caption{State points simulated for 2,2,4-trimethylpentane with the TraPPE force field.}
-	\begin{center}
-		\begin{tabular}{|c|c|c|}
-			\hline
-			$T$ (K) & $\mu$ (K) & $L$ (nm) \\ \hline
-			480	&	-4600	&	4.0	\\
-			530	&	-4600	&	4.0	\\
-			560	&	-4600	&	4.0	\\
-			530	&	-4450	&	4.0	\\
-			500	&	-4330	&	4.0	\\
-			470	&	-4210	&	4.0	\\
-			440	&	-4090	&	4.0	\\
-			410	&	-3960	&	4.0	\\
-			380	&	-3840	&	4.0	\\
-			\hline
-		\end{tabular}
-	\end{center}
-\end{table}
-
-\begin{table}[htb!]
-	\caption{State points simulated for cyclohexane with the TraPPE force field $(\theta^{\langle0\rangle})$.}
-	\begin{center}
-		\begin{tabular}{|c|c|c|}
-			\hline
-			$T$ (K) & $\mu$ (K) & $L$ (nm) \\ \hline
-			450	&	-4350	&	3.0	\\
-			500	&	-4350	&	3.0	\\
-			550	&	-4350	&	3.0	\\
-			500	&	-4120	&	3.0	\\
-			460	&	-3977	&	3.0	\\
-			410	&	-3790	&	3.0	\\
-			350	&	-3562	&	3.0	\\
-			\hline
-		\end{tabular}
-	\end{center}
-\end{table}
-
-\begin{table}[htb!]
-	\caption{State points simulated for cyclohexane with the first iteration $(\theta^{\langle1\rangle})$ $\lambda_{\rm CH_2} = 14$ force field.}
-	\begin{center}
-		\begin{tabular}{|c|c|c|}
-			\hline
-			$T$ (K) & $\mu$ (K) & $L$ (nm) \\ \hline
-			450	&	-4389	&	3.0	\\
-			500	&	-4389	&	3.0	\\
-			550	&	-4389	&	3.0	\\
-			500	&	-4164	&	3.0	\\
-			460	&	-4033	&	3.0	\\
-			410	&	-3891	&	3.0	\\
-			360	&	-3780	&	3.0	\\
-			\hline
-		\end{tabular}
-	\end{center}
-\end{table}
-
-\begin{table}[htb!]
-	\caption{State points simulated for cyclohexane with the first iteration $(\theta^{\langle1\rangle})$ $\lambda_{\rm CH_2} = 16$ force field.}
-	\begin{center}
-		\begin{tabular}{|c|c|c|}
-			\hline
-			$T$ (K) & $\mu$ (K) & $L$ (nm) \\ \hline
-			450	&	-4367	&	3.0	\\
-			500	&	-4367	&	3.0	\\
-			550	&	-4367	&	3.0	\\
-			500	&	-4149	&	3.0	\\
-			460	&	-4024	&	3.0	\\
-			410	&	-3893	&	3.0	\\
-			360	&	-3792	&	3.0	\\
-			\hline
-		\end{tabular}
-	\end{center}
-\end{table}
-
-\begin{table}[htb!]
-	\caption{State points simulated for cyclohexane with the first iteration $(\theta^{\langle1\rangle})$ $\lambda_{\rm CH_2} = 18$ force field.}
-	\begin{center}
-		\begin{tabular}{|c|c|c|}
-			\hline
-			$T$ (K) & $\mu$ (K) & $L$ (nm) \\ \hline
-			450	&	-4370	&	3.0	\\
-			500	&	-4370	&	3.0	\\
-			550	&	-4370	&	3.0	\\
-			500	&	-4158	&	3.0	\\
-			460	&	-4037	&	3.0	\\
-			410	&	-3912	&	3.0	\\
-			360	&	-3825	&	3.0	\\
-			\hline
-		\end{tabular}
-	\end{center}
-\end{table}
-
-\begin{table}[htb!]
-	\caption{State points simulated for cyclohexane with the first iteration $(\theta^{\langle1\rangle})$ $\lambda_{\rm CH_2} = 20$ force field.}
-	\begin{center}
-		\begin{tabular}{|c|c|c|}
-			\hline
-			$T$ (K) & $\mu$ (K) & $L$ (nm) \\ \hline
-			450	&	-4386	&	3.0	\\
-			500	&	-4386	&	3.0	\\
-			550	&	-4386	&	3.0	\\
-			500	&	-4178	&	3.0	\\
-			460	&	-4062	&	3.0	\\
-			410	&	-3946	&	3.0	\\
-			360	&	-3866	&	3.0	\\
-			\hline
-		\end{tabular}
-	\end{center}
-\end{table}
-
-\begin{table}[htb!]
-	\caption{State points simulated for cyclohexane with the MiPPE force field (second iteration, $\theta^{\langle2\rangle}$ $\lambda_{\rm CH_2} = 16$).}
-	\begin{center}
-		\begin{tabular}{|c|c|c|}
-			\hline
-			$T$ (K) & $\mu$ (K) & $L$ (nm) \\ \hline
-			450	&	-4367	&	3.0	\\
-			500	&	-4367	&	3.0	\\
-			550	&	-4367	&	3.0	\\
-			500	&	-4149	&	3.0	\\
-			460	&	-4024	&	3.0	\\
-			410	&	-3893	&	3.0	\\
-			360	&	-3792	&	3.0	\\
-			\hline
-		\end{tabular}
-	\end{center}
-\end{table}
-
-\begin{table}[htb!]
-	\caption{State points simulated for 2-methylpropane with the MiPPE-gen force field.}
-	\begin{center}
-		\begin{tabular}{|c|c|c|}
-			\hline
-			$T$ (K) & $\mu$ (K) & $L$ (nm) \\ \hline
-            350	&	-3150	&	3.0	\\
-            380	&	-3150	&	3.0	\\
-            410	&	-3145	&	3.0	\\
-            380	&	-3010	&	3.0	\\
-            350	&	-2910	&	3.0	\\
-            320	&	-2830	&	3.0	\\
-            290	&	-2760	&	3.0	\\
-            260	&	-2700	&	3.0	\\
-            230	&	-2670	&	3.0	\\
-            200	&	-2640	&	3.0	\\
-            \hline
-		\end{tabular}
-	\end{center}
-\end{table}
-
-\begin{table}[htb!]
-	\caption{State points simulated for 2,2-dimethylpropane with the MiPPE-gen force field.}
-	\begin{center}
-		\begin{tabular}{|c|c|c|}
-			\hline
-			$T$ (K) & $\mu$ (K) & $L$ (nm) \\ \hline
-			368	&	-3344	&	3.0	\\
-			398	&	-3344	&	3.0	\\
-			430	&	-3400	&	3.0	\\
-			398	&	-3216	&	3.0	\\
-			372	&	-3124	&	3.0	\\
-			346	&	-3032	&	3.0	\\
-			326	&	-2961	&	3.0	\\
-			299	&	-2865	&	3.0	\\
-			270	&	-2759	&	3.0	\\
-			\hline
-		\end{tabular}
-	\end{center}
-\end{table}
-
-\begin{table}[htb!]
-	\caption{State points simulated for 2,2-dimethylbutane with the MiPPE-gen force field.}
-	\begin{center}
-		\begin{tabular}{|c|c|c|}
-			\hline
-			$T$ (K) & $\mu$ (K) & $L$ (nm) \\ \hline
-			415	&	-3873	&	3.5	\\
-			445	&	-3873	&	3.5	\\
-			480	&	-3895	&	3.5	\\
-			450	&	-3756	&	3.5	\\
-			420	&	-3654	&	3.5	\\
-			400	&	-3588	&	3.5	\\
-			380	&	-3521	&	3.5	\\
-			360	&	-3454	&	3.5	\\
-			340	&	-3384	&	3.5	\\
-			310	&	-3380	&	3.5	\\
-			\hline
-		\end{tabular}
-	\end{center}
-\end{table}
-
-\begin{table}[htb!]
-	\caption{State points simulated for 2,3-dimethylbutane with the MiPPE-gen force field.}
-	\begin{center}
-		\begin{tabular}{|c|c|c|}
-			\hline
-			$T$ (K) & $\mu$ (K) & $L$ (nm) \\ \hline
-			440	&	-4010	&	3.0	\\
-			470	&	-4010	&	3.0	\\
-			500	&	-4009	&	3.0	\\
-			470	&	-3860	&	3.0	\\
-			440	&	-3760	&	3.0	\\
-			410	&	-3670	&	3.0	\\
-			380	&	-3600	&	3.0	\\
-			350	&	-3530	&	3.0	\\
-			320	&	-3480	&	3.0	\\
-			\hline
-		\end{tabular}
-	\end{center}
-\end{table}
-
-\begin{table}[htb!]
-	\caption{State points simulated for 2,3,4-trimethylpentane with the MiPPE-gen force field.}
-	\begin{center}
-		\begin{tabular}{|c|c|c|}
-			\hline
-			$T$ (K) & $\mu$ (K) & $L$ (nm) \\ \hline
-			480	&	-4720	&	3.5	\\
-			520	&	-4720	&	3.5	\\
-			565	&	-4713	&	3.5	\\
-			530	&	-4540	&	3.5	\\
-			500	&	-4360	&	3.5	\\
-			470	&	-4355	&	3.5	\\
-			440	&	-4275	&	3.5	\\
-			410	&	-4205	&	3.5	\\
-			380	&	-4165	&	3.5	\\
-			350	&	-4115	&	3.5	\\
-			\hline
-		\end{tabular}
-	\end{center}
-\end{table}
-
-\begin{table}[htb!]
-	\caption{State points simulated for 2,2,4-trimethylpentane with the MiPPE-gen force field.}
-	\begin{center}
-		\begin{tabular}{|c|c|c|}
-			\hline
-			$T$ (K) & $\mu$ (K) & $L$ (nm) \\ \hline
-			470	&	-4570	&	4.0	\\
-			520	&	-4570	&	4.0	\\
-			550	&	-4570	&	4.0	\\
-			520	&	-4420	&	4.0	\\
-			490	&	-4300	&	4.0	\\
-			460	&	-4170	&	4.0	\\
-			430	&	-4050	&	4.0	\\
-			400	&	-3920	&	4.0	\\
-			370	&	-3790	&	4.0	\\
-			\hline
-		\end{tabular}
-	\end{center}
-\end{table}
+	\begin{table}[htb!]
+		\caption{GCMC-MBAR results for the first iteration $(\theta^{\langle1\rangle})$ $\lambda_{\rm CH_2} = 20$ force field. Subscripts correspond to the 95\% confidence interval computed with bootstrap re-sampling.}
+		\begin{center}
+			\begin{tabular}{|c|c|c|c|c|c|}
+				\hline
+				$T^{\rm sat}$ (K) & $\rho_{\rm liq}^{\rm sat}$ (kg/m$^3$) & $\rho_{\rm vap}^{\rm sat}$ (kg/m$^3$) & $P_{\rm vap}^{\rm sat}$ (MPa) & $\Delta H_{\rm v}$ (kJ/mol) & $Z_{\rm vap}^{\rm sat}$ \\ \hline
+				360 & $721.21_{0.17}$ & $2.885_{0.047}$ & $0.989_{0.059}$ & $31.72_{0.18}$ & $0.964_{0.059}$ \\
+				370 & $711.38_{0.48}$ & $3.812_{0.043}$ & $1.331_{0.056}$ & $31.13_{0.11}$ & $0.955_{0.042}$ \\
+				380 & $701.58_{0.81}$ & $4.955_{0.041}$ & $1.759_{0.054}$ & $30.545_{0.066}$ & $0.946_{0.030}$ \\
+				390 & $691.47_{0.70}$ & $6.351_{0.048}$ & $2.288_{0.054}$ & $29.931_{0.055}$ & $0.935_{0.023}$ \\
+				400 & $680.14_{0.36}$ & $8.033_{0.065}$ & $2.932_{0.055}$ & $29.243_{0.046}$ & $0.924_{0.019}$ \\
+				410 & $668.26_{0.63}$ & $10.039_{0.086}$ & $3.705_{0.057}$ & $28.510_{0.057}$ & $0.911_{0.016}$ \\
+				420 & $656.5_{1.6}$ & $12.41_{0.11}$ & $4.621_{0.061}$ & $27.77_{0.10}$ & $0.897_{0.014}$ \\
+				430 & $644.5_{2.3}$ & $15.21_{0.13}$ & $5.698_{0.065}$ & $27.00_{0.14}$ & $0.882_{0.013}$ \\
+				440 & $631.8_{1.8}$ & $18.50_{0.16}$ & $6.950_{0.068}$ & $26.17_{0.12}$ & $0.864_{0.011}$ \\
+				450 & $618.8_{1.1}$ & $22.34_{0.20}$ & $8.396_{0.072}$ & $25.308_{0.082}$ & $0.845_{0.010}$ \\
+				460 & $605.44_{0.73}$ & $26.84_{0.33}$ & $10.053_{0.072}$ & $24.399_{0.086}$ & $0.824_{0.012}$ \\
+				470 & $591.81_{0.70}$ & $32.11_{0.65}$ & $11.941_{0.069}$ & $23.44_{0.13}$ & $0.801_{0.017}$ \\
+				480 & $577.60_{0.68}$ & $38.3_{1.2}$ & $14.083_{0.074}$ & $22.41_{0.19}$ & $0.775_{0.025}$ \\
+				490 & $562.27_{0.91}$ & $45.7_{2.1}$ & $16.50_{0.12}$ & $21.28_{0.23}$ & $0.746_{0.034}$ \\
+				500 & $545.2_{2.6}$ & $54.6_{2.9}$ & $19.22_{0.23}$ & $20.00_{0.19}$ & $0.713_{0.039}$ \\
+				510 & $526.1_{5.6}$ & $65.5_{3.4}$ & $22.27_{0.38}$ & $18.526_{0.093}$ & $0.675_{0.037}$ \\
+				520 & $504.1_{9.3}$ & $79.2_{3.3}$ & $25.69_{0.57}$ & $16.81_{0.22}$ & $0.631_{0.030}$ \\
+				\hline
+			\end{tabular}
+		\end{center}
+	\end{table}
 
 \newpage
 \clearpage
 
-\section{Tabulated GCMC-MBAR results} \label{SI sec: Tabulated MBAR results}
 
-\subsection{Cyclohexane}
+\section{Compressibility factor} \label{SI sec: Z}
+
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=4.8in]{Compressibility_factor_all.pdf}
+	\caption{Compressibility factor in saturated vapor phase $(Z^{\rm sat}_{\rm vap})$ for all compounds simulated in Mick et al. and Soroush Barhaghi et al. Note that symmetric (normal) 95\% confidence intervals are ill-suited when $Z^{\rm sat}_{\rm vap} \approx 1$, as this assumption can result in $Z^{\rm sat}_{\rm vap} > 1$.}
+	\label{SI fig:Z}
+\end{figure}
+
+\newpage
+\clearpage
+
+\section{Tabulated phase equilibria for validation of GCMC-MBAR} \label{SI sec: Tabulated MBAR results}
 
 \subsection{Branched alkanes}
 
@@ -1045,6 +810,9 @@ The 20 replicate simulations for MiPPE cyclohexane utilize several different mac
 	\end{center}
 \end{table}
 
+\newpage
+\clearpage
+
 \subsection{Alkynes}
 
 \begin{table}[htb!]
@@ -1119,8 +887,8 @@ The 20 replicate simulations for MiPPE cyclohexane utilize several different mac
 			440 & $466.0_{5.5}$ & $74.1_{3.5}$ & $30.73_{0.28}$ & $14.00_{0.24}$ & $0.613_{0.029}$ \\
 			430 & $491.6_{2.0}$ & $59.1_{1.9}$ & $25.87_{0.16}$ & $15.71_{0.17}$ & $0.662_{0.022}$ \\
 			420 & $512.10_{0.77}$ & $47.58_{0.69}$ & $21.63_{0.14}$ & $17.114_{0.094}$ & $0.704_{0.011}$ \\
-			410 & $530.5_{1.1}$ & $38.42_{0.30}$ & $17.95_{0.13}$ & $18.346_{0.054}$ & $0.7411_{7.7e-3}$ \\
-			400 & $548.28_{0.94}$ & $30.99_{0.31}$ & $14.76_{0.11}$ & $19.487_{0.051}$ & $0.7745_{9.6e-3}$ \\
+			410 & $530.5_{1.1}$ & $38.42_{0.30}$ & $17.95_{0.13}$ & $18.346_{0.054}$ & $0.74_{0.01}$ \\
+			400 & $548.28_{0.94}$ & $30.99_{0.31}$ & $14.76_{0.11}$ & $19.487_{0.051}$ & $0.77_{0.01}$ \\
 			390 & $565.05_{0.94}$ & $24.89_{0.27}$ & $12.013_{0.089}$ & $20.533_{0.061}$ & $0.805_{0.011}$ \\
 			380 & $580.6_{1.1}$ & $19.89_{0.25}$ & $9.674_{0.068}$ & $21.483_{0.073}$ & $0.833_{0.012}$ \\
 			370 & $594.97_{0.83}$ & $15.78_{0.25}$ & $7.697_{0.050}$ & $22.349_{0.074}$ & $0.858_{0.014}$ \\
@@ -1143,7 +911,7 @@ The 20 replicate simulations for MiPPE cyclohexane utilize several different mac
 			440 & $461.7_{1.7}$ & $66.9_{2.0}$ & $23.04_{0.15}$ & $15.29_{0.18}$ & $0.641_{0.020}$ \\
 			430 & $485.2_{1.5}$ & $53.1_{1.2}$ & $19.32_{0.12}$ & $17.06_{0.16}$ & $0.693_{0.016}$ \\
 			420 & $505.4_{1.6}$ & $42.65_{0.51}$ & $16.08_{0.12}$ & $18.54_{0.11}$ & $0.735_{0.010}$ \\
-			410 & $523.3_{1.4}$ & $34.37_{0.30}$ & $13.27_{0.10}$ & $19.810_{0.078}$ & $0.7714_{8.8e-3}$ \\
+			410 & $523.3_{1.4}$ & $34.37_{0.30}$ & $13.27_{0.10}$ & $19.810_{0.078}$ & $0.77_{0.01}$ \\
 			400 & $539.7_{1.2}$ & $27.67_{0.31}$ & $10.844_{0.077}$ & $20.949_{0.055}$ & $0.803_{0.011}$ \\
 			390 & $555.3_{1.1}$ & $22.17_{0.30}$ & $8.770_{0.052}$ & $21.998_{0.041}$ & $0.831_{0.012}$ \\
 			380 & $570.2_{1.0}$ & $17.64_{0.27}$ & $7.009_{0.033}$ & $22.977_{0.033}$ & $0.857_{0.014}$ \\
@@ -1261,10 +1029,10 @@ The 20 replicate simulations for MiPPE cyclohexane utilize several different mac
 		\begin{tabular}{|c|c|c|c|c|c|}
 			\hline
 			$T^{\rm sat}$ (K) & $\rho_{\rm liq}^{\rm sat}$ (kg/m$^3$) & $\rho_{\rm vap}^{\rm sat}$ (kg/m$^3$) & $P_{\rm vap}^{\rm sat}$ (MPa) & $\Delta H_{\rm v}$ (kJ/mol) & $Z_{\rm vap}^{\rm sat}$ \\ \hline
-			550 & $419.4_{3.6}$ & $89.5_{1.2}$ & $20.75_{0.15}$ & $16.27_{0.24}$ & $0.5584_{8.6e-3}$ \\
-			540 & $445.2_{3.0}$ & $70.95_{0.88}$ & $17.88_{0.15}$ & $18.98_{0.20}$ & $0.6184_{9.2e-3}$ \\
-			530 & $467.6_{2.6}$ & $57.19_{0.55}$ & $15.35_{0.15}$ & $21.30_{0.17}$ & $0.6711_{9.1e-3}$ \\
-			520 & $487.1_{2.4}$ & $46.85_{0.42}$ & $13.11_{0.14}$ & $23.22_{0.15}$ & $0.7133_{9.8e-3}$ \\
+			550 & $419.4_{3.6}$ & $89.5_{1.2}$ & $20.75_{0.15}$ & $16.27_{0.24}$ & $0.56_{0.01}$ \\
+			540 & $445.2_{3.0}$ & $70.95_{0.88}$ & $17.88_{0.15}$ & $18.98_{0.20}$ & $0.62_{0.01}$ \\
+			530 & $467.6_{2.6}$ & $57.19_{0.55}$ & $15.35_{0.15}$ & $21.30_{0.17}$ & $0.67_{0.01}$ \\
+			520 & $487.1_{2.4}$ & $46.85_{0.42}$ & $13.11_{0.14}$ & $23.22_{0.15}$ & $0.71_{0.01}$ \\
 			510 & $504.3_{2.0}$ & $38.69_{0.48}$ & $11.14_{0.12}$ & $24.87_{0.13}$ & $0.748_{0.012}$ \\
 			500 & $519.8_{1.5}$ & $32.01_{0.56}$ & $9.395_{0.099}$ & $26.33_{0.12}$ & $0.778_{0.016}$ \\
 			490 & $534.3_{1.2}$ & $26.45_{0.57}$ & $7.869_{0.075}$ & $27.66_{0.13}$ & $0.805_{0.019}$ \\
@@ -1287,22 +1055,430 @@ The 20 replicate simulations for MiPPE cyclohexane utilize several different mac
 		\begin{tabular}{|c|c|c|c|c|c|}
 			\hline
 			$T^{\rm sat}$ (K) & $\rho_{\rm liq}^{\rm sat}$ (kg/m$^3$) & $\rho_{\rm vap}^{\rm sat}$ (kg/m$^3$) & $P_{\rm vap}^{\rm sat}$ (MPa) & $\Delta H_{\rm v}$ (kJ/mol) & $Z_{\rm vap}^{\rm sat}$ \\ \hline
-			570 & $427.1_{1.2}$ & $80.5_{1.0}$ & $17.76_{0.15}$ & $18.58_{0.17}$ & $0.5782_{8.9e-3}$ \\
-			560 & $450.9_{1.3}$ & $64.43_{0.86}$ & $15.31_{0.13}$ & $21.28_{0.20}$ & $0.6340_{9.9e-3}$ \\
+			570 & $427.1_{1.2}$ & $80.5_{1.0}$ & $17.76_{0.15}$ & $18.58_{0.17}$ & $0.58_{0.01}$ \\
+			560 & $450.9_{1.3}$ & $64.43_{0.86}$ & $15.31_{0.13}$ & $21.28_{0.20}$ & $0.63_{0.01}$ \\
 			550 & $471.7_{1.6}$ & $52.31_{0.73}$ & $13.15_{0.10}$ & $23.58_{0.20}$ & $0.683_{0.011}$ \\
 			540 & $489.9_{1.5}$ & $43.02_{0.62}$ & $11.239_{0.080}$ & $25.52_{0.17}$ & $0.723_{0.012}$ \\
 			530 & $506.3_{1.1}$ & $35.61_{0.52}$ & $9.552_{0.059}$ & $27.21_{0.13}$ & $0.756_{0.012}$ \\
 			520 & $521.47_{0.66}$ & $29.51_{0.42}$ & $8.067_{0.041}$ & $28.739_{0.093}$ & $0.785_{0.012}$ \\
 			510 & $535.75_{0.67}$ & $24.42_{0.33}$ & $6.762_{0.026}$ & $30.149_{0.083}$ & $0.811_{0.012}$ \\
 			500 & $549.10_{0.85}$ & $20.14_{0.26}$ & $5.626_{0.015}$ & $31.452_{0.094}$ & $0.835_{0.011}$ \\
-			490 & $561.65_{0.81}$ & $16.54_{0.20}$ & $4.6410_{9.7e-3}$ & $32.666_{0.094}$ & $0.856_{0.010}$ \\
-			480 & $573.68_{0.62}$ & $13.50_{0.15}$ & $3.792_{0.010}$ & $33.811_{0.080}$ & $0.8746_{9.9e-3}$ \\
+			490 & $561.65_{0.81}$ & $16.54_{0.20}$ & $4.64_{0.01}$ & $32.666_{0.094}$ & $0.856_{0.010}$ \\
+			480 & $573.68_{0.62}$ & $13.50_{0.15}$ & $3.792_{0.010}$ & $33.811_{0.080}$ & $0.87_{0.01}$ \\
 			470 & $585.26_{0.49}$ & $10.94_{0.11}$ & $3.068_{0.014}$ & $34.896_{0.067}$ & $0.892_{0.010}$ \\
 			460 & $596.35_{0.58}$ & $8.794_{0.096}$ & $2.455_{0.017}$ & $35.924_{0.069}$ & $0.907_{0.012}$ \\
 			450 & $607.27_{0.71}$ & $7.003_{0.091}$ & $1.942_{0.020}$ & $36.924_{0.081}$ & $0.921_{0.015}$ \\
 			440 & $618.21_{0.61}$ & $5.516_{0.091}$ & $1.516_{0.023}$ & $37.91_{0.10}$ & $0.933_{0.021}$ \\
 			430 & $628.74_{0.51}$ & $4.292_{0.090}$ & $1.166_{0.026}$ & $38.85_{0.14}$ & $0.944_{0.029}$ \\
 			420 & $638.50_{0.50}$ & $3.296_{0.086}$ & $0.885_{0.030}$ & $39.72_{0.18}$ & $0.955_{0.040}$ \\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
+\newpage
+\clearpage
+
+\section{Simulation state points} \label{SI sec: State Points}
+
+\subsection{Cyclohexane}
+
+\begin{table}[htb!]
+	\caption{State points simulated for cyclohexane with the MiPPE force field (second iteration, $\theta^{\langle2\rangle}$ $\lambda_{\rm CH_2} = 16$).}
+	\begin{center}
+		\begin{tabular}{|c|c|c|}
+			\hline
+			$T$ (K) & $\mu$ (K) & $L$ (nm) \\ \hline
+			450	&	-4367	&	3.0	\\
+			500	&	-4367	&	3.0	\\
+			550	&	-4367	&	3.0	\\
+			500	&	-4149	&	3.0	\\
+			460	&	-4024	&	3.0	\\
+			410	&	-3893	&	3.0	\\
+			360	&	-3792	&	3.0	\\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
+
+\begin{table}[htb!]
+	\caption{State points simulated for cyclohexane with the TraPPE force field (zeroth iteration, $\theta^{\langle0\rangle})$.}
+	\begin{center}
+		\begin{tabular}{|c|c|c|}
+			\hline
+			$T$ (K) & $\mu$ (K) & $L$ (nm) \\ \hline
+			450	&	-4350	&	3.0	\\
+			500	&	-4350	&	3.0	\\
+			550	&	-4350	&	3.0	\\
+			500	&	-4120	&	3.0	\\
+			460	&	-3977	&	3.0	\\
+			410	&	-3790	&	3.0	\\
+			350	&	-3562	&	3.0	\\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
+\begin{table}[htb!]
+	\caption{State points simulated for cyclohexane with the first iteration $(\theta^{\langle1\rangle})$ $\lambda_{\rm CH_2} = 14$ force field.}
+	\begin{center}
+		\begin{tabular}{|c|c|c|}
+			\hline
+			$T$ (K) & $\mu$ (K) & $L$ (nm) \\ \hline
+			450	&	-4389	&	3.0	\\
+			500	&	-4389	&	3.0	\\
+			550	&	-4389	&	3.0	\\
+			500	&	-4164	&	3.0	\\
+			460	&	-4033	&	3.0	\\
+			410	&	-3891	&	3.0	\\
+			360	&	-3780	&	3.0	\\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
+\begin{table}[htb!]
+	\caption{State points simulated for cyclohexane with the first iteration $(\theta^{\langle1\rangle})$ $\lambda_{\rm CH_2} = 16$ force field.}
+	\begin{center}
+		\begin{tabular}{|c|c|c|}
+			\hline
+			$T$ (K) & $\mu$ (K) & $L$ (nm) \\ \hline
+			450	&	-4367	&	3.0	\\
+			500	&	-4367	&	3.0	\\
+			550	&	-4367	&	3.0	\\
+			500	&	-4149	&	3.0	\\
+			460	&	-4024	&	3.0	\\
+			410	&	-3893	&	3.0	\\
+			360	&	-3792	&	3.0	\\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
+\begin{table}[htb!]
+	\caption{State points simulated for cyclohexane with the first iteration $(\theta^{\langle1\rangle})$ $\lambda_{\rm CH_2} = 18$ force field.}
+	\begin{center}
+		\begin{tabular}{|c|c|c|}
+			\hline
+			$T$ (K) & $\mu$ (K) & $L$ (nm) \\ \hline
+			450	&	-4370	&	3.0	\\
+			500	&	-4370	&	3.0	\\
+			550	&	-4370	&	3.0	\\
+			500	&	-4158	&	3.0	\\
+			460	&	-4037	&	3.0	\\
+			410	&	-3912	&	3.0	\\
+			360	&	-3825	&	3.0	\\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
+\begin{table}[htb!]
+	\caption{State points simulated for cyclohexane with the first iteration $(\theta^{\langle1\rangle})$ $\lambda_{\rm CH_2} = 20$ force field.}
+	\begin{center}
+		\begin{tabular}{|c|c|c|}
+			\hline
+			$T$ (K) & $\mu$ (K) & $L$ (nm) \\ \hline
+			450	&	-4386	&	3.0	\\
+			500	&	-4386	&	3.0	\\
+			550	&	-4386	&	3.0	\\
+			500	&	-4178	&	3.0	\\
+			460	&	-4062	&	3.0	\\
+			410	&	-3946	&	3.0	\\
+			360	&	-3866	&	3.0	\\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
+\newpage
+\clearpage
+
+\subsection{Branched alkanes}
+
+\begin{table}[htb!]
+	\caption{State points simulated for 2-methylpropane with the TraPPE force field.}
+	\begin{center}
+		\begin{tabular}{|c|c|c|}
+			\hline
+			$T$ (K) & $\mu$ (K) & $L$ (nm) \\ \hline
+			350	&	-3120	&	3.0	\\
+			380	&	-3120	&	3.0	\\
+			405	&	-3117	&	3.0	\\
+			380	&	-2980	&	3.0	\\
+			350	&	-2880	&	3.0	\\
+			320	&	-2790	&	3.0	\\
+			290	&	-2705	&	3.0	\\
+			260	&	-2645	&	3.0	\\
+			230	&	-2600	&	3.0	\\
+			200	&	-2570	&	3.0	\\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
+\begin{table}[htb!]
+	\caption{State points simulated for 2,2-dimethylpropane with the TraPPE force field.}
+	\begin{center}
+		\begin{tabular}{|c|c|c|}
+			\hline
+			$T$ (K) & $\mu$ (K) & $L$ (nm) \\ \hline
+			380	&	-3405	&	3.0	\\
+			410	&	-3405	&	3.0	\\
+			440	&	-3405	&	3.0	\\
+			410	&	-3250	&	3.0	\\
+			380	&	-3140	&	3.0	\\
+			350	&	-3037	&	3.0	\\
+			330	&	-2970	&	3.0	\\
+			300	&	-2900	&	3.0	\\
+			270	&	-2820	&	3.0	\\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
+\begin{table}[htb!]
+	\caption{State points simulated for 2,2-dimethylbutane with the TraPPE force field.}
+	\begin{center}
+		\begin{tabular}{|c|c|c|}
+			\hline
+			$T$ (K) & $\mu$ (K) & $L$ (nm) \\ \hline
+			420	&	-3860	&	3.5	\\
+			450	&	-3860	&	3.5	\\
+			480	&	-3860	&	3.5	\\
+			450	&	-3719	&	3.5	\\
+			420	&	-3600	&	3.5	\\
+			400	&	-3524	&	3.5	\\
+			380	&	-3450	&	3.5	\\
+			360	&	-3368	&	3.5	\\
+			340	&	-3288	&	3.5	\\
+			310	&	-3280	&	3.5	\\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
+\begin{table}[htb!]
+	\caption{State points simulated for 2,3-dimethylbutane with the TraPPE force field.}
+	\begin{center}
+		\begin{tabular}{|c|c|c|}
+			\hline
+			$T$ (K) & $\mu$ (K) & $L$ (nm) \\ \hline
+			440	&	-4015	&	3.0	\\
+			470	&	-4015	&	3.0	\\
+			500	&	-4011	&	3.0	\\
+			470	&	-3845	&	3.0	\\
+			440	&	-3735	&	3.0	\\
+			410	&	-3635	&	3.0	\\
+			380	&	-3555	&	3.0	\\
+			350	&	-3480	&	3.0	\\
+			320	&	-3415	&	3.0	\\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
+\begin{table}[htb!]
+	\caption{State points simulated for 3,3-dimethylhexane with the TraPPE force field.}
+	\begin{center}
+		\begin{tabular}{|c|c|c|}
+			\hline
+			$T$ (K) & $\mu$ (K) & $L$ (nm) \\ \hline
+			500	&	-4670	&	3.5	\\
+			530	&	-4670	&	3.5	\\
+			560	&	-4670	&	3.5	\\
+			520	&	-4476	&	3.5	\\
+			490	&	-4370	&	3.5	\\
+			460	&	-4268	&	3.5	\\
+			430	&	-4164	&	3.5	\\
+			400	&	-4039	&	3.5	\\
+			370	&	-3925	&	3.5	\\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
+\begin{table}[htb!]
+	\caption{State points simulated for 3-methyl-3-ethylpentane with the TraPPE force field.}
+	\begin{center}
+		\begin{tabular}{|c|c|c|}
+			\hline
+			$T$ (K) & $\mu$ (K) & $L$ (nm) \\ \hline
+			500	&	-4785	&	4.0	\\
+			550	&	-4785	&	4.0	\\
+			580	&	-4785	&	4.0	\\
+			550	&	-4636	&	4.0	\\
+			520	&	-4520	&	4.0	\\
+			490	&	-4400	&	4.0	\\
+			460	&	-4280	&	4.0	\\
+			430	&	-4160	&	4.0	\\
+			410	&	-4080	&	4.0	\\
+			390	&	-3990	&	4.0	\\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
+\begin{table}[htb!]
+	\caption{State points simulated for 2,3,4-trimethylpentane with the TraPPE force field.}
+	\begin{center}
+		\begin{tabular}{|c|c|c|}
+			\hline
+			$T$ (K) & $\mu$ (K) & $L$ (nm) \\ \hline
+			480	&	-4740	&	3.5	\\
+			520	&	-4740	&	3.5	\\
+			565	&	-4735	&	3.5	\\
+			530	&	-4549	&	3.5	\\
+			500	&	-4436	&	3.5	\\
+			470	&	-4337	&	3.5	\\
+			440	&	-4241	&	3.5	\\
+			410	&	-4182	&	3.5	\\
+			380	&	-4090	&	3.5	\\
+			350	&	-4020	&	3.5	\\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
+\begin{table}[htb!]
+	\caption{State points simulated for 2,2,4-trimethylpentane with the TraPPE force field.}
+	\begin{center}
+		\begin{tabular}{|c|c|c|}
+			\hline
+			$T$ (K) & $\mu$ (K) & $L$ (nm) \\ \hline
+			480	&	-4600	&	4.0	\\
+			530	&	-4600	&	4.0	\\
+			560	&	-4600	&	4.0	\\
+			530	&	-4450	&	4.0	\\
+			500	&	-4330	&	4.0	\\
+			470	&	-4210	&	4.0	\\
+			440	&	-4090	&	4.0	\\
+			410	&	-3960	&	4.0	\\
+			380	&	-3840	&	4.0	\\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
+\begin{table}[htb!]
+	\caption{State points simulated for 2-methylpropane with the MiPPE-gen force field.}
+	\begin{center}
+		\begin{tabular}{|c|c|c|}
+			\hline
+			$T$ (K) & $\mu$ (K) & $L$ (nm) \\ \hline
+			350	&	-3150	&	3.0	\\
+			380	&	-3150	&	3.0	\\
+			410	&	-3145	&	3.0	\\
+			380	&	-3010	&	3.0	\\
+			350	&	-2910	&	3.0	\\
+			320	&	-2830	&	3.0	\\
+			290	&	-2760	&	3.0	\\
+			260	&	-2700	&	3.0	\\
+			230	&	-2670	&	3.0	\\
+			200	&	-2640	&	3.0	\\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
+\begin{table}[htb!]
+	\caption{State points simulated for 2,2-dimethylpropane with the MiPPE-gen force field.}
+	\begin{center}
+		\begin{tabular}{|c|c|c|}
+			\hline
+			$T$ (K) & $\mu$ (K) & $L$ (nm) \\ \hline
+			368	&	-3344	&	3.0	\\
+			398	&	-3344	&	3.0	\\
+			430	&	-3400	&	3.0	\\
+			398	&	-3216	&	3.0	\\
+			372	&	-3124	&	3.0	\\
+			346	&	-3032	&	3.0	\\
+			326	&	-2961	&	3.0	\\
+			299	&	-2865	&	3.0	\\
+			270	&	-2759	&	3.0	\\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
+\begin{table}[htb!]
+	\caption{State points simulated for 2,2-dimethylbutane with the MiPPE-gen force field.}
+	\begin{center}
+		\begin{tabular}{|c|c|c|}
+			\hline
+			$T$ (K) & $\mu$ (K) & $L$ (nm) \\ \hline
+			415	&	-3873	&	3.5	\\
+			445	&	-3873	&	3.5	\\
+			480	&	-3895	&	3.5	\\
+			450	&	-3756	&	3.5	\\
+			420	&	-3654	&	3.5	\\
+			400	&	-3588	&	3.5	\\
+			380	&	-3521	&	3.5	\\
+			360	&	-3454	&	3.5	\\
+			340	&	-3384	&	3.5	\\
+			310	&	-3380	&	3.5	\\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
+\begin{table}[htb!]
+	\caption{State points simulated for 2,3-dimethylbutane with the MiPPE-gen force field.}
+	\begin{center}
+		\begin{tabular}{|c|c|c|}
+			\hline
+			$T$ (K) & $\mu$ (K) & $L$ (nm) \\ \hline
+			440	&	-4010	&	3.0	\\
+			470	&	-4010	&	3.0	\\
+			500	&	-4009	&	3.0	\\
+			470	&	-3860	&	3.0	\\
+			440	&	-3760	&	3.0	\\
+			410	&	-3670	&	3.0	\\
+			380	&	-3600	&	3.0	\\
+			350	&	-3530	&	3.0	\\
+			320	&	-3480	&	3.0	\\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
+\begin{table}[htb!]
+	\caption{State points simulated for 2,3,4-trimethylpentane with the MiPPE-gen force field.}
+	\begin{center}
+		\begin{tabular}{|c|c|c|}
+			\hline
+			$T$ (K) & $\mu$ (K) & $L$ (nm) \\ \hline
+			480	&	-4720	&	3.5	\\
+			520	&	-4720	&	3.5	\\
+			565	&	-4713	&	3.5	\\
+			530	&	-4540	&	3.5	\\
+			500	&	-4360	&	3.5	\\
+			470	&	-4355	&	3.5	\\
+			440	&	-4275	&	3.5	\\
+			410	&	-4205	&	3.5	\\
+			380	&	-4165	&	3.5	\\
+			350	&	-4115	&	3.5	\\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
+\begin{table}[htb!]
+	\caption{State points simulated for 2,2,4-trimethylpentane with the MiPPE-gen force field.}
+	\begin{center}
+		\begin{tabular}{|c|c|c|}
+			\hline
+			$T$ (K) & $\mu$ (K) & $L$ (nm) \\ \hline
+			470	&	-4570	&	4.0	\\
+			520	&	-4570	&	4.0	\\
+			550	&	-4570	&	4.0	\\
+			520	&	-4420	&	4.0	\\
+			490	&	-4300	&	4.0	\\
+			460	&	-4170	&	4.0	\\
+			430	&	-4050	&	4.0	\\
+			400	&	-3920	&	4.0	\\
+			370	&	-3790	&	4.0	\\
 			\hline
 		\end{tabular}
 	\end{center}
