@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.3.9)  17 DEC 2018 13:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.3.9)  18 DEC 2018 08:19
 entering extended mode
 **./JCED_FOMMS_manuscript.tex
 (JCED_FOMMS_manuscript.tex
@@ -1830,13 +1830,13 @@ Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1523.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1523.
 
 Package rerunfilecheck Info: File `JCED_FOMMS_manuscript.out' has not changed.
-(rerunfilecheck)             Checksum: ACAB03C79DA7DFAB299062F24F6674DE;1612.
+(rerunfilecheck)             Checksum: 73828B8AB536C1B2418BE241488B84FC;1627.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1523.
  ) 
 Here is how much of TeX's memory you used:
  31926 strings out of 493333
  634237 string characters out of 3139198
- 685088 words of memory out of 3000000
+ 685002 words of memory out of 3000000
  34790 multiletter control sequences out of 15000+200000
  43450 words of font info for 94 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1861,7 +1861,7 @@ b><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Program
 Files/MiKTeX 2.9/fonts/type1/urw/palatino/uplb8a.pfb><C:/Program Files/MiKTeX 2
 .9/fonts/type1/urw/palatino/uplr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
 /urw/palatino/uplri8a.pfb>
-Output written on JCED_FOMMS_manuscript.pdf (48 pages, 1263507 bytes).
+Output written on JCED_FOMMS_manuscript.pdf (48 pages, 1263691 bytes).
 PDF statistics:
  1488 PDF objects out of 1728 (max. 8388607)
  178 named destinations out of 1000 (max. 500000)
