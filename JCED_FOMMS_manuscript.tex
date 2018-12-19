@@ -161,9 +161,9 @@
 \newpage
 \section*{Abstract}
 
-Reliable prediction of vapor-liquid phase equilibria with molecular simulation relies on efficient computational methods and well-parameterized force fields. Histogram reweighting (HR) is a standard approach for converting grand canonical Monte Carlo (GCMC) simulation output into vapor-liquid coexistence properties (saturated liquid density, $\rho_{\rm liq}^{\rm sat}$, saturated vapor density, $\rho_{\rm vap}^{\rm sat}$, saturated vapor pressures, $P_{\rm vap}^{\rm sat}$, and enthalpy of vaporization, $\Delta H_{\rm v}$). Due to the abundance of experimental vapor-liquid coexistence data and the sensitivity of such properties to both short- and long-range non-bonded interactions, numerous force fields have been parameterized using $\rho_{\rm liq}^{\rm sat}$, $\rho_{\rm vap}^{\rm sat}$, $P_{\rm vap}^{\rm sat}$, and/or $\Delta H_{\rm v}$. Unfortunately, computing $\rho_{\rm liq}^{\rm sat}$, $\rho_{\rm vap}^{\rm sat}$, $P_{\rm vap}^{\rm sat}$, and $\Delta H_{\rm v}$ for each proposed non-bonded parameter set 
-%MRS: why not charges as well as nonbonded parameters?  Also, could vary any of the epsilon's and sigmas, not just a single one.	
-(e.g., the Lennard-Jones parameters $\epsilon$ and $\sigma$) requires a large amount of molecular simulations. 
+Reliable prediction of vapor-liquid phase equilibria with molecular simulation relies on efficient computational methods and well-parameterized force fields. Histogram reweighting (HR) is a standard approach for converting grand canonical Monte Carlo (GCMC) simulation output into vapor-liquid coexistence properties (saturated liquid density, $\rho_{\rm liq}^{\rm sat}$, saturated vapor density, $\rho_{\rm vap}^{\rm sat}$, saturated vapor pressures, $P_{\rm vap}^{\rm sat}$, and enthalpy of vaporization, $\Delta H_{\rm v}$). Due to the abundance of experimental vapor-liquid coexistence data and the sensitivity of such properties to both short- and long-range non-bonded interactions, numerous force fields have been parameterized using $\rho_{\rm liq}^{\rm sat}$, $\rho_{\rm vap}^{\rm sat}$, $P_{\rm vap}^{\rm sat}$, and/or $\Delta H_{\rm v}$. Unfortunately, computing $\rho_{\rm liq}^{\rm sat}$, $\rho_{\rm vap}^{\rm sat}$, $P_{\rm vap}^{\rm sat}$, and $\Delta H_{\rm v}$ for each proposed non-bonded parameter set (e.g., the Lennard-Jones parameters $\epsilon$ and $\sigma$) requires a large amount of molecular simulations. 
+%MRS: why not charges as well as nonbonded parameters?  Also, could vary any of the epsilon's and sigmas, not just a single one.
+%RAM: I don't think in the abstract I necessarily want to enumerate all parameters. This was just a single example that does not preclude charges and multiple eps/sig
 
 We demonstrate that histogram-free reweighting can alleviate the computational burden of force field parameterization. Specifically, the Multistate Bennett Acceptance Ratio (MBAR) reweights configurations sampled from GCMC simulations performed with an initial reference parameter set $(\theta_{\rm ref})$. While MBAR is similar to the traditional HR method for computing $\rho_{\rm liq}^{\rm sat}$, $\rho_{\rm vap}^{\rm sat}$, $P_{\rm vap}^{\rm sat}$, and $\Delta H_{\rm v}$, the primary advantage of MBAR is that this approach can estimate coexistence properties for a different ``rerun'' parameter set $(\theta_{\rm rr} \neq \theta_{\rm ref})$ without simulating $\theta_{\rm rr}$ directly. MBAR thus greatly reduces the amount of GCMC simulations that are required for parameterizing the non-bonded potential.
 
@@ -222,15 +222,20 @@ The primary motivation for this work is to reduce the computational cost of opti
 %Histogram reweighting (and more generally, configuration reweighting) is an important tool in many fields of molecular simulation. In fact, it has long since been known that it is possible to estimate properties for state $j$ by reweighting configurations that were sampled with state $i$. \cite{McDonald1967,Card1970,Wood1968,Pana2000} For example, umbrella sampling simulations are often processed using the weighted histogram analysis method (WHAM) to compute free energy differences between states. A popular alternative to WHAM is the Multistate Bennett Acceptance Ratio (MBAR) \cite{chodera:jctc:2007,shirts-chodera:jcp:2008:mbar}, which is readily available in the \textit{pymbar} package.
 
 %MRS: describing published papers below, should use past tense. 
-In related studies, Messerly et al.~demonstrate how to combine MBAR with ITIC (MBAR-ITIC) to optimize generalized Lennard-Jones (Mie $\lambda$-6) potentials \cite{Postdoc_1,Postdoc_2}. For MBAR-ITIC, a series of simulations are performed with a constant number of molecules, constant volume, and constant temperature $(NVT)$ along an isotherm and isochore(s) with a 
-%Do you need ``reference'' in quotation marks?  Seems like it doesn't need it.
-``reference'' force field(s) $(\theta_{\rm ref})$. MBAR reweights configurations sampled with $\theta_{\rm ref}$ to estimate the internal energy $(U)$ and pressure $(P)$ at each $(T$, $\rho)$ state point for a non-simulated 
+%RAM: I like to think of the papers in present tense. If the readers goes to Messerly et al. the manuscript will still demonstrate ... it has not stopped demonstrating after being published
+%MRS: Do you need ``reference'' in quotation marks?  Seems like it doesn't need it.
+%RAM: I think the first time it is helpful
 %MRS2: really only meaningful term in context of GROMACS
 %(``rerun'') 
 %RAM: We have actually adopted this terminology in GOMC as well. It is important for the sub-script "rr" and so I prefer to keep it. 
 %MRS3: but it might not be clear to other people - it's a term whose meaning is nonobvious. How about:
-(``rerun'') force field $(\theta_{\rm rr})$, i.e. where the generated configurations are simply reevaluated with the new force field, rather than run with them.
-ITIC then converts the MBAR $U$ and $P$ estimates into vapor-liquid coexistence properties~\cite{Mostafa_Diss,Mostafa2018}.
+%RAM: OK, I rewrote this so it is more clear what rerun means
+In related studies, Messerly et al.~demonstrate how to combine MBAR with ITIC (MBAR-ITIC) to optimize generalized Lennard-Jones (Mie $\lambda$-6) potentials \cite{Postdoc_1,Postdoc_2}. For MBAR-ITIC, a series of simulations are performed with a constant number of molecules, constant volume, and constant temperature $(NVT)$ along an isotherm and isochore(s) with a ``reference'' force field(s) $(\theta_{\rm ref})$. Subsequently, the energies and forces are recomputed for the configurations sampled with $\theta_{\rm ref}$ using a different ``rerun'' force field $(\theta_{\rm rr})$. MBAR reweights the reference configurations to estimate the internal energy $(U)$ and pressure $(P)$ at each $(T$, $\rho)$ state point for $\theta_{\rm rr}$, without directly running simulations with $\theta_{\rm rr}$. ITIC then converts the MBAR $U$ and $P$ estimates into vapor-liquid phase equilibria properties for $\theta_{\rm rr}$~\cite{Mostafa_Diss,Mostafa2018}.
+
+% This is followed by a ``rerun'' step where the energies and forces are recomputed for the configurations sampled with $\theta_{\rm ref}$ using a different force field $(\theta_{\rm rr})$.
+% The configurations sampled with $\theta_{\rm ref}$ are then ``rerun'' by recomputing the energies and forces with a different force field $(\theta_{\rm rr})$.
+%The energies and forces for the configurations sampled with $\theta_{\rm ref}$ are then recomputed with a ``rerun'' force field $(\theta_{\rm rr})$, rather than running a direct simulation with $\theta_{\rm rr}$.
+%Instead, the energies and forces are simply recomputed using the ``rerun'' force field $(\theta_{\rm rr})$, rather than running an actual molecular simulation. , i.e. where the generated configurations are simply reevaluated with the new force field, rather than run with them.
 
 % with only single stored snapshots from simulations with $(\theta_{\rm ref})$ evaluated using simulations with $(\theta_{\rm rr})$.
 %In this study, we substitute HR with MBAR for the GCMC-HR approach of computing vapor-liquid coexistence properties. Section \ref{sec: GCMC-HR and GCMC-MBAR} demonstrates that MBAR and HR are mathematically equivalent (in the limit of zero bin width) while Section \ref{sec: Results} shows that they are also numerically equivalent (to within statistical uncertainties). Boulougouris et al. demonstrate how to combine HR with GEMC (GEMC-HR) to estimate saturation properties at non-simulated temperatures \cite{Boulougouris2010}, therefore, MBAR could alternatively be applied to GEMC simulations.
@@ -285,10 +290,8 @@ The results from Messerly et al.~demonstrate that MBAR-ITIC is most reliable in 
 
 %precise $P$ calculations in the supercritical and liquid phase, which necessitates
 
-Our initial hypothesis was that GCMC-MBAR would experience better overlap than was observed for MBAR-ITIC when $\theta_{\rm rr} \not\approx \theta_{\rm ref}$. There were two main reasons for this hypothesis.
 %MRS3: not needed?
-hypothesis/aspiration. 
-First, as opposed to the fixed density $NVT$ simulations used in ITIC, GCMC simulations sample from a wider range of configurations and energies. Second, ITIC requires larger box sizes (and, thereby, more molecules) than those typically utilized with GCMC. By utilizing fewer molecules, GCMC simulations experience larger energy fluctuations (on a percent basis) which improves the overlap between states. We also hypothesized that the impact of poor overlap would be less severe compared to MBAR-ITIC, where poor overlap leads to sporadic values of $P$ and nonsensical coexistence estimates.  
+Our initial hypothesis was that GCMC-MBAR would experience better overlap than was observed for MBAR-ITIC when $\theta_{\rm rr} \not\approx \theta_{\rm ref}$. There were two main reasons for this hypothesis. First, as opposed to the fixed density $NVT$ simulations used in ITIC, GCMC simulations sample from a wider range of configurations and energies. Second, ITIC requires larger box sizes (and, thereby, more molecules) than those typically utilized with GCMC. By utilizing fewer molecules, GCMC simulations experience larger energy fluctuations (on a percent basis) which improves the overlap between states. We also hypothesized that the impact of poor overlap would be less severe compared to MBAR-ITIC, where poor overlap leads to sporadic values of $P$ and nonsensical phase equilibria estimates.  
 
 %  require a large number of snapshots ITIC requires precise estimates of $P$ in the liquid phase, which necessitates a large number of of snapshots for
 
@@ -362,7 +365,7 @@ The outline for this study is the following. Section \ref{sec: Methods} provides
     
     %The non-bonded potential is of the generalized Lennard-Jones (Mie $\lambda$-6) form. 
     
-    For computational efficiency, we utilize fixed bond lengths for each force field. Although the original NERD publication\cite{NERD} utilizes a harmonic bond potential, we compare our NERD results with those of Mick et al.\cite{Potoff_branched}, which utilize fixed bonds as well. Angular bending interactions for each force field are evaluated using a harmonic potential:
+    For computational efficiency, we use fixed bond lengths for each force field. Although the original NERD publication\cite{NERD} utilizes a harmonic bond potential, we compare our NERD results with those of Mick et al.\cite{Potoff_branched}, which were obtained with fixed bonds as well. Angular bending interactions for each force field are evaluated using a harmonic potential:
     \begin{equation}
     u^{\rm bend} = \frac{k_\theta}{2} \left(\theta-\theta_{\rm eq}\right)^2
     \end{equation}
@@ -372,7 +375,7 @@ The outline for this study is the following. Section \ref{sec: Methods} provides
     \end{equation}
     where $u^{\rm tors}$ is the torsional energy, $\phi$ is the dihedral angle and $c_n$ are the Fourier constants. Bond lengths, $\theta_{\rm eq}$, $k_\theta$, and $c_n$ values for each force field are reported in Section \ref{SI sec: Bonded parameters} of Supporting Information.
     
-    In accordance with Reference \citenum{Yiannourakou2019}, we simulate cyclohexane using the TraPPE CH$_x$-CH$_2$-CH$_2$-CH$_y$ torsional parameters instead of the TraPPE C-C-C-C six-member ring torsional parameters reported in Table 3 of Reference \citenum{Keasler2012}. This choice is made to better replicate the vapor-liquid coexistence densities reported in Reference \citenum{Keasler2012}. After investigating the dihedral distributions for cyclohexane obtained with the TraPPE C-C-C-C six-member ring torsional parameters, we suspect there is a sign error for at least the $c_1$ term in Reference \citenum{Keasler2012}.
+    In accordance with Reference \citenum{Yiannourakou2019}, we simulate cyclohexane using the TraPPE CH$_x$-CH$_2$-CH$_2$-CH$_y$ torsional parameters instead of the TraPPE C-C-C-C six-member ring torsional parameters reported in Table 3 of Reference \citenum{Keasler2012}. This choice is made to better replicate the vapor-liquid coexistence densities reported in Reference \citenum{Keasler2012}. After investigating the dihedral distributions for cyclohexane obtained with the TraPPE C-C-C-C six-member ring torsional parameters, we suspect there is a sign error for the $c_1$ term in Reference \citenum{Keasler2012}.
     
     %%% Old version, moved to SI    
 %    For computational efficiency, we utilize fixed bond lengths for each force field, although the original NERD publication utilizes a harmonic bond potential \cite{NERD}. The bond lengths for all bonds, compounds, and force fields investigated in this study are reported in Table \ref{tab:bonds}.
@@ -636,17 +639,22 @@ The outline for this study is the following. Section \ref{sec: Methods} provides
 
 The results presented in Sections \ref{sec: Constant theta} and \ref{sec: eps scaling} are obtained by reprocessing simulation output that were analyzed in previous studies with histogram reweighting \cite{Potoff_branched,Barhaghi2017}. New simulation results are provided in Sections \ref{sec: litFF} and \ref{sec: Case study} for 2-methylpropane, 2,2-dimethylpropane, 2,2-dimethylbutane, 3,3-dimethylhexane, 3-methyl-3-ethylpentane, 2,2,4-trimethylhexane, 2,3-dimethylbutane, 2,3,4-trimethylpentane, and cyclohexane. 
 
-Each compound is simulated with grand canonical Monte Carlo (GCMC), i.e., constant chemical potential ($\mu$), volume $(V)$, and temperature $(T)$. A series of nine GCMC simulations are performed, two in the vapor phase, six in the liquid phase, and one near critical which acts as the ``bridge'' between the vapor and liquid phases. A single simulation is performed at each state point $(\mu$, $V$, $T)$, with the exception of the MiPPE cyclohexane results, which are obtained from 20 independent replicate simulations. 
+Each compound is simulated with grand canonical Monte Carlo (GCMC), i.e., constant chemical potential ($\mu$), volume $(V)$, and temperature $(T)$. A series of nine GCMC simulations are performed, two in the vapor phase, six in the liquid phase (with a temperature spacing of approximately 20 K), and one near critical which acts as the ``bridge'' between the vapor and liquid phases. A single simulation is performed at each state point $(\mu$, $V$, $T)$, with the exception of the MiPPE cyclohexane results, which are obtained from 20 independent replicate simulations. 
 
 The system volume is constant with respect to $\mu$ and $T$ for a given compound. The cubic box side length is 3 nm for 2-methylpropane, 2,2-dimethylpropane, 2,3-dimethylbutane, and cyclohexane, 3.5 nm for 2,3,4-trimethylpentane and 3,3-dimethylhexane, and 4 nm for 2,2,4-trimethylhexane and 3-methyl-3-ethylpentane. The prescribed $\mu$, $T$, and $V$ values for the branched alkanes are the same as those utilized in Mick et al.~and vary somewhat between force fields \cite{Potoff_branched}. All simulated state points $(\mu$, $V$, $T)$ are reported in Section \ref{SI sec: State Points} of Supporting Information. 
 
-A low-density (less than twenty molecules) initial configuration is utilized for the vapor phase simulations, while the bridge and liquid phase simulations are initialized with a high-density (around 150 molecules) configuration. To verify that finite size effects are negligible in the low-density vapor phase, we confirm that the saturated vapor compressibility factor $(Z^{\rm sat}_{\rm vap})$ converges smoothly to 1 for each compound \cite{Nezbeda2016}.
+A low-density (less than twenty molecules) initial configuration is utilized for the vapor phase simulations, while the bridge and liquid phase simulations are initialized with a high-density (around 150 molecules) configuration. To verify that finite size effects are negligible in the low-density vapor phase, we confirm that the saturated vapor compressibility factor $(Z^{\rm sat}_{\rm vap})$ converges smoothly to 1 for each compound (see Section \ref{SI sec: Z} of Supporting Information) \cite{Nezbeda2016}.
 
 % The $\mu-T$ values for \textit{n}-hexane and cyclohexane are determined in this study.
 
-Each GCMC simulation performed in this study consists of an equilibration stage of $2 \times 10^7$ Monte Carlo steps (MCS). The production stage is $4 \times 10^7$ MCS for vapor simulations and $2.5 \times 10^7$ MCS for the liquid and ``bridge'' simulations. Snapshots (i.e., number of molecules, internal energy, and optionally the xyz coordinates) are stored every 200 MCS to reduce the correlation between sequential configurations. Thus, the number of snapshots $(K_{\rm snaps})$ is $2 \times 10^5$ for vapor simulations and $1.25 \times 10^5$ for liquid and ``bridge'' simulations. 
+Each GCMC simulation performed in this study consists of an equilibration and production stage of $2 \times 10^7$ and $2.5 \times 10^7$ Monte Carlo steps (MCS), respectively. Snapshots (i.e., number of molecules, internal energy, and optionally the xyz coordinates) are stored every 200 MCS to reduce the correlation between sequential configurations. Thus, the number of snapshots $(K_{\rm snaps})$ for a single state point ($\mu$, $V$, $T$) is $1.25 \times 10^5$.
 
-Displacement and rotation moves are required to thermally equilibrate the system at the simulation temperature while particle swap moves ensure that $\mu$ is equal to the prescribed value. Cyclohexane simulations also employ crank-shaft moves to sample internal configurations, which can be challenging for ring molecules \cite{Shah2011,Binder1979}. The type of Monte Carlo move implemented for each step is selected randomly. The displacement, rotation, and particle swap move probabilities for branched alkanes are 30\%, 10\%, and 60\%, respectively. The move probabilities for cyclohexane are 30\%, 10\%, 40\%, and 20\% for displacement, rotation, particle swap, and crank-shaft moves, respectively. 
+
+%is $2 \times 10^5$ for vapor simulations and $1.25 \times 10^5$ for liquid and ``bridge'' simulations. 
+
+%The production stage is $4 \times 10^7$ MCS for vapor simulations and $2.5 \times 10^7$ MCS for the liquid and ``bridge'' simulations.
+
+Displacement and rotation moves are required to thermally equilibrate the system at the simulation temperature while molecule swap moves ensure that $\mu$ is equal to the prescribed value. Cyclohexane simulations also employ crank-shaft moves to sample internal configurations, which can be challenging for ring molecules \cite{Shah2011,Binder1979}. The type of Monte Carlo move implemented for each step is selected randomly. The displacement, rotation, and molecule swap move probabilities for branched alkanes are 30\%, 10\%, and 60\%, respectively. The move probabilities for cyclohexane are 30\%, 10\%, 40\%, and 20\% for displacement, rotation, molecule swap, and crank-shaft moves, respectively. 
 
 All simulations utilize coupled-decoupled configurational-bias Monte Carlo (CBMC)\cite{Martin1999} to enhance the insertion acceptance rate, with 100 angle trials, 30 dihedral trials, 10 initial site trials, and 4 subsequent site trials. The move probabilities are consistent with those of Mick et al.~and Soroush Barhaghi et al.~\cite{Potoff_branched,Barhaghi2017}, while the CBMC dihedral trials and initial site trials differ slightly.
 
@@ -669,7 +677,7 @@ Initial configurations are generated with Packmol \cite{PACKMOL}, while psfgen i
 %	\item State points (chemical potentials and temperatures) simulated are same as those utilized in Mick et al.
 %\end{enumerate}
 
-\subsection{GCMC-MBAR compared with GCMC-HR} \label{sec: GCMC-HR and GCMC-MBAR}
+\subsection{Comparison of GCMC-MBAR and GCMC-HR} \label{sec: GCMC-HR and GCMC-MBAR}
 
 %\begin{eqnarray} \label{HR prob}
 %Pr(N,U) = \frac{\Omega (N,V,U) \exp (-\beta U + \beta \mu N)}{\Xi (\mu, V, \beta)}
@@ -746,7 +754,7 @@ Initial configurations are generated with Packmol \cite{PACKMOL}, while psfgen i
 %Pr(N,U|\mu,\beta) = \frac{\sum_{i=1}^{R} Pr_i(N,U)  \exp(-\beta U + \beta \mu N)}{\sum_{i=1}^{R} K_i \exp(-\beta_i U + \beta_i \mu_i N - C_i)}
 %\end{eqnarray}
 
-Converting the GCMC simulation output into vapor-liquid phase equilibria properties requires significant post-processing through reweighting. Histogram reweighting (HR) and, more generally, configuration reweighting is an important tool in many fields of molecular simulation. In fact, it has long since been known that it is possible to estimate properties for state $j$ by reweighting configurations that were sampled with state $i$. \cite{McDonald1967,Card1970,Wood1968,Pana2000} 
+Converting the GCMC simulation output into vapor-liquid phase equilibria properties requires significant post-processing through reweighting. Histogram reweighting (HR) and, more generally, configuration reweighting is an important tool in many fields of molecular simulation.\cite{Ferrenberg1988,Ferrenberg1989} In fact, it has long since been known that it is possible to estimate properties for state $j$ by reweighting configurations that were sampled with state $i$. \cite{McDonald1967,Card1970,Wood1968,Pana2000} 
 
 For example, umbrella sampling simulations are often processed using the weighted histogram analysis method (WHAM) to compute free energy differences between states \cite{Kumar1992}. WHAM (or HR) is essentially an approximation of MBAR and, therefore, MBAR should be favored for free energy calculations whenever a histogram-free approach is feasible \cite{Souaille2001,Matos2017}. In this study, we implement MBAR in Python 2.7 through the \textit{pymbar} package available at https://github.com/choderalab/pymbar. 
 
@@ -756,29 +764,42 @@ Before demonstrating how to compute vapor-liquid phase equilibria with GCMC-MBAR
 
 \subsubsection{Histogram reweighting} \label{sec: HR}
 
+
 %MRS3: one notation thing with the below: it's not explicitly clear that O is a function of N and U.  But it's not an explicit function of them, since the same N and I can have different values of O.  So I'm not quite sure how to denote it.  But it's definitely not a constant, which is not really clear in the notation in \ref{eq: HR ave}.
+%MRS3: fixed spelling on discritized to discretized.  Check other spelling if this one got through.
+%MRS3: added below to clarify.
 Histogram reweighting computes the ensemble average of a given observable $(O$, e.g., $U$ and $\rho)$ according to
 \begin{eqnarray} \label{eq: HR ave}
 \langle O(\mu,\beta) \rangle = \sum_{U} \sum_{N} O \times Pr(N,U;\mu,\beta)
 \end{eqnarray}
-where $\langle \dots \rangle$ denotes an ensemble average and $Pr(N,U;\mu,\beta)$ is the probability of observing $N$ particles with internal energy $U$ for a given chemical potential $(\mu)$ and inverse temperature $(\beta \equiv \frac{1}{k_{\rm B}T}$, where $k_{\rm B}$ is the Boltzmann constant). The double summation is computed numerically where $U$ and $N$ are 
-%MRS3: fixed spelling on discritized to discretized.  Check other spelling if this one got through.
-discretized into a 2-dimensional histogram. The probability is obtained with HR from
+where $\langle \dots \rangle$ denotes an ensemble average and $Pr(N,U;\mu,\beta)$ is the probability of observing $N$ molecules with internal energy $U$ for a given chemical potential $(\mu)$ and inverse temperature $(\beta \equiv \frac{1}{k_{\rm B}T}$, where $k_{\rm B}$ is the Boltzmann constant). The double summation is computed numerically where $U$ and $N$ are discretized into a 2-dimensional histogram. The probability is obtained with HR from\cite{Ferrenberg1988,Ferrenberg1989}
 \begin{eqnarray} \label{eq: HR prob}
-Pr(N,U;\mu,\beta) = \frac{\sum_{i=1}^{R} Pr_i(N,U)  \exp(-\beta U + \beta \mu N)}{\sum_{i=1}^{R} K_{\mathrm{snaps}, i} \exp(-\beta_i U + \beta_i \mu_i N + \hat f_i)}
+Pr(N,U;\mu,\beta) = \frac{\sum_{i=1}^{R} K_{\mathrm{snaps},i}(N,U)  \exp(-\beta U + \beta \mu N)}{\sum_{i=1}^{R} K_{\mathrm{snaps}, i} \exp(-\beta_i U + \beta_i \mu_i N + \hat f_i)}
 \end{eqnarray}
-where $Pr_i(N,U)$ is the probability of observing $N$ particles and $U$ within the histogram bin width, 
-%MRS3: above: the i should be listed included in the definition.
-$R$ is the number of runs (where the $i^{\rm th}$ run corresponds to $\beta_i$ and $\mu_i$), $K_{\mathrm{snaps}, i}$ is the number of ``snapshots'' for run $i$ (i.e., $K_{\mathrm{snaps}, i} = \sum_{N,U} Pr_i(N,U)$), 
-%MRS3: is this correct above? The number of observations is a sum over probabilities?  Seems either wrong, or a confusing way to describe things. 
-and $\hat f_i$ is an estimate for the reduced free energy, which is calculated with the relationship
+where $R$ is the number of runs, $K_{\mathrm{snaps},i}(N,U)$ is the number of ``snapshots'' in the $i^{\rm th}$ run (with $\beta_i$ and $\mu_i$) that have $N$ molecules and $U$ within the histogram bin width, $K_{\mathrm{snaps}, i}$ is the total number of snapshots for run $i$ (i.e., $K_{\mathrm{snaps}, i} = \sum_{N,U} K_{\mathrm{snaps},i}(N,U)$), and $\hat f_i$ is an estimate for the reduced free energy, which is calculated with the relationship
 \begin{eqnarray} \label{eq: Weights}
-\hat f(\mu,\beta) = - \ln \sum_{U} \sum_{N} \frac{\sum_{i=1}^{R} Pr_i(N,U) \exp(-\beta U + \beta \mu N)}{\sum_{i=1}^{R} K_{\mathrm{snaps}, i} \exp(-\beta_i U + \beta_i \mu_i N + \hat f_i)}
+\hat f(\mu,\beta) = - \ln \sum_{U} \sum_{N} \frac{\sum_{i=1}^{R} K_{\mathrm{snaps},i}(N,U) \exp(-\beta U + \beta \mu N)}{\sum_{i=1}^{R} K_{\mathrm{snaps}, i} \exp(-\beta_i U + \beta_i \mu_i N + \hat f_i)}
 \end{eqnarray}
-where $\hat f_i \equiv \hat f(\mu_i,\beta_i)$. Note that because $\hat f_i$ can also be viewed simply as a constant
-%MRS3: added below to clarify.
-that solves the self-consistent equations,
-the GCMC-HR literature \cite{Pana2000} typically adopts the notation $C_i$ (or more specifically, $-C_i$) instead of $\hat f_i$. We prefer $\hat f_i$ for a clear comparison with the MBAR expressions that follow.
+where $\hat f_i \equiv \hat f(\mu_i,\beta_i)$. Note that because $\hat f_i$ can also be viewed simply as a constant that solves the self-consistent equations, the GCMC-HR literature \cite{Pana2000} typically adopts the notation $C_i$ (or more specifically, $-C_i$) instead of $\hat f_i$. We prefer $\hat f_i$ for a clear comparison with the MBAR expressions that follow.
+
+%%% I believe this was incorrect referring to Pr_i(N,U) as a probability and not the histogram count
+%\begin{eqnarray} \label{eq: HR prob}
+%Pr(N,U;\mu,\beta) = \frac{\sum_{i=1}^{R} Pr_i(N,U)  \exp(-\beta U + \beta \mu N)}{\sum_{i=1}^{R} K_{\mathrm{snaps}, i} \exp(-\beta_i U + \beta_i \mu_i N + \hat f_i)}
+%\end{eqnarray}
+%where $R$ is the number of runs, $Pr_i(N,U)$ is the probability of observing $N$ particles and $U$ within the histogram bin width for the $i^{\rm th}$ run with $\beta_i$ and $\mu_i$, $K_{\mathrm{snaps}, i}$ is the number of ``snapshots'' for run $i$ (i.e., $K_{\mathrm{snaps}, i} = \sum_{N,U} Pr_i(N,U)$), and $\hat f_i$ is an estimate for the reduced free energy, which is calculated with the relationship
+%\begin{eqnarray} \label{eq: Weights}
+%\hat f(\mu,\beta) = - \ln \sum_{U} \sum_{N} \frac{\sum_{i=1}^{R} Pr_i(N,U) \exp(-\beta U + \beta \mu N)}{\sum_{i=1}^{R} K_{\mathrm{snaps}, i} \exp(-\beta_i U + \beta_i \mu_i N + \hat f_i)}
+%\end{eqnarray}
+%where $\hat f_i \equiv \hat f(\mu_i,\beta_i)$. Note that because $\hat f_i$ can also be viewed simply as a constant
+%%MRS3: added below to clarify.
+%that solves the self-consistent equations,
+%the GCMC-HR literature \cite{Pana2000} typically adopts the notation $C_i$ (or more specifically, $-C_i$) instead of $\hat f_i$. We prefer $\hat f_i$ for a clear comparison with the MBAR expressions that follow.
+
+%MRS3: above: the i should be listed included in the definition.
+%RAM: Done
+%MRS3: is this correct above? The number of observations is a sum over probabilities?  Seems either wrong, or a confusing way to describe things. 
+%RAM: I have had some concerns about this too. This is the notation used in the literature but it is certainly confusing. I think it is because they are defining Pr_i(N,U) as the count in the bins rather than the probability?
+
 %%% Old version with C_i 
 %\begin{eqnarray} \label{eq: HR prob}
 %Pr(N,U;\mu,\beta) = \frac{\sum_{i=1}^{R} Pr_i(N,U)  \exp(-\beta U + \beta \mu N)}{\sum_{i=1}^{R} K_i \exp(-\beta_i U + \beta_i \mu_i N + C_i)}
@@ -799,7 +820,7 @@ Equations \ref{eq: HR ave}, \ref{eq: HR prob}, and \ref{eq: Weights} only allow 
 \begin{eqnarray} \label{eq: MBAR ave}
 \langle O(\theta,\mu,\beta)\rangle = \sum_{n=1}^{K^{\rm tot}_{\rm snaps}} O(\x_{n},N_n;\theta,\mu,\beta) \times W_{n}(\theta,\mu,\beta)
 \end{eqnarray}
-where $(\x_n,N_n)$ are configurations sampled from $i=1 \ldots R$ simulations at inverse temperature $(\beta_{i})$, chemical potential $(\mu_{i})$, and force field parameters $(\theta_i)$, and $K^{\rm tot}_{\rm snaps} \equiv \sum_{i=1}^R K_{\mathrm{snaps}, i}$ is the total number of snapshots for all $R$ runs. $W_{n}(\theta,\beta,\mu)$ is the weight of the $n^{\rm th}$ configuration for an arbitrary $\mu$, $\beta$, and $\theta$. $W_{n}$ is computed with the following expression (analogous to Equation \ref{eq: HR prob})
+where $(\x_n,N_n)$ are \textit{uncorrelated} configurations sampled from $i=1 \ldots R$ simulations at inverse temperature $(\beta_{i})$, chemical potential $(\mu_{i})$, and reference force field parameters $(\theta_{\mathrm{ref},i})$, and $K^{\rm tot}_{\rm snaps} \equiv \sum_{i=1}^R K_{\mathrm{snaps}, i}$ is the total number of snapshots for all $R$ runs. $W_{n}(\theta,\beta,\mu)$ is the weight of the $n^{\rm th}$ configuration for an arbitrary $\mu$, $\beta$, and $\theta$. $W_{n}$ is computed with the following expression (analogous to Equation \ref{eq: HR prob})
 %The analogous MBAR equation to Equation \ref{eq: HR prob} is 
 \begin{eqnarray} \label{eq: MBAR weights}
 W_{n}(\theta,\beta,\mu) = \frac{\exp[\hat{f}(\theta,\beta,\mu)-u(\x_{n},N_n;\theta,\beta,\mu)]}{\sum\limits_{i=1}^R K_{\mathrm{snaps}, i} \, \exp[\hat{f}(\theta_i,\beta_{i},\mu_{i}) - u(\x_{n},N_n;\theta_i,\beta_{i},\mu_{i})]}
@@ -837,14 +858,12 @@ The similarities between MBAR (Equations \ref{eq: MBAR weights} and \ref{eq: MBA
 %
 %However, a key advantage of MBAR over HR is that by changing from a sum over histograms to a sum over snapshots, we are free to perform simulations with other conditions besides $\mu$ and $\beta$. For example, we can carry out simulations at different force field parameters $\theta$. 
 %MRS3: adding additional information.
-In the histogram context, samples in the same histogram would have different energies when evaluated with different force fields.  Similarly, we cannot
-easily separate out samples in the same $U$ histogram that were performed with different force field parameters.
-Howeer, if we perform sums over samples, we can reevaluate the configuration with a range of different parameters for a relatively small expense of evaluating only uncorrelated samples with different force fields.
+In the histogram context, snapshots with similar $U(\theta_{\rm ref})$ would not necessarily belong in the same $U$ histogram bin when recomputed with a different force field. Similarly, we cannot easily separate out samples in the same $U$ histogram that were performed with multiple $\theta_{\rm ref}$. However, if we perform sums over snapshots, we can carry out simulations at different force field parameters $(\theta_{\mathrm{ref},i})$. Furthermore, we can reevaluate the configurational energy $(U(\x_{n},N_n;\theta_{\rm rr}))$ with a range of different parameters for the relatively small expense of rerunning only a subset of uncorrelated snapshots with $\theta_{\rm rr}$.
 
-The key advantage of MBAR over HR is that by changing from a sum over histograms to a sum over snapshots, we are free to perform simulations with other conditions besides $\mu$ and $\beta$. For example, we can carry out simulations at different force field parameters $(\theta_i)$. In the histogram context, we cannot easily separate out snapshots in the same $U$ histogram that were performed with different force field parameters. Furthermore, as MBAR performs a sum over snapshots, we can reevaluate the configurational energy, $U(\x_{n},N_n;\theta_{\rm rr})$, with a range of different ``rerun'' parameter sets $(\theta_{\rm rr})$.
+%The key advantage of MBAR over HR is that by changing from a sum over histograms to a sum over snapshots, we are free to perform simulations with other conditions besides $\mu$ and $\beta$. For example, we can carry out simulations at different force field parameters $(\theta_{\mathrm{ref},i})$. In the histogram context, we cannot easily separate out snapshots in the same $U$ histogram that were performed with different force field parameters. Furthermore, as MBAR performs a sum over snapshots, we can reevaluate the configurational energy, $U(\x_{n},N_n;\theta_{\rm rr})$, with a range of different ``rerun'' parameter sets $(\theta_{\rm rr})$.
 % range of different parameters for a relatively small expense.
 
-If, however, all $R$ simulations are performed with a single reference force field $(\theta_{\rm ref})$ and $\theta_{\rm rr} = \theta_{\rm ref}$, these two sets of equations (HR: Equations \ref{eq: HR ave}, \ref{eq: HR prob}, and \ref{eq: Weights}, MBAR: Equations \ref{eq: MBAR ave}, \ref{eq: MBAR weights}, and \ref{eq: MBAR free energy}) can be seen as equivalent in the limit of infinitesimal histogram bin widths. In the zero bin width limit, no histogram contains more than 1 snapshot and, therefore, $U$ and $N$ for each histogram can be taken to be the $U(\x_n,N_n)$ and $N_n$ of the single observation in that histogram, while histograms with no snapshots can be omitted. Thus, $Pr_i(N,U)$ is either 1 or 0, and the sum over all histograms becomes a sum over snapshots conducted in all $R$ simulation runs. Equations \ref{eq: HR prob} and \ref{eq: Weights} then reduce to Equations \ref{eq: MBAR weights} and \ref{eq: MBAR free energy}, respectively.
+If, however, all $R$ simulations are performed with a single reference force field $(\theta_{\rm ref})$ and $\theta_{\rm rr} = \theta_{\rm ref}$, these two sets of equations (HR: Equations \ref{eq: HR ave}, \ref{eq: HR prob}, and \ref{eq: Weights}, MBAR: Equations \ref{eq: MBAR ave}, \ref{eq: MBAR weights}, and \ref{eq: MBAR free energy}) can be seen as equivalent in the limit of infinitesimal histogram bin widths. In the zero bin width limit, no histogram contains more than 1 snapshot and, therefore, $U$ and $N$ for each histogram can be taken to be the $U(\x_n,N_n)$ and $N_n$ of the single observation in that histogram, while histograms with no snapshots can be omitted. Thus, $K_{\mathrm{snaps},i}(N,U)$ is either 1 or 0, and the sum over all histograms becomes a sum over snapshots conducted in all $R$ simulation runs. Equations \ref{eq: HR prob} and \ref{eq: Weights} then reduce to Equations \ref{eq: MBAR weights} and \ref{eq: MBAR free energy}, respectively.
 
 %MRS: added this qualitative description of the reduction. 
 %The $\theta$ dependence of Equations \ref{eq: MBAR ave}, \ref{eq: MBAR weights}, and \ref{eq: MBAR free energy} can be removed by performing all $R$ simulations with a single reference force field $(\theta_{\rm ref})$ and only computing $W_{n}$ and $\hat f$ for $\theta = \theta_i = \theta_{\rm ref}$. With this simplification, these two sets of equations (HR: Equations \ref{eq: HR ave}, \ref{eq: HR prob}, and \ref{eq: Weights}, MBAR: Equations \ref{eq: MBAR ave}, \ref{eq: MBAR weights}, and \ref{eq: MBAR free energy}) can be seen as equivalent in the limit of infinitesimal histogram bin widths. In the zero bin width limit, no histogram contains more than 1 snapshot and, therefore, $U$ and $N$ for each histogram can be taken to be the $U(\x_n,N_n)$ and $N_n$ of the single observation in that histogram, while histograms with no snapshots can be omitted. Thus, $Pr_i(N,U)$ is either 1 or 0, and the sum over all histograms becomes a sum over snapshots conducted in all $R$ simulation runs. Equations \ref{eq: HR prob} and \ref{eq: Weights} then reduce to Equations \ref{eq: MBAR weights} and \ref{eq: MBAR free energy}, respectively.
@@ -881,11 +900,12 @@ Both HR and MBAR require solving a system of $R-1$ nonlinear equations for self-
 
 \subsubsection{Computing phase equilibria} \label{sec: Saturation}
 
+%MRS: I'm pretty sure its ``straight line'' not ``straight-line''
+%RAM: Yes I think you are correct. It is certainly not "straight-line" as a noun, but I thought it would be "straight-line regression" as an adjective
 For both GCMC-HR and GCMC-MBAR, the pressure is computed from
 \begin{equation} \label{eq: press}
 P(\theta,\beta,\mu) = \frac{k_{\rm B} T}{V} \ln \Xi + B = \hat f(\theta,\beta,\mu) + B
 \end{equation}
-%MRS: I'm pretty sure its ``straight line'' not ``straight-line''
 where $\Xi$ is the grand canonical partition function and $B$ is an additive constant, which is determined by fitting a straight line to $\ln \Xi$ with respect to $N$ at very low densities. At these low densities, the system is assumed to behave as an ideal gas and, therefore, the slope is unity and $B = \frac{k_{\rm B} T}{V} \times b$, where $b$ is the y-intercept from the straight line regression.
 
 Having determined $B$, the saturated vapor pressure $(P_{\rm vap}^{\rm sat})$ is computed with Equation \ref{eq: press} at the desired saturation temperature $(T^{\rm sat})$ and corresponding saturation chemical potential $(\mu^{\rm sat})$. $\mu^{\rm sat}$ is obtained by equating the pressures in the vapor and liquid phases at a fixed value of $T^{\rm sat}$. This is done by integrating $Pr$ (HR) or $W_{n}$ (MBAR) for the two phases separately, i.e., by dividing the snapshots into low and high density regimes. For example, the equality of pressures is satisfied for HR when
@@ -941,7 +961,7 @@ where $\bar U$ and $\bar V$ denote molar energy and molar volume, respectively.
 
 \subsubsection{Uncertainties in phase equilibria} \label{sec: Uncertainties}
 
-All uncertainties in this study are reported at the 95\% confidence level. Unless otherwise stated, uncertainties for $\rho_{\rm liq}^{\rm sat}$, $\rho_{\rm vap}^{\rm sat}$, $P_{\rm vap}^{\rm sat}$, and $\Delta H_{\rm v}$ are determined with the following bootstrap re-sampling analysis: \cite{Efron1979}
+All uncertainties in this study are reported at the 95\% confidence level. Unless otherwise stated, uncertainties for $\rho_{\rm liq}^{\rm sat}$, $\rho_{\rm vap}^{\rm sat}$, $P_{\rm vap}^{\rm sat}$, $\Delta H_{\rm v}$, and $Z_{\rm vap}^{\rm sat}$ are determined with the following bootstrap re-sampling analysis: \cite{Efron1979}
 
 %Specifically, the MBAR post-processing procedure is repeated for 100 random subsamples of the $K^{\rm tot}_{\rm snaps}$ snapshots from a single set of GCMC simulations. 
 
@@ -951,10 +971,10 @@ All uncertainties in this study are reported at the 95\% confidence level. Unles
 	\item Compute phase equilibria for random subset of Step \ref{item:Random selection} following procedure outlined in Sections \ref{sec: MBAR} and \ref{sec: Saturation} \label{item:MBAR step}
 	% Follow MBAR post-processing procedure of Sections \ref{sec: MBAR} and \ref{sec: Saturation} \label{item:MBAR step} 
 	\item Repeat Steps \ref{item:Random selection} and \ref{item:MBAR step} $N_{\rm sets}$ times, where $N_{\rm sets} = 100$ in this study \label{item:Loop}
-	\item Generate distribution from $N_{\rm sets}$ values of $\rho_{\rm liq}^{\rm sat}$, $\rho_{\rm vap}^{\rm sat}$, $P_{\rm vap}^{\rm sat}$, and $\Delta H_{\rm v}$
+	\item Generate distribution from $N_{\rm sets}$ values of $\rho_{\rm liq}^{\rm sat}$, $\rho_{\rm vap}^{\rm sat}$, $P_{\rm vap}^{\rm sat}$, $\Delta H_{\rm v}$, and $Z_{\rm vap}^{\rm sat}$
 	\item Determine interval that excludes the lowest and highest $0.025 \times N_{\rm sets}$ values of distribution
 \end{enumerate}
-
+Note that it is important to compute the uncertainties for $\Delta H_{\rm v}$ and $Z_{\rm vap}^{\rm sat}$ directly, rather than applying standard propagation of errors methods that typically neglect the correlation between properties\cite{Mess}.
 
 
 %$P_{\rm vap}^{\rm sat}$ can be computed with Equations \ref{eq: HR press alt} (HR) or \ref{eq: MBAR press alt} (MBAR).
@@ -970,9 +990,10 @@ K^{\rm eff}_{\rm snaps} = \frac{\left(\sum_n W_n\right)^2}{\sum_n W_n^2}
 which reduces to $K^{\rm eff}_{\rm snaps}  = (\sum_n W_n^2)^{-1}$ when the weights are
 normalized. This has the property that when the weights are equal,
 $K^{\rm eff}_{\rm snaps}  = K^{\rm tot}_{\rm snaps} $, when all but one weight is negligible, $K^{\rm eff}_{\rm snaps}  \approx
-1$, and behaves appropriately for intermediate cases. 
+1$, and behaves appropriately for intermediate cases. Messerly et al.~\cite{Postdoc_1}propose a heuristic that MBAR estimates are sufficiently reliable when $K^{\rm eff}_{\rm snaps} > 50$ to compute phase equilibria with ITIC. Section \ref{sec: litFF} tests whether this is a reasonable heuristic for GCMC-MBAR as well. 
 %MRS3: was in previous paper, so I think should be ``proposed''.  Also, I think it's that the uncertainty estimates are reliable at that point?  Whether it's reliable enough depends on the needed precision.  There perhaps needs to be a bit more attention on the uncertainty; you can't just see if K_eff > 50, you also have to see if the uncertainty is sufficiently low there (but K<50 means that the uncertainty is reliable)
-Messerly et al.~propose a heuristic that MBAR-ITIC is reliable when $K^{\rm eff}_{\rm snaps} > 50$. Section \ref{sec: litFF} tests whether this is a reasonable heuristic for GCMC-MBAR as well. 
+%RAM: I still like present tense here
+%RAM: True, but I actually don't really verify the MBAR uncertainties. It is more that the uncertainties are small enough (in addition to being reliable) that the ITIC or GCMC approaches provide precise estimates of phase equilibria. To your point, I have tried to convey that the Keff>50 for MBAR statement applies to whether the estimates are precise enough for ITIC. 
 %MRS3: I think fundamentaly whether it works or not is more for averages of a single property or a single free energy; the more complicated combinations of algorithms will be a consequence of whether the averages are computed accurately.  
 %\begin{enumerate}
 %	\item Traditionally, histogram reweighting (HR) has been applied with GCMC to calculate vapor-liquid coexistence properties
@@ -1131,12 +1152,13 @@ where $U^{\rm nb, tot}_{\rm rr}$ and $U^{\rm nb, tot}_{\rm ref}$ are the total n
 %\end{equation}
 %where $U^{\rm nb, tot}_{\rm rr}$ and $U^{\rm nb, tot}_{\rm ref}$ are the total non-bonded energy with $\theta_{\rm rr}$ and $\theta_{\rm ref}$, respectively.
 
-Section \ref{sec: eps scaling} applies the GCMC-MBAR $\epsilon$-scaling approach to convert the MiPPE-SL semi-transferable parameters into individualized parameters (iMiPPE) for 8 branched alkanes and 11 alkynes. For consistency with the original MiPPE-SL optimization, we use the same scoring function for the branched alkanes and alkynes as Mick et al.~and Soroush Barhaghi et al., respectively
 %MRS3: maybe provide a bit of information as to why the scoring function is constructed as it is (without necessarily endorsing this particular combination).  Seems pretty black box-y to me.  I guess some of the description is a bit later on, but perhaps a bit more context would be good?
+%RAM: I now point the reader to the paragraph below
+Section \ref{sec: eps scaling} applies the GCMC-MBAR $\epsilon$-scaling approach to convert the MiPPE-SL semi-transferable parameters into individualized parameters (iMiPPE) for 8 branched alkanes and 11 alkynes. For consistency with the original MiPPE-SL optimization, we use the same scoring function for the branched alkanes and alkynes as Mick et al.~and Soroush Barhaghi et al., respectively
 \begin{multline} \label{eq: Score}
-S= \frac{1}{N_{\rm exp}} [ w_0 \sum_{j=0}^{N_{\rm exp}} APD(\rho_{\rm liq}^{\rm sat}(T^{\rm sat}_j)) + w_1 \sum_{j=0}^{N_{\rm exp}} APD(\rho_{\rm vap}^{\rm sat}(T^{\rm sat}_j)) \\ + w_2 \sum_{j=0}^{N_{\rm exp}} APD(P_{\rm vap}^{\rm sat}(T^{\rm sat}_j)) + w_3 \sum_{j=0}^{N_{\rm exp}} APD(\Delta H_{\rm v} (T^{\rm sat}_j)) \\ + w_4 \sum_{j=0}^{N_{\rm exp}} \frac{d APD(\rho_{\rm liq}^{\rm sat}(T^{\rm sat}_j))}{dT} + w_5 \sum_{j=0}^{N_{\rm exp}} \frac{d APD(\rho_{\rm vap}^{\rm sat}(T^{\rm sat}_j))}{dT} \\ + w_6 \sum_{j=0}^{N_{\rm exp}} \frac{d APD(P_{\rm vap}^{\rm sat}(T^{\rm sat}_j))}{dT} + w_7 \sum_{j=0}^{N_{\rm exp}} \frac{d APD(\Delta H_{\rm v} (T^{\rm sat}_j))}{dT} ]
+S= \frac{1}{N_{\rm exp}} [ w_0 \sum_{j=0}^{N_{\rm exp}} APD(\rho_{\rm liq}^{\rm sat}(T^{\rm sat}_j)) + w_1 \sum_{j=0}^{N_{\rm exp}} APD(\rho_{\rm vap}^{\rm sat}(T^{\rm sat}_j)) \\ + w_2 \sum_{j=0}^{N_{\rm exp}} APD(P_{\rm vap}^{\rm sat}(T^{\rm sat}_j)) + w_3 \sum_{j=0}^{N_{\rm exp}} APD(\Delta H_{\rm v} (T^{\rm sat}_j)) \\ + w_4 \sum_{j=0}^{N_{\rm exp}-1} \frac{d APD(\rho_{\rm liq}^{\rm sat}(T^{\rm sat}_j))}{dT} + w_5 \sum_{j=0}^{N_{\rm exp}-1} \frac{d APD(\rho_{\rm vap}^{\rm sat}(T^{\rm sat}_j))}{dT} \\ + w_6 \sum_{j=0}^{N_{\rm exp}-1} \frac{d APD(P_{\rm vap}^{\rm sat}(T^{\rm sat}_j))}{dT} + w_7 \sum_{j=0}^{N_{\rm exp}-1} \frac{d APD(\Delta H_{\rm v} (T^{\rm sat}_j))}{dT} ]
 \end{multline}
-where $S$ is the scoring function, $N_{\rm exp}$ is the number of (pseudo-)experimental data points, $w_{x}$ are the weights for property $x$, $T^{\rm sat}_j$ are the saturation temperatures for data point $j$, and the absolute percent deviation $(APD)$ is defined as
+where $S$ is the scoring function, $N_{\rm exp}$ is the number of (pseudo-)experimental data points, $w_{x}$ are the weights for property $x$ (see below), $T^{\rm sat}_j$ are the saturation temperatures for data point $j$, and the absolute percent deviation $(APD)$ is defined as
 \begin{equation} \label{eq: APD}
 APD(X) = \left| \frac{X_{\rm sim} - X_{\rm exp}}{X_{\rm exp}} \right| \times 100 
 \end{equation}
@@ -1165,9 +1187,8 @@ Four different applications for GCMC-MBAR are demonstrated in this study, where 
 \subsection{Validation of GCMC-MBAR for $\theta_{\rm rr} = \theta_{\rm ref}$} \label{sec: Constant theta} 
 %MRS2: maybe a clearer section name that isn't just variables.
 
-Section \ref{sec: GCMC-HR and GCMC-MBAR} demonstrated that MBAR and HR are mathematically equivalent in the limit of zero bin width when $\theta_{\rm rr} = \theta_{\rm ref}$. Figure \ref{fig:comparison MBAR HR} provides numerical validation that GCMC-MBAR and GCMC-HR yield indistinguishable vapor-liquid coexistence properties. The evidence for this conclusion is that the median percent deviation is approximately zero and the largest deviations are within a few percent. 
+Section \ref{sec: GCMC-HR and GCMC-MBAR} demonstrated that MBAR and HR are mathematically equivalent in the limit of zero bin width when $\theta_{\rm rr} = \theta_{\rm ref}$. Figure \ref{fig:comparison MBAR HR} provides numerical validation that GCMC-MBAR and GCMC-HR yield indistinguishable vapor-liquid coexistence properties (tabulated GCMC-MBAR estimates and uncertainties are provided in Section \ref{SI sec: Tabulated MBAR results} of Supporting Information). The evidence for this conclusion is that the median percent deviation is approximately zero and the largest deviations are within a few percent, which are typically smaller than the combined statistical uncertainties. Note that the uncertainties are largest near the critical point, i.e., reduced temperatures $(T_{\rm r}) \approx 1$. 
 %MRS: is the few percent within statistical error?  State explicitly in the text.
-Note that the uncertainties are largest near the critical point, i.e., reduced temperatures $(T_{\rm r}) \approx 1$. 
 
 	\begin{figure}[htb!]
 		\centering
@@ -1176,7 +1197,7 @@ Note that the uncertainties are largest near the critical point, i.e., reduced t
 		\label{fig:comparison MBAR HR}
 	\end{figure}
 
-The percent deviations shown in Figure \ref{fig:comparison MBAR HR} are averaged over the 31 branched alkanes studied by Mick et al.\cite{Potoff_branched}~ (only the MiPPE-SL data are re-evaluated) and the 11 alkynes studied by Soroush Barhaghi et al.\cite{Barhaghi2017} The GCMC-HR values used in Figure \ref{fig:comparison MBAR HR} were not recomputed in this study but were taken from the literature \cite{Potoff_branched,Barhaghi2017}. For a fair comparison between GCMC-HR and GCMC-MBAR, the GCMC-MBAR values were computed using the same raw simulation data as Mick et al.~and Soroush Barhaghi et al. However, for simplicity, we only reprocess one of the five replicate simulations. Tabulated MBAR results are provided in Section \ref{SI sec: Tabulated MBAR results} of Supporting Information.
+The percent deviations shown in Figure \ref{fig:comparison MBAR HR} are averaged over the 31 branched alkanes studied by Mick et al.\cite{Potoff_branched}~ (only the MiPPE-SL data are re-evaluated) and the 11 alkynes studied by Soroush Barhaghi et al.\cite{Barhaghi2017} The GCMC-HR values used in Figure \ref{fig:comparison MBAR HR} were not recomputed in this study but were taken from the literature \cite{Potoff_branched,Barhaghi2017}. For a fair comparison between GCMC-HR and GCMC-MBAR, the GCMC-MBAR values were computed using the same raw simulation data as Mick et al.~and Soroush Barhaghi et al. However, for simplicity, we only reprocess one of the five replicate simulations.
 
 % The GCMC-MBAR values were computed using a subset of the raw simulation data from Mick et al. and Barhaghi et al. Specifically, snapshots from only a single replicate simulation were used for the GCMC-MBAR analysis, while the GCMC-HR values reported by Mick et al. and Barhaghi et al. utilized five replicate simulations.
 
@@ -1219,7 +1240,7 @@ Weigler et al.~tend to characterize the individualization as being useful when t
 
 Figure \ref{fig:epsilon_scaling} shows that the MiPPE parameters require a greater degree of scaling for alkynes than for branched alkanes. A truly transferable force field should have $\psi \approx 1$ for all compounds. Although $\psi$ values for iTAMie were not reported for alkynes, the largest $\psi$ value for olefins, ethers, and ketones was $\approx 1.01$.\cite{Weidler2018} Therefore, the transferability of the MiPPE force field appears to be slightly poorer for 2-pentyne and 2-hexyne, which have an optimized $\psi > 1.01$. 
 
-It is also interesting that only 3 out of 19 compounds require $\psi < 1$. Thus, the well-depths appear to be slightly underestimated by the MiPPE force field. By contrast, this trend was not observed in Reference \citenum{Weidler2018} for TAMie. Also, note that branched alkanes have a pronounced minimum in $S$ with respect to $\psi$, whereas the minimum is more gradual for the alkynes. We attribute this to the fact that the alkynes do not include $\Delta H_{\rm v}$ (a property that depends strongly on $\epsilon$) in the scoring function, i.e., $w_4 = 0$ and $w_7 = 0$. 
+It is also interesting that only 3 out of 19 compounds require $\psi < 1$. Thus, the well-depths appear to be slightly underestimated by the MiPPE force field. By contrast, this trend was not observed in Reference \citenum{Weidler2018} for TAMie. Also, note that branched alkanes have a pronounced minimum in $S$ with respect to $\psi$, whereas the minimum is more gradual for the alkynes. We attribute this, in part, to the fact that the alkynes do not include $\Delta H_{\rm v}$ (a property that depends strongly on $\epsilon$) in the scoring function, i.e., $w_4 = 0$ and $w_7 = 0$. 
 
 %.  is introduced should result in low deviations between experiment and simulation, it is likely that such a parameter set would be overfit and, thus, perform poorly some compounds have sufficient experimental 
 
@@ -1228,7 +1249,7 @@ It is also interesting that only 3 out of 19 compounds require $\psi < 1$. Thus,
 %At least two reasons exist for why MBAR is ideally suited for $\epsilon$-scaling. First, the energies in Equation \ref{BLANK} can be scaled by $\psi$ such that the configurations do not need to be stored or recomputed. Second, MBAR is more reliable for changes in $\epsilon$ rather than changes in $\sigma$ and/or $\lambda$ \cite{Postdoc_1}. 
 
 %\subsection{$\epsilon_{\rm ref} \neq \epsilon_{\rm rr}$, $\sigma_{\rm ref} \neq \sigma_{\rm rr}$, and $\lambda_{\rm ref} \neq \lambda_{\rm rr}$} \label{sec: litFF}
-\subsection{Performance of GCMC-MBAR when $\theta_{\rm rr} \not\approx \theta_{\rm ref}$} \label{sec: litFF}
+\subsection{Performance of GCMC-MBAR when varying $\epsilon$, $\sigma$, and $\lambda$} \label{sec: litFF}
 %MRS3: didn't the previous section already start to address the question of when theta_rr =/= theta_ref?  Use different name?
 A more demanding test of GCMC-MBAR than $\epsilon$-scaling is to vary several non-bonded parameters simultaneously, including $\sigma$ and $\lambda$. To perform a test of GCMC-MBAR when $\theta_{\rm rr} \not\approx \theta_{\rm ref}$, we estimate the phase equilibria of several branched alkanes for force field $j$ by reweighting configurations sampled with force field $i$ (denoted as $\theta_{\rm i} \Rightarrow \theta_{\rm j}$), where $i$ and $j$ are either the MiPPE-gen, MiPPE-SL, TraPPE, or NERD force fields. 
 
@@ -1270,10 +1291,22 @@ The good agreement between corresponding symbols and lines in Figures \ref{fig:r
 
 %For example, all three non-bonded parameters ($\epsilon$, $\sigma$, and $\lambda$) for all four united-atom types (CH$_3$, CH$_2$, CH, and C) are different between the TraPPE and Potoff-gen force fields (see Figure \ref{fig:refFF_to_rrFF_lam12to16}). The TraPPE and NERD $\epsilon$ and $\sigma$ values are different for all four united-atom types while $\lambda = 12$ for both force fields (see Figure \ref{fig:refFF_to_rrFF_lam_constant}). The Potoff-gen and Potoff-SL force fields only differ in the $\epsilon$ and/or $\sigma$ values for the CH and C sites (see Figure \ref{fig:refFF_to_rrFF_lam_constant}). Specifically, the 2-methylpropane parameters are identical except for $\sigma_{\rm CH}$, the 2,2-dimethylpropane parameters are the same except for $\epsilon_{\rm C}$, and three parameters are different for 2,2,4-trimethylpentane ($\epsilon_{\rm CH}$, $\sigma_{\rm CH}$, and $\sigma_{\rm C}$). However, the difference in $\epsilon$ and $\sigma$ values for Potoff-gen and Potoff-SL is significantly smaller than that between TraPPE and NERD.
 
-%MRS3: It would be useful to comment how this is entirely expected, since 1) there are fewer molecules in vapor, and the configurational overlap scales with number  and 2) there are fewer instances of molecules shoved up against one another, which is where the overlap problems occur.  And 3) that the different shape/location of the repulsive wall explains why it works for lambda_theta = lambda_ref, but not lambda_theta =/= lambda_ref. I think that a little bit of this physical explanation would be useful.   
-Figure \ref{fig:Neff} demonstrates that, as expected, $K_{\rm snaps}^{\rm eff}$ is typically much greater in the vapor phase than in the liquid phase. 
-%MRS3: next sentence already was mentioned ( K_eff > 50).
-Messerly et al.~report that MBAR-ITIC is reliable if $K_{\rm snaps}^{\rm eff} > 50$ \cite{Postdoc_1}. Applying this heuristic to GCMC-MBAR helps qualify why the liquid properties are poorly estimated in some systems while the vapor properties are much more accurate. Specifically, $K_{\rm snaps}^{\rm eff}$ is less than $50$ in the liquid phase when $\lambda_{\rm rr} \neq \lambda_{\rm ref}$ (TraPPE $\Leftrightarrow$ MiPPE-gen) while it is typically greater than 50 for $\lambda_{\rm rr} = \lambda_{\rm ref}$ (MiPPE-gen $\Rightarrow$ MiPPE-SL and TraPPE $\Rightarrow$ NERD). This demonstrates that $K_{\rm snaps}^{\rm eff} > 50$ is a good indication that the GCMC-MBAR estimates are reliable.
+%MRS3: It would be useful to comment how this is entirely expected, since 1) there are fewer molecules in vapor, and the configurational overlap scales with number  and 2) there are fewer instances of molecules shoved up against one another, which is where the overlap problems occur.  And 3) that the different shape/location of the repulsive wall explains why it works for lambda_theta = lambda_ref, but not lambda_theta =/= lambda_ref. I think that a little bit of this physical explanation would be useful. 
+%RAM: I think the explanation is more helpful now
+%MRS3: next sentence already was mentioned ( K_eff > 50).  
+%Messerly et al.~report that MBAR-ITIC is reliable if $K_{\rm snaps}^{\rm eff} > 50$ \cite{Postdoc_1}.
+
+Figure \ref{fig:Neff} demonstrates that $K_{\rm snaps}^{\rm eff}$ is typically much greater in the vapor phase $(K_{\rm snaps}^{\rm eff, vap})$ than in the liquid phase $(K_{\rm snaps}^{\rm eff, liq})$. Specifically, $K_{\rm snaps}^{\rm eff, vap} \gg 50$, while $K_{\rm snaps}^{\rm eff, liq} < 50$ when $\lambda_{\rm rr} \neq \lambda_{\rm ref}$ (TraPPE $\Leftrightarrow$ MiPPE-gen) and $K_{\rm snaps}^{\rm eff, liq} > 50$ for $\lambda_{\rm rr} = \lambda_{\rm ref}$ (MiPPE-gen $\Rightarrow$ MiPPE-SL and TraPPE $\Rightarrow$ NERD). Therefore, similar to the conclusions of Messerly et al.~\cite{Postdoc_1} for MBAR-ITIC, $K_{\rm snaps}^{\rm eff} > 50$ is a good indication that the GCMC-MBAR estimates are reliable. 
+
+The strong disparity between $K_{\rm snaps}^{\rm eff, vap}$ and $K_{\rm snaps}^{\rm eff, liq}$ when $\lambda_{\rm rr} \neq \lambda_{\rm ref}$ is expected for at least two reasons. The first reason is that the vapor phase has fewer molecules overall. $K_{\rm snaps}^{\rm eff}$ (or alternatively $W_n$) is greatest when the reduced potential energy ($u$ in Equation \ref{eq: reduced potential}) is similar for $\theta_{\rm rr}$ and $\theta_{\rm ref}$. The reduced potential energy is proportional to the total internal energy $(U)$, which is an extensive property that depends on both $N$ and $\theta$. Therefore, even when $\theta_{\rm rr} \not\approx \theta_{\rm ref}$, small values of $N$ lead to $u(\theta_{\rm rr}) \approx u(\theta_{\rm ref})$. 
+
+The second reason is that there are more instances of close range interactions in the liquid phase. Varying $\lambda$ changes the slope and location of the repulsive wall, which greatly impacts the non-bonded energy for close range interactions. These large changes in $U$ when $\lambda_{\rm rr} \neq \lambda_{\rm ref}$ cause $W_n \approx 0$ for the majority of liquid phase configurations. For similar reasons, the overlap in the liquid phase is markedly worse when $\sigma_{\rm rr} \not\approx \sigma_{\rm ref}$. For example, $K_{\rm snaps}^{\rm eff, liq}$ is significantly greater for MiPPE-gen $\Rightarrow$ MiPPE-SL than TraPPE $\Rightarrow$ NERD. 
+
+%, smaller values of $N$  although large changes in $\theta$ the impact of varying $\theta$ is d have a smaller impact on $u$ (and, thereby, greater values of $W_n$ and $K_{\rm snaps}^{\rm eff}$) for larger values of $N$. fewer molecules lead to smaller absolute changes in $u$ when varying $\theta$. overlap is proportional to $\exp(-\beta N (U(\theta_{\rm rr}) - U(\theta_{\rm ref}))$, such that the overlap is less sensitive to changes in the non-bonded parameters.
+
+% although typically $K_{\rm snaps}^{\rm eff, liq} > 50$ for both cases.
+
+%Applying this heuristic to GCMC-MBAR helps qualify why the liquid properties are poorly estimated in some systems while the vapor properties are much more accurate.  This demonstrates that $K_{\rm snaps}^{\rm eff} > 50$ is a good indication that the GCMC-MBAR estimates are reliable.
 
 % while  is much greater in the liquid phase than the vapor phase.  if the overlap between systems is sufficient for MBAR to be reliable.  is 
 
@@ -1350,12 +1383,14 @@ Figure \ref{fig:Score_CYC6} depicts the scoring function for the first iteration
 
 %which would negate the computational gain of GCMC-MBAR compared with GCMC-HR.
 
-Note that the TraPPE force field utilizes a Lennard-Jones 12-6 potential (i.e., $\lambda_{\rm TraPPE} = 12$) and, therefore, the results in the top-left panel of Figures \ref{fig:Score_CYC6} and \ref{fig:Neff_CYC6} are for the case where $\lambda_{\rm rr} = \lambda_{\rm ref} = 12$, while the other panels correspond to $\lambda_{\rm rr} \neq \lambda_{\rm ref}$. Figure \ref{fig:Neff_CYC6} shows that, as expected, the average number of effective snapshots in the liquid phase ($\bar K_{\rm snaps, liq}^{\rm eff}$) are much lower for $\lambda_{\rm rr} \neq \lambda_{\rm ref}$ than for $\lambda_{\rm rr} = \lambda_{\rm ref}$. In addition, the smooth contours in Figure \ref{fig:Score_CYC6} for $\lambda_{\rm rr} = \lambda_{\rm ref} = 12$ and the wide range of parameters over which $\bar K_{\rm snaps}^{\rm eff, liq} \gg 50$ suggests that GCMC-MBAR is highly reliable for optimizing $\epsilon_{\rm CH_2}$ and $\sigma_{\rm CH_2}$ for a fixed value of $\lambda_{\rm CH_2}$. 
+Note that the TraPPE force field utilizes a Lennard-Jones 12-6 potential (i.e., $\lambda_{\rm TraPPE} = 12$) and, therefore, the results in the top-left panel of Figures \ref{fig:Score_CYC6} and \ref{fig:Neff_CYC6} are for the case where $\lambda_{\rm rr} = \lambda_{\rm ref} = 12$, while the other panels correspond to $\lambda_{\rm rr} \neq \lambda_{\rm ref}$. Figure \ref{fig:Neff_CYC6} shows that, as expected, the average number of effective snapshots in the liquid phase ($\bar K_{\rm snaps, liq}^{\rm eff}$) are much lower for $\lambda_{\rm rr} \neq \lambda_{\rm ref}$ than for $\lambda_{\rm rr} = \lambda_{\rm ref}$. In addition, the smooth contours in Figure \ref{fig:Score_CYC6} for $\lambda_{\rm rr} = \lambda_{\rm ref} = 12$ and the wide range of parameters over which $\bar K_{\rm snaps}^{\rm eff, liq} \gg 50$ suggests that GCMC-MBAR is highly reliable for optimizing $\epsilon_{\rm CH_2}$ and $\sigma_{\rm CH_2}$ for a fixed value of $\lambda_{\rm CH_2}$. Even more remarkable, considering the erroneous prediction of $\rho_{\rm liq}^{\rm sat}$ and $\Delta H_{\rm v}$ for $\lambda_{\rm rr} \neq \lambda_{\rm ref}$ (see Figure \ref{fig:refFF_to_rrFF_lam12to16}), is that GCMC-MBAR predicts smooth contours for $\lambda \neq 12$ despite lower values of $\bar K_{\rm snaps}^{\rm eff, liq}$. This characteristic would be important when implementing gradient descent optimization schemes.
+
 %MRS2: might not be as clear to others why remarkable.
-Even more remarkable, considering the erroneous prediction of $\rho_{\rm liq}^{\rm sat}$ and $\Delta H_{\rm v}$ for $\lambda_{\rm rr} \neq \lambda_{\rm ref}$ (see Figure \ref{fig:refFF_to_rrFF_lam12to16}), is that GCMC-MBAR predicts smooth contours for $\lambda \neq 12$ despite lower values of $\bar K_{\rm snaps}^{\rm eff, liq}$. 
+
 %MRS3: above - hmm. Why does it give smooth contours even though it is looking at lambda=/= 12 values?  I missed why it's working here. I see in figure 7 that the number of effective samples is larger than in the previous tests, but is that just because in the previous tests, we were sampling over very different parameters, and here, sigma and epsilon aren't that different in the range of interest?
-This characteristic would be important when implementing gradient descent optimization schemes.
+%RAM: I think it is more that all eps/sig are penalized equally as they all have fairly random values of rholiqsat. But I really don't have a great explanation for this.
 %MRS3: can't you just say ``is important'' rather than ``would be''?
+%RAM: "is important" seems to imply that we actually utilized a gradient descent optimization. "Would be" suggests that this applies to other future studies.
 	\begin{figure}[htb!]
 		\centering
 		\includegraphics[width=6.4in]{CYC6_scoring_function_lam.pdf}
@@ -1372,8 +1407,12 @@ This characteristic would be important when implementing gradient descent optimi
 		\label{fig:Neff_CYC6}
 	\end{figure}
 
-The optimal parameter sets (depicted as white ``X''s in Figures \ref{fig:Score_CYC6} and \ref{fig:Neff_CYC6}) correspond to the lowest value of $S$ for each value of $\lambda_{\rm CH_2}$. Having minimized the scoring function for $\lambda_{\rm CH_2} =$ 12, 14, 16, 18, and 20 (not shown in Figure \ref{fig:Score_CYC6}), we perform additional simulations with the optimal parameter sets ($\theta^{\langle1\rangle}$) serving as new reference parameter sets. Because the optimal $\epsilon_{\rm CH_2}$ and $\sigma_{\rm CH_2}$ parameters for $\lambda_{\rm CH_2} = 12$ already have $\min(K_{\rm snaps}^{\rm eff}) \gg 50$, we only consider $\lambda_{\rm CH_2} \ge 14$. 
+The optimal parameter sets (depicted as white ``X''s in Figures \ref{fig:Score_CYC6} and \ref{fig:Neff_CYC6}) correspond to the lowest value of $S$ for each value of $\lambda_{\rm CH_2}$. Having minimized the scoring function for $\lambda_{\rm CH_2} =$ 12, 14, 16, 18, and 20 (not shown in Figure \ref{fig:Score_CYC6}), we perform additional simulations with the optimal parameter sets ($\theta^{\langle1\rangle}$) serving as new reference parameter sets. Because GCMC-MBAR is reliable over a wide range of $\epsilon_{\rm CH_2}$ and $\sigma_{\rm CH_2}$ values for $\lambda_{\rm rr} = \lambda_{\rm ref}$, we only reweight snapshots generated with the same value of $\lambda_{\rm CH_2}$. Also, because the optimal $\epsilon_{\rm CH_2}$ and $\sigma_{\rm CH_2}$ parameters for $\lambda_{\rm CH_2} = 12$ already have $\min(K_{\rm snaps}^{\rm eff}) \gg 50$, we only consider $\lambda_{\rm CH_2} \ge 14$.
+
+% $\lambda_{\rm CH_2} = 14$ to estimate properties for $\lambda_{\rm CH_2} \neq 14$
 %MRS3: do you use all previous simulations with different parameters as reference, or just a single reference? Will be slightly better, though I don't know how much.
+%RAM: Just a single reference, including multiple references seemed unnecessary as we already have very high Keff. This is discussed in the discussion section
+
 Figure \ref{fig:Iterate_Score_CYC6} presents the results from this second iteration of the two-dimensional optimization for each $\lambda_{\rm CH_2}$. Note that the first iteration optimal parameter sets (white ``X''s) are quite similar to the second iteration (white ``+''s and star), which provides further evidence that the first iteration results for $\lambda_{\rm rr} \neq \lambda_{\rm ref}$ are quite reliable. We verify that the optimization has converged, i.e., $\min(K_{\rm snaps}^{\rm eff}) \gg 50$ for $\theta_{\rm opt}^{\langle2\rangle}$ (see Figure \ref{SI fig:Iterate_Neff_CYC6} in Supporting Information). Table \ref{tab:lam opt} summarizes the parameter sets obtained at each stage of the optimization. 
 
 % there is sufficient overlap $(\min(K_{\rm snaps}^{\rm eff}) \gg 50)$ between the first and second iterations to consider the optimization converged.
@@ -1381,7 +1420,7 @@ Figure \ref{fig:Iterate_Score_CYC6} presents the results from this second iterat
 	\begin{figure}[htb!]
 		\centering
 		\includegraphics[width=6.4in]{CYC6_scoring_function_lam_iteration.pdf}
-		\caption{Second iteration scoring function values with respect to $\epsilon_{\rm CH_2}$ and $\sigma_{\rm CH_2}$ for cyclohexane. Pseudo-optimal parameter sets from first iteration serve as reliable reference parameter sets for refining the optimization. Top-left, top-right, bottom-left, and bottom-right panels correspond $\lambda_{\rm CH_2} = 14$, $\lambda_{\rm CH_2} = 16$, $\lambda_{\rm CH_2} = 18$, and $\lambda_{\rm CH_2} = 20$, respectively. White star represents the overall optimal parameter set (MiPPE: $\theta^{\langle2\rangle}, \lambda_{\rm CH_2} = 16$) while white ``+''s correspond to optimal parameter sets ($\theta^{\langle2\rangle}$) for $\lambda_{\rm CH_2} \neq 16$. White ``X''s depict the single reference force field for each $\lambda_{\rm CH_2}$ and are the same as Figures \ref{fig:Score_CYC6} and \ref{fig:Neff_CYC6}.} %, i.e., $\lambda_{\rm rr} = \lambda_{\rm ref}$.} 
+		\caption{Second iteration scoring function values with respect to $\epsilon_{\rm CH_2}$ and $\sigma_{\rm CH_2}$ for cyclohexane. Pseudo-optimal parameter sets from first iteration serve as reliable reference parameter sets for refining the optimization. Top-left, top-right, bottom-left, and bottom-right panels correspond $\lambda_{\rm CH_2} = 14$, $\lambda_{\rm CH_2} = 16$, $\lambda_{\rm CH_2} = 18$, and $\lambda_{\rm CH_2} = 20$, respectively. White star represents the overall optimal parameter set (MiPPE: $\theta^{\langle2\rangle}, \lambda_{\rm CH_2} = 16$) while white ``+''s correspond to optimal parameter sets ($\theta^{\langle2\rangle}$) for $\lambda_{\rm CH_2} \neq 16$. White ``X''s depict the single reference force field for each $\lambda_{\rm CH_2}$ (i.e., $\lambda_{\rm rr} = \lambda_{\rm ref}$) and are the same as Figures \ref{fig:Score_CYC6} and \ref{fig:Neff_CYC6}.} %, i.e., $\lambda_{\rm rr} = \lambda_{\rm ref}$.} 
 		\label{fig:Iterate_Score_CYC6}
 	\end{figure} 
 
@@ -1401,24 +1440,24 @@ Figure \ref{fig:Iterate_Score_CYC6} presents the results from this second iterat
 
     \begin{table}[h!]
 %MRS3: maybe indicate which one of the 5 is the optimal in the table?  Perhaps give final scoring function values in the table?
-		\caption{Optimal Mie $\lambda$-6 cyclohexane parameters for $\lambda_{\rm CH_2} =$ 12, 14, 16, 18, and 20. Superscript denotes the iteration stage of the optimization. Stage 0 corresponds to the TraPPE force field and Stage 2 for $\lambda_{\rm CH_2} =$ 16 is the MiPPE force field.} \label{tab:lam opt}
+		\caption{Optimal Mie $\lambda$-6 cyclohexane parameters for $\lambda_{\rm CH_2} =$ 12, 14, 16, 18, and 20. Superscript denotes the iteration stage of the optimization. Stage 0 corresponds to the TraPPE force field and Stage 2 for $\lambda_{\rm CH_2} =$ 16 is the MiPPE force field. Final column reports the optimal scoring function $(S_{\rm opt})$ for each $\lambda_{\rm CH_2}$ (computed with $\theta^{\langle1\rangle}$ for $\lambda_{\rm CH_2} =$ 12 and with $\theta^{\langle2\rangle}$ for $\lambda_{\rm CH_2} =$ 14, 16, 18, and 20).} \label{tab:lam opt}
 		\begin{center}
-			\begin{tabular}{|c|c|c|c|c|c|c|}
+			\begin{tabular}{|c|c|c|c|c|c|c|c|}
 				\hline
-				$\lambda_{\rm CH_2}$ & $\epsilon_{\rm CH_2}^{\langle0\rangle}/k_{\rm B}$ (K) & $\sigma_{\rm CH_2}^{\langle0\rangle}$ (nm) & $\epsilon_{\rm CH_2}^{\langle1\rangle}/k_{\rm B}$ (K) & $\sigma_{\rm CH_2}^{\langle1\rangle}$ (nm) & $\epsilon_{\rm CH_2}^{\langle2\rangle}/k_{\rm B}$ (K) & $\sigma_{\rm CH_2}^{\langle2\rangle}$ (nm) \\ \hline
-				12 & 52.5 & 0.391 & 53.0 & 0.394 & -- & -- \\ 
-				14 & -- & -- & 61.5 & 0.393 & 61.5 & 0.393 \\ 
-				16 & -- & -- & 70.0 & 0.389 & 69.7 & 0.3902 \\
-				18 & -- & -- & 77.0 & 0.389 & 76.5 & 0.390 \\
-				20 & -- & -- & 84.0 & 0.388 & 82.5 & 0.389 \\
+				$\lambda_{\rm CH_2}$ & $\epsilon_{\rm CH_2}^{\langle0\rangle}/k_{\rm B}$ (K) & $\sigma_{\rm CH_2}^{\langle0\rangle}$ (nm) & $\epsilon_{\rm CH_2}^{\langle1\rangle}/k_{\rm B}$ (K) & $\sigma_{\rm CH_2}^{\langle1\rangle}$ (nm) & $\epsilon_{\rm CH_2}^{\langle2\rangle}/k_{\rm B}$ (K) & $\sigma_{\rm CH_2}^{\langle2\rangle}$ (nm) & $S_{\rm opt}$ \\ \hline
+				12 & 52.5 & 0.391 & 53.0 & 0.394 & -- & -- & 1.79 \\ 
+				14 & -- & -- & 61.5 & 0.393 & 61.5 & 0.393 & 1.03 \\ 
+				16 & -- & -- & 70.0 & 0.389 & 69.7 & 0.3902 & 0.463 \\
+				18 & -- & -- & 77.0 & 0.389 & 76.5 & 0.390 & 0.791 \\
+				20 & -- & -- & 84.0 & 0.388 & 82.5 & 0.389 & 1.07 \\
 				\hline
 			\end{tabular}
 		\end{center} 
 	\end{table}
 
-Similar to other alkanes, 16 is once again found to be the optimal repulsive exponent when only considering even integer values. The overall optimal parameter set $(\theta^{\langle2\rangle}$, $\lambda_{\rm CH_2} = 16$) is reported in Table \ref{tab:nonbonded params} as the MiPPE cyclohexane parameters. 
 %MRS3: I don't understand how this indicates precision below?
-The precision of $\epsilon_{\rm CH_2}$ and $\sigma_{\rm CH_2}$ (reported with three and four digits, respectively) is consistent with other MiPPE parameters and provides a qualitative measure of uncertainty.  
+
+Similar to other alkanes, 16 is once again found to be the optimal repulsive exponent when only considering even integer values. The overall optimal parameter set $(\theta^{\langle2\rangle}$, $\lambda_{\rm CH_2} = 16$) is reported in Table \ref{tab:nonbonded params} as the MiPPE cyclohexane parameters. $\epsilon_{\rm CH_2}$ and $\sigma_{\rm CH_2}$ are reported with three and four digits, respectively, consistent with other MiPPE parameters and to provide a qualitative measure of uncertainty.  
 
 It is important to verify that the final parameter set does indeed provide accurate predictions of vapor-liquid coexistence properties. For this reason, after completing the optimization, we perform direct GCMC simulations with the overall optimal parameter set (MiPPE). Twenty independent replicate simulations are performed at each state point ($\mu$, $V$, $T$) to reduce and rigorously quantify the statistical uncertainties for the MiPPE cyclohexane results. 
 
@@ -1495,9 +1534,11 @@ In this optimization example (an exhaustive 2-dimensional grid search over integ
 
 \section{Discussion} \label{sec: Discussion}
 
-The results presented in this study were obtained by performing simulations with only a single reference force field. As shown in previous studies, a logical approach for improving the performance of MBAR is to include additional reference force fields \cite{Postdoc_1,Postdoc_2}. For example, in Section \ref{sec: Case study}, we did not utilize the snapshots from $\lambda_{\rm CH_2} = 14$ when computing properties for $\lambda_{\rm CH_2} = 16$ and vice versa. 
+The results presented in this study were obtained by performing simulations with only a single reference force field. As shown in previous studies, a logical approach for improving the performance of MBAR is to include additional reference force fields \cite{Postdoc_1,Postdoc_2}. For example, in Section \ref{sec: Case study}, we did not utilize the snapshots from $\lambda_{\rm CH_2} = 14$ when computing properties for $\lambda_{\rm CH_2} = 16$ and vice versa. Using multiple reference force fields would certainly increase the number of effective snapshots. However, the top-left panel of Figure \ref{fig:Neff_CYC6} demonstrates that a single reference provides sufficient overlap over a wide region of $\epsilon$ and $\sigma$ parameter sets when $\lambda_{\rm rr} = \lambda_{\rm ref}$. For this reason, it is unnecessary to reweight all the snapshots from each value of $\lambda_{\rm CH_2}$.
+
+% For this reason, it was unnecessary to combine the snapshots 
+
 %MRS3: isn't increasing the number of effective snapshots a good thing?
-Although this would increase the number of effective snapshots, a single reference provides sufficient overlap over a wide region of $\epsilon$ and $\sigma$ parameter sets when $\lambda_{\rm rr} = \lambda_{\rm ref}$. 
 
 % For example, it could be helpful to simulate multiple $\sigma_{\rm ref}$ and $\lambda_{\rm ref}$ values 
 
@@ -1523,9 +1564,9 @@ We perform a one-dimensional $\epsilon$-scaling post-simulation optimization of 
 
 \section{Acknowledgments}
 
-We would like to acknowledge Dr. J. Richard Elliott for several invaluable discussions regarding force field optimization. We are also appreciative of the internal review provided by Yauheni (Eugene) Paulechka, Andrei F. Kazakov, Daniel G. Friend, and Marcia L. Huber of the National Institute of Standards and Technology (NIST).
+We would like to express our gratitude to Dr. J. Richard Elliott for several invaluable discussions regarding force field optimization. We are also appreciative of the internal review provided by Yauheni (Eugene) Paulechka, Andrei F. Kazakov, Daniel G. Friend, and Marcia L. Huber of the National Institute of Standards and Technology (NIST).
 
-This research was performed while Richard A. Messerly held a National Research Council (NRC) Postdoctoral Research Associateship at NIST. 
+This research was performed while Richard A. Messerly held a National Research Council (NRC) Postdoctoral Research Associateship at NIST. Jeffrey J. Potoff and Mohammad Soroush Barhaghi acknowledge funding from NSF OAC-1642406. Some of the computations in this work were performed with resources from the Grid Computing initiative at Wayne State University. 
 
 Commercial equipment, instruments, or materials are identified only in order to adequately specify certain procedures. In no case does such identification imply recommendation or endorsement by NIST, nor does it imply that the products identified are necessarily the best available for the intended purpose.
 

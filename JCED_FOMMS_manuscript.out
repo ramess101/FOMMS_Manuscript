@@ -3,7 +3,7 @@
 \BOOKMARK [1][-]{section.2}{Methods}{}% 3
 \BOOKMARK [2][-]{subsection.2.1}{Force fields}{section.2}% 4
 \BOOKMARK [2][-]{subsection.2.2}{Simulation set-up}{section.2}% 5
-\BOOKMARK [2][-]{subsection.2.3}{GCMC-MBAR compared with GCMC-HR}{section.2}% 6
+\BOOKMARK [2][-]{subsection.2.3}{Comparison of GCMC-MBAR and GCMC-HR}{section.2}% 6
 \BOOKMARK [3][-]{subsubsection.2.3.1}{Histogram reweighting}{subsection.2.3}% 7
 \BOOKMARK [3][-]{subsubsection.2.3.2}{Histogram-free reweighting}{subsection.2.3}% 8
 \BOOKMARK [3][-]{subsubsection.2.3.3}{Comparison between HR and MBAR}{subsection.2.3}% 9
@@ -15,7 +15,7 @@
 \BOOKMARK [1][-]{section.3}{Results}{}% 15
 \BOOKMARK [2][-]{subsection.3.1}{Validation of GCMC-MBAR for rr = ref}{section.3}% 16
 \BOOKMARK [2][-]{subsection.3.2}{Post-simulation -scaling with GCMC-MBAR}{section.3}% 17
-\BOOKMARK [2][-]{subsection.3.3}{Performance of GCMC-MBAR when rr ref}{section.3}% 18
+\BOOKMARK [2][-]{subsection.3.3}{Performance of GCMC-MBAR when varying , , and }{section.3}% 18
 \BOOKMARK [2][-]{subsection.3.4}{Case Study: Post-simulation optimization of cyclohexane Mie -6 parameters}{section.3}% 19
 \BOOKMARK [1][-]{section.4}{Discussion}{}% 20
 \BOOKMARK [1][-]{section.5}{Conclusions}{}% 21

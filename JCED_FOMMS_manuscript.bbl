@@ -8,7 +8,7 @@
 \providecommand*\mcitethebibliography{\thebibliography}
 \csname @ifundefined\endcsname{endmcitethebibliography}
   {\let\endmcitethebibliography\endthebibliography}{}
-\begin{mcitethebibliography}{56}
+\begin{mcitethebibliography}{59}
 \providecommand*\natexlab[1]{#1}
 \providecommand*\mciteSetBstSublistMode[1]{}
 \providecommand*\mciteSetBstMaxWidthForm[2]{}
@@ -301,15 +301,15 @@ Baumg{\"a}rtner,~A.; Binder,~K. Monte Carlo studies on the freely jointed
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
 \EndOfBibitem
-\bibitem[Nejahi \latin{et~al.}()Nejahi, Soroush~Barhaghi, Mick, Jackman,
-  Rushaidat, Li, Schwiebert, and Potoff]{Nejahi2018}
-Nejahi,~Y.; Soroush~Barhaghi,~M.; Mick,~J.; Jackman,~B.; Rushaidat,~K.; Li,~U.;
-  Schwiebert,~L.; Potoff,~J. GOMC: GPU Optimized Monte Carlo for the simulation
-  of phase equilibria and physical properties of complex fluids.
-  \emph{SoftwareX} \relax
-\mciteBstWouldAddEndPunctfalse
+\bibitem[Nejahi \latin{et~al.}(2019)Nejahi, Barhaghi, Mick, Jackman, Rushaidat,
+  Li, Schwiebert, and Potoff]{Nejahi2018}
+Nejahi,~Y.; Barhaghi,~M.~S.; Mick,~J.; Jackman,~B.; Rushaidat,~K.; Li,~Y.;
+  Schwiebert,~L.; Potoff,~J. {GOMC: GPU Optimized Monte Carlo} for the
+  simulation of phase equilibria and physical properties of complex fluids.
+  \emph{SoftwareX} \textbf{2019}, \emph{9}, 20 -- 27\relax
+\mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{}{\mcitedefaultseppunct}\relax
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
 \EndOfBibitem
 \bibitem[Mart{\'i}nez \latin{et~al.}()Mart{\'i}nez, Andrade, Birgin, and
   Mart{\'i}nez]{PACKMOL}
@@ -324,6 +324,21 @@ Mart{\'i}nez,~L.; Andrade,~R.; Birgin,~E.~G.; Mart{\'i}nez,~J.~M. PACKMOL: A
 \bibitem[Humphrey \latin{et~al.}(1996)Humphrey, Dalke, and Schulten]{VMD}
 Humphrey,~W.; Dalke,~A.; Schulten,~K. VMD: Visual molecular dynamics.
   \emph{Journal of Molecular Graphics} \textbf{1996}, \emph{14}, 33 -- 38\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Ferrenberg and Swendsen(1988)Ferrenberg, and Swendsen]{Ferrenberg1988}
+Ferrenberg,~A.~M.; Swendsen,~R.~H. New Monte Carlo technique for studying phase
+  transitions. \emph{Phys. Rev. Lett.} \textbf{1988}, \emph{61},
+  2635--2638\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Ferrenberg and Swendsen(1989)Ferrenberg, and Swendsen]{Ferrenberg1989}
+Ferrenberg,~A.~M.; Swendsen,~R.~H. Optimized Monte Carlo data analysis.
+  \emph{Phys. Rev. Lett.} \textbf{1989}, \emph{63}, 1195--1198\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
@@ -384,6 +399,16 @@ Duarte Ramos~Matos,~G.; Kyu,~D.~Y.; Loeffler,~H.~H.; Chodera,~J.~D.;
 \bibitem[Efron(1979)]{Efron1979}
 Efron,~B. Bootstrap Methods: Another Look at the Jackknife. \emph{The Annals of
   Statistics} \textbf{1979}, \emph{7}, 1--26\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Messerly \latin{et~al.}(2015)Messerly, Rowley, KnottsIV, and
+  Wilding]{Mess}
+Messerly,~R.~A.; Rowley,~R.~L.; KnottsIV,~T.~A.; Wilding,~W.~V. An improved
+  statistical analysis for predicting the critical temperature and critical
+  density with {Gibbs ensemble Monte Carlo} simulation. \emph{J. Chem. Phys.}
+  \textbf{2015}, \emph{143}, 104101\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
