@@ -361,7 +361,7 @@ Card,~D.~N.; Valleau,~J.~P. Monte Carlo Study of the Thermodynamics of
 \EndOfBibitem
 \bibitem[Wood(1968)]{Wood1968}
 Wood,~W.~W. Monte Carlo Calculations for Hard Disks in the
-  Isothermal{‐}Isobaric Ensemble. \emph{The Journal of Chemical Physics}
+  Isothermal{-}Isobaric Ensemble. \emph{The Journal of Chemical Physics}
   \textbf{1968}, \emph{48}, 415--434\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
@@ -509,7 +509,7 @@ Eckl,~B.; Vrabec,~J.; Hasse,~H. Set of Molecular Models Based on Quantum
   Boutin]{Bourasseau2002CYC6}
 Bourasseau,~E.; Ungerer,~P.; Boutin,~A. Prediction of Equilibrium Properties of
   Cyclic Alkanes by Monte Carlo Simulation{-}New Anisotropic United Atoms
-  Intermolecular Potentia{-}lNew Transfer Bias Method. \emph{The Journal of
+  Intermolecular Potential{-}New Transfer Bias Method. \emph{The Journal of
   Physical Chemistry B} \textbf{2002}, \emph{106}, 5483--5491\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}

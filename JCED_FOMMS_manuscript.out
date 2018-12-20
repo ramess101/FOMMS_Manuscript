@@ -3,7 +3,7 @@
 \BOOKMARK [1][-]{section.2}{Methods}{}% 3
 \BOOKMARK [2][-]{subsection.2.1}{Force fields}{section.2}% 4
 \BOOKMARK [2][-]{subsection.2.2}{Simulation set-up}{section.2}% 5
-\BOOKMARK [2][-]{subsection.2.3}{Comparison of GCMC-MBAR and GCMC-HR}{section.2}% 6
+\BOOKMARK [2][-]{subsection.2.3}{Comparison between GCMC-MBAR and GCMC-HR}{section.2}% 6
 \BOOKMARK [3][-]{subsubsection.2.3.1}{Histogram reweighting}{subsection.2.3}% 7
 \BOOKMARK [3][-]{subsubsection.2.3.2}{Histogram-free reweighting}{subsection.2.3}% 8
 \BOOKMARK [3][-]{subsubsection.2.3.3}{Comparison between HR and MBAR}{subsection.2.3}% 9
