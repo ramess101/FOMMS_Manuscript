@@ -9,9 +9,11 @@
 \BOOKMARK [2][-]{subsection.4.1}{Minimum number of effective snapshots}{section.4}% 9
 \BOOKMARK [2][-]{subsection.4.2}{Tabulated phase equilibria for iterations}{section.4}% 10
 \BOOKMARK [1][-]{section.5}{Compressibility factor}{}% 11
-\BOOKMARK [1][-]{section.6}{Tabulated phase equilibria for validation of GCMC-MBAR}{}% 12
-\BOOKMARK [2][-]{subsection.6.1}{Branched alkanes}{section.6}% 13
-\BOOKMARK [2][-]{subsection.6.2}{Alkynes}{section.6}% 14
-\BOOKMARK [1][-]{section.7}{Simulation state points}{}% 15
-\BOOKMARK [2][-]{subsection.7.1}{Cyclohexane}{section.7}% 16
-\BOOKMARK [2][-]{subsection.7.2}{Branched alkanes}{section.7}% 17
+\BOOKMARK [2][-]{subsection.5.1}{Validation of GCMC-MBAR}{section.5}% 12
+\BOOKMARK [2][-]{subsection.5.2}{Case study: Cyclohexane optimization}{section.5}% 13
+\BOOKMARK [1][-]{section.6}{Tabulated phase equilibria for validation of GCMC-MBAR}{}% 14
+\BOOKMARK [2][-]{subsection.6.1}{Branched alkanes}{section.6}% 15
+\BOOKMARK [2][-]{subsection.6.2}{Alkynes}{section.6}% 16
+\BOOKMARK [1][-]{section.7}{Simulation state points}{}% 17
+\BOOKMARK [2][-]{subsection.7.1}{Cyclohexane}{section.7}% 18
+\BOOKMARK [2][-]{subsection.7.2}{Branched alkanes}{section.7}% 19
