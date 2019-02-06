@@ -798,9 +798,62 @@ The 20 replicate simulations for MiPPE cyclohexane utilize several different mac
 \begin{figure}[htb!]
 	\centering
 	\includegraphics[width=6.4in]{CYC6_min_Neff_lam_iteration.pdf}
-	\caption{Second iteration minimum number of effective snapshots $(\min(K_{\rm snaps}^{\rm eff}))$ with respect to $\epsilon_{\rm CH_2}$ and $\sigma_{\rm CH_2}$ for cyclohexane. Optimization has converged as $\min(K_{\rm snaps}^{\rm eff}) \gg 50$ for the optimal $\epsilon_{\rm CH_2}$, $\sigma_{\rm CH_2}$, $\lambda_{\rm CH_2}$ parameter set. Top-left, top-right, bottom-left, and bottom-right panels correspond $\lambda_{\rm CH_2} = 14$, $\lambda_{\rm CH_2} = 16$, $\lambda_{\rm CH_2} = 18$, and $\lambda_{\rm CH_2} = 12$, respectively. White star represents the optimal parameter set, i.e., the lowest value of $S$, for a given $\lambda_{\rm CH_2}$}
+	\caption{Second iteration minimum number of effective snapshots $(\min(K_{\rm snaps}^{\rm eff}))$ with respect to $\epsilon_{\rm CH_2}$ and $\sigma_{\rm CH_2}$ for cyclohexane. Optimization has converged as $\min(K_{\rm snaps}^{\rm eff}) \gg 50$ for the optimal $\epsilon_{\rm CH_2}$, $\sigma_{\rm CH_2}$, $\lambda_{\rm CH_2}$ parameter set. Top-left, top-right, bottom-left, and bottom-right panels correspond $\lambda_{\rm CH_2} = 14$, $\lambda_{\rm CH_2} = 16$, $\lambda_{\rm CH_2} = 18$, and $\lambda_{\rm CH_2} = 12$, respectively. White star represents the optimal parameter set, i.e., the lowest value of $S$, for a given $\lambda_{\rm CH_2}$.}
 	\label{SI fig:Iterate_Neff_CYC6}
 \end{figure}
+
+\newpage
+\clearpage
+
+\subsection{Finite-size effects} \label{SI sec: finite-size effects}
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=5.8in]{CYC6_VLE_finite_size_effects.pdf}
+		\caption{Comparison of phase equilibria using simulations with 3.0 nm and 3.5 nm box lengths for cyclohexane with MiPPE force field. Estimated values and uncertainties are obtained from 20 independent replicate simulations. See Figure \ref{SI fig:CYC6_finite_size_effects} for quantitative assessment of finite-size effects.}
+		\label{SI fig: VLE CYC6_finite_size_effects}
+	\end{figure}
+
+	\newpage
+	\clearpage
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=5.8in]{CYC6_deviations_finite_size_effects.pdf}
+		\caption{Comparison of percent deviations using simulations with 3.0 nm and 3.5 nm box lengths for cyclohexane with MiPPE force field. Agreement is typically within the combined uncertainties for low to moderate temperatures. Finite-size effects are most prevalent in $\rho_{\rm vap}^{\rm sat}$ and $\Delta H_{\rm v}$ near the critical temperature ($T^{\rm sat} > 480$ K). Estimated values and uncertainties are obtained from 20 independent replicate simulations.}
+		\label{SI fig:CYC6_finite_size_effects}
+	\end{figure}
+
+	\newpage
+	\clearpage
+
+	\begin{table}[htb!]
+		\caption{GCMC-MBAR results for the MiPPE force field with 3.5 nm box length to test finite-size effects. Subscripts correspond to the 95\% confidence interval computed with twenty independent replicate GCMC simulations at each state point.}
+		\begin{center}
+			\begin{tabular}{|c|c|c|c|c|c|}
+				\hline
+				$T^{\rm sat}$ (K) & $\rho_{\rm liq}^{\rm sat}$ (kg/m$^3$) & $\rho_{\rm vap}^{\rm sat}$ (kg/m$^3$) & $P_{\rm vap}^{\rm sat}$ (MPa) & $\Delta H_{\rm v}$ (kJ/mol) & $Z_{\rm vap}^{\rm sat}$ \\ \hline
+				360 & $710.7_{1.2}$ & $3.545_{0.025}$ & $0.1211_{0.0015}$ & $29.648_{0.061}$ & $0.961_{0.014}$ \\
+				370 & $701.0_{1.4}$ & $4.600_{0.024}$ & $0.1601_{0.0017}$ & $29.122_{0.071}$ & $0.952_{0.011}$ \\
+				380 & $691.0_{1.4}$ & $5.882_{0.023}$ & $0.2081_{0.0019}$ & $28.567_{0.062}$ & $0.9424_{0.0093}$ \\
+				390 & $680.7_{1.2}$ & $7.424_{0.025}$ & $0.2665_{0.0020}$ & $27.984_{0.057}$ & $0.9315_{0.0077}$ \\
+				400 & $670.1_{1.0}$ & $9.261_{0.033}$ & $0.3365_{0.0021}$ & $27.379_{0.056}$ & $0.9195_{0.0067}$ \\
+				410 & $659.2_{1.0}$ & $11.434_{0.046}$ & $0.4196_{0.0022}$ & $26.743_{0.060}$ & $0.9061_{0.0061}$ \\
+				420 & $647.9_{1.3}$ & $13.987_{0.063}$ & $0.5173_{0.0023}$ & $26.070_{0.066}$ & $0.8913_{0.0057}$ \\
+				430 & $636.2_{1.2}$ & $16.970_{0.081}$ & $0.6309_{0.0025}$ & $25.364_{0.057}$ & $0.8752_{0.0054}$ \\
+				440 & $624.3_{1.0}$ & $20.444_{0.098}$ & $0.7621_{0.0027}$ & $24.627_{0.047}$ & $0.8576_{0.0051}$ \\
+				450 & $612.1_{1.0}$ & $24.48_{0.11}$ & $0.9125_{0.0029}$ & $23.849_{0.050}$ & $0.8385_{0.0046}$ \\
+				460 & $599.17_{0.99}$ & $29.16_{0.11}$ & $1.0837_{0.0032}$ & $23.015_{0.049}$ & $0.8178_{0.0040}$ \\
+				470 & $585.58_{0.89}$ & $34.59_{0.12}$ & $1.2774_{0.0036}$ & $22.120_{0.039}$ & $0.7953_{0.0035}$ \\
+				480 & $571.22_{0.96}$ & $40.91_{0.14}$ & $1.4953_{0.0040}$ & $21.154_{0.035}$ & $0.7707_{0.0033}$ \\
+				490 & $555.8_{1.2}$ & $48.31_{0.20}$ & $1.7394_{0.0046}$ & $20.099_{0.045}$ & $0.7438_{0.0037}$ \\
+				500 & $539.0_{1.4}$ & $57.04_{0.33}$ & $2.0115_{0.0056}$ & $18.930_{0.057}$ & $0.7139_{0.0045}$ \\
+				510 & $520.5_{1.7}$ & $67.54_{0.54}$ & $2.3139_{0.0072}$ & $17.610_{0.076}$ & $0.6799_{0.0058}$ \\
+				520 & $499.5_{2.3}$ & $80.59_{0.95}$ & $2.6492_{0.0097}$ & $16.07_{0.11}$ & $0.6399_{0.0079}$ \\
+				\hline
+			\end{tabular}
+		\end{center}
+	\end{table}
 
 \newpage
 \clearpage
@@ -2127,18 +2180,38 @@ The 20 replicate simulations for MiPPE cyclohexane utilize several different mac
 \subsection{Cyclohexane}
 
 \begin{table}[htb!]
+	\caption{State points simulated to test finite-size effects for cyclohexane with the MiPPE force field.}
+	\begin{center}
+		\begin{tabular}{|c|c|c|}
+			\hline
+			$T$ (K) & $\mu$ (K) & $L$ (nm) \\ \hline
+			450	&	-4370	&	3.5	\\
+			510	&	-4370	&	3.5	\\
+			550	&	-4370	&	3.5	\\
+			510	&	-4177	&	3.5	\\
+			470	&	-4048	&	3.5	\\
+			430	&	-3936	&	3.5	\\
+			400 &	-3865	&	3.5 \\
+			370 &	-3806	&	3.5 \\
+			350	&	-3774	&	3.5	\\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
+\begin{table}[htb!]
 	\caption{State points simulated for cyclohexane with the MiPPE force field (second iteration, $\theta^{\langle2\rangle}$ $\lambda_{\rm CH_2} = 16$).}
 	\begin{center}
 		\begin{tabular}{|c|c|c|}
 			\hline
 			$T$ (K) & $\mu$ (K) & $L$ (nm) \\ \hline
-			450	&	-4367	&	3.0	\\
-			500	&	-4367	&	3.0	\\
-			550	&	-4367	&	3.0	\\
-			500	&	-4149	&	3.0	\\
-			460	&	-4024	&	3.0	\\
-			410	&	-3893	&	3.0	\\
-			360	&	-3792	&	3.0	\\
+			450	&	-4370	&	3.0	\\
+			500	&	-4370	&	3.0	\\
+			550	&	-4370	&	3.0	\\
+			500	&	-4135	&	3.0	\\
+			460	&	-4025	&	3.0	\\
+			410	&	-3890	&	3.0	\\
+			360	&	-3790	&	3.0	\\
 			\hline
 		\end{tabular}
 	\end{center}

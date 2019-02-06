@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.3.9)  20 DEC 2018 10:44
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.3.9)  6 FEB 2019 13:39
 entering extended mode
 **./JCED_FOMMS_manuscript.tex
 (JCED_FOMMS_manuscript.tex
@@ -1538,7 +1538,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \c__siunitx_mathtt_int=\count300
  [1
 
-{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
+{C:/Users/ram9/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <17.28> not available
 (Font)              Font shape `T1/ppl/b/n' tried instead on input line 162.
 
@@ -1812,45 +1812,48 @@ File: figures/CYC6_deviations_iterations.pdf Graphic file (type pdf)
 Package pdftex.def Info: figures/CYC6_deviations_iterations.pdf used on input l
 ine 1477.
 (pdftex.def)             Requested size: 419.16621pt x 460.32616pt.
- [38] [39 <./figures/CYC6_deviations_iterations.pdf>]
-Overfull \hbox (7.89476pt too wide) in paragraph at lines 1555--1556
+ [38] [39 <./figures/CYC6_deviations_iterations.pdf>] [40]
+Overfull \hbox (7.89476pt too wide) in paragraph at lines 1557--1558
 \T1/ppl/m/n/12 HR has also been ap-plied to GEMC sim-u-la-tions (GEMC-HR).$[]$ 
 There-fore, while the present
  []
 
-[40]
-Overfull \hbox (19.14513pt too wide) in paragraph at lines 1567--1568
+
+Overfull \hbox (19.14513pt too wide) in paragraph at lines 1569--1570
 []\T1/ppl/m/n/12 We per-form a one-dimensional $\OML/cmm/m/it/12 $\T1/ppl/m/n/
 12 -scaling post-simulation op-ti-miza-tion of sev-eral branched
  []
 
-[41] (JCED_FOMMS_manuscript.bbl [42] [43] [44] [45] [46] [47]
+[41] [42] (JCED_FOMMS_manuscript.bbl [43] [44] [45] [46] [47] [48]
 LaTeX Font Info:    Try loading font information for T1+pcr on input line 456.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\t1pcr.fd"
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
-) [48]) [49]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1604.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1604.
+) [49]) [50]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1606.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1606.
 
 (JCED_FOMMS_manuscript.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1604.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1604.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1606.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1606.
 
 Package rerunfilecheck Info: File `JCED_FOMMS_manuscript.out' has not changed.
 (rerunfilecheck)             Checksum: 98D56DE1288034067E585385396160BA;1709.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1604.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1606.
  ) 
 Here is how much of TeX's memory you used:
- 31952 strings out of 493333
- 634724 string characters out of 3139198
- 689917 words of memory out of 3000000
- 34810 multiletter control sequences out of 15000+200000
+ 31957 strings out of 493333
+ 634845 string characters out of 3139198
+ 691322 words of memory out of 3000000
+ 34813 multiletter control sequences out of 15000+200000
  43450 words of font info for 94 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 62i,11n,94p,10421b,1092s stack positions out of 5000i,500n,10000p,200000b,50000s
-pdfTeX warning (dest): name{section.6} has been referenced but does not exist
-, replaced by a fixed one
+ 62i,11n,94p,10421b,1112s stack positions out of 5000i,500n,10000p,200000b,50000s
+pdfTeX warning (dest): name{subsection.4.4} has been referenced but does not 
+exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.6} has been referenced but does not exist, 
+replaced by a fixed one
 
 pdfTeX warning (dest): name{section.7} has been referenced but does not exist, 
 replaced by a fixed one
@@ -1872,9 +1875,9 @@ b><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Program
 Files/MiKTeX 2.9/fonts/type1/urw/palatino/uplb8a.pfb><C:/Program Files/MiKTeX 2
 .9/fonts/type1/urw/palatino/uplr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
 /urw/palatino/uplri8a.pfb>
-Output written on JCED_FOMMS_manuscript.pdf (49 pages, 1273942 bytes).
+Output written on JCED_FOMMS_manuscript.pdf (50 pages, 1275748 bytes).
 PDF statistics:
- 1525 PDF objects out of 1728 (max. 8388607)
- 184 named destinations out of 1000 (max. 500000)
+ 1531 PDF objects out of 1728 (max. 8388607)
+ 186 named destinations out of 1000 (max. 500000)
  250 words of extra memory for PDF output out of 10000 (max. 10000000)
 
