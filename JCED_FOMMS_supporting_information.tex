@@ -54,13 +54,13 @@
 \begin{equation*}}
 {\end{equation*}}
 
-\renewcommand{\thefigure}{SI.\arabic{figure}}
+\renewcommand{\thefigure}{S\arabic{figure}}
 
-\renewcommand{\thepage}{SI.\arabic{page}}
+\renewcommand{\thepage}{S\arabic{page}}
 
-\renewcommand{\thesection}{SI.\Roman{section}}
+\renewcommand{\thesection}{S\arabic{section}}
 
-\renewcommand{\thetable}{SI.\Roman{table}}
+\renewcommand{\thetable}{S\arabic{table}}
 
 \makeatletter
 \newcommand*{\addFileDependency}[1]{% argument=file name and extension
@@ -214,11 +214,46 @@
 \newpage
 \clearpage
 
-\section{Compiler and hardware} \label{SI sec: Machine hardward}
+\section{Fixed vs. flexible bonds} \label{SI sec: Fixed vs flexible bonds}
 
-With the exception of the 20 replicates performed for MiPPE cyclohexane, all simulations are run on a Linux 4.4.0-112-generic x86\_64 on an Intel(R) Xeon(R) CPU E5-2699 v4 @ 2.20GHz machine. On this machine, GOMC was erroneously compiled using the sub-optimal GNU compiler collection (GCC) instead of the preferred Intel compiler. GOMC compiled with the Intel compiler typically runs approximately twice as fast as GOMC compiled with the GCC compiler.
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=6.4in]{NERD_fixed_flexible.pdf}
+		\caption{Comparison of saturated liquid (left panel) and vapor (right panel) densities for fixed (Mick et al.) and flexible (Nath et al.) bonds. Mick et al. used GCMC-HR while Nath et al. utilized GEMC. Note that Nath et al. did not report tabulated values for vapor pressure or enthalpy of vaporization.}
+		\label{SI fig: NERD_fixed_flexible}
+	\end{figure}
 
-The 20 replicate simulations for MiPPE cyclohexane utilize several different machine hardware architectures, listed in Table \ref{SI tab: Machine hardware}. GOMC was compiled with the Intel compiler on each of these machines.
+\newpage
+\clearpage
+
+\section{CBMC acceptance rates} \label{SI sec: CBMC acceptance rates}
+
+\begin{table}[htb!]
+	\caption{Percentage acceptance of CBMC moves for cyclohexane with MiPPE force field. Averages were computed from 20 replicate simulations with $L_{\rm box}$ = 3.0 nm.}
+	\begin{center}
+		\begin{tabular}{|c|c|c|}
+			\hline
+			$T$ (K) & $\mu$ (K) & Acceptance (\%) \\ \hline
+			450	&	-4370	&	68.8	\\
+			500	&	-4370	&	75.1	\\
+			550	&	-4370	&	39.5	\\
+			500	&	-4135	&	5.50	\\
+			460	&	-4025	&	2.20	\\
+			410	&	-3890	&	1.11	\\
+			360	&	-3790	&	0.19	\\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
+\newpage
+\clearpage
+
+\section{Compiler and hardware} \label{SI sec: Machine hardware}
+
+With the exception of the 20 replicates performed for MiPPE cyclohexane (3.0 and 3.5 nm box length) and TAMie cyclohexane, all simulations are run on a Linux 4.4.0-112-generic x86\_64 on an Intel(R) Xeon(R) CPU E5-2699 v4 @ 2.20GHz machine. On this machine, GOMC was erroneously compiled using the sub-optimal GNU compiler collection (GCC) instead of the preferred Intel compiler. GOMC compiled with the Intel compiler typically runs approximately twice as fast as GOMC compiled with the GCC compiler.
+
+The 20 replicate simulations for MiPPE cyclohexane (3.0 and 3.5 nm box length) and TAMie cyclohexane utilize several different machine hardware architectures, listed in Table \ref{SI tab: Machine hardware}. GOMC was compiled with the Intel compiler on each of these machines.
 
 \begin{table}[htb!]
 	\caption{Machine hardware for 20 replicate simulations of MiPPE cyclohexane} \label{SI tab: Machine hardware}
@@ -789,6 +824,25 @@ The 20 replicate simulations for MiPPE cyclohexane utilize several different mac
 		\caption{Percent deviations of MiPPE force field relative to REFPROP cyclohexane values for twenty replicates and average.}
 		\label{SI fig: VLE cyclohexane replicates}
 	\end{figure}
+
+\newpage
+\clearpage
+
+\subsection{TAMie comparison} \label{SI sec: TAMie comparison}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=5.8in]{CYC6_VLE_MiPPE_TAMie.pdf}
+	\caption{Comparison of MiPPE and TAMie (from this work and Weidler et al.) cyclohexane phase equilibria.}
+	\label{SI fig: CYC6_VLE_MiPPE_TAMie}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=5.8in]{CYC6_deviations_MiPPE_TAMie.pdf}
+	\caption{Comparison of MiPPE and TAMie (from this work and Weidler et al.) deviations relative to REFPROP cyclohexane values.}
+	\label{SI fig: CYC6_deviations_MiPPE_TAMie}
+\end{figure}
 
 \newpage
 \clearpage

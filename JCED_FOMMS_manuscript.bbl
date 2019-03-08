@@ -8,7 +8,7 @@
 \providecommand*\mcitethebibliography{\thebibliography}
 \csname @ifundefined\endcsname{endmcitethebibliography}
   {\let\endmcitethebibliography\endthebibliography}{}
-\begin{mcitethebibliography}{59}
+\begin{mcitethebibliography}{62}
 \providecommand*\natexlab[1]{#1}
 \providecommand*\mciteSetBstSublistMode[1]{}
 \providecommand*\mciteSetBstMaxWidthForm[2]{}
@@ -28,8 +28,7 @@
 
 \bibitem[Panagiotopoulos(2000)]{Pana2000}
 Panagiotopoulos,~A.~Z. Monte Carlo methods for phase equilibria of fluids.
-  \emph{Journal of Physics: Condensed Matter} \textbf{2000}, \emph{12},
-  R25\relax
+  \emph{J. Phys.: Condens. Matter} \textbf{2000}, \emph{12}, R25\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
@@ -37,8 +36,8 @@ Panagiotopoulos,~A.~Z. Monte Carlo methods for phase equilibria of fluids.
 \bibitem[Stubbs \latin{et~al.}(2004)Stubbs, Potoff, and Siepmann]{Stubbs2004}
 Stubbs,~J.~M.; Potoff,~J.~J.; Siepmann,~J.~I. Transferable Potentials for Phase
   Equilibria. 6. United-Atom Description for Ethers, Glycols, Ketones, and
-  Aldehydes. \emph{The Journal of Physical Chemistry B} \textbf{2004},
-  \emph{108}, 17596--17605\relax
+  Aldehydes. \emph{J. Phys. Chem. B} \textbf{2004}, \emph{108},
+  17596--17605\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
@@ -46,23 +45,23 @@ Stubbs,~J.~M.; Potoff,~J.~J.; Siepmann,~J.~I. Transferable Potentials for Phase
 \bibitem[Potoff \latin{et~al.}(1999)Potoff, Errington, and
   Panagiotopoulos]{Potoff1999}
 Potoff,~J.~J.; Errington,~J.~R.; Panagiotopoulos,~A.~Z. Molecular simulation of
-  phase equilibria for mixtures of polar and non-polar components.
-  \emph{Molecular Physics} \textbf{1999}, \emph{97}, 1073--1083\relax
+  phase equilibria for mixtures of polar and non-polar components. \emph{Mol.
+  Phys.} \textbf{1999}, \emph{97}, 1073--1083\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
 \EndOfBibitem
 \bibitem[Fern \latin{et~al.}(2007)Fern, Keffer, and Steele]{Fern2007}
 Fern,~J.~T.; Keffer,~D.~J.; Steele,~W.~V. Measuring Coexisting Densities from a
-  Two-Phase Molecular Dynamics Simulation by Voronoi Tessellations. \emph{The
-  Journal of Physical Chemistry B} \textbf{2007}, \emph{111}, 3469--3475\relax
+  Two-Phase Molecular Dynamics Simulation by Voronoi Tessellations. \emph{J.
+  Phys. Chem. B} \textbf{2007}, \emph{111}, 3469--3475\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
 \EndOfBibitem
 \bibitem[Razavi \latin{et~al.}(2019)Razavi, Messerly, and Elliott]{Mostafa2018}
 Razavi,~S.~M.; Messerly,~R.~A.; Elliott,~J.~R. Coexistence Calculation Using
-  the Isothermal-Isochoric Integration Method. \emph{Fluid Phase Equilibria}
+  the Isothermal-Isochoric Integration Method. \emph{Fluid Ph. Equilibria}
   \textbf{2019}, \emph{Pending publication.}\relax
 \mciteBstWouldAddEndPunctfalse
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
@@ -133,8 +132,8 @@ Mick,~J.~R.; Soroush~Barhaghi,~M.; Jackman,~B.; Schwiebert,~L.; Potoff,~J.~J.
 \bibitem[Soroush~Barhaghi \latin{et~al.}(2017)Soroush~Barhaghi, Mick, and
   Potoff]{Barhaghi2017}
 Soroush~Barhaghi,~M.; Mick,~J.~R.; Potoff,~J.~J. Optimised Mie potentials for
-  phase equilibria: application to alkynes. \emph{Molecular Physics}
-  \textbf{2017}, \emph{115}, 1378--1388\relax
+  phase equilibria: application to alkynes. \emph{Mol. Phys.} \textbf{2017},
+  \emph{115}, 1378--1388\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
@@ -161,8 +160,7 @@ Shirts,~M.~R.; Chodera,~J.~D. Statistically optimal analysis of samples from
 \bibitem[Messerly \latin{et~al.}(2018)Messerly, Razavi, and Shirts]{Postdoc_1}
 Messerly,~R.~A.; Razavi,~S.~M.; Shirts,~M.~R. Configuration-Sampling-Based
   Surrogate Models for Rapid Parameterization of Non-Bonded Interactions.
-  \emph{Journal of Chemical Theory and Computation} \textbf{2018}, \emph{14},
-  3144--3162\relax
+  \emph{J. Chem. Theory Comput.} \textbf{2018}, \emph{14}, 3144--3162\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
@@ -170,8 +168,8 @@ Messerly,~R.~A.; Razavi,~S.~M.; Shirts,~M.~R. Configuration-Sampling-Based
 \bibitem[Messerly \latin{et~al.}(2018)Messerly, Shirts, and Kazakov]{Postdoc_2}
 Messerly,~R.~A.; Shirts,~M.~R.; Kazakov,~A.~F. Uncertainty quantification
   confirms unreliable extrapolation toward high pressures for united-atom {Mie}
-  $\lambda$-6 force field. \emph{The Journal of Chemical Physics}
-  \textbf{2018}, \emph{149}, 114109\relax
+  $\lambda$-6 force field. \emph{J. Chem. Phys.} \textbf{2018}, \emph{149},
+  114109\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
@@ -188,8 +186,8 @@ Razavi,~S.~M. Optimization of a Transferable Shifted Force Field for Interfaces
   Panagiotopoulos]{Kiyohara1996}
 Kiyohara,~K.; Spyriouni,~T.; Gubbins,~K.~E.; Panagiotopoulos,~A.~Z.
   Thermodynamic scaling Gibbs ensemble Monte Carlo: a new method for
-  determination of phase coexistence properties of fluids. \emph{Molecular
-  Physics} \textbf{1996}, \emph{89}, 965--974\relax
+  determination of phase coexistence properties of fluids. \emph{Mol. Phys.}
+  \textbf{1996}, \emph{89}, 965--974\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
@@ -198,8 +196,8 @@ Kiyohara,~K.; Spyriouni,~T.; Gubbins,~K.~E.; Panagiotopoulos,~A.~Z.
   Panagiotopoulos]{Errington1998}
 Errington,~J.~R.; Panagiotopoulos,~A.~Z. Phase equilibria of the modified
   Buckingham exponential-6 potential from Hamiltonian scaling grand canonical
-  Monte Carlo. \emph{The Journal of Chemical Physics} \textbf{1998},
-  \emph{109}, 1093--1100\relax
+  Monte Carlo. \emph{J. Chem. Phys.} \textbf{1998}, \emph{109},
+  1093--1100\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
@@ -216,8 +214,8 @@ Errington,~J.~R.; Panagiotopoulos,~A.~Z. A new intermolecular potential model
 \bibitem[Errington and Panagiotopoulos(1999)Errington, and
   Panagiotopoulos]{Errington1999}
 Errington,~J.~R.; Panagiotopoulos,~A.~Z. New intermolecular potential models
-  for benzene and cyclohexane. \emph{The Journal of Chemical Physics}
-  \textbf{1999}, \emph{111}, 9731--9738\relax
+  for benzene and cyclohexane. \emph{J. Chem. Phys.} \textbf{1999}, \emph{111},
+  9731--9738\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
@@ -225,8 +223,8 @@ Errington,~J.~R.; Panagiotopoulos,~A.~Z. New intermolecular potential models
 \bibitem[Martin and Siepmann(1999)Martin, and Siepmann]{Martin1999}
 Martin,~M.~G.; Siepmann,~J.~I. Novel Configurational-Bias Monte Carlo Method
   for Branched Molecules. {Transferable Potentials for Phase Equilibria. 2.
-  United-Atom Description of Branched Alkanes}. \emph{The Journal of Physical
-  Chemistry B} \textbf{1999}, \emph{103}, 4508--4517\relax
+  United-Atom Description of Branched Alkanes}. \emph{J. Phys. Chem. B}
+  \textbf{1999}, \emph{103}, 4508--4517\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
@@ -235,8 +233,8 @@ Martin,~M.~G.; Siepmann,~J.~I. Novel Configurational-Bias Monte Carlo Method
   Siepmann]{Keasler2012}
 Keasler,~S.~J.; Charan,~S.~M.; Wick,~C.~D.; Economou,~I.~G.; Siepmann,~J.~I.
   Transferable Potentials for Phase Equilibria{-}United Atom Description of
-  Five{-} and Six{-}Membered Cyclic Alkanes and Ethers. \emph{The Journal of
-  Physical Chemistry B} \textbf{2012}, \emph{116}, 11234--11246\relax
+  Five{-} and Six{-}Membered Cyclic Alkanes and Ethers. \emph{J. Phys. Chem. B}
+  \textbf{2012}, \emph{116}, 11234--11246\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
@@ -251,8 +249,7 @@ Nath,~S.~K.; Escobedo,~F.~A.; de~Pablo,~J.~J. On the simulation of vapor-liquid
 \EndOfBibitem
 \bibitem[Nath and Khare(2001)Nath, and Khare]{Nath2001}
 Nath,~S.~K.; Khare,~R. New forcefield parameters for branched hydrocarbons.
-  \emph{The Journal of Chemical Physics} \textbf{2001}, \emph{115},
-  10837--10844\relax
+  \emph{J. Chem. Phys.} \textbf{2001}, \emph{115}, 10837--10844\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
@@ -261,8 +258,16 @@ Nath,~S.~K.; Khare,~R. New forcefield parameters for branched hydrocarbons.
   Rousseau, and Teuler]{Yiannourakou2019}
 Yiannourakou,~M.; Ungerer,~P.; Lachet,~V.; Rousseau,~B.; Teuler,~J.-M. United
   atom forcefield for vapor-liquid equilibrium (VLE) properties of cyclic and
-  polycyclic compounds from Monte Carlo simulations. \emph{Fluid Phase
+  polycyclic compounds from Monte Carlo simulations. \emph{Fluid Ph.
   Equilibria} \textbf{2019}, \emph{481}, 28 -- 43\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Tra(2019)]{TraPPE_website}
+{Transferable Potentials for Phase Equilibria}. 2019;
+  \url{http://chem-siepmann.oit.umn.edu/siepmann/trappe/index.html}, Date
+  accessed: February 25, 2019\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
@@ -277,8 +282,8 @@ Allen,~M.~P.; Tildesley,~D.~J. \emph{Computer simulation of liquids}; Clarendon
 \EndOfBibitem
 \bibitem[Nezbeda(2016)]{Nezbeda2016}
 Nezbeda,~I. Simulations of Vapor{-}Liquid Equilibria: Routine versus
-  Thoroughness. \emph{Journal of Chemical \& Engineering Data} \textbf{2016},
-  \emph{61}, 3964--3969\relax
+  Thoroughness. \emph{J. Chem. Eng. Data} \textbf{2016}, \emph{61},
+  3964--3969\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
@@ -286,8 +291,7 @@ Nezbeda,~I. Simulations of Vapor{-}Liquid Equilibria: Routine versus
 \bibitem[Shah and Maginn(2011)Shah, and Maginn]{Shah2011}
 Shah,~J.~K.; Maginn,~E.~J. A general and efficient Monte Carlo method for
   sampling intramolecular degrees of freedom of branched and cyclic molecules.
-  \emph{The Journal of Chemical Physics} \textbf{2011}, \emph{135},
-  134121\relax
+  \emph{J. Chem. Phys.} \textbf{2011}, \emph{135}, 134121\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
@@ -295,8 +299,8 @@ Shah,~J.~K.; Maginn,~E.~J. A general and efficient Monte Carlo method for
 \bibitem[Baumg{\"a}rtner and Binder(1979)Baumg{\"a}rtner, and
   Binder]{Binder1979}
 Baumg{\"a}rtner,~A.; Binder,~K. Monte Carlo studies on the freely jointed
-  polymer chain with excluded volume interaction. \emph{The Journal of Chemical
-  Physics} \textbf{1979}, \emph{71}, 2541--2545\relax
+  polymer chain with excluded volume interaction. \emph{J. Chem. Phys.}
+  \textbf{1979}, \emph{71}, 2541--2545\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
@@ -315,15 +319,14 @@ Nejahi,~Y.; Barhaghi,~M.~S.; Mick,~J.; Jackman,~B.; Rushaidat,~K.; Li,~Y.;
   Mart{\'i}nez]{PACKMOL}
 Mart{\'i}nez,~L.; Andrade,~R.; Birgin,~E.~G.; Mart{\'i}nez,~J.~M. PACKMOL: A
   package for building initial configurations for molecular dynamics
-  simulations. \emph{Journal of Computational Chemistry} \emph{30},
-  2157--2164\relax
+  simulations. \emph{J. Comput. Chem.} \emph{30}, 2157--2164\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
 \EndOfBibitem
 \bibitem[Humphrey \latin{et~al.}(1996)Humphrey, Dalke, and Schulten]{VMD}
-Humphrey,~W.; Dalke,~A.; Schulten,~K. VMD: Visual molecular dynamics.
-  \emph{Journal of Molecular Graphics} \textbf{1996}, \emph{14}, 33 -- 38\relax
+Humphrey,~W.; Dalke,~A.; Schulten,~K. VMD: Visual molecular dynamics. \emph{J.
+  Mol. Graphics} \textbf{1996}, \emph{14}, 33 -- 38\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
@@ -345,24 +348,24 @@ Ferrenberg,~A.~M.; Swendsen,~R.~H. Optimized Monte Carlo data analysis.
 \EndOfBibitem
 \bibitem[McDonald and Singer(1967)McDonald, and Singer]{McDonald1967}
 McDonald,~I.~R.; Singer,~K. Machine Calculation of Thermodynamic Properties of
-  a Simple Fluid at Supercritical Temperatures. \emph{The Journal of Chemical
-  Physics} \textbf{1967}, \emph{47}, 4766--4772\relax
+  a Simple Fluid at Supercritical Temperatures. \emph{J. Chem. Phys.}
+  \textbf{1967}, \emph{47}, 4766--4772\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
 \EndOfBibitem
 \bibitem[Card and Valleau(1970)Card, and Valleau]{Card1970}
 Card,~D.~N.; Valleau,~J.~P. Monte Carlo Study of the Thermodynamics of
-  Electrolyte Solutions. \emph{The Journal of Chemical Physics} \textbf{1970},
-  \emph{52}, 6232--6240\relax
+  Electrolyte Solutions. \emph{J. Chem. Phys.} \textbf{1970}, \emph{52},
+  6232--6240\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
 \EndOfBibitem
 \bibitem[Wood(1968)]{Wood1968}
 Wood,~W.~W. Monte Carlo Calculations for Hard Disks in the
-  Isothermal{-}Isobaric Ensemble. \emph{The Journal of Chemical Physics}
-  \textbf{1968}, \emph{48}, 415--434\relax
+  Isothermal{-}Isobaric Ensemble. \emph{J. Chem. Phys.} \textbf{1968},
+  \emph{48}, 415--434\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
@@ -371,16 +374,16 @@ Wood,~W.~W. Monte Carlo Calculations for Hard Disks in the
   Kollman]{Kumar1992}
 Kumar,~S.; Rosenberg,~J.~M.; Bouzida,~D.; Swendsen,~R.~H.; Kollman,~P.~A. THE
   weighted histogram analysis method for free-energy calculations on
-  biomolecules. I. The method. \emph{Journal of Computational Chemistry}
-  \textbf{1992}, \emph{13}, 1011--1021\relax
+  biomolecules. I. The method. \emph{J. Comput. Chem.} \textbf{1992},
+  \emph{13}, 1011--1021\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
 \EndOfBibitem
 \bibitem[Souaille and Roux(2001)Souaille, and Roux]{Souaille2001}
 Souaille,~M.; Roux,~B. Extension to the weighted histogram analysis method:
-  combining umbrella sampling with free energy calculations. \emph{Computer
-  Physics Communications} \textbf{2001}, \emph{135}, 40 -- 57\relax
+  combining umbrella sampling with free energy calculations. \emph{Comput.
+  Phys. Commun.} \textbf{2001}, \emph{135}, 40 -- 57\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
@@ -390,15 +393,14 @@ Souaille,~M.; Roux,~B. Extension to the weighted histogram analysis method:
 Duarte Ramos~Matos,~G.; Kyu,~D.~Y.; Loeffler,~H.~H.; Chodera,~J.~D.;
   Shirts,~M.~R.; Mobley,~D.~L. Approaches for Calculating Solvation Free
   Energies and Enthalpies Demonstrated with an Update of the FreeSolv Database.
-  \emph{Journal of Chemical \& Engineering Data} \textbf{2017}, \emph{62},
-  1559--1569\relax
+  \emph{J. Chem. Eng. Data} \textbf{2017}, \emph{62}, 1559--1569\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
 \EndOfBibitem
 \bibitem[Efron(1979)]{Efron1979}
-Efron,~B. Bootstrap Methods: Another Look at the Jackknife. \emph{The Annals of
-  Statistics} \textbf{1979}, \emph{7}, 1--26\relax
+Efron,~B. Bootstrap Methods: Another Look at the Jackknife. \emph{Ann. Stat.}
+  \textbf{1979}, \emph{7}, 1--26\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
@@ -434,7 +436,7 @@ Dybeck,~E.~C.; K{\"o}nig,~G.; Brooks,~B.~R.; Shirts,~M.~R. Comparison of
 \bibitem[Weidler and Gross(2018)Weidler, and Gross]{Weidler2018}
 Weidler,~D.; Gross,~J. Individualized force fields for alkanes, olefins, ethers
   and ketones based on the transferable anisotropic Mie potential. \emph{Fluid
-  Phase Equilibria} \textbf{2018}, \relax
+  Ph. Equilibria} \textbf{2018}, \relax
 \mciteBstWouldAddEndPunctfalse
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {}{\mcitedefaultseppunct}\relax
@@ -453,15 +455,15 @@ Rowley,~R.~L.; Wilding,~W.~V.; Oscarson,~J.~L.; KnottsIV,~T.~A.; Giles,~N.~F.
 Lemmon,~E.~W.; Bell,~I.~H.; Huber,~M.~L.; McLinden,~M.~O. {NIST Standard
   Reference Database 23: Reference Fluid Thermodynamic and Transport
   Properties-REFPROP, Version 10.0, National Institute of Standards and
-  Technology}. 2018; \url{https://www.nist.gov/srd/refprop}\relax
+  Technology}. 2018; \url{https://www.nist.gov/srd/refprop}, Date accessed:
+  June 21, 2018\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
 \EndOfBibitem
 \bibitem[Lemmon and Span(2006)Lemmon, and Span]{Lemmon2006}
 Lemmon,~E.~W.; Span,~R. Short Fundamental Equations of State for 20 Industrial
-  Fluids. \emph{Journal of Chemical \& Engineering Data} \textbf{2006},
-  \emph{51}, 785--850\relax
+  Fluids. \emph{J. Chem. Eng. Data} \textbf{2006}, \emph{51}, 785--850\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
@@ -469,8 +471,8 @@ Lemmon,~E.~W.; Span,~R. Short Fundamental Equations of State for 20 Industrial
 \bibitem[Blackham \latin{et~al.}(2018)Blackham, Lemmon, and
   Lemmon]{Blackham2017}
 Blackham,~T.; Lemmon,~A.; Lemmon,~E. Fundamental Equation of State for
-  Isooctane. \emph{International Journal of Thermophysics} \textbf{2018},
-  \emph{Pending publication}\relax
+  Isooctane. \emph{Int. J. Thermophys.} \textbf{2018}, \emph{Pending
+  publication}\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
@@ -483,24 +485,33 @@ Gao,~K.; Wu,~J.; Lemmon,~E. \textbf{2017}, \emph{Unpublished equation.}\relax
 \EndOfBibitem
 \bibitem[Polt \latin{et~al.}(1992)Polt, Platzer, and Mauer]{Polt1992}
 Polt,~A.; Platzer,~B.; Mauer,~G. Parameter der Thermischen Zustandsgleichung
-  von Bender fuer 14 Mehratomige Reine Stoffe. \emph{Chemische Technik
-  (Leipzig)} \textbf{1992}, \emph{44}\relax
+  von Bender fuer 14 Mehratomige Reine Stoffe. \emph{Chem. Tech. (Leipzig,
+  Ger.)} \textbf{1992}, \emph{44}\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
 \EndOfBibitem
 \bibitem[Zhou \latin{et~al.}(2014)Zhou, Liu, Penoncello, and Lemmon]{Zhou2014}
 Zhou,~Y.; Liu,~J.; Penoncello,~S.~G.; Lemmon,~E.~W. An Equation of State for
-  the Thermodynamic Properties of Cyclohexane. \emph{Journal of Physical and
-  Chemical Reference Data} \textbf{2014}, \emph{43}, 043105\relax
+  the Thermodynamic Properties of Cyclohexane. \emph{J. Phys. Chem. Ref. Data}
+  \textbf{2014}, \emph{43}, 043105\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Weidler and Gross(2016)Weidler, and Gross]{Weidler2016}
+Weidler,~D.; Gross,~J. Transferable Anisotropic United-Atom Force Field Based
+  on the Mie Potential for Phase Equilibria: Aldehydes, Ketones, and Small
+  Cyclic Alkanes. \emph{Ind. Eng. Chem. Res.} \textbf{2016}, \emph{55},
+  12123--12132\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
 \EndOfBibitem
 \bibitem[Eckl \latin{et~al.}(2008)Eckl, Vrabec, and Hasse]{Eckl2008}
 Eckl,~B.; Vrabec,~J.; Hasse,~H. Set of Molecular Models Based on Quantum
-  Mechanical Ab Initio Calculations and Thermodynamic Data. \emph{The Journal
-  of Physical Chemistry B} \textbf{2008}, \emph{112}, 12710--12721\relax
+  Mechanical Ab Initio Calculations and Thermodynamic Data. \emph{J. Phys.
+  Chem. B} \textbf{2008}, \emph{112}, 12710--12721\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
@@ -509,8 +520,8 @@ Eckl,~B.; Vrabec,~J.; Hasse,~H. Set of Molecular Models Based on Quantum
   Boutin]{Bourasseau2002CYC6}
 Bourasseau,~E.; Ungerer,~P.; Boutin,~A. Prediction of Equilibrium Properties of
   Cyclic Alkanes by Monte Carlo Simulation{-}New Anisotropic United Atoms
-  Intermolecular Potential{-}New Transfer Bias Method. \emph{The Journal of
-  Physical Chemistry B} \textbf{2002}, \emph{106}, 5483--5491\relax
+  Intermolecular Potential{-}New Transfer Bias Method. \emph{J. Phys. Chem. B}
+  \textbf{2002}, \emph{106}, 5483--5491\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
@@ -519,8 +530,8 @@ Bourasseau,~E.; Ungerer,~P.; Boutin,~A. Prediction of Equilibrium Properties of
   Guevara-Carrion, Llano-Restrepo, and Vrabec]{Mauricio2015}
 Mu{\~n}oz-Mu{\~n}oz,~Y.~M.; Guevara-Carrion,~G.; Llano-Restrepo,~M.; Vrabec,~J.
   Lennard{-}Jones force field parameters for cyclic alkanes from cyclopropane
-  to cyclohexane. \emph{Fluid Phase Equilibria} \textbf{2015}, \emph{404}, 150
-  -- 160\relax
+  to cyclohexane. \emph{Fluid Ph. Equilibria} \textbf{2015}, \emph{404}, 150 --
+  160\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
@@ -529,11 +540,19 @@ Mu{\~n}oz-Mu{\~n}oz,~Y.~M.; Guevara-Carrion,~G.; Llano-Restrepo,~M.; Vrabec,~J.
   and Theodorou]{Boulougouris2010}
 Boulougouris,~G.~C.; Peristeras,~L.~D.; Economou,~I.~G.; Theodorou,~D.~N.
   Predicting fluid phase equilibrium via histogram reweighting with Gibbs
-  ensemble Monte Carlo simulations. \emph{The Journal of Supercritical Fluids}
-  \textbf{2010}, \emph{55}, 503 -- 509, 100th year Anniversary of van der
-  Waals' Nobel Lecture\relax
+  ensemble Monte Carlo simulations. \emph{J. Supercrit. Fluids} \textbf{2010},
+  \emph{55}, 503 -- 509, 100th year Anniversary of van der Waals' Nobel
+  Lecture\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Shirts()]{arxivShirts2017}
+Shirts,~M.~R. Reweighting from the mixture distribution as a better way to
+  describe the Multistate Bennett Acceptance Ratio.
+  \emph{https://arxiv.org/abs/1704.00891} \relax
+\mciteBstWouldAddEndPunctfalse
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{}{\mcitedefaultseppunct}\relax
 \EndOfBibitem
 \end{mcitethebibliography}
