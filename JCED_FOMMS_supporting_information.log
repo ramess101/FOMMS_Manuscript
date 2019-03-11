@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.2.21)  8 MAR 2019 13:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.11)  11 MAR 2019 15:05
 entering extended mode
 **./JCED_FOMMS_supporting_information.tex
 (JCED_FOMMS_supporting_information.tex
@@ -201,11 +201,11 @@ Package: mciteplus 2013/09/13 v1.2 enhanced mcite
 mformula.sty"
 ("C:\Users\rmesserl\AppData\Local\Programs\MiKTeX 2.9\tex/latex/l3kernel\expl3.
 sty"
-Package: expl3 2019-02-15 L3 programming layer (loader) 
+Package: expl3 2019-03-05 L3 programming layer (loader) 
 
 ("C:\Users\rmesserl\AppData\Local\Programs\MiKTeX 2.9\tex/latex/l3kernel\expl3-
 code.tex"
-Package: expl3 2019-02-15 L3 programming layer (code)
+Package: expl3 2019-03-05 L3 programming layer (code)
 \c_max_int=\count109
 \l_tmpa_int=\count110
 \l_tmpb_int=\count111
@@ -336,41 +336,41 @@ Package: expl3 2019-02-15 L3 programming layer (code)
 \l_tmpb_coffin=\box40
 \g_tmpa_coffin=\box41
 \g_tmpb_coffin=\box42
+\l__coffin_bounding_shift_dim=\dimen144
+\l__coffin_left_corner_dim=\dimen145
+\l__coffin_right_corner_dim=\dimen146
+\l__coffin_bottom_corner_dim=\dimen147
+\l__coffin_top_corner_dim=\dimen148
+\l__coffin_scaled_total_height_dim=\dimen149
+\l__coffin_scaled_width_dim=\dimen150
 \c__coffin_empty_coffin=\box43
 \l__coffin_display_coffin=\box44
 \l__coffin_display_coord_coffin=\box45
 \l__coffin_display_pole_coffin=\box46
-\l__coffin_display_offset_dim=\dimen144
-\l__coffin_display_x_dim=\dimen145
-\l__coffin_display_y_dim=\dimen146
+\l__coffin_display_offset_dim=\dimen151
+\l__coffin_display_x_dim=\dimen152
+\l__coffin_display_y_dim=\dimen153
 \g__file_internal_ior=\read1
-\l__coffin_bounding_shift_dim=\dimen147
-\l__coffin_left_corner_dim=\dimen148
-\l__coffin_right_corner_dim=\dimen149
-\l__coffin_bottom_corner_dim=\dimen150
-\l__coffin_top_corner_dim=\dimen151
-\l__coffin_scaled_total_height_dim=\dimen152
-\l__coffin_scaled_width_dim=\dimen153
 \l__seq_internal_a_int=\count191
 \l__seq_internal_b_int=\count192
+\c__deprecation_minus_one=\count193
 )
 ("C:\Users\rmesserl\AppData\Local\Programs\MiKTeX 2.9\tex/latex/l3kernel\l3pdfm
 ode.def"
-File: l3pdfmode.def 2019-02-15 v L3 Experimental driver: PDF mode
-\l__driver_color_stack_int=\count193
+File: l3pdfmode.def 2019-03-05 v L3 Experimental driver: PDF mode
+\l__driver_color_stack_int=\count194
 ))
 ("C:\Users\rmesserl\AppData\Local\Programs\MiKTeX 2.9\tex/latex/l3packages/xpar
 se\xparse.sty"
-Package: xparse 2018-10-17 L3 Experimental document command parser
-\l__xparse_current_arg_int=\count194
-\g__xparse_grabber_int=\count195
-\l__xparse_m_args_int=\count196
-\l__xparse_mandatory_args_int=\count197
+Package: xparse 2019-03-05 L3 Experimental document command parser
+\l__xparse_current_arg_int=\count195
+\g__xparse_grabber_int=\count196
+\l__xparse_m_args_int=\count197
 \l__xparse_v_nesting_int=\count198
 )
 ("C:\Users\rmesserl\AppData\Local\Programs\MiKTeX 2.9\tex/latex/l3packages/l3ke
 ys2e\l3keys2e.sty"
-Package: l3keys2e 2018-10-17 LaTeX2e option processing using LaTeX3 keys
+Package: l3keys2e 2019-03-05 LaTeX2e option processing using LaTeX3 keys
 )
 ("C:\Users\rmesserl\AppData\Local\Programs\MiKTeX 2.9\tex/latex/pgf/frontendlay
 er\tikz.sty"
@@ -926,13 +926,13 @@ Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 409.
 )
 ("C:\Users\rmesserl\AppData\Local\Programs\MiKTeX 2.9\tex/latex/l3packages/xtem
 plate\xtemplate.sty"
-Package: xtemplate 2018-10-17 L3 Experimental prototype document functions
+Package: xtemplate 2019-03-05 L3 Experimental prototype document functions
 \l__xtemplate_tmp_dim=\dimen265
 \l__xtemplate_tmp_int=\count297
 \l__xtemplate_tmp_muskip=\muskip18
 \l__xtemplate_tmp_skip=\skip62
 )
-Package: xfrac 2018-10-17 L3 Experimental split-level fractions
+Package: xfrac 2019-03-05 L3 Experimental split-level fractions
 \l__xfrac_slash_box=\box60
 \l__xfrac_tmp_box=\box61
 \l__xfrac_denominator_bot_sep_dim=\dimen266
@@ -944,7 +944,7 @@ Package: xfrac 2018-10-17 L3 Experimental split-level fractions
 \l__xfrac_slash_right_muskip=\muskip20
 
 Package xtemplate Info: Declaring object type 'xfrac' taking 3 argument(s) on
-(xtemplate)             line 80.
+(xtemplate)             line 79.
 
 )
 ("C:\Users\rmesserl\AppData\Local\Programs\MiKTeX 2.9\tex/latex/units\nicefrac.
@@ -1058,7 +1058,7 @@ lekv.tex")
 \CF@box@boxa=\box69
 \CF@stuff@box=\box70
 )
-Package: chemfig 2018/10/31 v1.33 Draw molecule with an easy syntax (CT)
+Package: chemfig 2019/02/23 v1.34 Draw molecule with an easy syntax (CT)
 )
 ("C:\Users\rmesserl\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tools\indentfir
 st.sty"
@@ -1066,7 +1066,7 @@ Package: indentfirst 1995/11/23 v1.03 Indent first paragraph (DPC)
 )
 ("C:\Users\rmesserl\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tools\longtable
 .sty"
-Package: longtable 2014/10/28 v4.11 Multi-page Table package (DPC)
+Package: longtable 2014/10/28 v4.11 Multi-page Table package (DPC)+ FMi change
 \LTleft=\skip72
 \LTright=\skip73
 \LTpre=\skip74
@@ -1085,7 +1085,7 @@ Package: longtable 2014/10/28 v4.11 Multi-page Table package (DPC)
 )
 ("C:\Users\rmesserl\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tools\array.sty
 "
-Package: array 2018/11/13 v2.4j Tabular extension package (FMi)
+Package: array 2018/12/30 v2.4k Tabular extension package (FMi)
 \col@sep=\dimen309
 \ar@mcellbox=\box75
 \extrarowheight=\dimen310
@@ -1300,7 +1300,7 @@ slator.sty"
 Package: translator 2018/01/04 v1.12 Easy translation of strings in LaTeX
 ))
 ("C:\Users\rmesserl\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tools\xr.sty"
-Package: xr 2018/10/01 v5.03 eXternal References (DPC)
+Package: xr 2019/01/05 v5.04 eXternal References (DPC)
 )
 Package xr Info: IMPORTING LABELS FROM JCED_FOMMS_manuscript.aux on input line 
 79.
@@ -1389,8 +1389,8 @@ Package: ltcaption 2018/08/26 v1.4-95 longtable captions (AR)
 )
 Package caption Info: End \AtBeginDocument code.
 
-("C:\Users\rmesserl\AppData\Local\Programs\MiKTeX 2.9\tex/context/base\supp-pdf
-.mkii"
+("C:\Users\rmesserl\AppData\Local\Programs\MiKTeX 2.9\tex/context/base/mkii\sup
+p-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count343
 \scratchdimen=\dimen333
@@ -1485,7 +1485,7 @@ LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <17.28> not available
 [2
 
 ]
-<figures/NERD_fixed_flexible.pdf, id=129, 1086.63155pt x 573.76357pt>
+<figures/NERD_fixed_flexible.pdf, id=133, 1086.63155pt x 573.76357pt>
 File: figures/NERD_fixed_flexible.pdf Graphic file (type pdf)
 <use figures/NERD_fixed_flexible.pdf>
 Package pdftex.def Info: figures/NERD_fixed_flexible.pdf  used on input line 22
@@ -1544,7 +1544,7 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 ] [8] [9] [10] [11] [12] [13] [14
 
 ] [15] [16] [17] [18] [19] [20]
-<figures/CYC6_VLE_iterations.pdf, id=361, 895.56145pt x 975.17921pt>
+<figures/CYC6_VLE_iterations.pdf, id=365, 895.56145pt x 975.17921pt>
 File: figures/CYC6_VLE_iterations.pdf Graphic file (type pdf)
 <use figures/CYC6_VLE_iterations.pdf>
 Package pdftex.def Info: figures/CYC6_VLE_iterations.pdf  used on input line 81
@@ -1553,7 +1553,7 @@ Package pdftex.def Info: figures/CYC6_VLE_iterations.pdf  used on input line 81
  [21
 
  <./figures/CYC6_VLE_iterations.pdf>]
-<figures/CYC6_deviations_20replicates.pdf, id=497, 840.86227pt x 1049.93034pt>
+<figures/CYC6_deviations_20replicates.pdf, id=501, 840.86227pt x 1049.93034pt>
 File: figures/CYC6_deviations_20replicates.pdf Graphic file (type pdf)
 <use figures/CYC6_deviations_20replicates.pdf>
 Package pdftex.def Info: figures/CYC6_deviations_20replicates.pdf  used on inpu
@@ -1562,13 +1562,13 @@ t line 823.
  [22
 
  <./figures/CYC6_deviations_20replicates.pdf>]
-<figures/CYC6_VLE_MiPPE_TAMie.pdf, id=648, 846.63857pt x 888.35483pt>
+<figures/CYC6_VLE_MiPPE_TAMie.pdf, id=652, 846.63857pt x 888.35483pt>
 File: figures/CYC6_VLE_MiPPE_TAMie.pdf Graphic file (type pdf)
 <use figures/CYC6_VLE_MiPPE_TAMie.pdf>
 Package pdftex.def Info: figures/CYC6_VLE_MiPPE_TAMie.pdf  used on input line 8
 35.
 (pdftex.def)             Requested size: 419.16621pt x 439.8251pt.
-<figures/CYC6_deviations_MiPPE_TAMie.pdf, id=649, 800.0426pt x 863.32535pt>
+<figures/CYC6_deviations_MiPPE_TAMie.pdf, id=653, 800.0426pt x 863.32535pt>
 File: figures/CYC6_deviations_MiPPE_TAMie.pdf Graphic file (type pdf)
 <use figures/CYC6_deviations_MiPPE_TAMie.pdf>
 Package pdftex.def Info: figures/CYC6_deviations_MiPPE_TAMie.pdf  used on input
@@ -1579,7 +1579,7 @@ Package pdftex.def Info: figures/CYC6_deviations_MiPPE_TAMie.pdf  used on input
 
  <./figures/CYC6_VLE_MiPPE_TAMie.pdf>] [24 <./figures/CYC6_deviations_MiPPE_TAM
 ie.pdf>]
-<figures/CYC6_min_Neff_lam_iteration.pdf, id=817, 890.0364pt x 820.1636pt>
+<figures/CYC6_min_Neff_lam_iteration.pdf, id=821, 890.0364pt x 820.1636pt>
 File: figures/CYC6_min_Neff_lam_iteration.pdf Graphic file (type pdf)
 <use figures/CYC6_min_Neff_lam_iteration.pdf>
 Package pdftex.def Info: figures/CYC6_min_Neff_lam_iteration.pdf  used on input
@@ -1588,7 +1588,7 @@ Package pdftex.def Info: figures/CYC6_min_Neff_lam_iteration.pdf  used on input
  [25
 
  <./figures/CYC6_min_Neff_lam_iteration.pdf>]
-<figures/CYC6_VLE_finite_size_effects.pdf, id=884, 841.81812pt x 870.25371pt>
+<figures/CYC6_VLE_finite_size_effects.pdf, id=888, 841.81812pt x 870.25371pt>
 File: figures/CYC6_VLE_finite_size_effects.pdf Graphic file (type pdf)
 <use figures/CYC6_VLE_finite_size_effects.pdf>
 Package pdftex.def Info: figures/CYC6_VLE_finite_size_effects.pdf  used on inpu
@@ -1597,7 +1597,7 @@ t line 866.
  [26
 
  <./figures/CYC6_VLE_finite_size_effects.pdf>]
-<figures/CYC6_deviations_finite_size_effects.pdf, id=974, 840.86227pt x 889.074
+<figures/CYC6_deviations_finite_size_effects.pdf, id=978, 840.86227pt x 889.074
 51pt>
 File: figures/CYC6_deviations_finite_size_effects.pdf Graphic file (type pdf)
 <use figures/CYC6_deviations_finite_size_effects.pdf>
@@ -1611,7 +1611,7 @@ on input line 876.
 ] [29
 
 ] [30] [31] [32] [33] [34]
-<figures/Compressibility_factor_all.pdf, id=1095, 424.5122pt x 578.66188pt>
+<figures/Compressibility_factor_all.pdf, id=1099, 424.5122pt x 578.66188pt>
 File: figures/Compressibility_factor_all.pdf Graphic file (type pdf)
 <use figures/Compressibility_factor_all.pdf>
 Package pdftex.def Info: figures/Compressibility_factor_all.pdf  used on input 
@@ -1620,7 +1620,7 @@ line 1094.
  [35
 
  <./figures/Compressibility_factor_all.pdf>]
-<figures/Compressibility_factor_CYC6_iterations.pdf, id=1223, 424.5122pt x 423.
+<figures/Compressibility_factor_CYC6_iterations.pdf, id=1227, 424.5122pt x 423.
 41866pt>
 File: figures/Compressibility_factor_CYC6_iterations.pdf Graphic file (type pdf
 )
@@ -1631,44 +1631,56 @@ ed on input line 1106.
  [36
 
  <./figures/Compressibility_factor_CYC6_iterations.pdf>]
-Overfull \hbox (27.00754pt too wide) in paragraph at lines 1115--1115
+<figures/Compressibility_factor_CYC6_MiPPE_TAMie.pdf, id=1292, 367.17542pt x 86
+1.92014pt>
+File: figures/Compressibility_factor_CYC6_MiPPE_TAMie.pdf Graphic file (type pd
+f)
+<use figures/Compressibility_factor_CYC6_MiPPE_TAMie.pdf>
+Package pdftex.def Info: figures/Compressibility_factor_CYC6_MiPPE_TAMie.pdf  u
+sed on input line 1118.
+(pdftex.def)             Requested size: 216.81pt x 508.94933pt.
+
+[37
+
+ <./figures/Compressibility_factor_CYC6_MiPPE_TAMie.pdf>]
+Overfull \hbox (27.00754pt too wide) in paragraph at lines 1126--1126
 []\T1/ppl/b/n/17.28 Tabulated phase equi-lib-ria for val-i-da-tion of GCMC-MBAR
  
  []
 
-[37
+[38
 
-] [38] [39] [40] [41] [42] [43] [44] [45] [46] [47] [48] [49] [50] [51]
-[52] [53] [54] [55] [56] [57] [58] [59] [60] [61] [62] [63] [64] [65] [66]
-[67
+] [39] [40] [41] [42] [43] [44] [45] [46] [47] [48] [49] [50] [51] [52]
+[53] [54] [55] [56] [57] [58] [59] [60] [61] [62] [63] [64] [65] [66] [67]
+[68
 
-] [68] [69] [70] [71] [72] [73
-
-]
-
-LaTeX Warning: Text page S74 contains only floats.
-
-[74] [75] [76
+] [69] [70] [71] [72] [73] [74
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2657.
- [77] [78] [79] [80] [81] [82]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 2657.
+
+LaTeX Warning: Text page S75 contains only floats.
+
+[75] [76] [77
+
+]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2668.
+ [78] [79] [80] [81] [82] [83]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 2668.
 
 (JCED_FOMMS_supporting_information.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2657.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2657.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2668.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2668.
 
 Package rerunfilecheck Info: File `JCED_FOMMS_supporting_information.out' has n
 ot changed.
-(rerunfilecheck)             Checksum: AB2175F33D8DAD1E1BF8007EC9882F2E;1729.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2657.
+(rerunfilecheck)             Checksum: 191B81D0015CCF6A140F1503565C4AE8;1796.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2668.
  ) 
 Here is how much of TeX's memory you used:
- 34112 strings out of 492946
- 679449 string characters out of 3124934
- 969846 words of memory out of 3000000
- 37320 multiletter control sequences out of 15000+200000
+ 34199 strings out of 492946
+ 681574 string characters out of 3124934
+ 994718 words of memory out of 3000000
+ 37403 multiletter control sequences out of 15000+200000
  568242 words of font info for 98 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  62i,10n,94p,1566b,735s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1688,10 +1700,10 @@ cal/Programs/MiKTeX 2.9/fonts/type1/urw/palatino/uplb8a.pfb><C:/Users/rmesserl/
 AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/palatino/uplr8a.pfb><C:/Users
 /rmesserl/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/palatino/uplri8a.pf
 b>
-Output written on JCED_FOMMS_supporting_information.pdf (82 pages, 1018554 byte
+Output written on JCED_FOMMS_supporting_information.pdf (83 pages, 1035486 byte
 s).
 PDF statistics:
- 1629 PDF objects out of 1728 (max. 8388607)
- 212 named destinations out of 1000 (max. 500000)
- 263 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1701 PDF objects out of 1728 (max. 8388607)
+ 215 named destinations out of 1000 (max. 500000)
+ 276 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.2.21)  11 MAR 2019 09:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.11)  11 MAR 2019 15:41
 entering extended mode
 **./JCED_FOMMS_manuscript.tex
 (JCED_FOMMS_manuscript.tex
@@ -201,11 +201,11 @@ Package: mciteplus 2013/09/13 v1.2 enhanced mcite
 mformula.sty"
 ("C:\Users\rmesserl\AppData\Local\Programs\MiKTeX 2.9\tex/latex/l3kernel\expl3.
 sty"
-Package: expl3 2019-02-15 L3 programming layer (loader) 
+Package: expl3 2019-03-05 L3 programming layer (loader) 
 
 ("C:\Users\rmesserl\AppData\Local\Programs\MiKTeX 2.9\tex/latex/l3kernel\expl3-
 code.tex"
-Package: expl3 2019-02-15 L3 programming layer (code)
+Package: expl3 2019-03-05 L3 programming layer (code)
 \c_max_int=\count109
 \l_tmpa_int=\count110
 \l_tmpb_int=\count111
@@ -336,41 +336,41 @@ Package: expl3 2019-02-15 L3 programming layer (code)
 \l_tmpb_coffin=\box40
 \g_tmpa_coffin=\box41
 \g_tmpb_coffin=\box42
+\l__coffin_bounding_shift_dim=\dimen144
+\l__coffin_left_corner_dim=\dimen145
+\l__coffin_right_corner_dim=\dimen146
+\l__coffin_bottom_corner_dim=\dimen147
+\l__coffin_top_corner_dim=\dimen148
+\l__coffin_scaled_total_height_dim=\dimen149
+\l__coffin_scaled_width_dim=\dimen150
 \c__coffin_empty_coffin=\box43
 \l__coffin_display_coffin=\box44
 \l__coffin_display_coord_coffin=\box45
 \l__coffin_display_pole_coffin=\box46
-\l__coffin_display_offset_dim=\dimen144
-\l__coffin_display_x_dim=\dimen145
-\l__coffin_display_y_dim=\dimen146
+\l__coffin_display_offset_dim=\dimen151
+\l__coffin_display_x_dim=\dimen152
+\l__coffin_display_y_dim=\dimen153
 \g__file_internal_ior=\read1
-\l__coffin_bounding_shift_dim=\dimen147
-\l__coffin_left_corner_dim=\dimen148
-\l__coffin_right_corner_dim=\dimen149
-\l__coffin_bottom_corner_dim=\dimen150
-\l__coffin_top_corner_dim=\dimen151
-\l__coffin_scaled_total_height_dim=\dimen152
-\l__coffin_scaled_width_dim=\dimen153
 \l__seq_internal_a_int=\count191
 \l__seq_internal_b_int=\count192
+\c__deprecation_minus_one=\count193
 )
 ("C:\Users\rmesserl\AppData\Local\Programs\MiKTeX 2.9\tex/latex/l3kernel\l3pdfm
 ode.def"
-File: l3pdfmode.def 2019-02-15 v L3 Experimental driver: PDF mode
-\l__driver_color_stack_int=\count193
+File: l3pdfmode.def 2019-03-05 v L3 Experimental driver: PDF mode
+\l__driver_color_stack_int=\count194
 ))
 ("C:\Users\rmesserl\AppData\Local\Programs\MiKTeX 2.9\tex/latex/l3packages/xpar
 se\xparse.sty"
-Package: xparse 2018-10-17 L3 Experimental document command parser
-\l__xparse_current_arg_int=\count194
-\g__xparse_grabber_int=\count195
-\l__xparse_m_args_int=\count196
-\l__xparse_mandatory_args_int=\count197
+Package: xparse 2019-03-05 L3 Experimental document command parser
+\l__xparse_current_arg_int=\count195
+\g__xparse_grabber_int=\count196
+\l__xparse_m_args_int=\count197
 \l__xparse_v_nesting_int=\count198
 )
 ("C:\Users\rmesserl\AppData\Local\Programs\MiKTeX 2.9\tex/latex/l3packages/l3ke
 ys2e\l3keys2e.sty"
-Package: l3keys2e 2018-10-17 LaTeX2e option processing using LaTeX3 keys
+Package: l3keys2e 2019-03-05 LaTeX2e option processing using LaTeX3 keys
 )
 ("C:\Users\rmesserl\AppData\Local\Programs\MiKTeX 2.9\tex/latex/pgf/frontendlay
 er\tikz.sty"
@@ -926,13 +926,13 @@ Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 409.
 )
 ("C:\Users\rmesserl\AppData\Local\Programs\MiKTeX 2.9\tex/latex/l3packages/xtem
 plate\xtemplate.sty"
-Package: xtemplate 2018-10-17 L3 Experimental prototype document functions
+Package: xtemplate 2019-03-05 L3 Experimental prototype document functions
 \l__xtemplate_tmp_dim=\dimen265
 \l__xtemplate_tmp_int=\count297
 \l__xtemplate_tmp_muskip=\muskip18
 \l__xtemplate_tmp_skip=\skip62
 )
-Package: xfrac 2018-10-17 L3 Experimental split-level fractions
+Package: xfrac 2019-03-05 L3 Experimental split-level fractions
 \l__xfrac_slash_box=\box60
 \l__xfrac_tmp_box=\box61
 \l__xfrac_denominator_bot_sep_dim=\dimen266
@@ -944,7 +944,7 @@ Package: xfrac 2018-10-17 L3 Experimental split-level fractions
 \l__xfrac_slash_right_muskip=\muskip20
 
 Package xtemplate Info: Declaring object type 'xfrac' taking 3 argument(s) on
-(xtemplate)             line 80.
+(xtemplate)             line 79.
 
 )
 ("C:\Users\rmesserl\AppData\Local\Programs\MiKTeX 2.9\tex/latex/units\nicefrac.
@@ -1058,7 +1058,7 @@ lekv.tex")
 \CF@box@boxa=\box69
 \CF@stuff@box=\box70
 )
-Package: chemfig 2018/10/31 v1.33 Draw molecule with an easy syntax (CT)
+Package: chemfig 2019/02/23 v1.34 Draw molecule with an easy syntax (CT)
 )
 ("C:\Users\rmesserl\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tools\indentfir
 st.sty"
@@ -1066,7 +1066,7 @@ Package: indentfirst 1995/11/23 v1.03 Indent first paragraph (DPC)
 )
 ("C:\Users\rmesserl\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tools\longtable
 .sty"
-Package: longtable 2014/10/28 v4.11 Multi-page Table package (DPC)
+Package: longtable 2014/10/28 v4.11 Multi-page Table package (DPC)+ FMi change
 \LTleft=\skip72
 \LTright=\skip73
 \LTpre=\skip74
@@ -1085,7 +1085,7 @@ Package: longtable 2014/10/28 v4.11 Multi-page Table package (DPC)
 )
 ("C:\Users\rmesserl\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tools\array.sty
 "
-Package: array 2018/11/13 v2.4j Tabular extension package (FMi)
+Package: array 2018/12/30 v2.4k Tabular extension package (FMi)
 \col@sep=\dimen309
 \ar@mcellbox=\box75
 \extrarowheight=\dimen310
@@ -1300,7 +1300,7 @@ slator.sty"
 Package: translator 2018/01/04 v1.12 Easy translation of strings in LaTeX
 ))
 ("C:\Users\rmesserl\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tools\xr.sty"
-Package: xr 2018/10/01 v5.03 eXternal References (DPC)
+Package: xr 2019/01/05 v5.04 eXternal References (DPC)
 )
 Package xr Info: IMPORTING LABELS FROM JCED_FOMMS_supporting_information.aux on
  input line 61.
@@ -1389,8 +1389,8 @@ Package: ltcaption 2018/08/26 v1.4-95 longtable captions (AR)
 )
 Package caption Info: End \AtBeginDocument code.
 
-("C:\Users\rmesserl\AppData\Local\Programs\MiKTeX 2.9\tex/context/base\supp-pdf
-.mkii"
+("C:\Users\rmesserl\AppData\Local\Programs\MiKTeX 2.9\tex/context/base/mkii\sup
+p-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count343
 \scratchdimen=\dimen333
@@ -1727,7 +1727,7 @@ Package pdftex.def Info: figures/CYC6_scoring_function_lam_iteration.pdf  used
 on input line 1468.
 (pdftex.def)             Requested size: 462.52756pt x 429.28748pt.
 
-Overfull \hbox (18.50883pt too wide) in paragraph at lines 1491--1501
+Overfull \hbox (18.50896pt too wide) in paragraph at lines 1491--1501
  [] 
  []
 
@@ -1739,13 +1739,13 @@ Package pdftex.def Info: figures/CYC6_deviations_iterations.pdf  used on input
 line 1522.
 (pdftex.def)             Requested size: 419.16621pt x 467.92117pt.
  [40] [41 <./figures/CYC6_deviations_iterations.pdf>] [42]
-Overfull \hbox (7.89476pt too wide) in paragraph at lines 1618--1619
+Overfull \hbox (7.89476pt too wide) in paragraph at lines 1622--1623
 \T1/ppl/m/n/12 HR has also been ap-plied to GEMC sim-u-la-tions (GEMC-HR).$[]$ 
 There-fore, while the present
  []
 
 [43]
-Overfull \hbox (19.14513pt too wide) in paragraph at lines 1667--1668
+Overfull \hbox (19.14513pt too wide) in paragraph at lines 1671--1672
 []\T1/ppl/m/n/12 We per-form a one-dimensional $\OML/cmm/m/it/12 $\T1/ppl/m/n/
 12 -scaling post-simulation op-ti-miza-tion of sev-eral branched
  []
@@ -1757,21 +1757,21 @@ LaTeX Font Info:    Try loading font information for T1+pcr on input line 269.
 "
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 ) [49] [50] [51] [52]) [53]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1704.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1704.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1708.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1708.
  (JCED_FOMMS_manuscript.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1704.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1704.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1708.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1708.
 
 Package rerunfilecheck Info: File `JCED_FOMMS_manuscript.out' has not changed.
 (rerunfilecheck)             Checksum: 98D56DE1288034067E585385396160BA;1709.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1704.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1708.
  ) 
 Here is how much of TeX's memory you used:
- 34385 strings out of 492946
- 685537 string characters out of 3124934
- 737403 words of memory out of 3000000
- 37596 multiletter control sequences out of 15000+200000
+ 34461 strings out of 492946
+ 687287 string characters out of 3124934
+ 736061 words of memory out of 3000000
+ 37672 multiletter control sequences out of 15000+200000
  572148 words of font info for 104 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  62i,11n,94p,2011b,1124s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1813,9 +1813,9 @@ ata/Local/Programs/MiKTeX 2.9/fonts/type1/urw/palatino/uplb8a.pfb><C:/Users/rme
 sserl/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/palatino/uplr8a.pfb><C:
 /Users/rmesserl/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/palatino/uplr
 i8a.pfb>
-Output written on JCED_FOMMS_manuscript.pdf (53 pages, 1291349 bytes).
+Output written on JCED_FOMMS_manuscript.pdf (53 pages, 1291955 bytes).
 PDF statistics:
- 1588 PDF objects out of 1728 (max. 8388607)
+ 1590 PDF objects out of 1728 (max. 8388607)
  194 named destinations out of 1000 (max. 500000)
  250 words of extra memory for PDF output out of 10000 (max. 10000000)
 
