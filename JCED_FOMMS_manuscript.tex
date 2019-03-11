@@ -1369,8 +1369,8 @@ We recommend the following algorithm for optimizing Mie $\lambda$-6 parameters w
 %	\item Optimize $\epsilon$ and $\sigma$ for each $\lambda$ $(\epsilon_{\rm opt}^\lambda$, $\sigma_{\rm opt}^\lambda$) by: \label{step: Opt eps,sig}
     \item Optimize $\epsilon$ and $\sigma$ for each $\lambda$ $(\epsilon^{\langle i \rangle}$, $\sigma^{\langle i \rangle}$) by: \label{step: Opt eps,sig}
 	\begin{enumerate}
-		\item Estimating $\rho_{\rm liq}^{\rm sat}$, $\rho_{\rm vap}^{\rm sat}$, $P_{\rm vap}^{\rm sat}$, and $\Delta H_{\rm v}$ with GCMC-MBAR
-		\item Minimizing scoring function $(S)$
+		\item Estimating $\rho_{\rm liq}^{\rm sat}$, $\rho_{\rm vap}^{\rm sat}$, $P_{\rm vap}^{\rm sat}$, and $\Delta H_{\rm v}$ with GCMC-MBAR \label{step: GCMC-MBAR}
+		\item Minimizing scoring function $(S)$ \label{step: S min}
 	\end{enumerate}
 %	\item Determine optimal $\epsilon$ and $\sigma$ for various values of $\lambda$ by minimizing $S$ \label{Opt eps,sig}
 	\item Perform additional simulations with $\epsilon^{\langle i \rangle}$, $\sigma^{\langle i \rangle}$ from Step \ref{step: Opt eps,sig} for each $\lambda$ \label{step: Resim opt}
@@ -1384,6 +1384,8 @@ We recommend the following algorithm for optimizing Mie $\lambda$-6 parameters w
 	\item Repeat Steps \ref{step: Opt eps,sig} and \ref{step: Resim opt} until $\min(K_{\rm snaps}^{\rm eff}) \gg 50$ for $\theta^{\langle i \rangle}$
 	\item Determine overall optimal parameter set $(\theta_{\rm opt})$ \label{step: Opt eps,sig,lam}
 \end{enumerate}
+Note that Step \ref{step: Basis Functions} is optional in that GCMC-MBAR (Step \ref{step: GCMC-MBAR}) does not require basis functions. Because the Mie $\lambda$-6 potential is amenable to basis functions, however, we implement Step \ref{step: Basis Functions} to reduce the cost of recomputing the energy for $\theta_{\rm rr}$.  
+
 The stopping criterion is based on the minimum number of effective snapshots $\min(K_{\rm snaps}^{\rm eff})$, which always corresponds to the liquid phase at lower values of $T^{\rm sat}$ (see Figure \ref{fig:Neff}). Therefore, GCMC-MBAR estimates should be reliable over the entire range of saturation temperatures when $\min(K_{\rm snaps}^{\rm eff}) \gg 50$. If this is true for the optimal region of parameter space, any additional iterations would be ill-advised and unnecessary as the optimization would primarily be fitting to the uncertainty in the simulation output. Section \ref{sec: Case study} presents an application of this approach for cyclohexane.
 %where $\theta_{\rm ref}$ in Step \ref{step: Sim ref} is 
 
@@ -1537,7 +1539,13 @@ Even the first iteration parameters demonstrate considerable improvement compare
 %RAM: Hopefully it is clear that we are referring to the real time to solution
 In this optimization example (an exhaustive 2-dimensional grid search over even integer values of $\lambda_{\rm CH_2}$), each proposed parameter set could be simulated directly in parallel. Therefore, the real time to solution for GCMC-MBAR would be similar to that of the GCMC-HR approach utilized by Mick et al.~\cite{Potoff_branched}and Soroush Barhaghi et al.~\cite{Barhaghi2017}, although GCMC-MBAR would still reduce the total CPU time. In general, however, higher dimensional optimization algorithms are performed in sequence, where each iteration proposes new parameter set(s). In this scenario, GCMC-MBAR (with basis functions) is orders of magnitude faster than the literature GCMC-HR approach, which would require performing new GCMC simulations for each iteration.
 
-In addition to requiring a more sophisticated optimization scheme, a higher dimensional parameterization would also necessitate generating more basis functions. Specifically, computing the overall system energy with basis functions requires an attractive and repulsive basis function for all $ii$ (same) and $ij$ (cross) pair interaction sets. For example, simultaneous optimization of the three united-atom site types in 2-methybutane (CH$_3$, CH$_2$, and CH) would require both an attractive and repulsive basis function for each of the CH$_3$-CH$_3$, CH$_3$-CH$_2$, CH$_3$-CH, CH$_2$-CH$_2$, CH$_2$-CH, and CH-CH interactions. The additional computational overhead to compute more basis functions, however, is marginal.
+While a higher dimensional parameterization would necessitate a more sophisticated optimization scheme (Step \ref{step: S min}), the GCMC-MBAR analysis (Step \ref{step: GCMC-MBAR}) would be unchanged. If implementing basis functions with GCMC-MBAR (Step \ref{step: Basis Functions}), however, recomputing the energy for $\theta_{\rm rr}$ requires an attractive and repulsive basis function for all $ii$ (same) and $ij$ (cross) pair interaction sets. For example, simultaneously optimizing the Mie $\lambda$-6 parameters for the two united-atom site types in propane (CH$_3$ and CH$_2$) would require both an attractive and repulsive basis function for each of the CH$_3$-CH$_3$, CH$_3$-CH$_2$, and CH$_2$-CH$_2$ interactions (6 basis functions in total). Although the memory requirement scales linearly as the number of basis functions, the storage load is still significantly less compared to storing configurations. Furthermore, the increase in computational cost with increasing number of basis functions is negligible.
+
+%marginal.
+
+%remains approximately the same.  
+
+%In addition to requiring a more sophisticated optimization scheme, a higher dimensional parameterization would also necessitate generating more basis functions. Specifically, computing the overall system energy with basis functions requires an attractive and repulsive basis function for all $ii$ (same) and $ij$ (cross) pair interaction sets. For example, simultaneous optimization of the three united-atom site types in 2-methylbutane (CH$_3$, CH$_2$, and CH) would require both an attractive and repulsive basis function for each of the CH$_3$-CH$_3$, CH$_3$-CH$_2$, CH$_3$-CH, CH$_2$-CH$_2$, CH$_2$-CH, and CH-CH interactions. The additional computational overhead to compute more basis functions, however, is marginal.
 
 % with Percent deviations in cyclohexane property values between REFPROP, MiPPE, and s force field as well as literature force field values.
 %  computed with GCMC-MBAR (for $\theta_{\rm rr} = \theta_{\rm ref}$).
