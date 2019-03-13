@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.11)  11 MAR 2019 15:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.3.11)  12 MAR 2019 22:27
 entering extended mode
 **./JCED_FOMMS_supporting_information.tex
 (JCED_FOMMS_supporting_information.tex
@@ -1562,124 +1562,126 @@ t line 823.
  [22
 
  <./figures/CYC6_deviations_20replicates.pdf>]
-<figures/CYC6_VLE_MiPPE_TAMie.pdf, id=652, 846.63857pt x 888.35483pt>
+<figures/CYC6_VLE_MiPPE_TAMie.pdf, id=652, 846.10011pt x 888.35483pt>
 File: figures/CYC6_VLE_MiPPE_TAMie.pdf Graphic file (type pdf)
 <use figures/CYC6_VLE_MiPPE_TAMie.pdf>
 Package pdftex.def Info: figures/CYC6_VLE_MiPPE_TAMie.pdf  used on input line 8
 35.
-(pdftex.def)             Requested size: 419.16621pt x 439.8251pt.
-<figures/CYC6_deviations_MiPPE_TAMie.pdf, id=653, 800.0426pt x 863.32535pt>
+(pdftex.def)             Requested size: 419.16621pt x 440.0962pt.
+<figures/CYC6_deviations_MiPPE_TAMie.pdf, id=653, 799.54839pt x 863.32535pt>
 File: figures/CYC6_deviations_MiPPE_TAMie.pdf Graphic file (type pdf)
 <use figures/CYC6_deviations_MiPPE_TAMie.pdf>
 Package pdftex.def Info: figures/CYC6_deviations_MiPPE_TAMie.pdf  used on input
  line 842.
-(pdftex.def)             Requested size: 419.16621pt x 452.31729pt.
+(pdftex.def)             Requested size: 419.16621pt x 452.6071pt.
 
 [23
 
  <./figures/CYC6_VLE_MiPPE_TAMie.pdf>] [24 <./figures/CYC6_deviations_MiPPE_TAM
-ie.pdf>]
-<figures/CYC6_min_Neff_lam_iteration.pdf, id=821, 890.0364pt x 820.1636pt>
+ie.pdf>] [25
+
+]
+<figures/CYC6_min_Neff_lam_iteration.pdf, id=827, 890.0364pt x 820.1636pt>
 File: figures/CYC6_min_Neff_lam_iteration.pdf Graphic file (type pdf)
 <use figures/CYC6_min_Neff_lam_iteration.pdf>
 Package pdftex.def Info: figures/CYC6_min_Neff_lam_iteration.pdf  used on input
- line 854.
+ line 885.
 (pdftex.def)             Requested size: 462.52756pt x 426.2122pt.
- [25
+ [26
 
  <./figures/CYC6_min_Neff_lam_iteration.pdf>]
-<figures/CYC6_VLE_finite_size_effects.pdf, id=888, 841.81812pt x 870.25371pt>
+<figures/CYC6_VLE_finite_size_effects.pdf, id=893, 817.9951pt x 870.98997pt>
 File: figures/CYC6_VLE_finite_size_effects.pdf Graphic file (type pdf)
 <use figures/CYC6_VLE_finite_size_effects.pdf>
 Package pdftex.def Info: figures/CYC6_VLE_finite_size_effects.pdf  used on inpu
-t line 866.
-(pdftex.def)             Requested size: 419.16621pt x 433.31984pt.
- [26
+t line 897.
+(pdftex.def)             Requested size: 419.16621pt x 446.32545pt.
+ [27
 
  <./figures/CYC6_VLE_finite_size_effects.pdf>]
-<figures/CYC6_deviations_finite_size_effects.pdf, id=978, 840.86227pt x 889.074
-51pt>
+<figures/CYC6_deviations_finite_size_effects.pdf, id=967, 816.78465pt x 863.325
+35pt>
 File: figures/CYC6_deviations_finite_size_effects.pdf Graphic file (type pdf)
 <use figures/CYC6_deviations_finite_size_effects.pdf>
 Package pdftex.def Info: figures/CYC6_deviations_finite_size_effects.pdf  used 
-on input line 876.
-(pdftex.def)             Requested size: 419.16621pt x 443.20668pt.
- [27
+on input line 907.
+(pdftex.def)             Requested size: 419.16621pt x 443.04332pt.
+ [28
 
- <./figures/CYC6_deviations_finite_size_effects.pdf>] [28
+ <./figures/CYC6_deviations_finite_size_effects.pdf>] [29
 
-] [29
+] [30
 
-] [30] [31] [32] [33] [34]
-<figures/Compressibility_factor_all.pdf, id=1099, 424.5122pt x 578.66188pt>
+] [31] [32] [33] [34] [35]
+<figures/Compressibility_factor_all.pdf, id=1088, 424.5122pt x 578.66188pt>
 File: figures/Compressibility_factor_all.pdf Graphic file (type pdf)
 <use figures/Compressibility_factor_all.pdf>
 Package pdftex.def Info: figures/Compressibility_factor_all.pdf  used on input 
-line 1094.
+line 1125.
 (pdftex.def)             Requested size: 346.89621pt x 472.87233pt.
- [35
+ [36
 
  <./figures/Compressibility_factor_all.pdf>]
-<figures/Compressibility_factor_CYC6_iterations.pdf, id=1227, 424.5122pt x 423.
+<figures/Compressibility_factor_CYC6_iterations.pdf, id=1216, 424.5122pt x 423.
 41866pt>
 File: figures/Compressibility_factor_CYC6_iterations.pdf Graphic file (type pdf
 )
 <use figures/Compressibility_factor_CYC6_iterations.pdf>
 Package pdftex.def Info: figures/Compressibility_factor_CYC6_iterations.pdf  us
-ed on input line 1106.
+ed on input line 1137.
 (pdftex.def)             Requested size: 462.52756pt x 461.34274pt.
- [36
+ [37
 
  <./figures/Compressibility_factor_CYC6_iterations.pdf>]
-<figures/Compressibility_factor_CYC6_MiPPE_TAMie.pdf, id=1292, 367.17542pt x 86
-1.92014pt>
+<figures/Compressibility_factor_CYC6_MiPPE_TAMie.pdf, id=1282, 366.7255pt x 856
+.7508pt>
 File: figures/Compressibility_factor_CYC6_MiPPE_TAMie.pdf Graphic file (type pd
 f)
 <use figures/Compressibility_factor_CYC6_MiPPE_TAMie.pdf>
 Package pdftex.def Info: figures/Compressibility_factor_CYC6_MiPPE_TAMie.pdf  u
-sed on input line 1118.
-(pdftex.def)             Requested size: 216.81pt x 508.94933pt.
+sed on input line 1149.
+(pdftex.def)             Requested size: 216.81pt x 506.51135pt.
 
-[37
+[38
 
  <./figures/Compressibility_factor_CYC6_MiPPE_TAMie.pdf>]
-Overfull \hbox (27.00754pt too wide) in paragraph at lines 1126--1126
+Overfull \hbox (27.00754pt too wide) in paragraph at lines 1157--1157
 []\T1/ppl/b/n/17.28 Tabulated phase equi-lib-ria for val-i-da-tion of GCMC-MBAR
  
  []
 
-[38
+[39
 
-] [39] [40] [41] [42] [43] [44] [45] [46] [47] [48] [49] [50] [51] [52]
-[53] [54] [55] [56] [57] [58] [59] [60] [61] [62] [63] [64] [65] [66] [67]
-[68
+] [40] [41] [42] [43] [44] [45] [46] [47] [48] [49] [50] [51] [52] [53]
+[54] [55] [56] [57] [58] [59] [60] [61] [62] [63] [64] [65] [66] [67] [68]
+[69
 
-] [69] [70] [71] [72] [73] [74
-
-]
-
-LaTeX Warning: Text page S75 contains only floats.
-
-[75] [76] [77
+] [70] [71] [72] [73] [74] [75
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2668.
- [78] [79] [80] [81] [82] [83]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 2668.
+
+LaTeX Warning: Text page S76 contains only floats.
+
+[76] [77] [78
+
+]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2719.
+ [79] [80] [81] [82] [83] [84]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 2719.
 
 (JCED_FOMMS_supporting_information.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2668.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2668.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2719.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2719.
 
 Package rerunfilecheck Info: File `JCED_FOMMS_supporting_information.out' has n
 ot changed.
 (rerunfilecheck)             Checksum: 191B81D0015CCF6A140F1503565C4AE8;1796.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2668.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2719.
  ) 
 Here is how much of TeX's memory you used:
- 34199 strings out of 492946
- 681574 string characters out of 3124934
- 994718 words of memory out of 3000000
+ 34202 strings out of 492946
+ 681598 string characters out of 3124934
+ 995135 words of memory out of 3000000
  37403 multiletter control sequences out of 15000+200000
  568242 words of font info for 98 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1700,10 +1702,10 @@ cal/Programs/MiKTeX 2.9/fonts/type1/urw/palatino/uplb8a.pfb><C:/Users/rmesserl/
 AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/palatino/uplr8a.pfb><C:/Users
 /rmesserl/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/palatino/uplri8a.pf
 b>
-Output written on JCED_FOMMS_supporting_information.pdf (83 pages, 1035486 byte
+Output written on JCED_FOMMS_supporting_information.pdf (84 pages, 1032325 byte
 s).
 PDF statistics:
- 1701 PDF objects out of 1728 (max. 8388607)
- 215 named destinations out of 1000 (max. 500000)
+ 1695 PDF objects out of 1728 (max. 8388607)
+ 218 named destinations out of 1000 (max. 500000)
  276 words of extra memory for PDF output out of 10000 (max. 10000000)
 

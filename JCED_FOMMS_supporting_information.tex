@@ -840,9 +840,40 @@ The 20 replicate simulations for MiPPE cyclohexane (3.0 and 3.5 nm box length) a
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=5.8in]{CYC6_deviations_MiPPE_TAMie.pdf}
-	\caption{Comparison of MiPPE and TAMie (from this work and Weidler et al.) deviations relative to REFPROP cyclohexane values. All simulations from this work utilized 3.5 nm box length. TAMie simulations used a 1.4 nm cut-off.}
+	\caption{Comparison of MiPPE and TAMie (from this work and Weidler et al.) deviations relative to REFPROP cyclohexane values. All simulations from this work utilized 3.5 nm box length. TAMie simulations used a 1.4 nm cut-off. Note that discrepancies between TAMie results from this work and Weidler et al. are larger than the combined uncertainties (although they are typically between 0.5 and 2\%). Such systematic discrepancies in phase equilibria are not completely unexpected when comparing simulation results across different platforms. Efforts to elucidate the source of these small (albeit non-negligible) discrepancies were unsuccessful.}
 	\label{SI fig: CYC6_deviations_MiPPE_TAMie}
 \end{figure}
+
+	\newpage
+\clearpage
+
+\begin{table}[htb!]
+	\caption{GCMC-MBAR results for the TAMie force field with 3.5 nm box length and 1.4 nm cut-off. Subscripts correspond to the 95\% confidence interval computed with twenty independent replicate GCMC simulations at each state point.}
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|}
+			\hline
+			$T^{\rm sat}$ (K) & $\rho_{\rm liq}^{\rm sat}$ (kg/m$^3$) & $\rho_{\rm vap}^{\rm sat}$ (kg/m$^3$) & $P_{\rm vap}^{\rm sat}$ (MPa) & $\Delta H_{\rm v}$ (kJ/mol) & $Z_{\rm vap}^{\rm sat}$ \\ \hline
+			360	& $712.4_{1.3}$	& $3.64_{0.03}$	& $0.1242_{0.0015}$	& $29.560_{0.071}$	& $0.959_{0.026}$ \\
+			370	& $702.5_{1.1}$	& $4.72_{0.03}$	& $0.1640_{0.0017}$	& $29.019_{0.058}$	& $0.951_{0.022}$ \\
+			380	& $692.4_{1.2}$	& $6.04_{0.03}$	& $0.2132_{0.0020}$	& $28.462_{0.057}$	& $0.941_{0.019}$ \\
+			390	& $682.1_{1.1}$	& $7.62_{0.03}$	& $0.2728_{0.0021}$	& $27.880_{0.051}$	& $0.930_{0.016}$ \\
+			400	& $671.5_{0.8}$	& $9.50_{0.03}$	& $0.3445_{0.0023}$	& $27.274_{0.036}$	& $0.917_{0.013}$ \\
+			410	& $660.7_{0.9}$	& $11.74_{0.04}$	& $0.4295_{0.0024}$	& $26.639_{0.039}$	& $0.903_{0.012}$ \\
+			420	& $649.4_{0.9}$	& $14.36_{0.06}$	& $0.5294_{0.0025}$	& $25.969_{0.044}$	& $0.888_{0.011}$ \\
+			430	& $637.8_{1.0}$	& $17.43_{0.08}$	& $0.6457_{0.0027}$	& $25.262_{0.048}$	& $0.872_{0.010}$ \\
+			440	& $625.8_{0.8}$	& $21.01_{0.10}$	& $0.7800_{0.0030}$	& $24.514_{0.046}$	& $0.854_{0.010}$ \\
+			450	& $613.3_{0.7}$	& $25.18_{0.11}$	& $0.9339_{0.0034}$	& $23.717_{0.040}$	& $0.834_{0.009}$ \\
+			460	& $600.0_{0.8}$	& $30.02_{0.13}$	& $1.1092_{0.0039}$	& $22.861_{0.043}$	& $0.813_{0.009}$ \\
+			470	& $586.1_{1.0}$	& $35.66_{0.15}$	& $1.3076_{0.0045}$	& $21.942_{0.050}$	& $0.790_{0.008}$ \\
+			480	& $571.4_{0.9}$	& $42.25_{0.19}$	& $1.5310_{0.0052}$	& $20.948_{0.047}$	& $0.764_{0.008}$ \\
+			490	& $555.7_{0.9}$	& $50.00_{0.25}$	& $1.7813_{0.0059}$	& $19.859_{0.047}$	& $0.736_{0.009}$ \\
+			500	& $538.4_{1.2}$	& $59.24_{0.34}$	& $2.0608_{0.0069}$	& $18.645_{0.064}$	& $0.704_{0.009}$ \\
+			510	& $519.2_{1.7}$	& $70.50_{0.48}$	& $2.3718_{0.0079}$	& $17.255_{0.088}$	& $0.668_{0.010}$ \\
+			520	& $496.9_{2.1}$	& $84.74_{0.76}$	& $2.7175_{0.0092}$	& $15.61_{0.12}$	& $0.624_{0.012}$ \\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{table}
 
 \newpage
 \clearpage
@@ -2245,26 +2276,6 @@ The 20 replicate simulations for MiPPE cyclohexane (3.0 and 3.5 nm box length) a
 \subsection{Cyclohexane}
 
 \begin{table}[htb!]
-	\caption{State points simulated to test finite-size effects for cyclohexane with the MiPPE force field.}
-	\begin{center}
-		\begin{tabular}{|c|c|c|}
-			\hline
-			$T$ (K) & $\mu$ (K) & $L$ (nm) \\ \hline
-			450	&	-4370	&	3.5	\\
-			510	&	-4370	&	3.5	\\
-			550	&	-4370	&	3.5	\\
-			510	&	-4177	&	3.5	\\
-			470	&	-4048	&	3.5	\\
-			430	&	-3936	&	3.5	\\
-			400 &	-3865	&	3.5 \\
-			370 &	-3806	&	3.5 \\
-			350	&	-3774	&	3.5	\\
-			\hline
-		\end{tabular}
-	\end{center}
-\end{table}
-
-\begin{table}[htb!]
 	\caption{State points simulated for cyclohexane with the MiPPE force field (second iteration, $\theta^{\langle2\rangle}$ $\lambda_{\rm CH_2} = 16$).}
 	\begin{center}
 		\begin{tabular}{|c|c|c|}
@@ -2368,6 +2379,46 @@ The 20 replicate simulations for MiPPE cyclohexane (3.0 and 3.5 nm box length) a
 			460	&	-4062	&	3.0	\\
 			410	&	-3946	&	3.0	\\
 			360	&	-3866	&	3.0	\\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
+\begin{table}[htb!]
+	\caption{State points simulated to test finite-size effects for cyclohexane with the MiPPE force field.}
+	\begin{center}
+		\begin{tabular}{|c|c|c|}
+			\hline
+			$T$ (K) & $\mu$ (K) & $L$ (nm) \\ \hline
+			450	&	-4370	&	3.5	\\
+			510	&	-4370	&	3.5	\\
+			550	&	-4370	&	3.5	\\
+			510	&	-4177	&	3.5	\\
+			470	&	-4048	&	3.5	\\
+			430	&	-3936	&	3.5	\\
+			400 &	-3865	&	3.5 \\
+			370 &	-3806	&	3.5 \\
+			350	&	-3774	&	3.5	\\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
+\begin{table}[htb!]
+	\caption{State points simulated to validate TAMie for cyclohexane.}
+	\begin{center}
+		\begin{tabular}{|c|c|c|}
+			\hline
+			$T$ (K) & $\mu$ (K) & $L$ (nm) \\ \hline
+			450	&	-4358	&	3.5	\\
+			510	&	-4358	&	3.5	\\
+			550	&	-4358	&	3.5	\\
+			510	&	-4165	&	3.5	\\
+			470	&	-4036	&	3.5	\\
+			430	&	-3923	&	3.5	\\
+			400 &	-3852	&	3.5 \\
+			370 &	-3793	&	3.5 \\
+			350	&	-3762	&	3.5	\\
 			\hline
 		\end{tabular}
 	\end{center}
